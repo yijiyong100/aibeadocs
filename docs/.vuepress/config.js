@@ -5,7 +5,7 @@ moment.locale("zh-cn")
 
 
 module.exports = {
-  base: "/docs/",
+  base: "/aibeadocs/",
   title: '智能后端和架构',
   description: '智能后端和架构的文档',
   head: [

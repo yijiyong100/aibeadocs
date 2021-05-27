@@ -28,7 +28,8 @@ module.exports = {
       clientId: '38fc681f3b83868f76c6',
       clientSecret: '9f67078aecce20a2327f0da9f9e0fb5bbe4e1e87',
       autoCreateIssue: true
-    }
+    },
+    '@vuepress/back-to-top': true
   },
   themeConfig: {
     logo: '/assets/img/logo.png',

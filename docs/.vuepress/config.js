@@ -1,13 +1,28 @@
 const { auto } = require("async");
 const { text } = require("body-parser");
+const moment = require('moment');
+moment.locale("zh-cn")
+
 
 module.exports = {
+  base: "/docs/",
   title: '智能后端和架构',
   description: '智能后端和架构的文档',
   head: [
     ['meta', { name: 'icon', content: '' }],
     ['meta', { name: 'author', content: 'landry -- seo 选项' }],
     ['meta', { name: 'keywords', content: '后端 java 架构 面试 -- seo 选项' }]
+  ],
+  plugins: [
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: (timestamp) => {
+          // 不要忘了安装 moment
+          return moment(timestamp).format("LLLL")
+        }
+      }
+    ]
   ],
   themeConfig: {
     logo: '/assets/img/logo.png',

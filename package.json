@@ -804,7 +804,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "deploy":"bash deploy.sh"
+    "deploy": "bash deploy.sh"
   },
   "keywords": [],
   "author": "",

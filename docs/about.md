@@ -1,5 +1,10 @@
 ## 关于我
 
+<img class= "zoom-custom-imgs" :src="$withBase('/favicon.ico')" alt="favicon">
+
+![favicon](/favicon.ico)
+
+
 ## 文章段落1
 ##### 文章段落12
 文字内容

@@ -1,15 +1,11 @@
----
-sidebar: auto
----
-## 关于我
-
+## 分组2 bb
 
 <img class= "zoom-custom-imgs" :src="$withBase('/favicon.ico')" alt="favicon">
 
 ![favicon](/favicon.ico)
 
 
-## 文章段落1
+## 分组测试 group 文章段落1
 ##### 文章段落12
 文字内容
 ## 文章段落1

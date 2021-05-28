@@ -1,8 +1,4 @@
----
-sidebar: auto
----
-## 关于我
-
+## 关于我 链接A
 
 <img class= "zoom-custom-imgs" :src="$withBase('/favicon.ico')" alt="favicon">
 

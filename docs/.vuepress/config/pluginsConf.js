@@ -1,6 +1,7 @@
 const moment = require('moment');
 moment.locale("zh-cn")
 const secret = require('./secret');
+const autoSideBar = require('./autoSideBarConf');
 
 module.exports = {
   '@vuepress/last-updated': {
@@ -23,5 +24,5 @@ module.exports = {
   '@vuepress/medium-zoom': {
     selector: 'img.zoom-custom-imgs'
   },
-  "vuepress-plugin-auto-sidebar": {}
+  "vuepress-plugin-auto-sidebar": autoSideBar
 }

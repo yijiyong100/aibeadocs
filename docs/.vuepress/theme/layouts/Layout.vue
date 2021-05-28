@@ -21,7 +21,7 @@
       </template>
       <template #bottom>
         <slot name="page-bottom" />
-        <Vssue class="theme-default-content content__default" :options="{ locale: 'zh' }" />
+        <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
       </template>
     </Page>
   </div>

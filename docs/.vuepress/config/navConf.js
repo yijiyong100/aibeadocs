@@ -7,15 +7,17 @@ module.exports = [
     items: [
       {
         text: '分组1', items:
-          [{ text: 'Chinese', link: '/language/chinese/' },
-          { text: 'Japanese', link: '/language/japanese/' }]
+          [
+            { text: '分组1内容 aa', link: '/group1/aa' }
+            , { text: '分组2内容 group', link: '/group1/group' }
+          ]
       },
       {
-        text: '分组1', items:
-          [{ text: 'Chinese', link: '/language/chinese/' },
-          { text: 'Japanese', link: '/language/japanese/' }]
+        text: '分组2', items:
+          [{ text: '分组2内容 bb', link: '/group2/bb' }
+            , { text: '分组2内容 group', link: '/group2/group' }]
       },
     ]
   },
-  { text: '链接', link: 'https://google.com' },
+  { text: '链接', link: 'https://baidu.com' },
 ]

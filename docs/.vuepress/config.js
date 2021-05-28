@@ -13,7 +13,6 @@ module.exports = {
   plugins: pluginsConf,
   themeConfig: {
     logo: '/assets/img/logo.png',
-    sidebar: 'auto',
     lastUpdated: '更新时间', // string | boolean
     nav: navConf
   }

@@ -2,7 +2,8 @@
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
-    "vuepress": "^1.8.2"
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-auto-sidebar": "^2.2.3"
   },
   "name": "test",
   "version": "1.0.0",

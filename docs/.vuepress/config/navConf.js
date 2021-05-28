@@ -1,8 +1,8 @@
 module.exports = [
-  { text: 'Home', link: '/' },
-  { text: 'Guide', link: '/about' },
+  { text: '首页', link: '/' },
+  { text: '关于', link: '/about' },
   {
-    text: 'Languages',
+    text: '测试分组',
     ariaLabel: 'Language Menu',
     items: [
       {
@@ -17,5 +17,5 @@ module.exports = [
       },
     ]
   },
-  { text: 'External', link: 'https://google.com' },
+  { text: '链接', link: 'https://google.com' },
 ]

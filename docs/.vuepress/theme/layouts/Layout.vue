@@ -14,13 +14,12 @@
       </template>
     </Sidebar>
 
-    <main v-if="!$page.frontmatter.home" class="page" style="height: auto !important;">
+    <!-- <main v-if="!$page.frontmatter.home" class="page" style="height: auto !important;">
       <div class="page-content-spec">
         <div class="theme-default-content content__default">
           <Content />
         </div>
         <div style="height:10px"></div>
-        <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
 
       </div>
 
@@ -35,27 +34,31 @@
 
       </div>
 
-    </main>
+    </main> -->
 
     <Home v-if="$page.frontmatter.home" />
 
-    <!-- <Page v-else :sidebar-items="sidebarItems">
-
+    <Page v-else :sidebar-items="sidebarItems" class="page-content-spec">
       <template #top>
         <slot name="page-top" />
-        <div style="margin-top:60px"> 测试内容2</div>
-
       </template>
-
       <template #bottom>
-        <div> 测试内容1</div>
-
         <slot name="page-bottom" />
-        <div> 测试内容</div>
-
+        <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
       </template>
-    </Page> -->
+    </Page>
+    <div class="page-sidebar">
+      <ul>
+        <li>测试1</li>
+        <li>测试2</li>
+        <li>测试3</li>
+        <li>测试4</li>
+        <li>测试5</li>
+      </ul>
+
+    </div>
   </div>
+
 </template>
 
 <style scoped>

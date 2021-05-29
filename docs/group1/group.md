@@ -1,5 +1,5 @@
 ## 分组1 group
-
+[[toc]]
 <img class= "zoom-custom-imgs" :src="$withBase('/favicon.ico')" alt="favicon">
 
 ![favicon](/favicon.ico)

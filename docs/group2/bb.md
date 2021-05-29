@@ -1,4 +1,5 @@
 ## 分组2 bb
+[[toc]]
 
 <img class= "zoom-custom-imgs" :src="$withBase('/favicon.ico')" alt="favicon">
 

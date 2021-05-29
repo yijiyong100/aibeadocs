@@ -1,0 +1,46 @@
+.page {
+  display: block;
+  word-break: break-word;
+  background: #f3f5f7;
+}
+
+.theme-default-content {
+  margin-top: 14px;
+  margin-left: 12px;
+  background: #fff;
+}
+
+.theme-default-content:not(.custom) {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem 2.5rem;
+}
+
+@media (max-width: 2059px) {
+  .page-sidebar {
+    font-size: 12px;
+    width: 3.8rem;
+    position: fixed;
+    z-index: 11;
+    margin: 0;
+    top: 3.6rem;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    border-left: 0 solid #d8d8d8;
+  }
+
+  .page-content-spec {
+    padding-right: 200px;
+  }
+}
+
+@media (max-width: 719px) {
+  .page-sidebar {
+    display: none;
+  }
+
+  .page-content-spec {
+    padding-right: 0px;
+  }
+}

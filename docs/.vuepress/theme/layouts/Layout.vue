@@ -1,5 +1,6 @@
 <template>
   <div class="theme-container" :class="pageClasses" @touchstart="onTouchStart" @touchend="onTouchEnd">
+
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
     <div class="sidebar-mask" @click="toggleSidebar(false)" />
@@ -13,19 +14,53 @@
       </template>
     </Sidebar>
 
+    <main v-if="!$page.frontmatter.home" class="page" style="height: auto !important;">
+      <div class="page-content-spec">
+        <div class="theme-default-content content__default">
+          <Content />
+        </div>
+        <div style="height:10px"></div>
+        <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
+
+      </div>
+
+      <div class="page-sidebar">
+        <ul>
+          <li>测试1</li>
+          <li>测试2</li>
+          <li>测试3</li>
+          <li>测试4</li>
+          <li>测试5</li>
+        </ul>
+
+      </div>
+
+    </main>
+
     <Home v-if="$page.frontmatter.home" />
 
-    <Page v-else :sidebar-items="sidebarItems">
+    <!-- <Page v-else :sidebar-items="sidebarItems">
+
       <template #top>
         <slot name="page-top" />
+        <div style="margin-top:60px"> 测试内容2</div>
+
       </template>
+
       <template #bottom>
+        <div> 测试内容1</div>
+
         <slot name="page-bottom" />
-        <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
+        <div> 测试内容</div>
+
       </template>
-    </Page>
+    </Page> -->
   </div>
 </template>
+
+<style scoped>
+@import '../../public/assets/css/common.css';
+</style>
 
 <script>
 import Home from '@theme/components/Home.vue'

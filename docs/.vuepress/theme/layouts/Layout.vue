@@ -122,7 +122,6 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
-    this.initDocIndexSlug();
   },
 
   methods: {
@@ -136,14 +135,6 @@ export default {
       if (section) {
         this.curIndexSlug = elmId
         section.scrollIntoView()
-      }
-    },
-
-    initDocIndexSlug () {
-      if (JSON.stringify(this.$page.headers) === '{}' || JSON.stringify(this.$page.headers) === 'null') {
-        // do nothing
-      } else {
-        this.curIndexSlug = this.$page.headers[0].slug;
       }
     },
 

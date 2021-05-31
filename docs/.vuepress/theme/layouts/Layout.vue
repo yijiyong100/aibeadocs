@@ -14,28 +14,6 @@
       </template>
     </Sidebar>
 
-    <!-- <main v-if="!$page.frontmatter.home" class="page" style="height: auto !important;">
-      <div class="page-content-spec">
-        <div class="theme-default-content content__default">
-          <Content />
-        </div>
-        <div style="height:10px"></div>
-
-      </div>
-
-      <div class="page-sidebar">
-        <ul>
-          <li>测试1</li>
-          <li>测试2</li>
-          <li>测试3</li>
-          <li>测试4</li>
-          <li>测试5</li>
-        </ul>
-
-      </div>
-
-    </main> -->
-
     <Home v-if="$page.frontmatter.home" />
 
     <Page v-else :sidebar-items="sidebarItems" class="page-content-spec">
@@ -47,15 +25,17 @@
         <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
       </template>
     </Page>
-    <div class="page-sidebar">
+    <div class="page-sidebar" v-if="!$page.frontmatter.home">
       <ul>
-        <li>测试1</li>
-        <li>测试2</li>
-        <li>测试3</li>
-        <li>测试4</li>
-        <li>测试5</li>
+        <li>测试链接</li>
       </ul>
-
+      <!-- 锚点链接 -->
+      <h5> 锚点测试 </h5>
+      <ul>
+        <li v-for="item in $page.headers" v-bind:key="item.slug" @click="scrollToPosition(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']">
+          <span>{{item.title}}</span>
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -84,7 +64,8 @@ export default {
 
   data () {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
+      curIndexSlug: ""
     }
   },
 
@@ -141,12 +122,29 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
+    this.initDocIndexSlug();
   },
 
   methods: {
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
+    },
+
+    scrollToPosition (elmId) {
+      let section = document.getElementById(elmId)
+      if (section) {
+        this.curIndexSlug = elmId
+        section.scrollIntoView()
+      }
+    },
+
+    initDocIndexSlug () {
+      if (JSON.stringify(this.$page.headers) === '{}' || JSON.stringify(this.$page.headers) === 'null') {
+        // do nothing
+      } else {
+        this.curIndexSlug = this.$page.headers[0].slug;
+      }
     },
 
     // side swipe

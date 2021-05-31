@@ -19,8 +19,11 @@
 
 @media (max-width: 2059px) {
   .page-sidebar {
+    background-color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 12px;
-    width: 3.8rem;
+    width: 15.8rem;
     position: fixed;
     z-index: 11;
     margin: 0;
@@ -32,7 +35,7 @@
   }
 
   .page-content-spec {
-    padding-right: 200px;
+    padding-right: 360px;
   }
 }
 
@@ -44,4 +47,17 @@
   .page-content-spec {
     padding-right: 0px;
   }
+}
+
+.active_index_li {
+  color: #3eaf7c;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.unactive_index_li {
+  color: grey;
+  font-size: 13px;
+  cursor: pointer;
 }

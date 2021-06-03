@@ -131,10 +131,8 @@ export default {
     },
 
     scrollToPosition (elmId) {
-      let section = document.getElementById(elmId)
-      if (section) {
-        window.scrollTo(0, section.offsetTop)
-      }
+      var tar = document.querySelector('#' + elmId);
+      window.scrollTo(0, tar.offsetTop)
     },
 
     // side swipe

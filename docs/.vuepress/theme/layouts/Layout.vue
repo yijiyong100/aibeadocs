@@ -133,8 +133,7 @@ export default {
     scrollToPosition (elmId) {
       let section = document.getElementById(elmId)
       if (section) {
-        this.curIndexSlug = elmId
-        section.scrollIntoView()
+        window.scrollTo(0, section.offsetTop)
       }
     },
 

@@ -32,8 +32,8 @@
       <!-- 锚点链接 -->
       <h5> 锚点测试 </h5>
       <ul>
-        <li v-for="item in $page.headers" v-bind:key="item.slug" @click="scrollToPosition(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']">
-          <span>{{item.title}}</span>
+        <li v-for="item in $page.headers" v-bind:key="item.slug">
+          <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
         </li>
       </ul>
     </div>
@@ -65,7 +65,8 @@ export default {
   data () {
     return {
       isSidebarOpen: false,
-      curIndexSlug: ""
+      curIndexSlug: "",
+      curUrlPath: ""
     }
   },
 
@@ -122,12 +123,20 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
+    this.initPath()
   },
 
   methods: {
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
+    },
+    initPath () {
+      this.curUrlPath = window.location.pathname
+    },
+
+    curElmClick (indexNavElmId) {
+      this.curIndexSlug = indexNavElmId;
     },
 
     scrollToPosition (elmId) {

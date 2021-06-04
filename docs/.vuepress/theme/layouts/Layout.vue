@@ -5,7 +5,7 @@
 
     <div class="sidebar-mask" @click="toggleSidebar(false)" />
 
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar" :class="[!isLeftSiderOpen?'left_bar_hidden':'']">
       <template #top>
         <slot name="sidebar-top" />
       </template>
@@ -16,7 +16,7 @@
 
     <Home v-if="$page.frontmatter.home" />
 
-    <Page v-else :sidebar-items="sidebarItems" class="page-content-spec">
+    <Page v-else :sidebar-items="sidebarItems" class="page-content-spec" :class="[!isLeftSiderOpen?'page_left_bar_hidden':'']">
       <template #top>
         <slot name="page-top" />
       </template>
@@ -25,9 +25,16 @@
         <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
       </template>
     </Page>
-    <div class="page-sidebar" v-if="!$page.frontmatter.home">
+    <div class="page-right-index-sidebar" v-if="!$page.frontmatter.home">
       <div class="content_index_title">
         {{$page.title}}
+      </div>
+
+      <div><button @click="toggleDiyLeftSiderBar()"> 关闭左侧 </button>
+        <span>{{this.isLeftSiderOpen}}</span>
+      </div>
+      <div><button @click="handleFullScreen()"> 全屏 </button>
+        <span>{{this.isLeftSiderOpen}}</span>
       </div>
       <ul>
         <li v-for="item in $page.headers" v-bind:key="item.slug">
@@ -64,7 +71,9 @@ export default {
     return {
       isSidebarOpen: false,
       curIndexSlug: "",
-      curUrlPath: ""
+      curUrlPath: "",
+      isLeftSiderOpen: true,
+      isFullscreen: false
     }
   },
 
@@ -129,9 +138,43 @@ export default {
   },
 
   methods: {
+    // 全屏事件
+    handleFullScreen () {
+      let element = document.documentElement;
+      if (this.isFullscreen) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      } else {
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        } else if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) {
+          // IE11
+          element.msRequestFullscreen();
+        }
+      }
+      this.isFullscreen = !this.isFullscreen;
+    },
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
+    },
+    toggleDiyLeftSiderBar () {
+      if (this.isLeftSiderOpen) {
+        this.isLeftSiderOpen = false;
+      } else {
+        this.isLeftSiderOpen = true;
+      }
     },
     initPath () {
       this.curUrlPath = window.location.pathname

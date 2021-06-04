@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 3059px) {
-  .page-sidebar {
+  .page-right-index-sidebar {
     background-color: #fff;
     padding-left: 10px;
     padding-right: 10px;
@@ -40,7 +40,7 @@
 }
 
 @media (max-width: 1080px) {
-  .page-sidebar {
+  .page-right-index-sidebar {
     display: none;
   }
 
@@ -76,4 +76,12 @@
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
+}
+
+.left_bar_hidden {
+  display: none;
+}
+
+.page_left_bar_hidden {
+  padding-left: 0rem;
 }

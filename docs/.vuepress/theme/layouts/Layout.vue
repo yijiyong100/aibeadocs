@@ -26,11 +26,9 @@
       </template>
     </Page>
     <div class="page-sidebar" v-if="!$page.frontmatter.home">
-      <ul>
-        <li>测试链接</li>
-      </ul>
-      <!-- 锚点链接 -->
-      <h5> 锚点测试 </h5>
+      <div class="content_index_title">
+        {{$page.title}}
+      </div>
       <ul>
         <li v-for="item in $page.headers" v-bind:key="item.slug">
           <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
@@ -119,11 +117,15 @@ export default {
     }
   },
 
+  updated () {
+    this.initPath()
+  },
+
   mounted () {
+    this.initPath()
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
-    this.initPath()
   },
 
   methods: {

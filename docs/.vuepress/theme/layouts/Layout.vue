@@ -36,6 +36,10 @@
       <div><button @click="handleFullScreen()"> 全屏 </button>
         <span>{{this.isLeftSiderOpen}}</span>
       </div>
+
+      <span v-if="this.pagePrevUrl.length > 0"><a :href="this.pagePrevUrl">上一篇</a></span>
+      <span v-if="this.pageNextUrl.length > 0"><a :href="this.pageNextUrl">下一篇</a></span>
+
       <ul>
         <li v-for="item in $page.headers" v-bind:key="item.slug">
           <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
@@ -73,7 +77,9 @@ export default {
       curIndexSlug: "",
       curUrlPath: "",
       isLeftSiderOpen: true,
-      isFullscreen: false
+      isFullscreen: false,
+      pageNextUrl: "",
+      pagePrevUrl: ""
     }
   },
 
@@ -128,10 +134,12 @@ export default {
 
   updated () {
     this.initPath()
+    this.initGetPageNextLast()
   },
 
   mounted () {
     this.initPath()
+    this.initGetPageNextLast()
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
@@ -140,7 +148,7 @@ export default {
   methods: {
     // 全屏事件
     handleFullScreen () {
-      let element = document.documentElement;
+      var element = document.documentElement;
       if (this.isFullscreen) {
         if (document.exitFullscreen) {
           document.exitFullscreen();
@@ -178,6 +186,44 @@ export default {
     },
     initPath () {
       this.curUrlPath = window.location.pathname
+    },
+    initGetPageNextLast () {
+      var prevUpdated = 0;
+      var nextUpdated = 0;
+      var pageNavInfo = document.getElementsByClassName('page-nav');
+      //console.log(pageNavInfo.length)
+      if (pageNavInfo.length > 0) {
+        var pageNavNode = pageNavInfo[0];
+        // console.log(pageNavNode)
+        // console.log(pageNavNode.children[0])
+        // console.log(pageNavNode.children[0].children.length)
+        if (pageNavNode.children.length > 0 && pageNavNode.children[0].children.length > 0) {
+          var linkNum = pageNavNode.children[0].children.length;
+          for (var i = 0; i < linkNum; i++) {
+            let eleClassName = pageNavNode.children[0].children[i].className + "";
+            //console.log(eleClassName)
+            if (eleClassName === 'prev') {
+              this.pagePrevUrl = pageNavNode.children[0].children[i].children[0].getAttribute("href") + "";
+              prevUpdated = 1;
+            }
+            if (eleClassName === 'next') {
+              this.pageNextUrl = pageNavNode.children[0].children[i].children[0].getAttribute("href") + "";
+              nextUpdated = 1;
+            }
+          }
+          // console.log(linkNum)
+          // console.log(this.pagePrevUrl)
+          // console.log(this.pageNextUrl)
+        }
+        //console.log(pageNavNode)
+        //console.log(pageNavNode.children[0].children[0].children[0].getAttribute("href"))
+      }
+      if (nextUpdated === 0) {
+        this.pageNextUrl = "";
+      }
+      if (prevUpdated === 0) {
+        this.pagePrevUrl = "";
+      }
     },
 
     curElmClick (indexNavElmId) {

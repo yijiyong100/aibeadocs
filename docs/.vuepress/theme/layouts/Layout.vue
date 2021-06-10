@@ -64,7 +64,7 @@ import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import { resolveSidebarItems } from '../util'
-import QRCode from 'qrcodejs2'
+
 
 export default {
   name: 'Layout',
@@ -195,6 +195,7 @@ export default {
     initPath () {
       this.curUrlPath = window.location.pathname
       this.curAllUrlPath = window.location.href
+      document.getElementById('qrcode').innerHTML = ''
       this.qrCode(this.curAllUrlPath)
     },
     qrCode (url) {

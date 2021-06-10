@@ -5,7 +5,6 @@ const headConf = require("./config/headConf")
 const pluginsConf = require("./config/pluginsConf")
 const navConf = require("./config/navConf")
 
-
 module.exports = {
   title: '智能后端和架构',
   description: '智能后端和架构的文档',

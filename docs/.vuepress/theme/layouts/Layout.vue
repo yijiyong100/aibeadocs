@@ -199,8 +199,6 @@ export default {
       this.qrCode(this.curAllUrlPath)
     },
     qrCode (url) {
-      var qrCodeDiv = document.getElementById('qrcode');
-      qrCodeDiv.innerHTML = '';
       let qrcode = new QRCode('qrcode', {
         width: 150, //图像宽度
         height: 150, //图像高度

@@ -42,7 +42,7 @@
 
       <div>当前页面地址：{{this.curAllUrlPath}}</div>
       <div>二维码</div>
-      <div id="qrcode" ref="qrcode"></div>
+      <div id="qrcode" ref="qrCodeDiv"></div>
 
       <ul>
         <li v-for="item in $page.headers" v-bind:key="item.slug">
@@ -65,7 +65,6 @@ import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import { resolveSidebarItems } from '../util'
 import QRCode from 'qrcodejs2'
-
 
 export default {
   name: 'Layout',
@@ -196,11 +195,10 @@ export default {
     initPath () {
       this.curUrlPath = window.location.pathname
       this.curAllUrlPath = window.location.href
-      document.getElementById('qrcode').innerHTML = ''
       this.qrCode(this.curAllUrlPath)
     },
     qrCode (url) {
-      let qrcode = new QRCode('qrcode', {
+      let qrcode = new QRCode(this.$refs.qrCodeDiv, {
         width: 150, //图像宽度
         height: 150, //图像高度
         colorDark: "#000000", //前景色

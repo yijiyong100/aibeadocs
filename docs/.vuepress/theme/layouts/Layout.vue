@@ -196,6 +196,7 @@ export default {
     initPath () {
       this.curUrlPath = window.location.pathname
       this.curAllUrlPath = window.location.href
+      document.getElementById('qrcode').innerHTML = ''
       this.qrCode(this.curAllUrlPath)
     },
     qrCode (url) {

@@ -40,6 +40,8 @@
       <span v-if="this.pagePrevUrl.length > 0"><a :href="this.pagePrevUrl" class="prev">上一篇</a></span>
       <span v-if="this.pageNextUrl.length > 0"><a :href="this.pageNextUrl" class="next">下一篇</a></span>
 
+      <el-button type="primary" icon="el-icon-search">搜索</el-button>
+
       <div>当前页面地址：{{this.curAllUrlPath}}</div>
       <div>二维码</div>
       <div id="qrcode" ref="qrCodeDiv"></div>
@@ -76,7 +78,6 @@ import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import { resolveSidebarItems } from '../util'
-import QRCode from 'qrcodejs2'
 
 export default {
   name: 'Layout',
@@ -208,7 +209,10 @@ export default {
       this.curUrlPath = window.location.pathname
       this.curAllUrlPath = window.location.href
       var qrCodeEle = document.getElementById('qrcode')
+      console.log(JSON.stringify(qrCodeEle))
       if (JSON.stringify(qrCodeEle) === '{}' || JSON.stringify(qrCodeEle) === 'null') {
+        // doNoting
+      } else {
         qrCodeEle.innerHTML = '';
       }
       this.qrCode(this.curAllUrlPath)

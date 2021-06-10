@@ -30,41 +30,54 @@
         {{$page.title}}
       </div>
 
-      <div><button @click="toggleDiyLeftSiderBar()"> 关闭左侧 </button>
-        <span>{{this.isLeftSiderOpen}}</span>
-      </div>
-      <div><button @click="handleFullScreen()"> 全屏 </button>
-        <span>{{this.isLeftSiderOpen}}</span>
-      </div>
-
-      <span v-if="this.pagePrevUrl.length > 0"><a :href="this.pagePrevUrl" class="prev">上一篇</a></span>
-      <span v-if="this.pageNextUrl.length > 0"><a :href="this.pageNextUrl" class="next">下一篇</a></span>
-
       <!-- <el-button type="primary">搜索</el-button> -->
 
-      <div>当前页面地址：{{this.curAllUrlPath}}</div>
-      <div>二维码</div>
-      <div id="qrcode">
-        <img :src="qrCodeApiUrl" class="img-qrcode" />
-      </div>
-      <div>
-        <li>扫描公众号,更多新鲜资料</li>
-        <!-- <li>下载相关图书和资料</li> -->
-        <img src="/assets/img/wx/wxmp.jpg" class="img-wx-mp" />
-        <p>公众号:智能后端和架构</p>
-      </div>
-
-      <div>
-        <li>加入QQ群，群号:569556849</li>
-        <li>问题咨询和技术交流</li>
-        <img src="/assets/img/qq/qqgroup.png" class="img-wx-mp" />
-        <p>PS 备注:智能后端和架构</p>
-      </div>
       <ul>
         <li v-for="item in $page.headers" v-bind:key="item.slug">
           <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
         </li>
       </ul>
+    </div>
+
+    <div class="page-right-tool-sidebar" v-if="!$page.frontmatter.home">
+      <div @click="toggleDiyLeftSiderBar()" class="tool_bar_div">
+        <img src="/assets/img/toolbar/leftclose.png" class="tool_bar_img_icon" />
+        <div>左栏</div>
+      </div>
+      <div @click="handleFullScreen()" class="tool_bar_div">
+        <img src="/assets/img/toolbar/fullscreen.png" class="tool_bar_img_icon" />
+        <div>全屏</div>
+      </div>
+      <div @click="" class="tool_bar_div">
+        <img src="/assets/img/toolbar/phone.png" class="tool_bar_img_icon" />
+        <div>手机看</div>
+      </div>
+      <div @click="" class="tool_bar_div">
+        <img src="/assets/img/toolbar/wechat.png" class="tool_bar_img_icon" />
+        <div>公众号</div>
+      </div>
+      <div @click="" class="tool_bar_div">
+        <img src="/assets/img/toolbar/communication.png" class="tool_bar_img_icon" />
+        <div>讨论</div>
+      </div>
+
+      <div v-if="this.pagePrevUrl.length > 0">
+        <router-link :to="this.pagePrevUrl">
+          <div class="tool_bar_div">
+            <img src="/assets/img/toolbar/prev.png" class="tool_bar_img_icon" />
+            <div>上一篇</div>
+          </div>
+        </router-link>
+      </div>
+      <div v-if="this.pageNextUrl.length > 0">
+        <router-link :to="this.pageNextUrl">
+          <div class="tool_bar_div">
+            <img src="/assets/img/toolbar/next.png" class="tool_bar_img_icon" />
+            <div>下一篇</div>
+          </div>
+        </router-link>
+      </div>
+
     </div>
   </div>
 

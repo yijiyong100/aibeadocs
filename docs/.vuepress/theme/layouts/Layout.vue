@@ -40,14 +40,16 @@
       <span v-if="this.pagePrevUrl.length > 0"><a :href="this.pagePrevUrl" class="prev">上一篇</a></span>
       <span v-if="this.pageNextUrl.length > 0"><a :href="this.pageNextUrl" class="next">下一篇</a></span>
 
-      <el-button type="primary" icon="el-icon-search">搜索</el-button>
+      <!-- <el-button type="primary">搜索</el-button> -->
 
       <div>当前页面地址：{{this.curAllUrlPath}}</div>
       <div>二维码</div>
-      <div id="qrcode" ref="qrCodeDiv"></div>
+      <div id="qrcode">
+        <img :src="qrCodeApiUrl" class="img-qrcode" />
+      </div>
       <div>
-        <li>扫描公众号，回复"资料"</li>
-        <li>下载相关图书和资料</li>
+        <li>扫描公众号,更多新鲜资料</li>
+        <!-- <li>下载相关图书和资料</li> -->
         <img src="/assets/img/wx/wxmp.jpg" class="img-wx-mp" />
         <p>公众号:智能后端和架构</p>
       </div>
@@ -100,7 +102,9 @@ export default {
       isLeftSiderOpen: true,
       isFullscreen: false,
       pageNextUrl: "",
-      pagePrevUrl: ""
+      pagePrevUrl: "",
+      qrCodeApiPre: "https://api.qrserver.com/v1/create-qr-code/?data=",
+      qrCodeApiUrl: ""
     }
   },
 
@@ -208,26 +212,7 @@ export default {
     initPath () {
       this.curUrlPath = window.location.pathname
       this.curAllUrlPath = window.location.href
-      var qrCodeEle = document.getElementById('qrcode')
-      console.log(JSON.stringify(qrCodeEle))
-      if (JSON.stringify(qrCodeEle) === '{}' || JSON.stringify(qrCodeEle) === 'null') {
-        // doNoting
-      } else {
-        qrCodeEle.innerHTML = '';
-      }
-      this.qrCode(this.curAllUrlPath)
-    },
-    qrCode (url) {
-      let qrcode = new QRCode(this.$refs.qrCodeDiv, {
-        width: 150, //图像宽度
-        height: 150, //图像高度
-        colorDark: "#000000", //前景色
-        colorLight: "#ffffff", //背景色
-        typeNumber: 4,
-        correctLevel: QRCode.CorrectLevel.H //容错级别 容错级别有：（1）QRCode.CorrectLevel.L （2）QRCode.CorrectLevel.M （3）QRCode.CorrectLevel.Q （4）QRCode.CorrectLevel.H
-      })
-      qrcode.clear() //清除二维码 
-      qrcode.makeCode(url) //生成另一个新的二维码
+      this.qrCodeApiUrl = this.qrCodeApiPre + this.curAllUrlPath
     },
     initGetPageNextLast () {
       var prevUpdated = 0;

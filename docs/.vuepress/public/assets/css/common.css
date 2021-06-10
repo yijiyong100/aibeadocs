@@ -24,6 +24,13 @@
   max-height: 80%;
 }
 
+.img-qrcode {
+  width: auto;
+  height: auto;
+  max-width: 70%;
+  max-height: 70%;
+}
+
 @media (max-width: 3059px) {
   .page-right-index-sidebar {
     background-color: #fff;

@@ -24,5 +24,6 @@ module.exports = {
   '@vuepress/medium-zoom': {
     selector: 'img.zoom-custom-imgs'
   },
-  "vuepress-plugin-auto-sidebar": autoSideBar
+  "vuepress-plugin-auto-sidebar": autoSideBar,
+  ssr: false
 }

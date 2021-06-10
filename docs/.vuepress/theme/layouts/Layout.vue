@@ -43,7 +43,19 @@
       <div>当前页面地址：{{this.curAllUrlPath}}</div>
       <div>二维码</div>
       <div id="qrcode" ref="qrCodeDiv"></div>
+      <div>
+        <li>扫描公众号，回复"资料"</li>
+        <li>下载相关图书和资料</li>
+        <img src="/assets/img/wx/wxmp.jpg" class="img-wx-mp" />
+        <p>公众号:智能后端和架构</p>
+      </div>
 
+      <div>
+        <li>加入QQ群，群号:569556849</li>
+        <li>问题咨询和技术交流</li>
+        <img src="/assets/img/qq/qqgroup.png" class="img-wx-mp" />
+        <p>PS 备注:智能后端和架构</p>
+      </div>
       <ul>
         <li v-for="item in $page.headers" v-bind:key="item.slug">
           <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
@@ -195,7 +207,10 @@ export default {
     initPath () {
       this.curUrlPath = window.location.pathname
       this.curAllUrlPath = window.location.href
-      document.getElementById('qrcode').innerHTML = ''
+      var qrCodeEle = document.getElementById('qrcode')
+      if (JSON.stringify(qrCodeEle) === '{}' || JSON.stringify(qrCodeEle) === 'null') {
+        qrCodeEle.innerHTML = '';
+      }
       this.qrCode(this.curAllUrlPath)
     },
     qrCode (url) {

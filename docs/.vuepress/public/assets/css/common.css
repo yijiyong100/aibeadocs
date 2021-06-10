@@ -27,6 +27,7 @@
 @media (max-width: 3059px) {
   .page-right-index-sidebar {
     background-color: #fff;
+    overflow: auto;
     padding-left: 10px;
     padding-right: 10px;
     font-size: 12px;

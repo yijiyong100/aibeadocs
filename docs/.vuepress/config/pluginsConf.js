@@ -20,7 +20,7 @@ module.exports = {
     clientSecret: secret.clientSecret,
     autoCreateIssue: true
   },
-  '@vuepress/back-to-top': true,
+  '@vuepress/back-to-top': false,
   '@vuepress/medium-zoom': {
     selector: 'img.zoom-custom-imgs'
   },

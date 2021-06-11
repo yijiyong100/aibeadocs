@@ -61,7 +61,7 @@
         <div>讨论</div>
       </div>
 
-      <div v-if="this.pagePrevUrl.length > 0">
+      <div v-show="this.pagePrevUrl.length > 0">
         <router-link :to="this.pagePrevUrl">
           <div class="tool_bar_div">
             <img src="/assets/img/toolbar/prev.png" class="tool_bar_img_icon" />
@@ -69,7 +69,7 @@
           </div>
         </router-link>
       </div>
-      <div v-if="this.pageNextUrl.length > 0">
+      <div v-show="this.pageNextUrl.length > 0">
         <router-link :to="this.pageNextUrl">
           <div class="tool_bar_div">
             <img src="/assets/img/toolbar/next.png" class="tool_bar_img_icon" />
@@ -79,6 +79,11 @@
       </div>
 
     </div>
+
+    <div class="topDivImg" v-show="topButtonShowFlag" @click="onClickReturnTop">
+      <img src="/assets/img/toolbar/top.png" class="tool_top_img_icon" />
+    </div>
+
   </div>
 
 </template>
@@ -117,7 +122,10 @@ export default {
       pageNextUrl: "",
       pagePrevUrl: "",
       qrCodeApiPre: "https://api.qrserver.com/v1/create-qr-code/?data=",
-      qrCodeApiUrl: ""
+      qrCodeApiUrl: "",
+      topButtonShowFlag: false,
+      // 标识是否在滚动上滑动中
+      returnTopScrollingFlag: false
     }
   },
 
@@ -175,15 +183,35 @@ export default {
     this.initGetPageNextLast()
   },
 
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+
   mounted () {
     this.initPath()
     this.initGetPageNextLast()
+    window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
   },
 
   methods: {
+    // 鼠标滑动导航响应效果
+    handleScroll () {
+      if (!this.returnTopScrollingFlag) {
+        // 获取鼠标滚动距离
+        var scrolled =
+          document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
+        if (scrolled > 200) {
+          this.topButtonShowFlag = true;
+        } else {
+          this.topButtonShowFlag = false;
+        }
+      }
+      // console.log(scrolled)
+    }
+    ,
     // 全屏事件
     handleFullScreen () {
       var element = document.documentElement;
@@ -221,6 +249,21 @@ export default {
       } else {
         this.isLeftSiderOpen = true;
       }
+    },
+    onClickReturnTop () {
+      this.returnTopScrollFlag = true;
+      // 返回顶部
+      let top = document.documentElement.scrollTop || document.body.scrollTop;
+      // 实现滚动效果 
+      const timeTop = setInterval(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
+        if (top <= 0) {
+          clearInterval(timeTop);
+        }
+      }, 10);
+      this.returnTopScrollFlag = flase;
+      // 滚动到顶部后，将按钮置为不可见
+      this.topButtonShowFlag = false;
     },
     initPath () {
       this.curUrlPath = window.location.pathname

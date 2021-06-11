@@ -91,7 +91,7 @@
 }
 
 .tool_bar_div {
-  padding-top: 10px;
+  padding-top: 8px;
   padding-bottom: 8px;
   font-size: 13px;
   text-align: center;
@@ -142,4 +142,24 @@
 
 .page_left_bar_hidden {
   padding-left: 0rem;
+}
+
+.topDivImg {
+  position: fixed;
+  z-index: 11;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: 3.1rem;
+  background-size: cover;
+  text-align: center;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+}
+
+.tool_top_img_icon {
+  width: auto;
+  height: auto;
+  max-width: 75%;
+  max-height: 75%;
+  cursor: pointer;
 }

@@ -33,18 +33,14 @@
       <!-- <el-button type="primary">搜索</el-button> -->
 
       <ul>
-        <li v-for="(item,index) in $page.headers" v-bind:key="item.slug">
-          <template v-if="item.level === 2">
-            <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
-          </template>
-
-          <template v-if="item.level === 3">
-            <ul>
-              <li>
-                <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
-              </li>
-            </ul>
-          </template>
+        <li v-for="(item,index) in this.idxList" v-bind:key="item.slug">
+          <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}
+          </a>
+          <ul v-for=" itemChild in item.childList" v-bind:key="itemChild.slug">
+            <li>
+              <a :href="curUrlPath+'#'+itemChild.slug" @click="curElmClick(itemChild.slug)" :class="[itemChild.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{itemChild.title}}</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -142,6 +138,8 @@ export default {
       curIndexSlug: "",
       // 相对路径
       curUrlPath: "",
+      // 上次相对路径
+      lastCurUrlPath: "",
       // 全路径 
       curAllUrlPath: "",
       isLeftSiderOpen: true,
@@ -153,7 +151,8 @@ export default {
       topButtonShowFlag: false,
       // 标识是否在滚动上滑动中
       returnTopScrollingFlag: false,
-      mouseEnterFocusDiv: ""
+      mouseEnterFocusDiv: "",
+      idxList: []
     }
   },
 
@@ -208,6 +207,8 @@ export default {
 
   updated () {
     this.initPath()
+    this.initIndexList()
+    this.lastCurUrlPath = this.curUrlPath
     this.initGetPageNextLast()
   },
 
@@ -225,6 +226,53 @@ export default {
   },
 
   methods: {
+    // 索引的结构 树形结构的 数据构造
+    initIndexList () {
+      if (this.lastCurUrlPath === this.curUrlPath) {
+        return;
+      }
+      // 清空数据
+      this.idxList = [];
+      var indexNodeNum = this.$page.headers.length;
+      var curNo = 0;
+      var i = 0;
+      while (i < indexNodeNum) {
+        curNo = i;
+        // console.log("node:" + this.$page.headers[i].slug);
+        if (this.$page.headers[i].level === 2) {
+          var idxNodeCur = { level: 2, slug: "", title: "", childList: [] };
+          idxNodeCur.level = this.$page.headers[i].level;
+          idxNodeCur.slug = this.$page.headers[i].slug;
+          idxNodeCur.title = this.$page.headers[i].title;
+          idxNodeCur.childList = [];
+          curNo++;
+          while (curNo < indexNodeNum) {
+            // console.log("curNo:" + curNo)
+            if (this.$page.headers[curNo].level === 3) {
+              var idxNodeChild = { level: 2, slug: "", title: "", childList: [] };
+              idxNodeChild.level = this.$page.headers[curNo].level;
+              idxNodeChild.slug = this.$page.headers[curNo].slug;
+              idxNodeChild.title = this.$page.headers[curNo].title;
+              idxNodeChild.childList = [];
+              idxNodeCur.childList.push(idxNodeChild)
+            } else {
+              break
+            }
+            curNo++;
+          }
+          this.idxList.push(idxNodeCur)
+          // console.log(idxNodeCur)
+          i = curNo - 1;
+        }
+        i++;
+      }
+
+      // console.log("this.idxList.len:" + this.idxList.length)
+      // for (var j = 0; j < this.idxList.len; j++) {
+      //   console.log(this.idxList[j].slug)
+      // }
+
+    },
     // 鼠标进入事件处理
     mouseEnterHandle (divId) {
       this.mouseEnterFocusDiv = divId;

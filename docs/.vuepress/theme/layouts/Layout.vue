@@ -33,13 +33,35 @@
       <!-- <el-button type="primary">搜索</el-button> -->
 
       <ul>
-        <li v-for="item in $page.headers" v-bind:key="item.slug">
-          <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
+        <li v-for="(item,index) in $page.headers" v-bind:key="item.slug">
+          <template v-if="item.level === 2">
+            <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
+          </template>
+
+          <template v-if="item.level === 3">
+            <ul>
+              <li>
+                <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}</a>
+              </li>
+            </ul>
+          </template>
         </li>
       </ul>
     </div>
 
     <div class="page-right-tool-sidebar" v-if="!$page.frontmatter.home">
+      <div @click="" class="tool_bar_div" @mouseenter="mouseEnterHandle('qrCodeDiv')" @mouseleave="mouseLeaveHandle()">
+        <img src="/assets/img/toolbar/phone.png" class="tool_bar_img_icon" />
+        <div>手机看</div>
+      </div>
+      <div @click="" @mouseenter="mouseEnterHandle('wxmpDiv')" @mouseleave="mouseLeaveHandle()" class="tool_bar_div">
+        <img src="/assets/img/toolbar/wechat.png" class="tool_bar_img_icon" />
+        <div>公众号</div>
+      </div>
+      <div @click="" @mouseenter="mouseEnterHandle('coummpDiv')" @mouseleave="mouseLeaveHandle()" class="tool_bar_div">
+        <img src="/assets/img/toolbar/communication.png" class="tool_bar_img_icon" />
+        <div>讨论</div>
+      </div>
       <div @click="toggleDiyLeftSiderBar()" class="tool_bar_div">
         <img src="/assets/img/toolbar/leftclose.png" class="tool_bar_img_icon" />
         <div>左栏</div>
@@ -48,19 +70,6 @@
         <img src="/assets/img/toolbar/fullscreen.png" class="tool_bar_img_icon" />
         <div>全屏</div>
       </div>
-      <div @click="" class="tool_bar_div">
-        <img src="/assets/img/toolbar/phone.png" class="tool_bar_img_icon" />
-        <div>手机看</div>
-      </div>
-      <div @click="" class="tool_bar_div">
-        <img src="/assets/img/toolbar/wechat.png" class="tool_bar_img_icon" />
-        <div>公众号</div>
-      </div>
-      <div @click="" class="tool_bar_div">
-        <img src="/assets/img/toolbar/communication.png" class="tool_bar_img_icon" />
-        <div>讨论</div>
-      </div>
-
       <div v-show="this.pagePrevUrl.length > 0">
         <router-link :to="this.pagePrevUrl">
           <div class="tool_bar_div">
@@ -78,6 +87,24 @@
         </router-link>
       </div>
 
+    </div>
+
+    <div id="qrCodeDiv" :class="[this.mouseEnterFocusDiv === 'qrCodeDiv'?'toolbar_qrcode_active':'toolbar_qrcode_unactive']">
+      <div class=" toolbar_head_tile">扫一扫 手机阅读</div>
+      <img :src="this.qrCodeApiUrl" class="img-qrcode" />
+      <h5>可分享给好友和朋友圈</h5>
+    </div>
+
+    <div id="wxmpDiv" v-show="this.mouseEnterFocusDiv === 'wxmpDiv'" class="toolbar_wxmp_active">
+      <div class="toolbar_head_tile">扫描关注公众号，回复"资料"，下载相关图书和资料</div>
+      <img src="/assets/img/wx/wxmp.jpg" class="img-wx-mp" />
+      <h5>公众号:智能后端和架构</h5>
+    </div>
+
+    <div id="coummpDiv" v-show="this.mouseEnterFocusDiv === 'coummpDiv'" class="toolbar_communication_active">
+      <div class="toolbar_head_tile">QQ群:569556849 <br />问题咨询和技术交流</div>
+      <img src="/assets/img/qq/qqgroup.png" class="img-wx-mp" />
+      <h5>PS 备注:智能后端和架构</h5>
     </div>
 
     <div class="topDivImg" v-show="topButtonShowFlag" @click="onClickReturnTop">
@@ -125,7 +152,8 @@ export default {
       qrCodeApiUrl: "",
       topButtonShowFlag: false,
       // 标识是否在滚动上滑动中
-      returnTopScrollingFlag: false
+      returnTopScrollingFlag: false,
+      mouseEnterFocusDiv: ""
     }
   },
 
@@ -197,6 +225,14 @@ export default {
   },
 
   methods: {
+    // 鼠标进入事件处理
+    mouseEnterHandle (divId) {
+      this.mouseEnterFocusDiv = divId;
+    },
+    // 鼠标离开事件处理
+    mouseLeaveHandle () {
+      this.mouseEnterFocusDiv = "";
+    },
     // 鼠标滑动导航响应效果
     handleScroll () {
       if (!this.returnTopScrollingFlag) {
@@ -261,7 +297,7 @@ export default {
           clearInterval(timeTop);
         }
       }, 10);
-      this.returnTopScrollFlag = flase;
+      this.returnTopScrollFlag = false;
       // 滚动到顶部后，将按钮置为不可见
       this.topButtonShowFlag = false;
     },

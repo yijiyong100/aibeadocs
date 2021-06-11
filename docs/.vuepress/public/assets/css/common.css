@@ -82,7 +82,6 @@ h6 {
     margin: 0;
     top: 4.0rem;
     right: 4.0rem;
-    bottom: 0;
     box-sizing: border-box;
     border-left: 0 solid #d8d8d8;
   }
@@ -207,4 +206,63 @@ a.sidebar-link.active {
   width: 18rem;
   top: 64px;
   font-size: 15px;
+}
+
+
+.toolbar_head_tile {
+  font-size: 14px;
+  padding: 8px 36px;
+  font-weight: bold;
+}
+
+.toolbar_qrcode_active {
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  font-size: 12px;
+  width: 15.5rem;
+  position: fixed;
+  z-index: 12;
+  margin: 0;
+  top: 4.0rem;
+  right: 4.0rem;
+  text-align: center;
+  border: 1px solid #eeeeee;
+  box-sizing: border-box;
+}
+
+.toolbar_qrcode_unactive {
+  display: none;
+}
+
+.toolbar_wxmp_active {
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  font-size: 12px;
+  width: 15.5rem;
+  position: fixed;
+  z-index: 12;
+  margin: 0;
+  top: 7.8rem;
+  right: 4.0rem;
+  text-align: center;
+  border: 1px solid #eeeeee;
+  box-sizing: border-box;
+}
+
+.toolbar_communication_active {
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  font-size: 12px;
+  width: 15.5rem;
+  position: fixed;
+  z-index: 12;
+  margin: 0;
+  top: 11.6rem;
+  right: 4.0rem;
+  text-align: center;
+  border: 1px solid #eeeeee;
+  box-sizing: border-box;
 }

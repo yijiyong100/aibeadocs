@@ -145,6 +145,11 @@ h6 {
   border-bottom: 1px solid #d8d8d8;
 }
 
+.tool_bar_div:hover {
+  background-color: #ececec;
+  border-bottom: 0px solid #d8d8d8;
+}
+
 .tool_bar_img_icon {
   width: auto;
   height: auto;

@@ -1,20 +1,46 @@
 .page {
   display: block;
   word-break: break-word;
-  padding-top: 15px;
+  padding: 55px 315px 15px 18rem;
   background: #f3f5f7;
 }
 
 .theme-default-content {
-  margin-top: 14px;
+  margin-top: 20px;
   margin-left: 12px;
   background: #fff;
 }
 
 .theme-default-content:not(.custom) {
   max-width: 100%;
-  margin: 0 auto;
-  padding: 0.5rem 2.5rem;
+  margin-top: 9px;
+  padding: 0.5rem 1.6rem;
+}
+
+.theme-default-content:not(.custom)>h1:first-child,
+.theme-default-content:not(.custom)>h2:first-child,
+.theme-default-content:not(.custom)>h3:first-child,
+.theme-default-content:not(.custom)>h4:first-child,
+.theme-default-content:not(.custom)>h5:first-child,
+.theme-default-content:not(.custom)>h6:first-child {
+  margin-top: -3.5rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.65rem;
+  padding-bottom: 1.0rem;
+  border-bottom: 1px solid #eaecef;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .img-wx-mp {
@@ -32,6 +58,18 @@
 }
 
 @media (max-width: 3059px) {
+  .topDivImg {
+    position: fixed;
+    z-index: 11;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    width: 3.1rem;
+    background-size: cover;
+    text-align: center;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+  }
+
   .page-right-index-sidebar {
     background-color: #fff;
     overflow: auto;
@@ -67,6 +105,8 @@
 
   .page-content-spec {
     padding-right: 320px;
+    padding-top: 55px;
+    padding-left: 18.4rem;
   }
 }
 
@@ -77,16 +117,22 @@
 
   .page-content-spec {
     padding-right: 4.0rem;
+    padding-left: 18.4rem;
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 719px) {
   .page-right-tool-sidebar {
+    display: none;
+  }
+
+  .topDivImg {
     display: none;
   }
 
   .page-content-spec {
     padding-right: 0px;
+    padding-left: 0rem;
   }
 }
 
@@ -144,17 +190,6 @@
   padding-left: 0rem;
 }
 
-.topDivImg {
-  position: fixed;
-  z-index: 11;
-  right: 0.5rem;
-  bottom: 0.5rem;
-  width: 3.1rem;
-  background-size: cover;
-  text-align: center;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-}
 
 .tool_top_img_icon {
   width: auto;
@@ -162,4 +197,14 @@
   max-width: 75%;
   max-height: 75%;
   cursor: pointer;
+}
+
+a.sidebar-link.active {
+  background: #dbf0e5;
+}
+
+.sidebar {
+  width: 18rem;
+  top: 64px;
+  font-size: 15px;
 }

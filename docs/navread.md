@@ -1,4 +1,9 @@
-## 关于我 链接A
+---
+sidebar: auto
+---
+
+## 导读
+[[toc]]
 
 <img class= "zoom-custom-imgs" :src="$withBase('/favicon.ico')" alt="favicon">
 
@@ -6,6 +11,22 @@
 
 
 ## 文章段落1
+
+::: tip
+这是一个提示
+:::
+
+::: warning
+这是一个警告
+:::
+
+::: danger
+这是一个危险警告
+:::
+
+::: details
+这是一个详情块，在 IE / Edge 中不生效
+:::
 ##### 文章段落12
 文字内容
 ## 文章段落1

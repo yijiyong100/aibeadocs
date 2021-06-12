@@ -147,7 +147,7 @@ h6 {
 
 .tool_bar_div:hover {
   background-color: #ececec;
-  border-bottom: 0px solid #d8d8d8;
+  border-bottom: 1px solid #ececec;
 }
 
 .tool_bar_img_icon {

@@ -107,6 +107,12 @@
       <img src="/assets/img/toolbar/top.png" class="tool_top_img_icon" />
     </div>
 
+
+    <!-- 友盟统计 -->
+    <div style="display:none">
+     <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279777129&web_id=1279777129"></script>
+    </div>
+
   </div>
 
 </template>

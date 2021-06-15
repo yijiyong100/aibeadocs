@@ -87,10 +87,10 @@ h6 {
   }
 
   .page-right-index-toc {
-    max-height: 90%;
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
+    max-height: 618px;
   }
 
   /* 索引区的内容 隐藏滚动条 */

@@ -7,6 +7,9 @@ node_modules
 # 隐藏私密信息
 secret.js
 
+# ftp 数据上传的 
+ftp*
+
 # local env files
 .env.local
 .env.*.local

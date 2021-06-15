@@ -71,8 +71,8 @@ h6 {
   }
 
   .page-right-index-sidebar {
+    display: block;
     background-color: #fff;
-    overflow: auto;
     padding-left: 10px;
     padding-right: 10px;
     font-size: 12px;
@@ -84,6 +84,18 @@ h6 {
     right: 4.0rem;
     box-sizing: border-box;
     border-left: 0 solid #d8d8d8;
+  }
+
+  .page-right-index-toc {
+    max-height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  /* 索引区的内容 隐藏滚动条 */
+  .page-right-index-toc::-webkit-scrollbar {
+    display: none;
   }
 
   .page-right-tool-sidebar {

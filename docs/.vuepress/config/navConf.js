@@ -1,5 +1,5 @@
 module.exports = [
-  { text: '导读', link: '/navread' },
+  { text: '导读', link: '/readguide' },
   {
     text: 'Java',
     ariaLabel: 'Language Menu',

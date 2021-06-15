@@ -29,20 +29,20 @@
       <div class="content_index_title">
         {{$page.title}}
       </div>
+      <div class="page-right-index-toc">
+        <ul>
+          <li v-for="(item,index) in this.idxList" v-bind:key="item.slug">
+            <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}
+            </a>
+            <ul v-for=" itemChild in item.childList" v-bind:key="itemChild.slug">
+              <li>
+                <a :href="curUrlPath+'#'+itemChild.slug" @click="curElmClick(itemChild.slug)" :class="[itemChild.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{itemChild.title}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
 
-      <!-- <el-button type="primary">搜索</el-button> -->
-
-      <ul>
-        <li v-for="(item,index) in this.idxList" v-bind:key="item.slug">
-          <a :href="curUrlPath+'#'+item.slug" @click="curElmClick(item.slug)" :class="[item.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{item.title}}
-          </a>
-          <ul v-for=" itemChild in item.childList" v-bind:key="itemChild.slug">
-            <li>
-              <a :href="curUrlPath+'#'+itemChild.slug" @click="curElmClick(itemChild.slug)" :class="[itemChild.slug===curIndexSlug?'active_index_li':'unactive_index_li']" aria-current="page">{{itemChild.title}}</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
     </div>
 
     <div class="page-right-tool-sidebar" v-if="!$page.frontmatter.home">
@@ -107,10 +107,9 @@
       <img src="/assets/img/toolbar/top.png" class="tool_top_img_icon" />
     </div>
 
-
     <!-- 友盟统计 -->
     <div style="display:none">
-     <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279777129&web_id=1279777129"></script>
+      <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279777129&web_id=1279777129"></script>
     </div>
 
   </div>

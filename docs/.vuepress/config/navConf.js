@@ -2,13 +2,13 @@ module.exports = [
   { text: '导读', link: '/readguide' },
   {
     text: 'Java',
-    ariaLabel: 'Language Menu',
+    ariaLabel: 'Java基础',
     items: [
       {
-        text: '分组1', items:
+        text: 'java基础', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '语言特性', link: '/java/basic/languagefeature' }
+            , { text: '面向对象特征', link: '/java/basic/oofeature' }
           ]
       },
       {

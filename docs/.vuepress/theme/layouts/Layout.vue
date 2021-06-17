@@ -245,7 +245,7 @@ export default {
       this.idxList = [];
       var indexNodeNum = this.$page.headers.length;
       var curNo = 0;
-      var i = 0;
+      var i = 1;  // 初始值为 1 ，第 0 个为标题， 忽略
       while (i < indexNodeNum) {
         curNo = i;
         // console.log("node:" + this.$page.headers[i].slug);

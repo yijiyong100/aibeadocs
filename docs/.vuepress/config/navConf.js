@@ -7,14 +7,15 @@ module.exports = [
       {
         text: 'java基础', items:
           [
-            { text: '语言特性', link: '/java/basic/languagefeature' }
-            , { text: '面向对象特征', link: '/java/basic/oofeature' }
+            { text: '语言特性', link: '/java/basic/01-lan-feature' },
+            { text: '面向对象特征', link: '/java/basic/02-oop-feature' }
           ]
       },
       {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
+        text: 'java集合类', items:
+          [
+            { text: '集合类介绍', link: '/java/collection/01-intro' }
+          ]
       },
     ]
   },
@@ -23,17 +24,11 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '分组1', items:
+        text: '完善中', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '敬请期待', link: '/building/' }
           ]
-      },
-      {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
-      },
+      }
     ]
   },
   {
@@ -41,17 +36,11 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '分组1', items:
+        text: '完善中', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '敬请期待', link: '/building/' }
           ]
-      },
-      {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
-      },
+      }
     ]
   },
   {
@@ -59,17 +48,11 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '分组1', items:
+        text: '完善中', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '敬请期待', link: '/building/' }
           ]
-      },
-      {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
-      },
+      }
     ]
   },
   {
@@ -77,17 +60,11 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '分组1', items:
+        text: '完善中', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '敬请期待', link: '/building/' }
           ]
-      },
-      {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
-      },
+      }
     ]
   },
   {
@@ -95,17 +72,11 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '分组1', items:
+        text: '完善中', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '敬请期待', link: '/building/' }
           ]
-      },
-      {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
-      },
+      }
     ]
   },
   {
@@ -113,17 +84,11 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '分组1', items:
+        text: '完善中', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '敬请期待', link: '/building/' }
           ]
-      },
-      {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
-      },
+      }
     ]
   },
   {
@@ -131,17 +96,11 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '分组1', items:
+        text: '完善中', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '敬请期待', link: '/building/' }
           ]
-      },
-      {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
-      },
+      }
     ]
   },
   {
@@ -149,17 +108,11 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '分组1', items:
+        text: '完善中', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '敬请期待', link: '/building/' }
           ]
-      },
-      {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
-      },
+      }
     ]
   },
   {
@@ -167,17 +120,11 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '分组1', items:
+        text: '完善中', items:
           [
-            { text: '分组1内容 aa', link: '/group1/aa' }
-            , { text: '分组2内容 group', link: '/group1/group' }
+            { text: '敬请期待', link: '/building/' }
           ]
-      },
-      {
-        text: '分组2', items:
-          [{ text: '分组2内容 bb', link: '/group2/bb' }
-            , { text: '分组2内容 group', link: '/group2/group' }]
-      },
+      }
     ]
   },
   { text: '关于', link: '/about' }

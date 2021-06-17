@@ -213,7 +213,10 @@ export default {
 
   updated () {
     this.initPath()
-    this.initIndexList()
+    // 首次加载的时候，updated时候不更新 list
+    if (this.lastCurUrlPath.length > 0) {
+      this.initIndexList()
+    }
     this.lastCurUrlPath = this.curUrlPath
     this.initGetPageNextLast()
   },
@@ -224,6 +227,7 @@ export default {
 
   mounted () {
     this.initPath()
+    this.initIndexList()
     this.initGetPageNextLast()
     window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
     this.$router.afterEach(() => {

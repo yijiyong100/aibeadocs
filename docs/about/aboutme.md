@@ -56,5 +56,3 @@ https://www.bilibili.com/video/BV1vb411m7NY?p=1
 QQ群:569556849 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/qq/qqgroup.png')" alt="wxmp">
 
-
-

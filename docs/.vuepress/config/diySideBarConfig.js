@@ -37,6 +37,7 @@ module.exports = {
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/about/aboutme',
+        '/about/aboutqa',
       ]
     }
   ]

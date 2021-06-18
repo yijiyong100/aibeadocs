@@ -29,5 +29,15 @@ module.exports = {
         '/building/',
       ]
     }
+  ],
+  "/about/": [
+    {
+      title: '关于',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/about/aboutme',
+      ]
+    }
   ]
 }

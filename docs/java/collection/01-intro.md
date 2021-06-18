@@ -63,7 +63,7 @@ title: Java集合类基础介绍
 ```
 　　上述代码中，add()方法用于向集合中添加元素，set()方法用于修改集合中的元素，迭代器用于遍历集合中的元素并输出（会在下面的内容中涉及）。运行结果如下：
 
-　　![img](https://images2017.cnblogs.com/blog/1018770/201801/1018770-20180128173103053-623695513.png)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/intro_1.png')" alt="wxmp">
 
 　　其中创建List集合对象时，“<>”中是集合汇总元素的类型，如上方的String表示集合中的元素由String字符串构成。因为List是一个接口，所以new的是接口的实现类，在Eclipse中光标放在List上按Ctrl+T就可以看见List接口的所有实现类了。
 
@@ -114,7 +114,7 @@ title: Java集合类基础介绍
 
  　同理，创建Set对象集合时，Set是一个接口，new的是接口的实现类。运行结果如下：
 
-　　![img](https://images2017.cnblogs.com/blog/1018770/201801/1018770-20180128183355412-1422085333.png)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/intro_2.png')" alt="wxmp">
 
 　　由于Set集合中的对象是无序的，遍历Set集合的结果与插入Set集合的顺序并不相同。
 
@@ -153,7 +153,7 @@ title: Java集合类基础介绍
 
  　具体写法参照上例即可。运行结果如下：
 
-　　![img](https://images2017.cnblogs.com/blog/1018770/201801/1018770-20180128183417615-1375531062.png)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/intro_3.png')" alt="wxmp">
 
 　　创建Map集合时，Map接口的“<>”中含有两个类型，分别对应其key与value。
 

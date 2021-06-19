@@ -1,11 +1,11 @@
 ---
-title: Java环境变量安装
+title: Java安装和环境变量
 ---
 
-## Java基础知识篇【Java环境变量安装】
+## Java基础知识篇【Java安装和环境变量】
 
 ::: tip
-本文主要是介绍Java Java环境变量安装。
+本文主要是介绍Java 安装和环境变量。
 :::
 
 [[toc]]

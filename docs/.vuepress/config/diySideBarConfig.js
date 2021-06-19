@@ -2,6 +2,21 @@ module.exports = {
   "/java/":
     [
       {
+        title: 'Java语言基础',   // 必要的
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 0,    // 可选的, 默认值是 1
+        children: [
+          '/java/intro/01-java-intro',
+          '/java/intro/02-java-install',
+          '/java/intro/03-java-grammer',
+          '/java/intro/04-java-classaobject',
+          '/java/intro/05-java-process-op',
+          '/java/intro/06-java-syscomclass',
+          '/java/intro/07-java-regexp',
+          '/java/intro/08-java-method',
+        ]
+      },
+      {
         title: 'Java面向对象基础',   // 必要的
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 0,    // 可选的, 默认值是 1

@@ -5,7 +5,7 @@ module.exports = [
     ariaLabel: 'Java基础',
     items: [
       {
-        text: 'java基础', items:
+        text: 'java面向对象基础', items:
           [
             { text: '语言特性', link: '/java/basic/01-lan-feature' },
             { text: '面向对象特征', link: '/java/basic/02-oop-feature' }

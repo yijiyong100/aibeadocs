@@ -8,7 +8,7 @@ module.exports = [
         text: 'java语言基础', items:
           [
             { text: 'java入门介绍', link: '/java/intro/01-java-intro' },
-            { text: 'java基础语法', link: '/java/intro/02-java-install' }
+            { text: 'java基础语法', link: '/java/intro/03-java-grammer' }
           ]
       },
       {

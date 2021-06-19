@@ -8,7 +8,9 @@ module.exports = {
         children: [
           '/java/basic/01-lan-feature',
           '/java/basic/02-oop-feature',
-          '/java/basic/03-class'
+          '/java/basic/03-class',
+          '/java/basic/04-reflection',
+          '/java/basic/05-exception',
         ]
       },
       {

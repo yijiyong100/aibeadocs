@@ -5,7 +5,7 @@ title: Java类和对象操作
 ## Java基础知识篇【Java类和对象操作】
 
 ::: tip
-本文主要是介绍Java Java类和对象操作 。
+本文主要是介绍 Java类和对象操作 。
 :::
 
 [[toc]]

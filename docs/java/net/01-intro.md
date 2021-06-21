@@ -1,11 +1,11 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: Java网络编程入门
 ---
 
-## Java基础知识篇【XXXXXXXXXXXXXXXXXXXXXXXXXX】
+## Java基础知识篇【Java网络编程入门】
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 Java网络编程入门 。
 :::
 
 [[toc]]

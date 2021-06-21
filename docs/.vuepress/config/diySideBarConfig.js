@@ -35,6 +35,54 @@ module.exports = {
         children: [
           '/java/collection/01-intro',
         ]
+      },
+      {
+        title: 'Java文件IO流',   // 必要的
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 0,    // 可选的, 默认值是 1
+        children: [
+          '/java/file/01-intro',
+        ]
+      },
+      {
+        title: 'Java网络编程',   // 必要的
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 0,    // 可选的, 默认值是 1
+        children: [
+          '/java/net/01-intro',
+        ]
+      },
+      {
+        title: 'Java并发编程',   // 必要的
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 0,    // 可选的, 默认值是 1
+        children: [
+          '/java/concurrent/01-intro',
+        ]
+      },
+      {
+        title: 'Java虚拟机相关',   // 必要的
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 0,    // 可选的, 默认值是 1
+        children: [
+          '/java/jvm/01-intro',
+        ]
+      },
+      {
+        title: 'Java8语言特性',   // 必要的
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 0,    // 可选的, 默认值是 1
+        children: [
+          '/java/characteristic8/01-intro',
+        ]
+      },
+      {
+        title: 'Java8+语言特性',   // 必要的
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 0,    // 可选的, 默认值是 1
+        children: [
+          '/java/characteristic8up/01-intro',
+        ]
       }
     ],
   "/building/": [

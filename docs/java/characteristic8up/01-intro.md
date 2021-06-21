@@ -1,11 +1,11 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: Java8+语言特性特性
 ---
 
-## Java基础知识篇【XXXXXXXXXXXXXXXXXXXXXXXXXX】
+## Java基础知识篇【Java8+语言特性特性】
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 Java8+语言特性特性 。
 :::
 
 [[toc]]

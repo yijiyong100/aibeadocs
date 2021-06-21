@@ -1,11 +1,11 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: Java虚拟机知识入门
 ---
 
-## Java基础知识篇【XXXXXXXXXXXXXXXXXXXXXXXXXX】
+## Java基础知识篇【Java虚拟机知识入门】
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 Java虚拟机知识入门 。
 :::
 
 [[toc]]

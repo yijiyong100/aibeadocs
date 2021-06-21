@@ -19,11 +19,31 @@ module.exports = [
           ]
       },
       {
-        text: 'java集合类', items:
+        text: 'java集合类编程', items:
           [
             { text: '集合类介绍', link: '/java/collection/01-intro' }
           ]
       },
+      {
+        text: 'Java文件和网络编程', items:
+          [
+            { text: 'java文件IO流入门', link: '/java/file/01-intro' },
+            { text: 'Java网络编程入门', link: '/java/net/01-intro' }
+          ]
+      },
+      {
+        text: 'Java并发编程和JUC', items:
+          [
+            { text: 'Java并发编程入门', link: '/java/concurrent/01-intro' }
+          ]
+      },
+      {
+        text: 'Java虚拟机和语言特性', items:
+          [
+            { text: 'Java虚拟机', link: '/java/jvm/01-intro' },
+            { text: 'java8 语言特性', link: '/java/characteristic8/01-intro' },
+          ]
+      }
     ]
   },
   {

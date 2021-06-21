@@ -95,8 +95,6 @@ public class DeadLockDemo {
 
 在上面的这个demo中，开启了两个线程threadA, threadB,其中threadA占用了resource_a, 并等待被threadB释放的resource _b。threadB占用了resource _b正在等待被threadA释放的resource _a。因此threadA,threadB出现线程安全的问题，形成死锁。同样可以通过jps,jstack证明这种推论：
 
-
-
 ``` java
 "Thread-1":
   waiting to lock monitor 0x000000000b695360 (object 0x00000007d5ff53a8, a java.lang.String),

@@ -24,10 +24,6 @@ Java集合就像一种容器，可以把多个对象（实际上是对象的引�
 
 Java的集合类主要由两个接口派生而出：Collection和Map,Collection和Map是Java集合框架的根接口。
 
-
-
- 
-
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/co-1.png')" alt="wxmp">
 
  

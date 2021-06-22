@@ -10,6 +10,7 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 [[toc]]
 
+## 【----------------------------】
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/install_1.png')" alt="wxmp">
 
 

@@ -34,6 +34,14 @@ module.exports = {
         sidebarDepth: 0,    // 可选的, 默认值是 1
         children: [
           '/java/collection/01-intro',
+          '/java/collection/02-collectionmap',
+          '/java/collection/03-set',
+          '/java/collection/04-list',
+          '/java/collection/05-queue',
+          '/java/collection/06-map',
+          '/java/collection/07-listmapprinciple',
+          '/java/collection/08-hashcollectionprin',
+          '/java/collection/09-collectionsummary'
         ]
       },
       {
@@ -61,7 +69,7 @@ module.exports = {
         ]
       },
       {
-        title: 'Java虚拟机相关',   // 必要的
+        title: 'Jvm虚拟机相关',   // 必要的
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 0,    // 可选的, 默认值是 1
         children: [

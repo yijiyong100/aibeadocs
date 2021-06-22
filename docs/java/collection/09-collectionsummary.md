@@ -1,11 +1,11 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: 集合类精华总结
 ---
 
-## Java基础知识篇【XXXXXXXXXXXXXXXXXXXXXXXXXX】
+## Java基础知识篇【集合类精华总结】
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 集合类精华总结 。
 :::
 
 [[toc]]

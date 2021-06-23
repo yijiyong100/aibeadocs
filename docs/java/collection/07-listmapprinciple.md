@@ -299,7 +299,7 @@ romove(int index)，首先是检查范围，修改modCount，保留将要被移�
 ### **7.转为静态数组toArray的两种方法** 
 **（1）**调用Arrays.copyOf将返回一个数组，数组内容是size个elementData的元素，即拷贝elementData从0至size-1位置的元素到新数组并返回。
 
-```
+``` java
 1 // 返回ArrayList的Object数组
 2     public Object[] toArray() {
 3         return Arrays.copyOf(elementData, size);

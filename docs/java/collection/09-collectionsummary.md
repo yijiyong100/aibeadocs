@@ -182,9 +182,9 @@ boolean isEmpty()---是否为空
 
 　　集合类的特点：集合只用于存储对象，集合长度是可变的，集合可以存储不同类型的对象。　　
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-1.jpg')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-1.png')" alt="wxmp">
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-2.jpg')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-2.png')" alt="wxmp">
 
 　　上述类图中，实线边框的是实现类，比如ArrayList，LinkedList，HashMap等，折线边框的是抽象类，比如AbstractCollection，AbstractList，AbstractMap等，而点线边框的是接口，比如Collection，Iterator，List等。
 
@@ -206,7 +206,7 @@ boolean isEmpty()---是否为空
 
 　　Collection定义了集合框架的共性功能。
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-3.jpg')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-3.png')" alt="wxmp">
 
 
 　　add方法的参数类型是Object。以便于接收任意类型对象。
@@ -216,7 +216,7 @@ boolean isEmpty()---是否为空
 ### 3、List的常用子类
 　　特有方法。凡是可以操作角标的方法都是该体系特有的方法。
 
- 　　<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-4.jpg')" alt="wxmp">
+ 　　<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-4.png')" alt="wxmp">
 
 
 　　——ArrayList 　　线程不安全，查询速度快
@@ -266,7 +266,7 @@ boolean isEmpty()---是否为空
 
 * Map集合：该集合存储键值对。一对一对往里存。而且要保证键的唯一性。
 
-　　<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-5.jpg')" alt="wxmp">
+　　<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/sum-5.png')" alt="wxmp">
 
 
 ### 8、Map接口的常用子类

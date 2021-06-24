@@ -50,6 +50,10 @@ module.exports = {
         sidebarDepth: 0,    // 可选的, 默认值是 1
         children: [
           '/java/file/01-intro',
+          '/java/file/02-file',
+          '/java/file/03-iobasic',
+          '/java/file/04-iodetail',
+          '/java/file/05-summary',
         ]
       },
       {

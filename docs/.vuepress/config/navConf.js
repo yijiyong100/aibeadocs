@@ -133,7 +133,7 @@ module.exports = [
     ]
   },
   {
-    text: '前端',
+    text: '综合',
     ariaLabel: 'Language Menu',
     items: [
       {

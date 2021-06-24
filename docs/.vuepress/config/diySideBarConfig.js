@@ -62,6 +62,14 @@ module.exports = {
         sidebarDepth: 0,    // 可选的, 默认值是 1
         children: [
           '/java/net/01-intro',
+          '/java/net/02-netmodel',
+          '/java/net/03-basicconcept',
+          '/java/net/04-basicintro',
+          '/java/net/05-tcpdetail',
+          '/java/net/06-udpdetail',
+          '/java/net/07-urlanduri',
+          '/java/net/08-netdetail',
+          '/java/net/09-netsummary',
         ]
       },
       {

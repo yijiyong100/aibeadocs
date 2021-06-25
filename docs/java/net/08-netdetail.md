@@ -1,14 +1,13 @@
 ---
-title: Java网络编程详解
+title: 网络编程-分类详解
 ---
 
-## Java基础知识篇【Java网络编程详解】
+## Java基础知识篇【网络编程分类详解】
 
 ::: tip
-本文主要是介绍 Java网络编程详解 。
+本文主要是介绍 Java网络编程分类详解 。
 :::
 
-https://www.cnblogs.com/cainiao-chuanqi/p/11338202.html#autoid-6-0-2
 
 [[toc]]
 
@@ -38,7 +37,7 @@ https://www.cnblogs.com/cainiao-chuanqi/p/11338202.html#autoid-6-0-2
 
 计算机网络体系结构是计算机网络层次和协议的集合，网络体系结构对计算机网络实现的功能，以及网络协议、层次、接口和服务进行了描述，但并不涉及具体的实现。接口是同一节点内相邻层之间交换信息的连接处，也叫**服务访问点(SAP)。**
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-5b18d16a7b653a66.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-1.png')" alt="wxmp">
 
 计算机网络层次模型
 
@@ -56,7 +55,7 @@ https://www.cnblogs.com/cainiao-chuanqi/p/11338202.html#autoid-6-0-2
 >
 > 为了促进计算机网络的发展，国际标准化组织ISO于1977年成立了一个委员会，在现有网络的基础上，提出了不基于具体机型、操作系统或公司的网络体系结构，称为开放系统互连参考模型，即OSI/RM (Open System Interconnection Reference Model)。OSI模型把网络通信的工作分为7层，分别是物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-a1b19d383354abe1.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-2.png')" alt="wxmp">
 
 OSI参考模型的7个层次
 
@@ -104,13 +103,13 @@ OSI参考模型的7个层次
 
 TCP/IP协议是一个开放的网络协议簇，它的名字主要取自最重要的网络层IP协议和传输层TCP协议。TCP/IP协议定义了电子设备如何连入因特网，以及数据如何在它们之间传输的标准。TCP/IP参考模型采用4层的层级结构，每一层都呼叫它的下一层所提供的协议来完成自己的需求，这4个层次分别是：网络接口层、互联网层(IP层)、传输层(TCP层)、应用层。
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-713fa2f44e2f31dc.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-3.png')" alt="wxmp">
 
 ### OSI 和 TCP/IP模型对比
 
-![img](https://pic002.cnblogs.com/images/2012/384764/2012031412504162.png)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-4.png')" alt="wxmp">
 
-![img](https://pic002.cnblogs.com/images/2012/384764/2012031412505390.png)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-5.png')" alt="wxmp">
 
 ### TCP/IP模型层次功能
 
@@ -138,7 +137,7 @@ TCP层负责在应用进程之间建立端到端的连接和可靠通信，它�
 
 上面主要介绍了OSI参考模型和TCP/IP模型的相关内容，从下面这张图可以看出TCP/IP协议簇中不同的层次中有着很多不同的网络协议，下面主要介绍传输层的TCP、UDP协议和应用层的HTTP协议。
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-9c5180336d0431cf.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-6.png')" alt="wxmp">
 
 ### TCP协议
 
@@ -152,7 +151,7 @@ TCP（Transmission Control Protocol ，传输控制协议）是面向连接的�
 
 TCP报文段包括协议首部和数据两部分，协议首部的固定部分有20个字节，首部的固定部分后面是选项部分。
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-bca295be64863fcf.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-7.png')" alt="wxmp">
 
 TCP报文段
 
@@ -182,7 +181,7 @@ TCP是面向连接的协议，因此每个TCP连接都有3个阶段：连接建�
 
 #### **TCP三次握手过程如下：**
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-b51756778bea8db9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-8.jpg')" alt="wxmp">
 
 **TCP三次握手**
 
@@ -195,7 +194,7 @@ TCP是面向连接的协议，因此每个TCP连接都有3个阶段：连接建�
 
 #### TCP四次挥手过程如下：
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-58eb8315648d177e.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-9.png')" alt="wxmp">
 
 四次挥手.png
 
@@ -216,7 +215,7 @@ UDP，用户数据报协议，英文全称是User Datagram Protocol，它是TCP/
 
 - **UDP协议格式**
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-699105c373a98eb2.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-10.png')" alt="wxmp">
 
 UDP格式
 
@@ -238,23 +237,23 @@ HTTP，超文本传输协议，英文全称是Hypertext Transfer Protocol，它�
 
 HTTP协议是基于TCP协议之上的**请求/响应式协议，**下面主要介绍HTTP报文的格式，HTTP报文主要有请求报文和响应报文两种。首先看请求报文的格式：
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-2791fc06cc0455a8.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-11.png')" alt="wxmp">
 
 HTTP请求报文格式
 
 **HTTP请求报文由请求行、首部行和实体主体组成，由浏览器发送给服务器**。上面这张图中SP表示空格，cr lf表示回车和换行。
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-75cbcd5d58e6ccbc.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-12.png')" alt="wxmp">
 
 HTTP响应报文格式
 
 上面这张图是HTTP响应报文，它由状态行、首部行和实体主体组成。下面两张图是在谷歌浏览器内访问服务器查看的HTTP请求和响应。
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-d4d7995e9be5c7a8.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-13.png')" alt="wxmp">
 
 HTTP请求报文例子
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-4bd51e413bdf79de.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-14.png')" alt="wxmp">
 
 HTTP响应报文例子
 
@@ -262,13 +261,13 @@ HTTP响应报文例子
 
 在上面的HTTP请求报文例子中，我们可以看到请求方法是GET，这表示请求读取由URL所标志的信息，除了GET，还有其它几种常用的方法。
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-dbbadcc5013da14a.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-15.png')" alt="wxmp">
 
 在HTTP响应报文的例子中，我们可以看到状态码是200，表示响应成功。下表是其它状态码，总共5大类，33种。
 
 **HTTP响应报文的状态码**
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-d9928a134314eeb0.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-16.png')" alt="wxmp">
 
 #### HTTPS和HTTP的区别
 
@@ -307,11 +306,11 @@ Socket 是在应用程序中创建的，它是通过一种**绑定机制与驱�
 
 #### **Socket数据发送过程：**
 
-![img](https://pic002.cnblogs.com/images/2012/384764/2012031412525966.jpg)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-17.jpg')" alt="wxmp">
 
 #### **Socket数据接收过程：**
 
-![img](https://pic002.cnblogs.com/images/2012/384764/2012031412530830.jpg)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-18.jpg')" alt="wxmp">
 
 #### 常用应用层协议
 
@@ -327,7 +326,7 @@ Socket编程主要涉及到客户端和服务器端两个方面，首先是在�
 
 客户端请求与服务器进行连接的时候，根据服务器的域名或者IP地址，加上端口号，打开一个套接字。当服务器接受连接后，服务器和客户端之间的通信就像输入输出流一样进行操作。
 
-![img](https://upload-images.jianshu.io/upload_images/2243690-e2ffda391807643e.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-19.png')" alt="wxmp">
 
 ## **九、Java网络编程常用类**
 
@@ -428,13 +427,13 @@ System.out.println(urlStr);
 
 网络上的两个程序通过一个双向的通讯连接实现数据的交换，这个双向链路的一端称为一个Socket。Socket通常用来实现客户方和服务方的连接。Socket是TCP/IP协议的一个十分流行的编程界面，一个Socket由一个IP地址和一个端口号唯一确定。 但是，Socket所支持的协议种类也不光TCP/IP一种，因此两者之间是没有必然联系的。在Java环境下，Socket编程主要是指基于TCP/IP协议的网络编程。 Server端Listen(监听)某个端口是否有连接请求，Client端向Server端发出Connect(连接)请求，Server端向Client端发回Accept（接受）消息。一个连接就建立起来了。Server端和Client端都可以通过Send，Write等方法与对方通信。 TCP Socket的通信过程如下图：
 
-![img](https://pic002.cnblogs.com/images/2012/384764/2012031413193248.jpg)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/net/detail-20.jpg')" alt="wxmp">
 
 ### 5.DatagramSocket类
 
 UDP协议是一种不可靠的网络协议，它在通讯实例的两端个建立一个Socket，但这两个Socket之间并没有虚拟链路，这两个Socket只是发送和接受数据报的对象。 包**java.net**中提供了两个类**DatagramSocket**和**DatagramPacket**用来支持数据报通信，DatagramSocket用于在程序之间建立传送数据报的通信连接， DatagramPacket则用来表示一个数据报。 **DatagramSocket的构造方法：**
 
-```
+``` java
 DatagramSocket()；
 DatagramSocket(int prot);
 DatagramSocket(int port, InetAddress laddr);

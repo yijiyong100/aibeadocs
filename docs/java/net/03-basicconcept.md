@@ -28,7 +28,6 @@ IP在互联网中能唯一标识一台计算机，是每一台计算机的唯一
 
 **IP和端口能唯一定位到需要通信的进程。这里的IP表示地址，区别于IP协议。在OSI体系还是TCP/IP体系中，IP协议位于网际层，来封装IP地址到报文中。** 
 
-###  
 
 ### 3.TCP和UDP协议
 
@@ -97,7 +96,7 @@ Java中的InetAddress是一个代表IP地址的封装。IP地址可以由字节�
 
 
 
-```
+``` java
     //根据主机名来获取对应的InetAddress实例
      InetAddress ip = InetAddress.getByName("www.baidu.com");
     //判断是否可达
@@ -113,10 +112,6 @@ Java中的InetAddress是一个代表IP地址的封装。IP地址可以由字节�
 
 
 
-```
-
-```
-
 ### 2.URL和URLConnection类
 
 网络中的URL（Uniform Resource Locator）是统一资源定位符的简称。它表示Internet上某一资源的地址。通过URL我们可以访问Internet上的各种网络资源，比如最常见的WWW，FTP站点。 URL可以被认为是指向互联网资源的“指针”，通过URL可以获得互联网资源相关信息，包括获得URL的InputStream对象获取资源的信息，以及一个到URL所引用远程对象的连接URLConnection。 URLConnection对象可以向所代表的URL发送请求和读取URL的资源。通常，创建一个和URL的连接，需要如下几个步骤：
@@ -130,7 +125,7 @@ Java中的InetAddress是一个代表IP地址的封装。IP地址可以由字节�
 
 
 
-```
+``` java
  //1. 向指定URL发送GET方法的请求
  String urlName = url + "?" + param;
  URL realUrl = new URL(urlName);
@@ -161,15 +156,12 @@ Java中的InetAddress是一个代表IP地址的封装。IP地址可以由字节�
 
 
 
-```
-
-```
 
 ### 3.URLDecoder和URLEncoder
 
 这两个类可以别用于将application/x-www-form-urlencoded MIME类型的字符串转换为普通字符串，将普通字符串转换为这类特殊型的字符串。使用URLDecoder类的静态方法decode()用于解码，URLEncoder类的静态方法encode()用于编码。具体使用方法如下：
 
-```
+``` java
 //将application/x-www-form-urlencoded字符串转换成普通字符串  
 String keyWord = URLDecoder.decode("%E6%9D%8E%E5%88%9A+j2ee", "UTF-8");  
 System.out.println(keyWord);  
@@ -191,7 +183,7 @@ System.out.println(urlStr);
 
 UDP协议是一种不可靠的网络协议，它在通讯实例的两端个建立一个Socket，但这两个Socket之间并没有虚拟链路，这两个Socket只是发送和接受数据报的对象。 包**java.net**中提供了两个类**DatagramSocket**和**DatagramPacket**用来支持数据报通信，DatagramSocket用于在程序之间建立传送数据报的通信连接， DatagramPacket则用来表示一个数据报。 **DatagramSocket的构造方法：**
 
-```
+``` java
 DatagramSocket()；
 DatagramSocket(int prot);
 DatagramSocket(int port, InetAddress laddr);

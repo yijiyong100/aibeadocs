@@ -17,7 +17,7 @@ title: 网络编程-URI和URL
 
 URI全称是Uniform Resource Identifier，也就是统一资源标识符，它是一种采用特定的语法标识一个资源的字符串表示。URI所标识的资源可能是服务器上的一个文件，也可能是一个邮件地址、图书、主机名等。简单记为：URI是标识一个资源的字符串(这里先不必纠结标识的目标资源到底是什么，因为使用者一般不会见到资源的实体)，从服务器接收到的只是资源的一种字节表示(二进制序列，从网络流中读取)。URI的语法构成是：一个模式和一个模式特定部分。表示形式如下：
 
-```
+``` java
 模式:模式特定部分
 
 scheme:scheme specific part 
@@ -38,7 +38,7 @@ scheme:scheme specific part
 
 URI中的模式特定部分没有固定的语法，不过，很多时候都是采用一种层次结构形式，如：
 
-```
+``` java
 //授权机构/路径?查询参数
 
 //authority/path?query
@@ -84,7 +84,7 @@ public static URI create(String str)
 
 前面也提到，URI引用包括最多三个部分：模式、模式特定部分和片段标识符，一般格式为：
 
-```
+``` java
 模式:模式特定片段:片段标识符
 ```
 
@@ -214,7 +214,7 @@ URL所表示的网络资源位置通常包括用于访问服务器的协议(如h
 
 URL的语法表示形式为：
 
-```
+``` java
 protocol://userInfo@host:port/path?query#fragment
 
 协议://用户信息@主机名:端口/路径?查询#片段
@@ -251,7 +251,7 @@ java.net.URL类(后面直接叫URL)是JDK对URL的统一抽象，它是一个fin
 
 URL实例的主要构造方法如下：
 
-```
+``` java
 //基于URL的各个部分构造URL实例，其中file相当于path、query和fragment三个部分组成
 public URL(String protocol, String host, int port, String file) throws MalformedURLException
 

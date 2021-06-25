@@ -213,8 +213,10 @@ export default {
 
   updated () {
     this.initPath()
+    // console.log("this.lastCurUrlPath:" + this.lastCurUrlPath)
     // 首次加载的时候，updated时候不更新 list
-    if (this.lastCurUrlPath.length > 0) {
+    // 从首页跳转时，此页面 this.lastCurUrlPath 为 / 
+    if (this.lastCurUrlPath.length > 0 && this.lastCurUrlPath !== this.curUrlPath) {
       this.initIndexList()
     }
     this.lastCurUrlPath = this.curUrlPath
@@ -241,6 +243,7 @@ export default {
       if (this.lastCurUrlPath === this.curUrlPath) {
         return;
       }
+
       // 清空数据
       this.idxList = [];
       var indexNodeNum = this.$page.headers.length;
@@ -277,6 +280,7 @@ export default {
         i++;
       }
 
+      // console.log("create new index...");
       // console.log("this.idxList.len:" + this.idxList.length)
       // for (var j = 0; j < this.idxList.len; j++) {
       //   console.log(this.idxList[j].slug)

@@ -86,6 +86,13 @@ module.exports = {
         sidebarDepth: 0,    // 可选的, 默认值是 1
         children: [
           '/java/jvm/01-intro',
+          '/java/jvm/02-workprinciple',
+          '/java/jvm/03-memorymodel',
+          '/java/jvm/04-classload',
+          '/java/jvm/05-gc',
+          '/java/jvm/06-optcmd',
+          '/java/jvm/07-optcase',
+          '/java/jvm/08-summary',
         ]
       },
       {

@@ -43,7 +43,7 @@ module.exports = [
         text: 'Java虚拟机和语言特性', items:
           [
             { text: 'Java  虚拟机', link: '/java/jvm/01-intro' },
-            { text: 'Java8 语言特性', link: '/java/characteristic8/01-intro' },
+            { text: 'Java8 语言特性', link: '/java/characteristic/01-java8' },
           ]
       }
     ]

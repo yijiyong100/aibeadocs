@@ -89,19 +89,18 @@ module.exports = {
         ]
       },
       {
-        title: 'Java8语言特性',   // 必要的
+        title: 'Java语言特性',   // 必要的
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 0,    // 可选的, 默认值是 1
         children: [
-          '/java/characteristic8/01-intro',
-        ]
-      },
-      {
-        title: 'Java8+语言特性',   // 必要的
-        collapsable: false, // 可选的, 默认值是 true,
-        sidebarDepth: 0,    // 可选的, 默认值是 1
-        children: [
-          '/java/characteristic8up/01-intro',
+          '/java/characteristic/01-java8',
+          '/java/characteristic/02-java9',
+          '/java/characteristic/03-java10',
+          '/java/characteristic/04-java11',
+          '/java/characteristic/05-java12',
+          '/java/characteristic/06-java13',
+          '/java/characteristic/07-java14',
+          '/java/characteristic/08-java15',
         ]
       }
     ],

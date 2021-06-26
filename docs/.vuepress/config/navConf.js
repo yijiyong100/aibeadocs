@@ -36,7 +36,8 @@ module.exports = [
       {
         text: 'Java并发编程和JUC', items:
           [
-            { text: 'Java并发编程入门', link: '/java/concurrent/01-intro' }
+            { text: 'Java并发 基础入门', link: '/java/thread/01-intro' },
+            { text: 'Java并发 JUC入门', link: '/java/juc/01-intro' }
           ]
       },
       {

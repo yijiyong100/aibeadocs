@@ -1,5 +1,5 @@
 ---
-title: Java并发编程入门
+title: 并发编程-入门介绍
 ---
 
 ## Java基础知识篇【Java并发编程入门】
@@ -29,7 +29,7 @@ Java并发编程一直是Java程序员必须懂但又是很难懂的技术内容
 
 多线程技术有这么多的好处，难道就没有一点缺点或者挑战么，就在任何场景下就一定适用么？很显然不是。
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/concurrent/intro_1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/thread/intro_1.png')" alt="wxmp">
 
  
 

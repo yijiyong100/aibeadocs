@@ -73,11 +73,29 @@ module.exports = {
         ]
       },
       {
-        title: 'Java并发编程',   // 必要的
+        title: 'Java并发编程基础',   // 必要的
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 0,    // 可选的, 默认值是 1
         children: [
-          '/java/concurrent/01-intro',
+          '/java/thread/01-intro',
+          '/java/thread/02-multithread',
+          '/java/thread/03-conintro',
+          '/java/thread/04-threadcreatediff',
+          '/java/thread/05-threadattrop',
+          '/java/thread/06-threadmethod',
+          '/java/thread/07-threadsyncsum',
+          '/java/thread/08-threadlocal',
+          '/java/thread/09-threadgroup',
+          '/java/thread/10-threadsyncalgorithm',
+          '/java/thread/11-threadhookexception',
+        ]
+      },
+      {
+        title: 'Java并发编程JUC',   // 必要的
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 0,    // 可选的, 默认值是 1
+        children: [
+          '/java/juc/01-intro',
         ]
       },
       {

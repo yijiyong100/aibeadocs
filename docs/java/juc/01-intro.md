@@ -10,6 +10,16 @@ title: 并发编程-JUC简介
 
 [[toc]]
 
+
+# 导读【重要】
+进入Java多线程进阶篇的学习。初学者通过基础篇的学习，应该已经对多线程的初步使用有了基本概念和掌握。多线程这块知识的学习，真正的难点不在于多线程程序的逻辑有多复杂，而在于理清J.U.C包中各个多线程工具类之间的关系、特点及其使用场景（从整体到局部、高屋建瓴，这对学习任何知识都至关重要，如果读者能坚持阅读到本系列的Executors框架，你会明白我为什么强调全局视野的重要性）。
+
+坦白的说，我还没有遇到过程序逻辑复杂到看不懂的生产级别的代码，所以要真正掌握Java多线程，必须要弄懂J.U.C，并不是说必须是源码级别的，深入源码确实能够让你掌握底层原理，但死扣细节往往造成“当局者迷”。
+
+关于JUC的内容，内容非常的繁杂，且体系较多，这里由于篇幅有限，只是对个人认为JUC中重点内容进行摘选和记录。
+详细的一些更为深入的JUC介绍，可以参见：参见：【并发编程-JUC博客推荐】 章节
+
+
 ## 1. JUC 简介
 
 - 在 Java 5.0 提供了 `java.util.concurrent`(简称JUC)包,在此包中增加了在并发编程中很常用的工具类,
@@ -271,7 +281,7 @@ public class TestCompareAndSwap{
 
 - 此包还提供了设计用于多线程上下文中的
 
-  ```
+  ``` java
   Collection
   ```
 
@@ -279,17 +289,17 @@ public class TestCompareAndSwap{
 
    
 
-  ```
+  ``` java
   ConcurrentHashMap
   ```
 
   ,
 
-  ```
+  ``` java
   ConcurrentSkipListMap
   ```
 
-  ```
+  ``` java
   ConcurrentSkipListSet
   ```
 
@@ -297,7 +307,7 @@ public class TestCompareAndSwap{
 
    
 
-  ```
+  ``` java
   CopyOnWriteArrayList
   ```
 
@@ -307,7 +317,7 @@ public class TestCompareAndSwap{
 
    
 
-  ```
+  ``` java
   CopyOnWriteArraySet
   ```
 

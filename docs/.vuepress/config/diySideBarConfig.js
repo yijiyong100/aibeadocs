@@ -96,6 +96,8 @@ module.exports = {
         sidebarDepth: 0,    // 可选的, 默认值是 1
         children: [
           '/java/juc/01-intro',
+          '/java/juc/02-juccatogray',
+          '/java/juc/03-jucblogrecommend',
         ]
       },
       {

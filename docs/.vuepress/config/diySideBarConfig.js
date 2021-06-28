@@ -98,6 +98,10 @@ module.exports = {
           '/java/juc/01-intro',
           '/java/juc/02-juccatogray',
           '/java/juc/03-jucblogrecommend',
+          '/java/juc/04-juclockintro',
+          '/java/juc/05-juclockdiff',
+          '/java/juc/06-juclockaqs',
+          '/java/juc/07-juclockuse',
         ]
       },
       {

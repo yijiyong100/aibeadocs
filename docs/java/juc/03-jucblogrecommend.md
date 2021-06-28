@@ -1,39 +1,39 @@
 ---
-title: 并发编程-【JUC博客推荐】
+title: 并发编程-JUC博客推荐
 ---
 
 ## Java高级知识篇【并发编程-JUC精彩博客推荐】
 
 ::: tip
-本文主要是介绍 并发编程-JUC精彩博客推荐】 。
+本文主要是介绍 并发编程-【JUC精彩博客推荐】 。
 :::
 
 [[toc]]
 
 
-【JUC-并发编程博客专栏推荐：一】
+## 【博客专栏推荐（一）】
 
-专栏地址：
+### 专栏地址
 
-https://segmentfault.com/u/ressmix###
-
-
-
-推荐文章：
-
-##### [Java多线程基础（二）——Java内存模型](https://segmentfault.com/a/1190000015555973)
-
-##### [透彻理解Java并发编程系列](https://segmentfault.com/a/1190000015558984)
-
-##### [Java多线程基础（一）——线程与锁](https://segmentfault.com/a/1190000015555859)
+**[https://segmentfault.com/u/ressmix](https://segmentfault.com/u/ressmix###)**
 
 
 
-【JUC-并发编程博客专栏推荐：二】
+### 推荐文章
+
+[Java多线程基础（二）——Java内存模型](https://segmentfault.com/a/1190000015555973)
+
+[透彻理解Java并发编程系列](https://segmentfault.com/a/1190000015558984)
+
+[Java多线程基础（一）——线程与锁](https://segmentfault.com/a/1190000015555859)
 
 
 
-专栏地址：
+## 【博客专栏推荐（二）】
+
+
+
+### 专栏地址
 
 [java-多线程-JUC线程池(7)](https://www.cnblogs.com/bjlhx/category/1485200.html)
 
@@ -45,7 +45,7 @@ https://segmentfault.com/u/ressmix###
 
 
 
-推荐文章：
+### 推荐文章
 
 [001-多线程-JUC线程池-线程池架构-Executor、ExecutorService、ThreadPoolExecutor、Executors](https://www.cnblogs.com/bjlhx/p/11052875.html)
 
@@ -59,15 +59,16 @@ https://segmentfault.com/u/ressmix###
 
 
 
-【JUC-并发编程博客专栏推荐：三】
+## 【博客专栏推荐（三）】
 
-专栏地址：
+### 专栏地址
 
-https://www.cnblogs.com/AliCoder/category/1598003.html
+[https://www.cnblogs.com/AliCoder/category/1598003.html](https://www.cnblogs.com/AliCoder/category/1598003.html
+)
 
 
 
-推荐文章：
+### 推荐文章
 
 [Java并发指南14：JUC中常用的Unsafe和Locksupport](https://www.cnblogs.com/AliCoder/p/11838532.html)
 
@@ -91,21 +92,19 @@ https://www.cnblogs.com/AliCoder/category/1598003.html
 
 [Java并发指南1：并发基础与Java多线程](https://www.cnblogs.com/AliCoder/p/11822713.html)
 
-https://i.cnblogs.com/EditPosts.aspx?postid=11822713)
 
 
 
 
+## 【博客专栏推荐（四）】
 
-【JUC-并发编程博客专栏推荐：四】
+### 专栏地址
 
-专栏地址：
-
-https://www.cnblogs.com/mtcarpenter/category/1851392.html
-
+[https://www.cnblogs.com/mtcarpenter/category/1851392.html](https://www.cnblogs.com/mtcarpenter/category/1851392.html)
 
 
-推荐文章：
+
+### 推荐文章
 
 [突击并发编程JUC系列-万字长文解密 JUC 面试题](https://www.cnblogs.com/mtcarpenter/p/13876808.html)
 
@@ -141,15 +140,15 @@ https://www.cnblogs.com/mtcarpenter/category/1851392.html
 
 
 
-【JUC-并发编程博客专栏推荐：五】
+## 【博客专栏推荐（五）】
 
-专栏地址：
+### 专栏地址
 
-https://www.cnblogs.com/mtcarpenter/category/1851392.html
+[https://www.cnblogs.com/mtcarpenter/category/1851392.html](https://www.cnblogs.com/mtcarpenter/category/1851392.html)
 
 
 
-推荐文章：
+### 推荐文章
 
 [JUC——线程池](https://www.cnblogs.com/itermis/p/9139054.html)
 
@@ -215,15 +214,15 @@ https://www.cnblogs.com/mtcarpenter/category/1851392.html
 
 
 
-【JUC-并发编程博客专栏推荐：六】
+## 【博客专栏推荐（六）】
 
-专栏地址：
+### 专栏地址
 
-https://www.cnblogs.com/rickiyang/category/1487709.html
+[https://www.cnblogs.com/rickiyang/category/1487709.html](https://www.cnblogs.com/rickiyang/category/1487709.html)
 
 
 
-推荐文章：
+### 推荐文章
 
 [java并发编程（二十六）----ThreadLocal的使用](https://www.cnblogs.com/rickiyang/p/11074220.html)
 

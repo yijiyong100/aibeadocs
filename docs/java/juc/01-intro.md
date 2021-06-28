@@ -26,6 +26,16 @@ title: 并发编程-JUC简介
   用于定义类似于线程的自定义子系统,包括线程池,异步 IO 和轻量级任务框架;还提供了设计用于多线程上下文中
   的 Collection 实现等;
 
+  J.U.C并发包，即java.util.concurrent包，是JDK的核心工具包，是JDK1.5之后，由 Doug Lea实现并引入。
+
+整个java.util.concurrent包，按照功能可以大致划分如下：
+
+* juc-locks 锁框架
+* juc-atomic 原子类框架
+* juc-sync 同步器框架
+* juc-collections 集合框架
+* juc-executors 执行器框架
+
 ## 2. volatile 关键字
 
 - volatile 关键字: 当多个线程进行操作共享数据时,可以保证内存中的数据是可见的;相较于 synchronized 是一种

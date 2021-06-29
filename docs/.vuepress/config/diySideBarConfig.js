@@ -112,6 +112,12 @@ module.exports = {
           '/java/juc/15-juccolhashmapbasic',
           '/java/juc/16-juccolhashmapadd',
           '/java/juc/17-juccolhashmapdiff',
+          '/java/juc/18-jucexeintro',
+          '/java/juc/19-jucexecommonthreadpool',
+          '/java/juc/20-jucexescheduldthreadpool',
+          '/java/juc/21-jucexefuture',
+          '/java/juc/22-jucexeforkjoinprin',
+          '/java/juc/23-jucexeforkjoindetail',
         ]
       },
       {

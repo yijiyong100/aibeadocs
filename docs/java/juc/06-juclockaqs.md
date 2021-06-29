@@ -195,7 +195,7 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
         }
     }
 
-    更多内容参见 源代码
+    更多内容参见 JDK源代码
 }
 ```
 

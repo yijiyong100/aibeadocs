@@ -102,6 +102,16 @@ module.exports = {
           '/java/juc/05-juclockdiff',
           '/java/juc/06-juclockaqs',
           '/java/juc/07-juclockuse',
+          '/java/juc/08-jucatounsafe',
+          '/java/juc/09-jucatointro',
+          '/java/juc/10-jucatocas',
+          '/java/juc/11-jucatoaba',
+          '/java/juc/12-jucsyncintro',
+          '/java/juc/13-jucsyncaqs',
+          '/java/juc/14-juccolintro',
+          '/java/juc/15-juccolhashmapbasic',
+          '/java/juc/16-juccolhashmapadd',
+          '/java/juc/17-juccolhashmapdiff',
         ]
       },
       {

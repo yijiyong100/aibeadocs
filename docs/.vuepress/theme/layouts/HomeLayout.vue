@@ -2,7 +2,7 @@
   <div class="theme-container" :class="pageClasses" @touchstart="onTouchStart" @touchend="onTouchEnd">
 
     <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
-
+1
   </div>
 
 </template>

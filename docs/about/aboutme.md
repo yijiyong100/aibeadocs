@@ -12,6 +12,7 @@ title: 关于 - 我
 * 对于前端也有特别的爱好，会搞定简单的页面开发，比如本站的右侧工具栏，具备初级的全栈开发能力。
 * 曾经对产品设计和 产品运营非常感兴趣，有过一段产品和运营的工作经验。
 * 经历过大型电信运营商业务系统 和 互联网电商系统开发经验。
+* 使用过编程语言：C、C++、Java、c#、python、shell、html、css、js、vue
 * 目前主攻方向：后端架构、智能化后端开发。
 * ....
 
@@ -41,7 +42,7 @@ https://www.bilibili.com/video/BV1vb411m7NY?p=1
 ## 参考的部分VuePress博主个人博客
 
 * [飞跃高山与大洋的鱼](https://docs.shanyuhai.top/)
-* [个人博主](https://www.bookbook.cc/) 
+* [左小白的技术日常](http://www.zuo11.com/)
 * [Java 全栈知识体系](https://www.pdai.tech/)
 
 其中有较多的内容参考和借鉴上述博客 , 感谢博客的博主 ,也希望上面的博客能对你有帮助。

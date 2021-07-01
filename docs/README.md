@@ -1,5 +1,5 @@
 ---
-layout: HomeLayOut
+layout: HomeLayout
 home: true
 heroImage: /assets/img/logo.png
 heroText: 智能后端和架构

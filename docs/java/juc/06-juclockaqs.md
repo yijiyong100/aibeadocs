@@ -10,7 +10,7 @@ title: JUC-锁-AQS原理
 
 [[toc]]
 
-# [009-多线程-基础-AbstractQueuedSynchronizer-用于构建锁和同步容器的框架、独占锁与共享锁的获取与释放](https://www.cnblogs.com/bjlhx/p/10365620.html)
+# 009-多线程-基础-AbstractQueuedSynchronizer-用于构建锁和同步容器的框架、独占锁与共享锁的获取与释放
 
 ## 一、概述
 
@@ -753,13 +753,14 @@ public final boolean releaseShared(int arg) {
 | public final boolean hasQueuedPredecessors()     | 查询是否有其他线程获取同步状态的时间大于当前线程，用于公平锁的实现。              |
 
 3.3、Instrumentation and monitoring methods【监控监测方法】
-
+``` java
 | AbstractQueuedSynchronizer                                  |                                                                |
 | ----------------------------------------------------------- | -------------------------------------------------------------- |
 | public final int getQueueLength()                           | 返回同步队列的估计长度，该方法用于监视系统状态，而非同步控制。 |
 | public final Collection<Thread> getQueuedThreads()          | 获取同步队列线程集合，同样是一个估计值。                       |
 | public final Collection<Thread> getExclusiveQueuedThreads() | 获取同步队列中独占模式线程集合，估计值。                       |
 | public final Collection<Thread> getSharedQueuedThreads()    | 获取同步队列中共享模式线程集合，同估计值。                     |
+```
 
 3.4、Internal support methods for Conditions【内部支持的Conditions方法】
 

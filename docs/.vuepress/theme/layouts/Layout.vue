@@ -19,7 +19,13 @@
     <Page v-else :sidebar-items="sidebarItems" class="page-content-spec" :class="[!isLeftSiderOpen?'page_left_bar_hidden':'']">
       <template #top>
         <slot name="page-top" />
+        <div v-if="articleInfo.updateTime.length > 0" class="page_visit_div">
+          <!-- 文章的访问信息 和相关信息 -->
+          <ArticleVisit :articleInfo="articleInfo">
+          </ArticleVisit>
+        </div>
       </template>
+
       <template #bottom>
         <slot name="page-bottom" />
         <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
@@ -158,7 +164,12 @@ export default {
       // 标识是否在滚动上滑动中
       returnTopScrollingFlag: false,
       mouseEnterFocusDiv: "",
-      idxList: []
+      idxList: [],
+      articleInfo: {
+        updateTime: "",
+        visitNum: 1,
+        likeNum: 0
+      }
     }
   },
 
@@ -220,6 +231,7 @@ export default {
       this.initIndexList()
     }
     this.lastCurUrlPath = this.curUrlPath
+    this.initGetLastUpdate()
     this.initGetPageNextLast()
   },
 
@@ -230,6 +242,7 @@ export default {
   mounted () {
     this.initPath()
     this.initIndexList()
+    this.initGetLastUpdate()
     this.initGetPageNextLast()
     window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
     this.$router.afterEach(() => {
@@ -367,6 +380,16 @@ export default {
       this.curUrlPath = window.location.pathname
       this.curAllUrlPath = window.location.href
       this.qrCodeApiUrl = this.qrCodeApiPre + this.curAllUrlPath
+    },
+    initGetLastUpdate () {
+      var updateInfo = document.getElementsByClassName('last-updated');
+      if (updateInfo.length > 0) {
+        var updateNode = updateInfo[0];
+        if (updateNode.children.length > 1) {
+          this.articleInfo.updateTime = updateNode.children[1].innerHTML;
+          // console.log(updateNode.children[1].innerHTML)
+        }
+      }
     },
     initGetPageNextLast () {
       var prevUpdated = 0;

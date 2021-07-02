@@ -18,12 +18,17 @@
 
     <Page v-else :sidebar-items="sidebarItems" class="page-content-spec" :class="[!isLeftSiderOpen?'page_left_bar_hidden':'']">
       <template #top>
-        <slot name="page-top" />
-        <div v-if="articleInfo.updateTime.length > 0" class="page_visit_div">
-          <!-- 文章的访问信息 和相关信息 -->
-          <ArticleVisit :articleInfo="articleInfo">
-          </ArticleVisit>
+
+        <div v-if="articleInfo.updateTime.length > 0" class="page_article_title_info">
+          <div class="page_content_title">{{$page.title}}</div>
+          <div class="page_content_visit">
+            <!-- 文章的访问信息 和相关信息 -->
+            <ArticleVisit :articleInfo="articleInfo">
+            </ArticleVisit>
+          </div>
+
         </div>
+        <slot name="page-top" />
       </template>
 
       <template #bottom>
@@ -261,7 +266,7 @@ export default {
       this.idxList = [];
       var indexNodeNum = this.$page.headers.length;
       var curNo = 0;
-      var i = 1;  // 初始值为 1 ，第 0 个为标题， 忽略
+      var i = 0;  // 初始值为 1 ，第 0 个为标题， 忽略
       while (i < indexNodeNum) {
         curNo = i;
         // console.log("node:" + this.$page.headers[i].slug);

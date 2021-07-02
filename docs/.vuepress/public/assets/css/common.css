@@ -5,19 +5,41 @@
   display: block;
 }
 
-.page_visit_div {
-  position: relative;
-  top: 6.8rem;
-  font-size: 13px;
-  color: grey;
-  padding-left: 1.6rem;
-}
-
 .page {
   display: block;
   word-break: break-word;
   padding: 55px 315px 15px 18rem;
   background: #f3f5f7;
+}
+
+.page_article_title_info {
+  margin-top: 27px;
+  font-size: 13px;
+  color: grey;
+  padding-left: 1.6rem;
+  padding-top: 0.5rem;
+  padding-right: 1.6rem;
+  background-color: #fff;
+}
+
+.page_content_title {
+  font-size: 26px;
+  font-weight: 550;
+  color: #000;
+  background-color: #fff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.page_content_visit {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  background-color: rgba(225, 225, 225, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.theme-default-content:not(.custom)>*:first-child {
+  margin-top: 0.5rem;
 }
 
 .theme-default-content {
@@ -28,7 +50,7 @@
 
 .theme-default-content:not(.custom) {
   max-width: 100%;
-  margin-top: 9px;
+  margin-top: 0px;
   padding: 0.5rem 1.6rem;
 }
 

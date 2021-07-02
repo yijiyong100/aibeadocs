@@ -1,11 +1,10 @@
 ---
-title: java基础介绍
+title: Java基础介绍
 ---
 
-## Java基础知识篇【java基础介绍】
 
 ::: tip
-本文主要是介绍 java基础介绍 。
+本文主要是介绍 Java基础介绍 。
 :::
 
 [[toc]]

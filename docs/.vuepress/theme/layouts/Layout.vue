@@ -27,11 +27,9 @@
             <span>更新时间</span>
             <span>{{articleInfo.updateTime}}</span>
             &nbsp;&nbsp;
-            <span>访问</span>
+            <span>浏览</span>
             <span>{{articleInfo.visitNum}}</span>
             &nbsp;&nbsp;
-            <span>点赞</span>&nbsp;
-            <span>{{articleInfo.likeNum}}</span>
 
           </div>
 
@@ -39,9 +37,17 @@
         <slot name="page-top" />
       </template>
 
+      <slot name="page-bottom" />
+
       <template #bottom>
-        <slot name="page-bottom" />
-        <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
+        <div class="page_article_visit_tail">
+          <img src="/assets/img/view/visit.png" alt="">
+          &nbsp;
+          {{articleInfo.visitNum}}
+        </div>
+        <div class="page_article_comment">
+          <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
+        </div>
       </template>
     </Page>
     <div class="page-right-index-sidebar" v-if="!$page.frontmatter.home">
@@ -179,6 +185,9 @@ export default {
       topButtonShowFlag: false,
       // 标识是否在滚动上滑动中
       returnTopScrollingFlag: false,
+      likeDoneImgUrl: '/assets/img/view/likeDone.png',
+      likeUndoImgUrl: '/assets/img/view/likeUndo.png',
+      curLikeDoneFlag: false,
       mouseEnterFocusDiv: "",
       idxList: [],
       articleInfo: {
@@ -245,10 +254,11 @@ export default {
     // 从首页跳转时，此页面 this.lastCurUrlPath 为 / 
     if (this.lastCurUrlPath.length > 0 && this.lastCurUrlPath !== this.curUrlPath) {
       this.initIndexList()
+      this.initGetLastUpdate()
+      this.initArticleVisitInfo()
     }
     this.lastCurUrlPath = this.curUrlPath
-    this.initGetLastUpdate()
-    this.initArticleVisitInfo()
+
     this.initGetPageNextLast()
   },
 
@@ -269,9 +279,21 @@ export default {
   },
 
   methods: {
+
+    // 点赞的逻辑获取
+    clickDoLike () {
+      // 如果点过赞
+      if (this.curLikeDoneFlag) {
+        this.curLikeDoneFlag = false;
+        this.articleInfo.likeNum--;
+      } else {
+        this.curLikeDoneFlag = true;
+        this.initArticleVisitInfo.likeNum++;
+      }
+    },
     // 请求文章的访问信息
     async initArticleVisitInfo () {
-      // console.log("initArticleVisitInfo statrt:");
+      console.log("initArticleVisitInfo statrt:");
       let param = new URLSearchParams()
       param.append('url', this.curUrlPath)
       const { data: res } = await axios({

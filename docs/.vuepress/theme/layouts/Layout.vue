@@ -23,8 +23,16 @@
           <div class="page_content_title">{{$page.title}}</div>
           <div class="page_content_visit">
             <!-- 文章的访问信息 和相关信息 -->
-            <ArticleVisit :articleInfo="articleInfo">
-            </ArticleVisit>
+
+            <span>更新时间</span>
+            <span>{{articleInfo.updateTime}}</span>
+            &nbsp;&nbsp;
+            <span>访问</span>
+            <span>{{articleInfo.visitNum}}</span>
+            &nbsp;&nbsp;
+            <span>点赞</span>&nbsp;
+            <span>{{articleInfo.likeNum}}</span>
+
           </div>
 
         </div>
@@ -138,6 +146,7 @@ import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import { resolveSidebarItems } from '../util'
+import axios from 'axios'
 
 export default {
   name: 'Layout',
@@ -165,6 +174,8 @@ export default {
       pagePrevUrl: "",
       qrCodeApiPre: "https://api.qrserver.com/v1/create-qr-code/?data=",
       qrCodeApiUrl: "",
+      articleVisitUrl: "https://yijiyong.com/apiBlogStat/visitInfo", //线上环境
+      //articleVisitUrl: "http://localhost:8083/apiMallMobile/blogStat/visitInfo", //开发环境
       topButtonShowFlag: false,
       // 标识是否在滚动上滑动中
       returnTopScrollingFlag: false,
@@ -237,6 +248,7 @@ export default {
     }
     this.lastCurUrlPath = this.curUrlPath
     this.initGetLastUpdate()
+    this.initArticleVisitInfo()
     this.initGetPageNextLast()
   },
 
@@ -248,6 +260,7 @@ export default {
     this.initPath()
     this.initIndexList()
     this.initGetLastUpdate()
+    this.initArticleVisitInfo()
     this.initGetPageNextLast()
     window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
     this.$router.afterEach(() => {
@@ -256,6 +269,24 @@ export default {
   },
 
   methods: {
+    // 请求文章的访问信息
+    async initArticleVisitInfo () {
+      // console.log("initArticleVisitInfo statrt:");
+      let param = new URLSearchParams()
+      param.append('url', this.curUrlPath)
+      const { data: res } = await axios({
+        method: 'post',
+        url: this.articleVisitUrl,
+        data: param
+      });
+      console.log(res)
+      if (!res.success) {
+        console.fail('initArticleVisitInfo fail')
+        return
+      }
+      this.articleInfo.visitNum = res.data.vNum;
+      this.articleInfo.likeNum = res.data.lNum;
+    },
     // 索引的结构 树形结构的 数据构造
     initIndexList () {
       if (this.lastCurUrlPath === this.curUrlPath) {

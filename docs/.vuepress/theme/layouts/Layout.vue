@@ -180,8 +180,8 @@ export default {
       pagePrevUrl: "",
       qrCodeApiPre: "https://api.qrserver.com/v1/create-qr-code/?data=",
       qrCodeApiUrl: "",
-      //articleVisitUrl: "https://yijiyong.com/apiBlogStat/visitInfo", //线上环境
-      articleVisitUrl: "http://localhost:8083/apiMallMobile/blogStat/visitInfo", //开发环境
+      articleVisitUrl: "https://yijiyong.com/apiBlogStat/visitInfo", //线上环境
+      //articleVisitUrl: "http://localhost:8083/apiMallMobile/blogStat/visitInfo", //开发环境
       topButtonShowFlag: false,
       // 标识是否在滚动上滑动中
       returnTopScrollingFlag: false,

@@ -7,7 +7,7 @@ module.exports = {
   '@vuepress/last-updated': {
     transformer: (timestamp) => {
       // 不要忘了安装 moment
-      return moment(timestamp).format("L")
+      return moment(timestamp).format('YYYY-MM-DD HH:mm:ss')
     }
   },
   '@vssue/vuepress-plugin-vssue': {

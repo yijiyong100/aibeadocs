@@ -180,8 +180,8 @@ export default {
       pagePrevUrl: "",
       qrCodeApiPre: "https://api.qrserver.com/v1/create-qr-code/?data=",
       qrCodeApiUrl: "",
-      articleVisitUrl: "https://yijiyong.com/apiBlogStat/visitInfo", //线上环境
-      //articleVisitUrl: "http://localhost:8083/apiMallMobile/blogStat/visitInfo", //开发环境
+      //articleVisitUrl: "https://yijiyong.com/apiBlogStat/visitInfo", //线上环境
+      articleVisitUrl: "http://localhost:8083/apiMallMobile/blogStat/visitInfo", //开发环境
       topButtonShowFlag: false,
       // 标识是否在滚动上滑动中
       returnTopScrollingFlag: false,
@@ -279,23 +279,13 @@ export default {
   },
 
   methods: {
-
-    // 点赞的逻辑获取
-    clickDoLike () {
-      // 如果点过赞
-      if (this.curLikeDoneFlag) {
-        this.curLikeDoneFlag = false;
-        this.articleInfo.likeNum--;
-      } else {
-        this.curLikeDoneFlag = true;
-        this.initArticleVisitInfo.likeNum++;
-      }
-    },
     // 请求文章的访问信息
     async initArticleVisitInfo () {
       console.log("initArticleVisitInfo statrt:");
       let param = new URLSearchParams()
       param.append('url', this.curUrlPath)
+      param.append('updateTime', this.articleInfo.updateTime)
+      param.append('blogTitle', this.$page.title)
       const { data: res } = await axios({
         method: 'post',
         url: this.articleVisitUrl,

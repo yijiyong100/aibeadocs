@@ -2,7 +2,6 @@
 title: Java集合类 Set
 ---
 
-## Java基础知识篇【集合类 Set】
 
 ::: tip
 本文主要是介绍 集合类 Set 。Set集合中包含了三个比较重要的实现类:HashSet、TreeSet和EnumSet。本篇文章将重点介绍这三个类。

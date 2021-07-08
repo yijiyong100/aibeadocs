@@ -2,7 +2,6 @@
 title: File类介绍
 ---
 
-## Java基础知识篇【Java File类介绍】
 
 ::: tip
 本文主要是介绍 Java File类介绍 。

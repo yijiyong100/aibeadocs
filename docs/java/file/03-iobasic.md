@@ -2,7 +2,6 @@
 title: IO流输入输出操作
 ---
 
-## Java基础知识篇【Java IO输入输出操作】
 
 ::: tip
 本文主要是介绍 Java IO 输入输出操作 。

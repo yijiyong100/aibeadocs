@@ -2,7 +2,6 @@
 title: IO流编程入门
 ---
 
-## Java基础知识篇【Java IO流编程入门】
 
 ::: tip
 本文主要是介绍 Java IO 概述,Java中的IO接口是程序用来进行数据输入输出的接口 。

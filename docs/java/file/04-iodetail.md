@@ -2,7 +2,6 @@
 title: IO流详解
 ---
 
-## Java基础知识篇【Java IO流详解】
 
 ::: tip
 本文主要是介绍 Java IO流详解，详细的讲解的关于IO的常用场景 。

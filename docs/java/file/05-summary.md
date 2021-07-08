@@ -2,7 +2,6 @@
 title: IO流精华总结
 ---
 
-## Java基础知识篇【Java IO流精华总结】
 
 ::: tip
 本文主要是介绍 Java IO流精华总结 。

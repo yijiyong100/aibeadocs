@@ -2,7 +2,6 @@
 title: JUC-ConcurrentHashMap扩容
 ---
 
-## Java高级知识篇【JUC-集合-ConcurrentHashMap扩容】
 
 ::: tip
 本文主要是介绍 JUC-集合-ConcurrentHashMap扩容 。

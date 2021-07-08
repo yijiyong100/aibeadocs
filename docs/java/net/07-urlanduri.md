@@ -2,7 +2,6 @@
 title: 网络编程-URI和URL
 ---
 
-## Java基础知识篇【Java网络编程-URI和URL】
 
 ::: tip
 本文主要是介绍 Java网络编程-URI和URL 。

@@ -2,7 +2,6 @@
 title: List原理和总结
 ---
 
-## Java基础知识篇【List原理和总结】
 
 ::: tip
 本文主要是介绍 List原理和总结 。

@@ -2,7 +2,6 @@
 title: Java集合类 Queue
 ---
 
-## Java基础知识篇【集合类 Queue】
 
 ::: tip
 本文主要是介绍 集合类 Queue,集合Queue中的内容就比较少了。主要是针对队列这种数据结构的使用来介绍Queue中的实现类 。

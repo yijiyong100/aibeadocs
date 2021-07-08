@@ -2,7 +2,6 @@
 title: JUC-执行器-Fork/Join原理
 ---
 
-## Java高级知识篇【JUC-执行器-Fork/Join原理】
 
 ::: tip
 本文主要是介绍 JUC-执行器-Fork/Join原理 。

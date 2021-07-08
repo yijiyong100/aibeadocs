@@ -2,7 +2,6 @@
 title: Java正则表达式
 ---
 
-## Java基础知识篇【Java正则表达式】
 
 ::: tip
 本文主要是介绍 Java正则表达式 。

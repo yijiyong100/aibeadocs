@@ -2,7 +2,6 @@
 title: JUC-同步器-AQS框架原理
 ---
 
-## Java高级知识篇【JUC-同步器-AQS框架原理翻译】
 
 ::: tip
 本文主要是介绍 JUC-同步器-AQS框架原理翻译 。

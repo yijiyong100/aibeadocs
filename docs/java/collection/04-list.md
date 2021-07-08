@@ -2,7 +2,6 @@
 title: Java集合类 List
 ---
 
-## Java基础知识篇【集合类 List】
 
 ::: tip
 本文主要是介绍 集合类 List ,Collection接口增加的一些重要功能以及List集合的两个重要子类ArrayList及LinkedList。。

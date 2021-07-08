@@ -2,7 +2,6 @@
 title: Java集合类 Map
 ---
 
-## Java基础知识篇【集合类 Map】
 
 ::: tip
 本文主要是介绍 集合类 Map ,Map接口下的两个重要的集合实现类HashMap,TreeMap 。

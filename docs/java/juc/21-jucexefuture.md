@@ -2,7 +2,6 @@
 title: JUC-执行器-Future 模式
 ---
 
-## Java高级知识篇【JUC-执行器-Future 模式】
 
 ::: tip
 本文主要是介绍 JUC-执行器-Future 模式 。

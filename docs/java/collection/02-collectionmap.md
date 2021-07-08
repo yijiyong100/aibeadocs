@@ -2,7 +2,6 @@
 title: 集合接口Collction、Map
 ---
 
-## Java基础知识篇【集合框架 Collction、Map】
 
 ::: tip
 本文主要是介绍 集合框架 Collction、Map 。

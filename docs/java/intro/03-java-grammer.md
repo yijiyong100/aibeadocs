@@ -2,7 +2,6 @@
 title: Java基础语法
 ---
 
-## Java基础知识篇【Java基础语法】
 
 ::: tip
 本文主要是介绍Java 基础语法 。

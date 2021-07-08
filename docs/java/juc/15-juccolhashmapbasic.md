@@ -2,7 +2,6 @@
 title: JUC-ConcurrentHashMap原理
 ---
 
-## Java高级知识篇【JUC集合-ConcurrentHashMap原理】
 
 ::: tip
 本文主要是介绍 JUC-集合-ConcurrentHashMap原理 。

@@ -2,7 +2,6 @@
 title: OSI七层模型和TCP/IP
 ---
 
-## OSI七层模型和TCP/IP
 
 ::: tip
 本文主要是介绍 OSI七层模型和TCP/IP，相关的基础知识内容 。

@@ -54,9 +54,10 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: '数据库基础', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: '数据库绪论', link: '/db/intro/01-intro.md' },
+            { text: '关系数据库', link: '/db/intro/02-relationdb.md' }
           ]
       }
     ]

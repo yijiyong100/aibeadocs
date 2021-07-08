@@ -151,6 +151,22 @@ module.exports = {
         ]
       }
     ],
+  "/db/": [
+    {
+      title: '数据库基础',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/db/intro/01-intro.md',
+        '/db/intro/02-relationdb.md',
+        '/db/intro/03-sqlintro.md',
+        '/db/intro/04-security.md',
+        '/db/intro/05-commplete.md',
+        '/db/intro/06-dbtheory.md',
+        '/db/intro/07-dbdesign.md',
+      ]
+    }
+  ],
   "/building/": [
     {
       title: '完善中',   // 必要的

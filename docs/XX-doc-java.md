@@ -2,8 +2,6 @@
 title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 ---
 
-## Java高级知识篇【XXXXXXXXXXXXXXXXXXXXXXXXXX】
-
 ::: tip
 本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
 :::
@@ -11,7 +9,7 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 [[toc]]
 
 ## 【----------------------------】
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/juc/intro-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/db/intro/intro-01.png')" alt="wxmp">
 
 
 

@@ -21,7 +21,7 @@
 
         <div class="page_article_title_info">
           <div class="page_content_title">{{$page.title}}</div>
-          <div class="page_content_visit">
+          <div v-show="articleInfo.updateTime.length > 0" class="page_content_visit">
             <!-- 文章的访问信息 和相关信息 -->
 
             <span>更新时间</span>
@@ -46,7 +46,9 @@
           {{articleInfo.visitNum}}
         </div>
         <div class="page_article_comment">
-          <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
+          <!-- 暂时页面不开启评论   
+            <Vssue class="theme-default-content content__default" style="max-width:1080px" :options="{ locale: 'zh' }" />
+          -->
         </div>
       </template>
     </Page>

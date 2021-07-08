@@ -268,11 +268,15 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
   },
 
+  created () {
+    this.initPath();
+    this.initArticleVisitInfo();
+  },
+
   mounted () {
     this.initPath()
     this.initIndexList()
     this.initGetLastUpdate()
-    this.initArticleVisitInfo()
     this.initGetPageNextLast()
     window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
     this.$router.afterEach(() => {

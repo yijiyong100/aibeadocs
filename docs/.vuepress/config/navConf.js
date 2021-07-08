@@ -56,8 +56,15 @@ module.exports = [
       {
         text: '数据库基础', items:
           [
-            { text: '数据库绪论', link: '/db/intro/01-intro.md' },
-            { text: '关系数据库', link: '/db/intro/02-relationdb.md' }
+            { text: '数据库绪论', link: '/db/intro/01-intro' },
+            { text: '关系数据库', link: '/db/intro/02-relationdb' }
+          ]
+      },
+      {
+        text: '基础常用SQL', items:
+          [
+            { text: '基本查询', link: '/db/comsql/01-basicselect' },
+            { text: '连表查询', link: '/db/comsql/02-joinselect' }
           ]
       }
     ]

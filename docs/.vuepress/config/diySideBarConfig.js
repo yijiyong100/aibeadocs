@@ -157,13 +157,27 @@ module.exports = {
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
-        '/db/intro/01-intro.md',
-        '/db/intro/02-relationdb.md',
-        '/db/intro/03-sqlintro.md',
-        '/db/intro/04-security.md',
-        '/db/intro/05-commplete.md',
-        '/db/intro/06-dbtheory.md',
-        '/db/intro/07-dbdesign.md',
+        '/db/intro/01-intro',
+        '/db/intro/02-relationdb',
+        '/db/intro/03-sqlintro',
+        '/db/intro/04-security',
+        '/db/intro/05-commplete',
+        '/db/intro/06-dbtheory',
+        '/db/intro/07-dbdesign',
+      ]
+    },
+    {
+      title: '基础常用SQL',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/db/comsql/01-basicselect',
+        '/db/comsql/02-joinselect',
+        '/db/comsql/03-otherselect',
+        '/db/comsql/04-editsql',
+        '/db/comsql/05-procedure',
+        '/db/comsql/06-trigger',
+        '/db/comsql/07-sumcase',
       ]
     }
   ],

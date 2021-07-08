@@ -21,14 +21,14 @@
 
         <div class="page_article_title_info">
           <div class="page_content_title">{{$page.title}}</div>
-          <div v-show="articleInfo.updateTime.length > 0" class="page_content_visit">
+          <div class="page_content_visit">
             <!-- 文章的访问信息 和相关信息 -->
 
             <span>更新时间</span>
-            <span>{{articleInfo.updateTime}}</span>
+            <span v-show="articleInfo.updateTime.length > 0">{{articleInfo.updateTime}}</span>
             &nbsp;&nbsp;
             <span>浏览</span>
-            <span>{{articleInfo.visitNum}}</span>
+            <span v-show="articleInfo.updateTime.length > 0">{{articleInfo.visitNum}}</span>
             &nbsp;&nbsp;
 
           </div>

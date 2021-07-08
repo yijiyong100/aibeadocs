@@ -19,7 +19,7 @@
     <Page v-else :sidebar-items="sidebarItems" class="page-content-spec" :class="[!isLeftSiderOpen?'page_left_bar_hidden':'']">
       <template #top>
 
-        <div v-if="articleInfo.updateTime.length > 0" class="page_article_title_info">
+        <div class="page_article_title_info">
           <div class="page_content_title">{{$page.title}}</div>
           <div class="page_content_visit">
             <!-- 文章的访问信息 和相关信息 -->
@@ -281,7 +281,7 @@ export default {
   methods: {
     // 请求文章的访问信息
     async initArticleVisitInfo () {
-      console.log("initArticleVisitInfo statrt:");
+      // console.log("initArticleVisitInfo statrt:");
       let param = new URLSearchParams()
       param.append('url', this.curUrlPath)
       param.append('updateTime', this.articleInfo.updateTime)
@@ -291,7 +291,7 @@ export default {
         url: this.articleVisitUrl,
         data: param
       });
-      console.log(res)
+      // console.log(res)
       if (!res.success) {
         console.fail('initArticleVisitInfo fail')
         return

@@ -157,7 +157,7 @@ module.exports = {
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
-        '/db/intro/01-intro.md',
+        '/db/intro/01-intro.html',
         '/db/intro/02-relationdb',
         '/db/intro/03-sqlintro',
         '/db/intro/04-security',

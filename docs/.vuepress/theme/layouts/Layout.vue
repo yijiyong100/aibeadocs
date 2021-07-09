@@ -250,21 +250,24 @@ export default {
   },
 
   updated () {
-    this.initPath()
-    // console.log("this.lastCurUrlPath:" + this.lastCurUrlPath)
-    // 首次加载的时候，updated时候不更新 list
-    // 从首页跳转时，此页面 this.lastCurUrlPath 为 / 
-    if (this.lastCurUrlPath.length > 0 && this.lastCurUrlPath !== this.curUrlPath) {
-      this.initIndexList()
-      this.initGetLastUpdate()
-      this.initArticleVisitInfo('updated')
-    }
-    this.lastCurUrlPath = this.curUrlPath
-    this.initGetPageNextLast()
-    // 多次执行时休息200毫秒 
+    // 延迟 20毫秒
     setTimeout(() => {
-      // donothing
-    }, 200);
+      this.initPath()
+      // console.log("this.lastCurUrlPath:" + this.lastCurUrlPath)
+      // 首次加载的时候，updated时候不更新 list
+      // 从首页跳转时，此页面 this.lastCurUrlPath 为 / 
+      if (this.lastCurUrlPath.length > 0 && this.lastCurUrlPath !== this.curUrlPath) {
+        this.initIndexList()
+        this.initGetLastUpdate()
+        this.initArticleVisitInfo('updated')
+      }
+      this.lastCurUrlPath = this.curUrlPath
+      this.initGetPageNextLast()
+      // 多次执行时休息200毫秒 
+      setTimeout(() => {
+        // donothing
+      }, 200);
+    }, 20);
 
   },
 
@@ -273,15 +276,18 @@ export default {
   },
 
   mounted () {
-    this.initPath()
-    this.initGetLastUpdate()
-    this.initIndexList()
-    this.initArticleVisitInfo('mounted')
-    this.initGetPageNextLast()
-    window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
-    this.$router.afterEach(() => {
-      this.isSidebarOpen = false
-    })
+    // 延迟 20毫秒
+    setTimeout(() => {
+      this.initPath()
+      this.initGetLastUpdate()
+      this.initIndexList()
+      this.initArticleVisitInfo('mounted')
+      this.initGetPageNextLast()
+      window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
+      this.$router.afterEach(() => {
+        this.isSidebarOpen = false
+      })
+    }, 20);
   },
 
   methods: {

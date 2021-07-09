@@ -257,7 +257,7 @@ export default {
     if (this.lastCurUrlPath.length > 0 && this.lastCurUrlPath !== this.curUrlPath) {
       this.initIndexList()
       this.initGetLastUpdate()
-      this.initArticleVisitInfo()
+      this.initArticleVisitInfo('updated')
     }
     this.lastCurUrlPath = this.curUrlPath
     this.initGetPageNextLast()
@@ -276,7 +276,7 @@ export default {
     this.initPath()
     this.initGetLastUpdate()
     this.initIndexList()
-    this.initArticleVisitInfo()
+    this.initArticleVisitInfo('mounted')
     this.initGetPageNextLast()
     window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
     this.$router.afterEach(() => {
@@ -286,8 +286,9 @@ export default {
 
   methods: {
     // 请求文章的访问信息
-    async initArticleVisitInfo () {
-      // console.log("initArticleVisitInfo statrt:");
+    async initArticleVisitInfo (postion) {
+      console.log("initArticleVisitInfo statrt:" + postion);
+      console.log("this.lastCurUrlPath:" + this.lastCurUrlPath + ",this.curUrlPath:" + this.curUrlPath)
       // 更新时只执行一次
       if (this.lastCurUrlPath === this.curUrlPath) {
         return;

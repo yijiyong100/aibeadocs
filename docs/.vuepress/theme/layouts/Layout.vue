@@ -25,10 +25,10 @@
             <!-- 文章的访问信息 和相关信息 -->
 
             <span>更新时间</span>
-            <span v-show="articleInfo.updateTime.length > 0">{{articleInfo.updateTime}}</span>
+            <span v-if="articleInfo.updateTime.length > 0">{{articleInfo.updateTime}}</span>
             &nbsp;&nbsp;
             <span>浏览</span>
-            <span v-show="articleInfo.updateTime.length > 0">{{articleInfo.visitNum}}</span>
+            <span v-if="articleInfo.updateTime.length > 0">{{articleInfo.visitNum}}</span>
             &nbsp;&nbsp;
 
           </div>

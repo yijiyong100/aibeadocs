@@ -67,6 +67,14 @@ module.exports = [
             { text: '连表查询', link: '/db/comsql/02-joinselect.html' }
           ]
       }
+      ,
+      {
+        text: 'MySQL基础', items:
+          [
+            { text: '入门介绍', link: '/db/mysqlbasic/01-intro' },
+            { text: '存储引擎', link: '/db/mysqlbasic/02-storageengine' }
+          ]
+      }
     ]
   },
   {

@@ -164,6 +164,7 @@ module.exports = {
         '/db/intro/05-commplete',
         '/db/intro/06-dbtheory',
         '/db/intro/07-dbdesign',
+        '/db/intro/08-dbthreepara',
       ]
     },
     {
@@ -178,6 +179,19 @@ module.exports = {
         '/db/comsql/05-procedure',
         '/db/comsql/06-trigger',
         '/db/comsql/07-sumcase',
+      ]
+    },
+    {
+      title: 'MySQL基础知识',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/db/mysqlbasic/01-intro',
+        '/db/mysqlbasic/02-storageengine',
+        '/db/mysqlbasic/03-mysqlindex',
+        '/db/mysqlbasic/04-mysqltransaction',
+        '/db/mysqlbasic/05-mysqllock',
+        '/db/mysqlbasic/06-mysqlsummary',
       ]
     }
   ],

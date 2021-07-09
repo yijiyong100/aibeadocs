@@ -250,24 +250,21 @@ export default {
   },
 
   updated () {
-    // 延迟 20毫秒
+    this.initPath()
+    // console.log("this.lastCurUrlPath:" + this.lastCurUrlPath)
+    // 首次加载的时候，updated时候不更新 list
+    // 从首页跳转时，此页面 this.lastCurUrlPath 为 / 
+    if (this.lastCurUrlPath.length > 0 && this.lastCurUrlPath !== this.curUrlPath) {
+      this.initIndexList()
+      this.initGetLastUpdate()
+      this.initArticleVisitInfo('updated')
+    }
+    this.lastCurUrlPath = this.curUrlPath
+    this.initGetPageNextLast()
+    // 多次执行时休息200毫秒 
     setTimeout(() => {
-      this.initPath()
-      // console.log("this.lastCurUrlPath:" + this.lastCurUrlPath)
-      // 首次加载的时候，updated时候不更新 list
-      // 从首页跳转时，此页面 this.lastCurUrlPath 为 / 
-      if (this.lastCurUrlPath.length > 0 && this.lastCurUrlPath !== this.curUrlPath) {
-        this.initIndexList()
-        this.initGetLastUpdate()
-        this.initArticleVisitInfo('updated')
-      }
-      this.lastCurUrlPath = this.curUrlPath
-      this.initGetPageNextLast()
-      // 多次执行时休息200毫秒 
-      setTimeout(() => {
-        // donothing
-      }, 200);
-    }, 20);
+      // donothing
+    }, 200);
 
   },
 
@@ -276,25 +273,22 @@ export default {
   },
 
   mounted () {
-    // 延迟 20毫秒
-    setTimeout(() => {
-      this.initPath()
-      this.initGetLastUpdate()
-      this.initIndexList()
-      this.initArticleVisitInfo('mounted')
-      this.initGetPageNextLast()
-      window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
-      this.$router.afterEach(() => {
-        this.isSidebarOpen = false
-      })
-    }, 20);
+    this.initPath()
+    this.initGetLastUpdate()
+    this.initIndexList()
+    this.initArticleVisitInfo('mounted')
+    this.initGetPageNextLast()
+    window.addEventListener('scroll', this.handleScroll, true);  // 监听（绑定）滚轮滚动事件
+    this.$router.afterEach(() => {
+      this.isSidebarOpen = false
+    })
   },
 
   methods: {
     // 请求文章的访问信息
     async initArticleVisitInfo (postion) {
-      console.log("initArticleVisitInfo statrt:" + postion);
-      console.log("this.lastCurUrlPath:" + this.lastCurUrlPath + ",this.curUrlPath:" + this.curUrlPath)
+      // console.log("initArticleVisitInfo statrt:" + postion);
+      // console.log("this.lastCurUrlPath:" + this.lastCurUrlPath + ",this.curUrlPath:" + this.curUrlPath)
       // 更新时只执行一次
       if (this.lastCurUrlPath === this.curUrlPath) {
         return;

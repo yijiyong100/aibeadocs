@@ -260,8 +260,12 @@ export default {
       this.initArticleVisitInfo()
     }
     this.lastCurUrlPath = this.curUrlPath
-
     this.initGetPageNextLast()
+    // 多次执行时休息200毫秒 
+    setTimeout(() => {
+      // donothing
+    }, 200);
+
   },
 
   destroyed () {
@@ -284,6 +288,10 @@ export default {
     // 请求文章的访问信息
     async initArticleVisitInfo () {
       // console.log("initArticleVisitInfo statrt:");
+      // 更新时只执行一次
+      if (this.lastCurUrlPath === this.curUrlPath) {
+        return;
+      }
       let param = new URLSearchParams()
       param.append('url', this.curUrlPath)
       param.append('updateTime', this.articleInfo.updateTime)
@@ -432,6 +440,10 @@ export default {
       this.qrCodeApiUrl = this.qrCodeApiPre + this.curAllUrlPath
     },
     initGetLastUpdate () {
+      // 更新时只执行一次
+      if (this.lastCurUrlPath === this.curUrlPath) {
+        return;
+      }
       var updateInfo = document.getElementsByClassName('last-updated');
       if (updateInfo.length > 0) {
         var updateNode = updateInfo[0];

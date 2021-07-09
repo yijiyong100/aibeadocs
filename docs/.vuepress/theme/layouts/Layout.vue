@@ -94,7 +94,7 @@
         <img src="/assets/img/toolbar/fullscreen.png" class="tool_bar_img_icon" />
         <div>全屏</div>
       </div>
-      <div v-show="this.pagePrevUrl.length > 0">
+      <div v-if="this.pagePrevUrl.length > 0">
         <router-link :to="this.pagePrevUrl">
           <div class="tool_bar_div">
             <img src="/assets/img/toolbar/prev.png" class="tool_bar_img_icon" />
@@ -102,7 +102,7 @@
           </div>
         </router-link>
       </div>
-      <div v-show="this.pageNextUrl.length > 0">
+      <div v-if="this.pageNextUrl.length > 0">
         <router-link :to="this.pageNextUrl">
           <div class="tool_bar_div">
             <img src="/assets/img/toolbar/next.png" class="tool_bar_img_icon" />
@@ -119,19 +119,19 @@
       <h5>可分享给好友和朋友圈</h5>
     </div>
 
-    <div id="wxmpDiv" v-show="this.mouseEnterFocusDiv === 'wxmpDiv'" class="toolbar_wxmp_active">
+    <div id="wxmpDiv" v-if="this.mouseEnterFocusDiv === 'wxmpDiv'" class="toolbar_wxmp_active">
       <div class="toolbar_head_tile">扫描关注公众号，回复"资料"，下载相关图书和资料</div>
       <img src="/assets/img/wx/wxmp.jpg" class="img-wx-mp" />
       <h5>公众号:智能后端和架构</h5>
     </div>
 
-    <div id="coummpDiv" v-show="this.mouseEnterFocusDiv === 'coummpDiv'" class="toolbar_communication_active">
+    <div id="coummpDiv" v-if="this.mouseEnterFocusDiv === 'coummpDiv'" class="toolbar_communication_active">
       <div class="toolbar_head_tile">QQ群:569556849 <br />问题咨询和技术交流</div>
       <img src="/assets/img/qq/qqgroup.png" class="img-wx-mp" />
       <h5>PS 备注:智能后端和架构</h5>
     </div>
 
-    <div class="topDivImg" v-show="topButtonShowFlag" @click="onClickReturnTop">
+    <div class="topDivImg" v-if="topButtonShowFlag" @click="onClickReturnTop">
       <img src="/assets/img/toolbar/top.png" class="tool_top_img_icon" />
     </div>
 

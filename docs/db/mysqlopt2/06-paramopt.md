@@ -1,5 +1,5 @@
 ---
-title: 参数配置优化
+title: 配置和硬件优化
 ---
 
 ::: tip
@@ -211,6 +211,74 @@ thread_concurrency应设为CPU核数的2倍.
 show variables like 'thread_concurrency';
 
 
+## 三、硬件优化
+### 1.修改服务器BIOS设置
+
+       1）、选择PerformancePerWattOptimized（DAPC）模式，发挥CPU最大性能
+    
+       2）、MemoryFrequency（内存频率）选择MaxIMUNPerformce(最佳性能)
+    
+       3）、内存设置菜单中，启用Node Interleaving，避免NUMA问题
+
+
+​    
+
+### 2.磁盘I/O相关
+    
+      1）、使用SSD硬盘
+    
+      2）、如果是磁盘阵列存储，建议阵列卡同时配备CACHE及BBU模块，可明显提升IOPS。
+    
+      3）、Raid级别尽量选择raid10，而不是raid5
+
+ 
+
+
+### 3.文件系统层优化
+    
+    1）、使用deadline/noop这两种I/O调度器，千万别用cfg；
+    
+    2）、使用xfs文件系统，千万别用ext3；ext4勉强可用，但业务量很大的话，则一定要用xfs；
+    
+    3）、文件系统mount参数中增加：noatime,nodiratime,nobarrier几个选项(nobarrier是xfs文件系统特有的)
+
+ 
+
+
+### 4.内核参数优化
+    
+      1）、修改vm.swappiness参数，降低swap使用率。RHEL7、centos以上则慎重设置为0，可能发生OOM
+    
+      2)、调整vm.dirty_background_ratio（一般设置10%）,vm.dirty_ratio（一般设置5%）内核参数，以确保能持续将脏数据刷线到磁盘，避免瞬间I/O写。产生等待。
+    
+      3）、调整net.ipv4.tcp_tw_recycle、net.ipv4.tcp_tw_reuse都设置为1，减少TIME_WAIT，提高TCP效率
+
+ 
+
+
+###  5、MySQL参数优化建议
+    
+    1）、建议设置defaults-storage-engine=InnoDB，强烈建议不要再使用MyISAM引擎
+    
+    2）、调整innodb_buffer_pool_size的大小，如果是单实例切绝大多数是InnoDB引擎表的话，可以考虑设置为屋里内存的50%-70%左右
+    
+    3）、设置innode_file_per_table=1，使用独立表空间
+    
+    4）、调整innode_data_file_path=ibdata1:1G:autoextend，不要使用默认的10M，在高并发场景下，性能会有很大的提升。
+    
+    5）、设置innodb_log_file_size=256M，设置innodb_log_files_in_group=2，基本可以满足大多数应用场景
+    
+    6）、调整max_connection（最大连接数）、max_ connection _error(最大错误数)设置,根据业务最大小进行设置
+    
+    7）、另外,open_files_limit、innodb_open-files、table_open_cache、table_definition_cache可以设置大约为max_connection的10倍左右。
+    
+    8）、Key_buffer_size建议调小，32M左右即可，另外建议关闭query cache。
+    
+    9）、Mp_table_size和max_heap_table_size设置不要过大，另外sort_buffer_size、join_buffer_size、read_buffer_size、read_rnd_buffer_size等设置也不要过大。
+
+ 
+
 ## 参考文章
 * https://www.cnblogs.com/shoshana-kong/p/10517396.html
 * https://www.cnblogs.com/brant/p/10955508.html
+* https://blog.csdn.net/czz1141979570/article/details/94737556

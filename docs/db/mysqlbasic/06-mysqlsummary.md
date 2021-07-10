@@ -97,7 +97,7 @@ SET default_storage_engine=NDBCLUSTER;
 
 默认情况下，每当 CREATE TABLE 或 ALTER TABLE 不能使用默认存储引擎时，都会生成一个警告。为了防止在所需的引擎不可用时出现令人困惑的意外行为，可以启用 NO_ENGINE_SUBSTITUTION SQL 模式。如果所需的引擎不可用，则此设置将产生错误而不是警告，并且不会创建或更改表
 
-### 存储引擎对比
+### 存储引擎比较
 
 常见的存储引擎就 InnoDB、MyISAM、Memory、NDB。
 

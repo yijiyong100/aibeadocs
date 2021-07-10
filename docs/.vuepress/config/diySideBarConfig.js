@@ -193,6 +193,32 @@ module.exports = {
         '/db/mysqlbasic/05-mysqllock',
         '/db/mysqlbasic/06-mysqlsummary',
       ]
+    },
+    {
+      title: 'MySQL性能优化(一)',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/db/mysqlopt1/01-solutionsum',
+        '/db/mysqlopt1/02-idxdesignopt',
+        '/db/mysqlopt1/03-explainplan',
+        '/db/mysqlopt1/04-selectopt',
+        '/db/mysqlopt1/05-slowselect',
+        '/db/mysqlopt1/06-selectsummary',
+      ]
+    },
+    {
+      title: 'MySQL性能优化(二)',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/db/mysqlopt2/01-districtandtable',
+        '/db/mysqlopt2/02-masterslavecopyprin',
+        '/db/mysqlopt2/03-masterslavecopycase',
+        '/db/mysqlopt2/04-loadbalance',
+        '/db/mysqlopt2/05-readwritesepration',
+        '/db/mysqlopt2/06-paramopt',
+      ]
     }
   ],
   "/building/": [

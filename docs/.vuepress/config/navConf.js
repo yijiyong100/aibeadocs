@@ -75,6 +75,16 @@ module.exports = [
             { text: '存储引擎', link: '/db/mysqlbasic/02-storageengine' }
           ]
       }
+      ,
+      {
+        text: 'MySQL性能优化', items:
+          [
+            { text: '性能优化方案', link: '/db/mysqlopt1/01-solutionsum' },
+            { text: '查询优化总结', link: '/db/mysqlopt1/06-selectsummary' },
+            { text: '分区和分表', link: '/db/mysqlopt2/01-districtandtable' },
+            { text: '读写分离介绍', link: '/db/mysqlopt2/05-readwritesepration' }
+          ]
+      }
     ]
   },
   {

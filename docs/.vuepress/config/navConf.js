@@ -54,35 +54,29 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '数据库基础', items:
+        text: '数据库基础和SQL', items:
           [
             { text: '数据库绪论', link: '/db/intro/01-intro.html' },
-            { text: '关系数据库', link: '/db/intro/02-relationdb.html' }
-          ]
-      },
-      {
-        text: '基础常用SQL', items:
-          [
-            { text: '基本查询', link: '/db/comsql/01-basicselect.html' },
-            { text: '连表查询', link: '/db/comsql/02-joinselect.html' }
+            { text: '关系数据库', link: '/db/intro/02-relationdb.html' },
+            { text: '基本查询SQL', link: '/db/comsql/01-basicselect.html' },
+            { text: '连表查询SQL', link: '/db/comsql/02-joinselect.html' }
           ]
       }
       ,
       {
-        text: 'MySQL基础', items:
+        text: 'MySQL基础和优化', items:
           [
             { text: '入门介绍', link: '/db/mysqlbasic/01-intro' },
-            { text: '存储引擎', link: '/db/mysqlbasic/02-storageengine' }
+            { text: '性能优化方案', link: '/db/mysqlopt1/01-solutionsum' },
+            { text: '分区和分表', link: '/db/mysqlopt2/01-districtandtable' },
+            { text: '读写分离介绍', link: '/db/mysqlopt2/05-readwritesepration' }
           ]
       }
       ,
       {
-        text: 'MySQL性能优化', items:
+        text: 'NoSQL数据库', items:
           [
-            { text: '性能优化方案', link: '/db/mysqlopt1/01-solutionsum' },
-            { text: '查询优化总结', link: '/db/mysqlopt1/06-selectsummary' },
-            { text: '分区和分表', link: '/db/mysqlopt2/01-districtandtable' },
-            { text: '读写分离介绍', link: '/db/mysqlopt2/05-readwritesepration' }
+            { text: 'Redis介绍和总结', link: '/db/redis/01-intro' },
           ]
       }
     ]

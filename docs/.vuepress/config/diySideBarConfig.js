@@ -219,6 +219,19 @@ module.exports = {
         '/db/mysqlopt2/05-readwritesepration',
         '/db/mysqlopt2/06-paramopt',
       ]
+    },
+    {
+      title: 'Redis介绍和总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/db/redis/01-intro',
+        '/db/redis/02-install',
+        '/db/redis/03-optcmd',
+        '/db/redis/04-iomultiplexing',
+        '/db/redis/05-summary',
+        '/db/redis/06-coreknowledge',
+        '/db/redis/07-interviewknowledge',]
     }
   ],
   "/building/": [

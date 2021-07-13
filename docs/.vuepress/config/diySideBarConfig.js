@@ -187,6 +187,7 @@ module.exports = {
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/db/mysqlbasic/01-intro',
+        '/db/mysqlbasic/01.1-mysqlcmd',
         '/db/mysqlbasic/02-storageengine',
         '/db/mysqlbasic/03-mysqlindex',
         '/db/mysqlbasic/04-mysqltransaction',
@@ -229,8 +230,8 @@ module.exports = {
         '/db/redis/02-install',
         '/db/redis/03-optcmd',
         '/db/redis/04-iomultiplexing',
-        '/db/redis/05-summary',
-        '/db/redis/06-coreknowledge',
+        '/db/redis/05-coreknowledge',
+        '/db/redis/06-summary',
         '/db/redis/07-interviewknowledge',]
     }
   ],

@@ -71,6 +71,20 @@ title: MySQL-事务
   - SELECT ... FOR UPDATE
 - MySQL也支持LOCK TABLES和UNLOCK TABLES
 
+### mysql中事务包含两种启动方式
+显示启动事务语句，begin或者start transcation。配套的提交语句是commit，回滚语句为rollback。
+形如：
+		START TRANSACTION;
+		事务代码
+		commit;
+
+比如更新用户名：
+	    START TRANSACTION;
+		update t_user set username='jack' where id=1;
+		commit;
+
+set autocommit=0，这个命令会将这个线程的更新自动提交掉。这意味着如果你只执行一个select语句，这个事务就启动了，并且不会自动提交。这个事务持续存在知道你主动执行commit或rollback语句，或者链接断开。
+mysql中查看当前自动提交状态的命令为：show VARIABLES like 'autocommit'; 如下value为on代表是自动提交已经打开。
 
 ## 参考文章
 * https://www.cnblogs.com/bianjunting/p/14344244.html

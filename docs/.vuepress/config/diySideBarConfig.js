@@ -188,6 +188,7 @@ module.exports = {
       children: [
         '/db/mysqlbasic/01-intro',
         '/db/mysqlbasic/01.1-mysqlcmd',
+        '/db/mysqlbasic/01.2-mysqlfunction',
         '/db/mysqlbasic/02-storageengine',
         '/db/mysqlbasic/03-mysqlindex',
         '/db/mysqlbasic/04-mysqltransaction',

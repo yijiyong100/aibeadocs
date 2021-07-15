@@ -12,6 +12,7 @@ module.exports = {
           '/java/intro/04-java-classaobject',
           '/java/intro/05-java-process-op',
           '/java/intro/06-java-syscomclass',
+          '/java/intro/06.1-java-typeconvert',
           '/java/intro/07-java-regexp',
           '/java/intro/08-java-method',
         ]
@@ -41,6 +42,7 @@ module.exports = {
           '/java/collection/06-map',
           '/java/collection/07-listmapprinciple',
           '/java/collection/08-hashcollectionprin',
+          '/java/collection/08.1-listconvertarray',
           '/java/collection/09-collectionsummary'
         ]
       },

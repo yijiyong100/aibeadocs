@@ -86,9 +86,10 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: '基础概念总结', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: '数据结构基础概念', link: '/algorithm/basic/01-basicconcept' },
+            { text: '算法和数据结构介绍', link: '/algorithm/basic/02-intro' }
           ]
       }
     ]

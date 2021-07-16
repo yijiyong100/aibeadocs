@@ -237,7 +237,7 @@ ArrayDeque维护了两个变量，表示ArrayDeque的头和尾
 
  
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/queue-6.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/queue-5.png')" alt="wxmp">
 
  
 
@@ -273,7 +273,7 @@ public void addFirst(E e) {
 
  
 
-![img](https://upload-images.jianshu.io/upload_images/3985563-404dc26d024d7109.png)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/collection/queue-6.png')" alt="wxmp">
 
  
 

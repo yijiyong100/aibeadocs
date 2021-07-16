@@ -238,6 +238,60 @@ module.exports = {
         '/db/redis/07-interviewknowledge',]
     }
   ],
+  "/algorithm/": [
+    {
+      title: '数据结构和算法',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/algorithm/basic/01-basicconcept',
+        '/algorithm/basic/02-intro',
+        '/algorithm/basic/03-timespacecomplexity',
+        '/algorithm/basic/04-linetable',
+        '/algorithm/basic/05-stackandqueue',
+        '/algorithm/basic/06-treebasic',
+        '/algorithm/basic/07-binarysearchtree',
+        '/algorithm/basic/08-balancedbinarytree',
+        '/algorithm/basic/09-redblacktree',
+        '/algorithm/basic/10-huffmantree',
+      ]
+    },
+    {
+      title: '算法思想总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+      ]
+    },
+    {
+      title: '搜索算法',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+      ]
+    },
+    {
+      title: '排序算法',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+      ]
+    },
+    {
+      title: '字符串匹配算法',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+      ]
+    },
+    {
+      title: '加密解密算法',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+      ]
+    }
+  ],
   "/building/": [
     {
       title: '完善中',   // 必要的

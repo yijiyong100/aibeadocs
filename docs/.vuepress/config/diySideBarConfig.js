@@ -295,6 +295,10 @@ module.exports = {
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
+        '/algorithm/visual/01-commondy',
+        '/algorithm/visual/02-algorithmvisualizer',
+        '/algorithm/visual/03-usfcavisual',
+        '/algorithm/visual/04-visualgo',
       ]
     },
     {

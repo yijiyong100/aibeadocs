@@ -247,13 +247,54 @@ module.exports = {
         '/algorithm/basic/01-basicconcept',
         '/algorithm/basic/02-intro',
         '/algorithm/basic/03-timespacecomplexity',
+        '/algorithm/basic/03.1-summaryknowledge',
         '/algorithm/basic/04-linetable',
-        '/algorithm/basic/05-stackandqueue',
+        '/algorithm/basic/05-stackandqueue'
+      ]
+    },
+    {
+      title: '数据结构-【树】',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
         '/algorithm/basic/06-treebasic',
         '/algorithm/basic/07-binarysearchtree',
         '/algorithm/basic/08-balancedbinarytree',
         '/algorithm/basic/09-redblacktree',
+        '/algorithm/basic/09.1-btree',
+        '/algorithm/basic/09.2-bsubtracttree',
+        '/algorithm/basic/09.3-bplustree',
+        '/algorithm/basic/09.4-bplusaddtree',
         '/algorithm/basic/10-huffmantree',
+        '/algorithm/basic/10.1-heap',
+        '/algorithm/basic/10.2-treediff',
+      ]
+    },
+    {
+      title: '数据结构-【图】',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/algorithm/basic/11-mapintro',
+        '/algorithm/basic/12-mapstorage',
+        '/algorithm/basic/13-mapvisitbfs',
+        '/algorithm/basic/13-mapvisitdfs',
+        '/algorithm/basic/15-mapmstprim',
+        '/algorithm/basic/16-mapmstkruskal',
+        '/algorithm/basic/17-mapspdijkstra',
+        '/algorithm/basic/18-mapfloyd',
+        '/algorithm/basic/19-maptopologicalsort',
+        '/algorithm/basic/20-mapcriticalpath',
+        '/algorithm/basic/21-mapknowledgesum',
+        '/algorithm/basic/22-mapcodesum',
+        '/algorithm/basic/23-mapsummary',
+      ]
+    },
+    {
+      title: '算法动态展示',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
       ]
     },
     {

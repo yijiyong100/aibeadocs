@@ -1,9 +1,9 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: 图-最小生成树(Prim)算法
 ---
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 图-最小生成树(Prim) 算法。
 :::
 
 [[toc]]

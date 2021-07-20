@@ -317,11 +317,19 @@ module.exports = {
       ]
     },
     {
-      title: '搜索算法',   // 必要的
+      title: '查找算法',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
-      ]
+        '/algorithm/search/01-intro',
+        '/algorithm/search/02-sequentialsearch',
+        '/algorithm/search/03-binarysearch',
+        '/algorithm/search/04-interpolationsearch',
+        '/algorithm/search/05-fibonaccisearch',
+        '/algorithm/search/06-treetablesearch',
+        '/algorithm/search/07-blocksearch',
+        '/algorithm/search/08-hashsearch',
+        '/algorithm/search/09-astarsearch',]
     },
     {
       title: '排序算法',   // 必要的

@@ -100,6 +100,12 @@ module.exports = [
             { text: '八种常用算法思想', link: '/algorithm/thought/01-thoughts8intro' },
             { text: '五种基本算法思想', link: '/algorithm/thought/02-thoughts5intro', },
           ]
+      },
+      {
+        text: '常见算法总结', items:
+          [
+            { text: '常用查找算法-介绍', link: '/algorithm/search/01-intro' }
+          ]
       }
     ]
   },

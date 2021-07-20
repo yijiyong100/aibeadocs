@@ -306,6 +306,14 @@ module.exports = {
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
+        '/algorithm/thought/01-thoughts8intro',
+        '/algorithm/thought/02-thoughts5intro',
+        '/algorithm/thought/03-thoughts5detail',
+        '/algorithm/thought/04-divideandconquer',
+        '/algorithm/thought/05-dynamicprogramming',
+        '/algorithm/thought/06-greedyalgorithm-',
+        '/algorithm/thought/07-backtracking ',
+        '/algorithm/thought/08-branchandbound',
       ]
     },
     {

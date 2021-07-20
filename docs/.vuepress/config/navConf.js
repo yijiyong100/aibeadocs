@@ -89,7 +89,16 @@ module.exports = [
         text: '基础概念总结', items:
           [
             { text: '数据结构基础概念', link: '/algorithm/basic/01-basicconcept' },
-            { text: '算法和数据结构介绍', link: '/algorithm/basic/02-intro' }
+            { text: '算法和数据结构介绍', link: '/algorithm/basic/02-intro' },
+            { text: '常用算法动态展示', link: '/algorithm/visual/01-commondy' },
+            { text: 'visualgo-中文算法展示', link: '/algorithm/visual/04-visualgo' }
+          ]
+      },
+      {
+        text: '算法思想总结', items:
+          [
+            { text: '八种常用算法思想', link: '/algorithm/thought/01-thoughts8intro' },
+            { text: '五种基本算法思想', link: '/algorithm/thought/02-thoughts5intro', },
           ]
       }
     ]

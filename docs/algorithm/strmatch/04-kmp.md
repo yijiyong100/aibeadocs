@@ -151,6 +151,7 @@ int kmp(char *a,char *b)//匹配ab两串，a为父串
 
 ### 4、next数组 一个完整的代码：
 
+
 ``` cpp
 #include <iostream>
 #include <cstring>

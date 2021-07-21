@@ -354,6 +354,16 @@ module.exports = {
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
+        '/algorithm/strmatch/01-intro',
+        '/algorithm/strmatch/02-bf',
+        '/algorithm/strmatch/03-mp',
+        '/algorithm/strmatch/04-kmp',
+        '/algorithm/strmatch/05-bm',
+        '/algorithm/strmatch/06-bmh',
+        '/algorithm/strmatch/07-needlemanwunsch',
+        '/algorithm/strmatch/08-trie',
+        '/algorithm/strmatch/09-acautomatch',
+        '/algorithm/strmatch/10-rk',
       ]
     },
     {
@@ -361,6 +371,7 @@ module.exports = {
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
+        '/algorithm/encryption/01-intro'
       ]
     }
   ],

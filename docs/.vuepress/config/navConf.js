@@ -102,10 +102,12 @@ module.exports = [
           ]
       },
       {
-        text: '常见算法总结', items:
+        text: '常用算法总结', items:
           [
             { text: '常用查找算法-介绍', link: '/algorithm/search/01-intro' },
-            { text: '常用排序算法-介绍', link: '/algorithm/sort/01-intro' }
+            { text: '常用排序算法-介绍', link: '/algorithm/sort/01-intro' },
+            { text: '常用字符串匹配-介绍', link: '/algorithm/strmatch/01-intro' },
+            { text: '常用加密解密算法-介绍', link: '/algorithm/encryption/01-intro' }
           ]
       }
     ]

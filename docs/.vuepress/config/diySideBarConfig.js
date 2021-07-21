@@ -336,6 +336,17 @@ module.exports = {
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
+        '/algorithm/sort/01-intro',
+        '/algorithm/sort/02-insertionsort',
+        '/algorithm/sort/03-shellsort',
+        '/algorithm/sort/04-simpleselectionsort',
+        '/algorithm/sort/05-heapsort',
+        '/algorithm/sort/06-bubblesort',
+        '/algorithm/sort/07-quicksort',
+        '/algorithm/sort/08-mergesort',
+        '/algorithm/sort/09-radixsort',
+        '/algorithm/sort/10-sumamry',
+        '/algorithm/sort/11-summarypython',
       ]
     },
     {

@@ -104,7 +104,8 @@ module.exports = [
       {
         text: '常见算法总结', items:
           [
-            { text: '常用查找算法-介绍', link: '/algorithm/search/01-intro' }
+            { text: '常用查找算法-介绍', link: '/algorithm/search/01-intro' },
+            { text: '常用排序算法-介绍', link: '/algorithm/sort/01-intro' }
           ]
       }
     ]

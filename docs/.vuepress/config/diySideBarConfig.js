@@ -371,7 +371,11 @@ module.exports = {
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
-        '/algorithm/encryption/01-intro'
+        '/algorithm/encryption/01-intro',
+        '/algorithm/encryption/02-prouse',
+        '/algorithm/encryption/03-javacode',
+        '/algorithm/encryption/04-summarypython',
+        '/algorithm/encryption/05-summary',
       ]
     }
   ],

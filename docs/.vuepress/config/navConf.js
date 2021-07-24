@@ -156,6 +156,13 @@ module.exports = [
             { text: 'Spring注解实现原理', link: '/spring/annotation/03-springannprin' },
             { text: 'Spring注解大全(一)', link: '/spring/annotation/04-anntotal1' }
           ]
+      },
+      {
+        text: 'SpringCloud知识介绍', items:
+          [
+            { text: 'SpringCloud-基础介绍', link: '/spring/springcloud/01-intro' },
+            { text: 'SpringCloud-原理详解', link: '/spring/springcloud/03-prindetail' }
+          ]
       }
     ]
   },

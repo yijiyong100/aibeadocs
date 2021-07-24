@@ -439,6 +439,17 @@ module.exports = {
         '/spring/annotation/06-commannotationmvc',
         '/spring/annotation/07-commannotationboot',
       ]
+    },
+    {
+      title: 'SpringCloud知识介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/spring/springcloud/01-intro',
+        '/spring/springcloud/02-commknowledge',
+        '/spring/springcloud/03-prindetail',
+        '/spring/springcloud/04-underprin',
+      ]
     }
   ],
   "/building/": [

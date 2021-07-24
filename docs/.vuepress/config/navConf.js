@@ -149,6 +149,13 @@ module.exports = [
             { text: '启动原理分析和源码解读', link: '/spring/springboot/06-startprincodeanalysis' }
 
           ]
+      },
+      {
+        text: 'Spring注解总结', items:
+          [
+            { text: 'Spring注解实现原理', link: '/spring/annotation/03-springannprin' },
+            { text: 'Spring注解大全(一)', link: '/spring/annotation/04-anntotal1' }
+          ]
       }
     ]
   },

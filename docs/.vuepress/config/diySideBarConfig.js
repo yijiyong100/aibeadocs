@@ -425,6 +425,20 @@ module.exports = {
         '/spring/springboot/07-comminterview',
 
       ]
+    },
+    {
+      title: 'SpringBoot注解总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/spring/annotation/01-intro',
+        '/spring/annotation/02-useandmethods',
+        '/spring/annotation/03-springannprin',
+        '/spring/annotation/04-anntotal1',
+        '/spring/annotation/05-anntotal2',
+        '/spring/annotation/06-commannotationmvc',
+        '/spring/annotation/07-commannotationboot',
+      ]
     }
   ],
   "/building/": [

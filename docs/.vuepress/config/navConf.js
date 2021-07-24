@@ -129,9 +129,17 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: 'Spring基础知识', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: 'Spring-入门介绍', link: '/spring/basic/01-intro' },
+            { text: 'IOC和AOP-原理介绍', link: '/spring/basic/02-iocaopintro' }
+          ]
+      },
+      {
+        text: 'SpringMvc总结', items:
+          [
+            { text: 'SpringMvc-入门介绍', link: '/spring/springmvc/01-intro' },
+            { text: 'SpringMvc-工作原理介绍', link: '/spring/springmvc/02-prinintro' }
           ]
       }
     ]

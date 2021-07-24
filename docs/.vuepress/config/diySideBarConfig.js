@@ -43,6 +43,10 @@ module.exports = {
           '/java/collection/07-listmapprinciple',
           '/java/collection/08-hashcollectionprin',
           '/java/collection/08.1-listconvertarray',
+          '/java/collection/08.2-listlistdeal',
+          '/java/collection/08.3-lambdaintro',
+          '/java/collection/08.4-lambdacommon',
+          '/java/collection/08.5-lambdaintroprosum',
           '/java/collection/09-collectionsummary'
         ]
       },
@@ -376,6 +380,34 @@ module.exports = {
         '/algorithm/encryption/03-javacode',
         '/algorithm/encryption/04-summarypython',
         '/algorithm/encryption/05-summary',
+      ]
+    }
+  ],
+  "/spring/": [
+    {
+      title: 'Spring基础知识',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/spring/basic/01-intro',
+        '/spring/basic/02-iocaopintro',
+        '/spring/basic/03-iocaopsumary',
+        '/spring/basic/04-iocaopcasesum',
+        '/spring/basic/05-springsimplesum',
+        '/spring/basic/06-springsummary',
+      ]
+    },
+    {
+      title: 'Spring基础知识',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/spring/springmvc/01-intro',
+        '/spring/springmvc/02-prinintro',
+        '/spring/springmvc/03-prindetail',
+        '/spring/springmvc/04-procedureprin',
+        '/spring/springmvc/05-casesum',
+        '/spring/springmvc/06-comminterview',
       ]
     }
   ],

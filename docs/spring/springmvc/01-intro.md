@@ -1,9 +1,9 @@
 ---
-title: SpringMvc-入门介绍
+title: SpringMVC-入门介绍
 ---
 
 ::: tip
-本文主要是介绍 SpringMvc-入门信息整理 。
+本文主要是介绍 SpringMVC-入门信息整理 。
 :::
 
 [[toc]]
@@ -103,7 +103,7 @@ sayHello方法接收一个org.springframework.ui.Model类型的参数model，Spr
 
 ### 页面案例代码展示
 
-```jsp
+``` html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

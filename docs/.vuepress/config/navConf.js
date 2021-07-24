@@ -136,10 +136,18 @@ module.exports = [
           ]
       },
       {
-        text: 'SpringMvc总结', items:
+        text: 'SpringMVC总结', items:
           [
-            { text: 'SpringMvc-入门介绍', link: '/spring/springmvc/01-intro' },
-            { text: 'SpringMvc-工作原理介绍', link: '/spring/springmvc/02-prinintro' }
+            { text: 'SpringMVC-入门介绍', link: '/spring/springmvc/01-intro' },
+            { text: 'SpringMVC-工作原理介绍', link: '/spring/springmvc/02-prinintro' }
+          ]
+      },
+      {
+        text: 'SpringBoot总结', items:
+          [
+            { text: 'SpringBoot-工作原理', link: '/spring/springboot/03-workprin' },
+            { text: '启动原理分析和源码解读', link: '/spring/springboot/06-startprincodeanalysis' }
+
           ]
       }
     ]

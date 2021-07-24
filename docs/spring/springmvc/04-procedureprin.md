@@ -1,9 +1,9 @@
 ---
-title: SpringMvc-执行流程和原理
+title: SpringMVC-执行流程和原理
 ---
 
 ::: tip
-本文主要是介绍 SpringMvc-执行流程和原理 。
+本文主要是介绍 SpringMVC-执行流程和原理 。
 :::
 
 [[toc]]

@@ -1,9 +1,9 @@
 ---
-title: SpringMvc-工作原理详解
+title: SpringMVC-工作原理详解
 ---
 
 ::: tip
-本文主要是介绍 SpringMvc-工作原理详解 。
+本文主要是介绍 SpringMVC-工作原理详解 。
 :::
 
 [[toc]]

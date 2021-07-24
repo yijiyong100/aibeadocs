@@ -1,9 +1,9 @@
 ---
-title: SpringMvc-工作原理介绍
+title: SpringMVC-工作原理介绍
 ---
 
 ::: tip
-本文主要是介绍 SpringMvc-工作原理介绍 。
+本文主要是介绍 SpringMVC-工作原理介绍 。
 :::
 
 [[toc]]
@@ -122,7 +122,7 @@ C-Controller 控制器（接收请求—>调用模型—>根据结果派发页�
 
  
 
-## springMVC是什么：*
+## springMVC是什么：
 
 　　springMVC是一个MVC的开源框架，springMVC=struts2+spring，springMVC就相当于是Struts2加上sring的整合，但是这里有一个疑惑就是，springMVC和spring是什么样的关系呢？这个在百度百科上有一个很好的解释：意思是说，springMVC是spring的一个后续产品，其实就是spring在原有基础上，又提供了web应用的MVC模块，可以简单的把springMVC理解为是spring的一个模块（类似AOP，IOC这样的模块），网络上经常会说springMVC和spring无缝集成，其实springMVC就是spring的一个子模块，所以根本不需要同spring进行整合。
 

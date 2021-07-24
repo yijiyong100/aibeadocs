@@ -1,9 +1,9 @@
 ---
-title: SpringMvc-常见面试题
+title: SpringMVC-常见面试题
 ---
 
 ::: tip
-本文主要是介绍 SpringMvc-常见面试题 。
+本文主要是介绍 SpringMVC-常见面试题 。
 :::
 
 [[toc]]

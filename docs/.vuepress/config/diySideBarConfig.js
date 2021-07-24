@@ -398,7 +398,7 @@ module.exports = {
       ]
     },
     {
-      title: 'SpringMvc知识总结',   // 必要的
+      title: 'SpringMVC知识总结',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
@@ -408,6 +408,22 @@ module.exports = {
         '/spring/springmvc/04-procedureprin',
         '/spring/springmvc/05-casesum',
         '/spring/springmvc/06-comminterview',
+      ]
+    },
+    {
+      title: 'SpringBoot知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/spring/springboot/01-intro',
+        '/spring/springboot/02-caseintro',
+        '/spring/springboot/02.1-caseymlpropertiesdiff',
+        '/spring/springboot/03-workprin',
+        '/spring/springboot/04-coreannotation3',
+        '/spring/springboot/05-importantannotation27',
+        '/spring/springboot/06-startprincodeanalysis',
+        '/spring/springboot/07-comminterview',
+
       ]
     }
   ],

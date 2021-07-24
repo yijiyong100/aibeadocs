@@ -1,9 +1,9 @@
 ---
-title: SpringMvc-案例使用总结
+title: SpringMVC-案例使用总结
 ---
 
 ::: tip
-本文主要是介绍 SpringMvc-案例使用总结 。
+本文主要是介绍 SpringMVC-案例使用总结 。
 :::
 
 [[toc]]

@@ -13,7 +13,7 @@ title: SpringMvc-案例使用总结
 在早期 Java Web 的开发中，统一把显示层、控制层、数据层的操作全部交给 JSP 或者 JavaBean 来进行处理，我们称之为 **Model1：**
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/spring/springmvc/casesum/7896890-7b3f9cd59394b017.png')" alt="wxmp">
-- **出现的弊端：**
+* 出现的弊端：
 * - JSP 和 Java Bean 之间严重耦合，Java 代码和 HTML 代码也耦合在了一起
 * - 要求开发者不仅要掌握 Java ，还要有高超的前端水平
 * - 前端和后端相互依赖，前端需要等待后端完成，后端也依赖前端完成，才能进行有效的测试
@@ -43,6 +43,7 @@ title: SpringMvc-案例使用总结
 **传统的模型层被拆分为了业务层(Service)和数据访问层（DAO,Data Access Object）。**在 Service 下可以通过 Spring 的声明式事务操作数据访问层，而在业务层上还允许我们访问 NoSQL ，这样就能够满足异军突起的 NoSQL 的使用了，它可以大大提高互联网系统的性能。
 
 - **特点：**
+  
   结构松散，几乎可以在 Spring MVC 中使用各类视图
   
   松耦合，各个模块分离
@@ -168,7 +169,7 @@ public class HelloController implements Controller {
 
 
 
-``` jsp
+``` html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
  
@@ -307,7 +308,7 @@ DispatcherServlet 将会使用视图解析器（view resolver）来将逻辑视�
 
 
 
-``` jsp
+``` html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false"%>
 
@@ -501,7 +502,7 @@ public class HelloController {
 
 
 
-``` jsp
+``` html
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" import="java.util.*" isELIgnored="false"%>
@@ -635,7 +636,7 @@ public class User {
 
 
 
-``` jsp
+``` html
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" import="java.util.*" isELIgnored="false" %>
@@ -764,7 +765,7 @@ public String jump() {
 
 
 
-``` jsp
+``` html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -826,9 +827,13 @@ public class UploadController {
 - 全能的百度和万能的大脑
 
 > 欢迎转载，转载请注明出处！
+
 > 简书ID：[@我没有三颗心脏](https://www.jianshu.com/u/a40d61a49221)
+
 > github：[wmyskxz](https://github.com/wmyskxz/)
+
 > 欢迎关注公众微信号：wmyskxz_javaweb
+
 > 分享自己的Java Web学习之路以及各种Java学习资料
 
 ## 参考文章

@@ -453,6 +453,33 @@ module.exports = {
       ]
     }
   ],
+  "/framework/": [
+    {
+      title: '框架基础知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/framework/basic/01-intro',
+        '/framework/basic/02-commconceptdiff',
+        '/framework/basic/03-commconceptrela',
+        '/framework/basic/04-componentframe',
+        '/framework/basic/05-microservintro',
+        '/framework/basic/06-microserv15',
+        '/framework/basic/07-springframethink',
+      ]
+    }
+  ],
+  "/architecture/": [
+    {
+      title: '架构基础知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/architecture/basic/01-intro',
+        '/architecture/basic/02-essence',
+      ]
+    }
+  ],
   "/building/": [
     {
       title: '完善中',   // 必要的

@@ -171,9 +171,13 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: '框架基础知识总结', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: '框架基础知识介绍', link: '/framework/basic/01-intro' },
+            { text: '框架架构组件区别', link: '/framework/basic/02-commconceptdiff' },
+            { text: '框架架构组件关系', link: '/framework/basic/03-commconceptrela' },
+            { text: '常见15种微服务框架', link: '/framework/basic/06-microserv15' },
+            { text: 'Spring框架思想总结', link: '/framework/basic/07-springframethink' }
           ]
       }
     ]
@@ -183,9 +187,10 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: '架构基础知识总结', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: '架构基础知识介绍', link: '/architecture/basic/01-intro' },
+            { text: '架构基本概念和本质', link: '/architecture/basic/02-essence' }
           ]
       }
     ]

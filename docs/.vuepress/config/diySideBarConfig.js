@@ -448,7 +448,6 @@ module.exports = {
         '/spring/springcloud/01-intro',
         '/spring/springcloud/02-commknowledge',
         '/spring/springcloud/03-prindetail',
-        '/spring/springcloud/04-underprin',
       ]
     }
   ],

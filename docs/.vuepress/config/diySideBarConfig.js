@@ -199,6 +199,8 @@ module.exports = {
         '/db/mysqlbasic/03-mysqlindex',
         '/db/mysqlbasic/04-mysqltransaction',
         '/db/mysqlbasic/05-mysqllock',
+        '/db/mysqlbasic/05.1-informationschema',
+        '/db/mysqlbasic/05.2-mysqlbusidict',
         '/db/mysqlbasic/06-mysqlsummary',
       ]
     },

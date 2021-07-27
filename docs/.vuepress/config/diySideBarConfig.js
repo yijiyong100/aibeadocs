@@ -205,6 +205,19 @@ module.exports = {
       ]
     },
     {
+      title: 'MySQL存储过程和函数',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/db/mysqlpro/01-procedure',
+        '/db/mysqlpro/02-function',
+        '/db/mysqlpro/03-call',
+        '/db/mysqlpro/04-devrela',
+        '/db/mysqlpro/05-cursor',
+        '/db/mysqlpro/06-trigger',
+      ]
+    },
+    {
       title: 'MySQL性能优化(一)',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1

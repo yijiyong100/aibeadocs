@@ -171,13 +171,21 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '框架基础知识总结', items:
+        text: '框架基础总结', items:
           [
             { text: '框架基础知识介绍', link: '/framework/basic/01-intro' },
             { text: '框架架构组件区别', link: '/framework/basic/02-commconceptdiff' },
             { text: '框架架构组件关系', link: '/framework/basic/03-commconceptrela' },
             { text: '常见15种微服务框架', link: '/framework/basic/06-microserv15' },
             { text: 'Spring框架思想总结', link: '/framework/basic/07-springframethink' }
+          ]
+      },
+      {
+        text: '常用框架总结', items:
+          [
+            { text: '日志框架-介绍和总结', link: '/framework/log/01-intro' },
+            { text: 'ORM框架-介绍和总结', link: '/framework/orm/01-intro' },
+            { text: 'NIO框架-介绍和总结', link: '/framework/nio/01-intro' }
           ]
       }
     ]

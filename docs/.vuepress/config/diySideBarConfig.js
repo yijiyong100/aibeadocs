@@ -480,6 +480,32 @@ module.exports = {
         '/framework/basic/06-microserv15',
         '/framework/basic/07-springframethink',
       ]
+    },
+    {
+      title: '日志框架知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/framework/log/01-intro',
+        '/framework/log/02-springbootlogintro',
+        '/framework/log/03-springbootlogback',
+      ]
+    },
+    {
+      title: 'ORM框架知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/framework/orm/01-intro',
+      ]
+    },
+    {
+      title: 'NIO框架知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/framework/nio/01-intro',
+      ]
     }
   ],
   "/architecture/": [

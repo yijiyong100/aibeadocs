@@ -185,7 +185,8 @@ module.exports = [
           [
             { text: '日志框架-介绍和总结', link: '/framework/log/01-intro' },
             { text: 'ORM框架-介绍和总结', link: '/framework/orm/01-intro' },
-            { text: 'NIO框架-介绍和总结', link: '/framework/nio/01-intro' }
+            { text: 'NIO框架-介绍和总结', link: '/framework/nio/01-intro' },
+            { text: 'Netty框架-介绍和总结', link: '/framework/netty/01-intro' }
           ]
       }
     ]

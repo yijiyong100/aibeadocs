@@ -510,6 +510,19 @@ module.exports = {
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/framework/nio/01-intro',
+        '/framework/nio/02-commiointro',
+        '/framework/nio/03-niobioaiodiff',
+        '/framework/nio/04-nioframediff',
+        '/framework/nio/05-nioprin',
+        '/framework/nio/06-niounderprin',
+      ]
+    },
+    {
+      title: 'Netty框架知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/framework/netty/01-intro',
       ]
     }
   ],

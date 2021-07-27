@@ -497,6 +497,11 @@ module.exports = {
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/framework/orm/01-intro',
+        '/framework/orm/02-commormdiff',
+        '/framework/orm/03-mybatiscase',
+        '/framework/orm/04-hibernatecase',
+        '/framework/orm/05-jpacase',
+        '/framework/orm/06-mybatissum',
       ]
     },
     {

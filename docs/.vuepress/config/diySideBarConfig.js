@@ -523,6 +523,11 @@ module.exports = {
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/framework/netty/01-intro',
+        '/framework/netty/02-nettyio',
+        '/framework/netty/03-nettythreadmodel',
+        '/framework/netty/04-nettyreactor',
+        '/framework/netty/05-nettyworkprin',
+        '/framework/netty/06-nettysum',
       ]
     }
   ],

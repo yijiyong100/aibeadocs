@@ -529,6 +529,23 @@ module.exports = {
         '/framework/netty/05-nettyworkprin',
         '/framework/netty/06-nettysum',
       ]
+    },
+    {
+      title: 'Netty案例实战总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/framework/nettycase/01-intro',
+        '/framework/nettycase/02-designmodel',
+        '/framework/nettycase/03-chatcaseio',
+        '/framework/nettycase/04-chatcasebio',
+        '/framework/nettycase/05-chatcasenio',
+        '/framework/nettycase/06-chatcaseaio',
+        '/framework/nettycase/07-springbootcase1',
+        '/framework/nettycase/08-springbootcase2',
+        '/framework/nettycase/09-springbootcase3',
+        '/framework/nettycase/10-rpccase',
+      ]
     }
   ],
   "/architecture/": [

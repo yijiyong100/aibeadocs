@@ -8,8 +8,7 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 [[toc]]
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/framework/nettycase/intro-1.png')" alt="wxmp">
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/framework/nio/intro-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/architecture/basic/intro-1.png')" alt="wxmp">
 
 
 ## 参考文章

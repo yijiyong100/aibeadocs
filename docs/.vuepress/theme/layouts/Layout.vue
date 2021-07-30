@@ -113,7 +113,7 @@
 
     </div>
 
-    <div id="qrCodeDiv" :class="[this.mouseEnterFocusDiv === 'qrCodeDiv'?'toolbar_qrcode_active':'toolbar_qrcode_unactive']">
+    <div id="qrCodeDiv" v-if="!$page.frontmatter.home" :class="[this.mouseEnterFocusDiv === 'qrCodeDiv'?'toolbar_qrcode_active':'toolbar_qrcode_unactive']">
       <div class=" toolbar_head_tile">扫一扫 手机阅读</div>
       <img :src="this.qrCodeApiUrl" class="img-qrcode" />
       <h5>可分享给好友和朋友圈</h5>

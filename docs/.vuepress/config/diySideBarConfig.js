@@ -556,6 +556,11 @@ module.exports = {
       children: [
         '/architecture/basic/01-intro',
         '/architecture/basic/02-essence',
+        '/architecture/basic/03-arcthink',
+        '/architecture/basic/04-arcthinkcase',
+        '/architecture/basic/05-arcdesingcorevalue',
+        '/architecture/basic/06-arcdesingprin3',
+        '/architecture/basic/07-arcdesignprindeatail',
       ]
     }
   ],

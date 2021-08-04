@@ -589,6 +589,32 @@ module.exports = {
         '/dev/tool/05-idea20recommendedplug',
         '/dev/tool/06-jvmtool',
       ]
+    },
+    {
+      title: '开发规范知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dev/standard/01-intro',
+        '/dev/standard/02-mysqlstandard',
+        '/dev/standard/03-mybatisstandard',
+      ]
+    },
+    {
+      title: '开发设计模式总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dev/designpattern/01-intro',
+        '/dev/designpattern/02-6prinsintro',
+        '/dev/designpattern/03-6prinsdetail',
+        '/dev/designpattern/04-6prinscase',
+        '/dev/designpattern/05-createpattern',
+        '/dev/designpattern/06-structpattern',
+        '/dev/designpattern/07-actionpattern',
+        '/dev/designpattern/08-designpatternsum',
+
+      ]
     }
   ],
   "/building/": [

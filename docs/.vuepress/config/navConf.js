@@ -212,9 +212,16 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '开发工具篇', items:
+        text: '开发工具总结', items:
           [
-            { text: 'Java开发工具介绍', link: '/dev/tool/01-intro' }
+            { text: 'Java开发工具介绍', link: '/dev/tool/01-intro' },
+            { text: 'Idea开发插件推荐', link: '/dev/tool/05-idea20recommendedplug' }
+          ]
+      },
+      {
+        text: '开发规范总结', items:
+          [
+            { text: 'Java开发规范(精简版)', link: '/dev/standard/01-intro' }
           ]
       }
     ]

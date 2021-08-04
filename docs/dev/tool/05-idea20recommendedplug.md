@@ -10,7 +10,7 @@ title: 20个精选Idea插件推荐
 
 ## IDEA值得推荐的20款优秀的插件
 
-## 推荐原文地址查看：
+## 推荐原文地址查看：动态图文展示
 
 IDEA值得推荐的20款优秀的插件: **链接地址** [IDEA值得推荐的20款优秀的插件](https://blog.csdn.net/jack1liu/article/details/111505592)
 

@@ -562,6 +562,33 @@ module.exports = {
         '/architecture/basic/06-arcdesingprin3',
         '/architecture/basic/07-arcdesignprindeatail',
       ]
+    },
+    {
+      title: '微服务架构和分布式',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/architecture/microservanddistribute/01-intro',
+        '/architecture/microservanddistribute/02-microservanddistributediff',
+        '/architecture/microservanddistribute/03-microservandclusterdiff',
+        '/architecture/microservanddistribute/04-micorservandsoadiff',
+        '/architecture/microservanddistribute/05-microservsum',
+      ]
+    }
+  ],
+  "/dev/": [
+    {
+      title: '开发工具知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dev/tool/01-intro',
+        '/dev/tool/02-mysql',
+        '/dev/tool/03-gitcmd',
+        '/dev/tool/04-gitvisualtool',
+        '/dev/tool/05-idea20recommendedplug',
+        '/dev/tool/06-jvmtool',
+      ]
     }
   ],
   "/building/": [

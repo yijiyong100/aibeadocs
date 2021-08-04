@@ -197,10 +197,12 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '架构基础知识总结', items:
+        text: '架构基础知识', items:
           [
             { text: '架构基础知识介绍', link: '/architecture/basic/01-intro' },
-            { text: '架构基本概念和本质', link: '/architecture/basic/02-essence' }
+            { text: '架构基本概念和本质', link: '/architecture/basic/02-essence' },
+            { text: '微服务架构知识介绍', link: '/architecture/microservanddistribute/01-intro' },
+
           ]
       }
     ]
@@ -210,9 +212,9 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: '开发工具篇', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: 'Java开发工具介绍', link: '/dev/tools/01-intro' }
           ]
       }
     ]

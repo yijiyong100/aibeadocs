@@ -402,6 +402,12 @@ String fs;
 fs = String.format("浮点型变量的值为 " +                   "%f, 整型变量的值为 " +                   " %d, 字符串变量的值为 " +                   " %s", floatVar, intVar, stringVar);
 ```
 
+## Java String 合并join成否个分隔符的方法：
+``` java
+        Integer[] goodsIds = [0,1];
+        String  goodsIdsStr= StringUtils.join(goodsIds,",");
+        goodsIdsStr=","+goodsIdsStr+",";
+```
 
 ## Java String split()字符串分割用法小结
 

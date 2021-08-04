@@ -214,7 +214,7 @@ module.exports = [
       {
         text: '开发工具篇', items:
           [
-            { text: 'Java开发工具介绍', link: '/dev/tools/01-intro' }
+            { text: 'Java开发工具介绍', link: '/dev/tool/01-intro' }
           ]
       }
     ]

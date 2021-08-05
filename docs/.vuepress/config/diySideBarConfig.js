@@ -615,6 +615,22 @@ module.exports = {
         '/dev/designpattern/08-designpatternsum',
 
       ]
+    },
+    {
+      title: '开发效率总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dev/deveffciency/01-intro',
+        '/dev/deveffciency/02-commpromethods',
+        '/dev/deveffciency/03-devframe',
+        '/dev/deveffciency/04-devtools',
+        '/dev/deveffciency/05-4keypoints',
+        '/dev/deveffciency/06-30methods',
+        '/dev/deveffciency/07-5percentmythology',
+        '/dev/deveffciency/08-siliconvalley5skills',
+        '/dev/deveffciency/09-summary',
+      ]
     }
   ],
   "/projprod/": [

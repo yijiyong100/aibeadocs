@@ -224,6 +224,13 @@ module.exports = [
             { text: 'Java开发规范', link: '/dev/standard/01-intro' },
             { text: 'Java设计模式', link: '/dev/designpattern/01-intro' }
           ]
+      },
+      {
+        text: '开发效率', items:
+          [
+            { text: '开发效率提升常用方法', link: '/dev/deveffciency/02-commpromethods' },
+            { text: '开发效率提升精华总结', link: '/dev/deveffciency/09-summary' }
+          ]
       }
     ]
   },

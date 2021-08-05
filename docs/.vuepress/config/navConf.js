@@ -212,16 +212,17 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '开发工具总结', items:
+        text: '开发工具', items:
           [
             { text: 'Java开发工具介绍', link: '/dev/tool/01-intro' },
             { text: 'Idea开发插件推荐', link: '/dev/tool/05-idea20recommendedplug' }
           ]
       },
       {
-        text: '开发规范总结', items:
+        text: '开发规范', items:
           [
-            { text: 'Java开发规范(精简版)', link: '/dev/standard/01-intro' }
+            { text: 'Java开发规范', link: '/dev/standard/01-intro' },
+            { text: 'Java设计模式', link: '/dev/designpattern/01-intro' }
           ]
       }
     ]
@@ -243,9 +244,17 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: '研发效能介绍', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: '研发效能入门介绍', link: '/projprod/rdefficiencyintro/01-intro' },
+            { text: '研发效能体系构建', link: '/projprod/rdefficiencyintro/06-efficiencysystem' }
+          ]
+      },
+      {
+        text: '研发效能提升', items:
+          [
+            { text: '研发效能提升精华总结', link: '/projprod/rdeffciencypromote/09-summary' },
+            { text: '研发效能系统管理工具', link: '/projprod/rdeffciencytool/01-intro' }
           ]
       }
     ]

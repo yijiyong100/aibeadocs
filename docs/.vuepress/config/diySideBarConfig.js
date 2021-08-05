@@ -617,6 +617,47 @@ module.exports = {
       ]
     }
   ],
+  "/projprod/": [
+    {
+      title: '研发效能介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/projprod/rdefficiencyintro/01-intro',
+        '/projprod/rdefficiencyintro/02-5indicators',
+        '/projprod/rdefficiencyintro/03-6keypoints',
+        '/projprod/rdefficiencyintro/04-measurementmethod',
+        '/projprod/rdefficiencyintro/05-copingmethods',
+        '/projprod/rdefficiencyintro/06-efficiencysystem',
+      ]
+    },
+    {
+      title: '研发效能提升',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/projprod/rdeffciencypromote/01-intro',
+        '/projprod/rdeffciencypromote/02-efficiencymeasurement1',
+        '/projprod/rdeffciencypromote/03-efficiencymeasurement2',
+        '/projprod/rdeffciencypromote/04-kanban1',
+        '/projprod/rdeffciencypromote/05-kanban2',
+        '/projprod/rdeffciencypromote/06-shipping',
+        '/projprod/rdeffciencypromote/07-qualitymanage',
+        '/projprod/rdeffciencypromote/08-dailyscrummeeting',
+        '/projprod/rdeffciencypromote/09-summary',
+      ]
+    },
+    {
+      title: '项目管理工具',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/projprod/rdeffciencytool/01-intro',
+        '/projprod/rdeffciencytool/02-scrumtool',
+        '/projprod/rdeffciencytool/03-openprojtool',
+      ]
+    }
+  ],
   "/building/": [
     {
       title: '完善中',   // 必要的

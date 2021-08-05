@@ -8,7 +8,8 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 [[toc]]
 
-### 【----------------------------】
+## 【----------------------------】
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/projprod/rdeffciencypromote/intro-1.png')" alt="wxmp">
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dev/designpattern/intro-1.png')" alt="wxmp">
 
 

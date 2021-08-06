@@ -228,8 +228,8 @@ module.exports = [
       {
         text: '开发效率', items:
           [
-            { text: '开发效率提升常用方法', link: '/dev/deveffciency/02-commpromethods' },
-            { text: '开发效率提升精华总结', link: '/dev/deveffciency/09-summary' }
+            { text: '效率提升常用方法', link: '/dev/deveffciency/02-commpromethods' },
+            { text: '效率提升精华总结', link: '/dev/deveffciency/09-summary' }
           ]
       }
     ]

@@ -3,12 +3,12 @@ title: 开发效率-硅谷工程师
 ---
 
 ::: tip
-本文主要是介绍 开发效率-硅谷工程师5种技能 。
+本文主要是介绍 开发效率-杰出的硅谷工程师5种技能 。
 :::
 
 [[toc]]
 
-### 会写程序还不够，硅谷杰出软件工程师都有的 5 种能力
+## 会写程序还不够，硅谷杰出软件工程师都有的 5 种能力
 
 
 曾任职于Google和Quora等公司、现任Quip软件工程师的Edmond Lau，于[《The Effective Engineer》](https://www.theeffectiveengineer.com/book)一书中访问任职于Facebook、Instagram和Google等知名网路公司的资深软件工程师，归纳出他们眼中高生产力的杰出软件工程师都具备的五种能力。

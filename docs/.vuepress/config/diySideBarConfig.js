@@ -585,6 +585,7 @@ module.exports = {
         '/dev/tool/01-intro',
         '/dev/tool/02-mysql',
         '/dev/tool/03-gitcmd',
+        '/dev/tool/03.1-gitcmdcancel',
         '/dev/tool/04-gitvisualtool',
         '/dev/tool/05-idea20recommendedplug',
         '/dev/tool/06-jvmtool',
@@ -630,6 +631,43 @@ module.exports = {
         '/dev/deveffciency/07-5percentmythology',
         '/dev/deveffciency/08-siliconvalley5skills',
         '/dev/deveffciency/09-summary',
+      ]
+    }
+  ],
+  "/middleware/": [
+    {
+      title: '消息队列总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/middleware/mq/01-intro',
+        '/middleware/mq/02-commscene',
+      ]
+    },
+    {
+      title: 'zookeeper基础总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/middleware/zookeeper/01-intro',
+        '/middleware/zookeeper/02-installandconfig',
+        '/middleware/zookeeper/03-workprindetail',
+        '/middleware/zookeeper/04-devconfig',
+        '/middleware/zookeeper/05-appscene',
+      ]
+    }
+  ],
+  "/operation/": [
+    {
+      title: 'Nginx安装配置总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/operation/ng/01-intro',
+        '/operation/ng/02-commwebserver',
+        '/operation/ng/03-installconfig',
+        '/operation/ng/04-nggzip',
+        '/operation/ng/05-ngsum',
       ]
     }
   ],

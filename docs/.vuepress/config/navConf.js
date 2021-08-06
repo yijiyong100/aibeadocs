@@ -239,9 +239,17 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: '中间件', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: 'MQ消息队列介绍', link: '/middleware/mq/01-intro' },
+            { text: 'Zookeeper介绍', link: '/middleware/zookeeper/01-intro' }
+          ]
+      },
+      {
+        text: '综合技能', items:
+          [
+            { text: 'Nginx入门介绍', link: '/operation/ng/01-intro' },
+            { text: 'Nginx精华总结', link: '/operation/ng/05-ngsum' }
           ]
       }
     ]

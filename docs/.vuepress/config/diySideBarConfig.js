@@ -636,12 +636,30 @@ module.exports = {
   ],
   "/middleware/": [
     {
-      title: '消息队列总结',   // 必要的
+      title: '消息队列基础总结',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/middleware/mq/01-intro',
         '/middleware/mq/02-commscene',
+        '/middleware/mq/03-commmqintro',
+        '/middleware/mq/04-commmqdiff',
+        '/middleware/mq/05-kafkaintro',
+        '/middleware/mq/06-springbootactivemq',
+        '/middleware/mq/07-springbootkafka',
+        '/middleware/mq/08-summary',
+      ]
+    },
+    {
+      title: '消息队列JMS',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/middleware/jms/01-intro',
+        '/middleware/jms/02-springjms',
+        '/middleware/jms/03-activemqjms',
+        '/middleware/jms/04-jmskafka',
+        '/middleware/jms/05-jmssum',
       ]
     },
     {

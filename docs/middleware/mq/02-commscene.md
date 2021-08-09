@@ -90,13 +90,13 @@ title: 消息队列-常见使用场景
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/middleware/mq/scene/965b5cff4eda40d299263de0436d84bb.png')" alt="wxmp">
 
-### Kafka：接收用户日志的消息队列；
+- **Kafka**：接收用户日志的消息队列；
 
-### Logstash：做日志解析，统一成JSON输出给Elasticsearch；
+- **Logstash**：做日志解析，统一成JSON输出给Elasticsearch；
 
-### Elasticsearch：实时日志分析服务的核心技术，一个schemaless，实时的数据存储服务，通过index组织数据，兼具强大的搜索和统计功能；
+- **Elasticsearch**：实时日志分析服务的核心技术，一个schemaless，实时的数据存储服务，通过index组织数据，兼具强大的搜索和统计功能；
 
-### Kibana：基于Elasticsearch的数据可视化组件，超强的数据可视化能力是众多公司选择ELK stack的重要原因。
+- **Kibana**：基于Elasticsearch的数据可视化组件，超强的数据可视化能力是众多公司选择ELK stack的重要原因。
 
 ### 5、消息通讯
 

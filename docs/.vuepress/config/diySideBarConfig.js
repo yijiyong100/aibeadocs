@@ -677,6 +677,18 @@ module.exports = {
   ],
   "/operation/": [
     {
+      title: 'Linux操作系统命令',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/operation/linux/01-intro',
+        '/operation/linux/02-cmdtop50',
+        '/operation/linux/03-cmdsum',
+        '/operation/linux/04-cmdcurl',
+        '/operation/linux/05-shell',
+      ]
+    },
+    {
       title: 'Nginx安装配置总结',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1

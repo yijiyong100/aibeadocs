@@ -675,6 +675,33 @@ module.exports = {
       ]
     }
   ],
+  "/es/": [
+    {
+      title: 'ES基础知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/es/basic/01-intro',
+        '/es/basic/02-invertedindexprin',
+        '/es/basic/03-es-elk',
+        '/es/basic/04-installconfig',
+        '/es/basic/05-colonyprin',
+        '/es/basic/06-summary',
+      ]
+    },
+    {
+      title: 'Logstash知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/es/logstash/01-intro',
+        '/es/logstash/02-installuse',
+        '/es/logstash/03-configdetai1',
+        '/es/logstash/04-configdetai2',
+        '/es/logstash/05-recommend',
+      ]
+    }
+  ],
   "/operation/": [
     {
       title: 'Linux操作系统命令',   // 必要的

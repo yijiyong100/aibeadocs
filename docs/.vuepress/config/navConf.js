@@ -242,6 +242,7 @@ module.exports = [
         text: '中间件', items:
           [
             { text: 'MQ消息队列介绍', link: '/middleware/mq/01-intro' },
+            { text: 'ES搜索服务器介绍', link: '/es/basic/01-intro' },
             { text: 'Zookeeper介绍', link: '/middleware/zookeeper/01-intro' }
           ]
       },

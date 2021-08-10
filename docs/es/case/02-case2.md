@@ -824,7 +824,8 @@ public class EsController {
 利用postman一个个请求。
 截取结果如下：方法都能正常准确访问
 
-![img](https://upload-images.jianshu.io/upload_images/11382761-a498fcf41a9144b2.png?imageMogr2/auto-orient/strip|imageView2/2/w/756/format/webp)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/es/case/es6.x-1.png')" alt="wxmp">
+
 
 image.png
 
@@ -832,7 +833,5 @@ image.png
 [ElasticSearch](https://www.jianshu.com/nb/39795631)
 
 
-
-xxx
 ## 参考文章
 * https://www.jianshu.com/p/a584848da515

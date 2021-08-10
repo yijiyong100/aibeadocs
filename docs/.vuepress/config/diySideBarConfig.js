@@ -710,6 +710,29 @@ module.exports = {
         '/es/logstash/04-configdetai2',
         '/es/logstash/05-recommend',
       ]
+    },
+    {
+      title: 'Kibana知识总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/es/kibana/01-intro',
+        '/es/kibana/02-installconfig',
+        '/es/kibana/03-summary',
+      ]
+    },
+    {
+      title: 'ES性能优化',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/es/optimize/01-intro',
+        '/es/optimize/02-basicopt',
+        '/es/optimize/03-paramopt',
+        '/es/optimize/04-selectopt',
+        '/es/optimize/05-writeopt',
+        '/es/optimize/06-sumopt',
+      ]
     }
   ],
   "/operation/": [

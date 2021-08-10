@@ -690,6 +690,16 @@ module.exports = {
       ]
     },
     {
+      title: 'Springboot集成ES案例',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/es/case/01-case1',
+        '/es/case/02-case2',
+        '/es/case/03-case3',
+      ]
+    },
+    {
       title: 'Logstash知识总结',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1

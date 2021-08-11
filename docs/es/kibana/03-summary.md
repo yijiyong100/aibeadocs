@@ -37,7 +37,7 @@ Kibana 是为 Elasticsearch设计的开源分析和可视化平台。你可以�
 默认情况下，kibana启动时将生成随机密钥，这可能导致重新启动后失败，需要配置多个实例中有相同的密钥
 设置
 
-``` shel
+``` shell
 xpack.reporting.encryptionKey: "chenqionghe"
 xpack.security.encryptionKey: "122333444455555666666777777788888888"
 xpack.encryptedSavedObjects.encryptionKey: "122333444455555666666777777788888888"
@@ -45,7 +45,7 @@ xpack.encryptedSavedObjects.encryptionKey: "122333444455555666666777777788888888
 
 启动
 
-``` shel
+``` shell
 ./bin/kibana
 ```
 

@@ -761,6 +761,20 @@ module.exports = {
       ]
     }
   ],
+  "/mysqlop/": [
+    {
+      title: 'MySQL运维基础知识',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/mysqlop/basic/01-intro',
+        '/mysqlop/basic/02-essenceoperatio',
+        '/mysqlop/basic/03-classicop',
+        '/mysqlop/basic/04-commknowledge',
+        '/mysqlop/basic/05-summary',
+      ]
+    }
+  ],
   "/projprod/": [
     {
       title: '研发效能介绍',   // 必要的

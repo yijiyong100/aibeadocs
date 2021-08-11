@@ -249,8 +249,8 @@ module.exports = [
       {
         text: '综合技能', items:
           [
+            { text: 'MySQL运维总结', link: '/mysqlop/basic/01-intro' },
             { text: 'Linux常用命令', link: '/operation/linux/01-intro' },
-            { text: 'Nginx入门介绍', link: '/operation/ng/01-intro' },
             { text: 'Nginx精华总结', link: '/operation/ng/05-ngsum' }
           ]
       }

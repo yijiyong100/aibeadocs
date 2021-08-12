@@ -61,6 +61,20 @@
   padding-bottom: 0.5rem;
 }
 
+.nav-links .nav-item {
+  position: relative;
+  display: inline-block;
+  margin-left: 1.1rem;
+  line-height: 2rem;
+}
+
+.dropdown-wrapper .dropdown-title .arrow,
+.dropdown-wrapper .mobile-dropdown-title .arrow {
+  vertical-align: middle;
+  margin-top: -1px;
+  margin-left: 0.1rem;
+}
+
 .theme-default-content:not(.custom)>*:first-child {
   margin-top: 0.5rem;
 }

@@ -113,6 +113,18 @@ module.exports = [
     ]
   },
   {
+    text: '大数据',
+    ariaLabel: 'Language Menu',
+    items: [
+      {
+        text: '完善中', items:
+          [
+            { text: '敬请期待', link: '/building/' }
+          ]
+      }
+    ]
+  },
+  {
     text: '人工智能',
     ariaLabel: 'Language Menu',
     items: [

@@ -9,7 +9,7 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 [[toc]]
 
 ## 【----------------------------】
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/mysqlop/basic/opt-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/mysqlop/bak/case/sum-1.png')" alt="wxmp">
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/operation/ng/ngsum-1.png')" alt="wxmp">
 
 

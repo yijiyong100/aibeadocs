@@ -773,6 +773,26 @@ module.exports = {
         '/mysqlop/basic/04-commknowledge',
         '/mysqlop/basic/05-summary',
       ]
+    },
+    {
+      title: 'MySQL监控分析-慢SQL',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/mysqlop/monitorsql/01-intro',
+        '/mysqlop/monitorsql/02-slowsqlcase',
+        '/mysqlop/monitorsql/03-slowsqltool',
+      ]
+    },
+    {
+      title: 'MySQL备份与恢复',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/mysqlop/bak/01-intro',
+        '/mysqlop/bak/02-bakrecoverycase',
+        '/mysqlop/bak/03-bakrecoverysum',
+      ]
     }
   ],
   "/projprod/": [

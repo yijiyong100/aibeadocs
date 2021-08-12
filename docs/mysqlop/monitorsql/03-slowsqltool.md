@@ -8,7 +8,9 @@ title: 监控分析-慢SQL辅助工具
 
 [[toc]]
 
-## MySQL慢日志查询分析方法与工具### MySQL日志介绍
+## MySQL慢日志查询分析方法与工具
+
+## MySQL日志介绍
 
 MySQL中的日志包括：错误日志、二进制日志、通用查询日志、慢查询日志等等。这里主要介绍下比较常用的两个功能：通用查询日志和慢查询日志。
 
@@ -33,7 +35,7 @@ MySQL日志文件系统的组成
 
 mysql slow log 是用来记录执行时间较长(超过long_query_time秒)的sql的一种日志工具
 
-### 启用 slow log 
+## 启用 slow log 
 
 有两种启用方式:
 
@@ -78,6 +80,8 @@ slow-query-log-file=mysql-slow.log
         
 long_query_time=1
 ```
+
+## 慢SQL日志查看
 
 ### 1.1 简介
 
@@ -346,6 +350,9 @@ log-queries-not-using-indexes (log下来没有使用索引的query,可以根据�
 log-long-format (如果设置了，所有没有使用索引的查询也将被记录)## 不同的慢查询日志分析工具比对 
 ```
 
+## 慢SQL日志分析工具比较
+
+
 ### mysqldumpslow
 
 mysql官方提供的慢查询日志分析工具. 输出图表如下:
@@ -405,7 +412,7 @@ Query sample, sql语句
 
 除了以上的输出, 官方还提供了很多定制化参数, 是一款不可多得的好工具.
 
-### mysql-explain-slow-log*
+### mysql-explain-slow-log
 
 德国人写的一个perl脚本.
 http://www.willamowius.de/mysql-tools.html

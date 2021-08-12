@@ -18,8 +18,7 @@ title: 监控分析-慢SQL案例操作
 
 4、对数据库服务器的参数调优
 
-## 一、慢查询日志**
-
+## 一、慢查询日志
 ### 1、设置慢查询
 
 
@@ -74,12 +73,10 @@ t：返回前面多少条的数据
 g：后边搭配一个正则匹配模式，大小写不敏感
 ```
 
-## 二、explain分析慢SQL**
-
+## 二、explain分析慢SQL
 　　通过**explain**分析慢SQL很重要，单独一章列举，[MySQL优化(4)：explain分析](https://www.cnblogs.com/zjxiang/p/9160564.html)。
 
-## 三、Show Profile分析慢SQL**
-
+## 三、Show Profile分析慢SQL
    **Show Profile**也是分析慢SQL的一种手段，但它能获得比explain更详细的信息，能分析当前会话中语句执行的资源消耗情况，能获得这条SQL在整个生命周期的耗时，相当于执行时间的清单，也很重要。
 
 ### 1、默认关闭。开启后，会在后台保存最近15次的运行结果，然后通过Show Profile命令查看结果。
@@ -130,8 +127,7 @@ locked
 　　<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/mysqlop/monitorsql/slowsqlcase-4.png')" alt="wxmp">
 
 
-## 四、全局查询日志**
-
+## 四、全局查询日志
 只在测试环境用，别在生产环境用，会记录所有使用过的SQL
 
 ### 1、开启：
@@ -164,10 +160,7 @@ select * from mysql.general_log;
 
 __EOF__
 
-![img](https://pic.cnblogs.com/avatar/1350843/20180623112544.png)
-
-**本文作者**：**[愿起起起起落起起起起起](https://www.cnblogs.com/zjxiang/p/9157398.html)**
-
+**本文作者**：**[愿起起起起落起起起起起](https://www.cnblogs.com/zjxiang/p/9157398.html)
 **本文链接**：https://www.cnblogs.com/zjxiang/p/9157398.html
 
 **关于博主**：评论和私信会在第一时间回复。或者[直接私信](https://msg.cnblogs.com/msg/send/zjxiang)我。

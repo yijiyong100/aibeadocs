@@ -756,6 +756,7 @@ module.exports = {
         '/operation/ng/01-intro',
         '/operation/ng/02-commwebserver',
         '/operation/ng/03-installconfig',
+        '/operation/ng/03.1-ngloadbalancingcase',
         '/operation/ng/04-nggzip',
         '/operation/ng/05-ngsum',
       ]
@@ -782,6 +783,31 @@ module.exports = {
         '/mysqlop/monitorsql/01-intro',
         '/mysqlop/monitorsql/02-slowsqlcase',
         '/mysqlop/monitorsql/03-slowsqltool',
+      ]
+    },
+    {
+      title: 'MySQL监控分析-锁',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/mysqlop/monitorlock/01-intro',
+        '/mysqlop/monitorlock/02-lockdealcase',
+        '/mysqlop/monitorlock/03-locktabletool',
+        '/mysqlop/monitorlock/04-lockprindetail',
+        '/mysqlop/monitorlock/05-lockcasesummary',
+      ]
+    },
+    {
+      title: 'MySQL主从复制',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/mysqlop/replication/01-intro',
+        '/mysqlop/replication/02-binlogintro',
+        '/mysqlop/replication/03-binlogreplication',
+        '/mysqlop/replication/04-replicationcase',
+        '/mysqlop/replication/05-replicationdelaybasic',
+        '/mysqlop/replication/06-replicationdelaydetail',
       ]
     },
     {

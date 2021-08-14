@@ -114,7 +114,7 @@ File的值是当前使用的二进制日志的文件名，Position是该日志�
 
 
 
-```undefined
+```sql
 mysql > unlock tables;
 ```
 

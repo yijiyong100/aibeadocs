@@ -811,6 +811,18 @@ module.exports = {
       ]
     },
     {
+      title: 'MySQL读写分离-中间代理',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/mysqlop/rwseperateprin/01-intro',
+        '/mysqlop/rwseperateprin/02-mycatintro',
+        '/mysqlop/rwseperateprin/03-mycatcase',
+        '/mysqlop/rwseperateprin/04-mycatsplitdbandtable',
+        '/mysqlop/rwseperateprin/05-amoebacase',
+      ]
+    },
+    {
       title: 'MySQL备份与恢复',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1

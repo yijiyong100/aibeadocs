@@ -131,7 +131,7 @@ public class CyclicBarrierTest {
 
 
 
-```undefined
+```shell
 Thread-2:正在运行
 Thread-4:正在运行
 Thread-1:正在运行

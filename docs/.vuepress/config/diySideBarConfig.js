@@ -823,6 +823,19 @@ module.exports = {
       ]
     },
     {
+      title: 'MySQL读写分离-SpringBoot',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/mysqlop/rwseperatecase/01-intro',
+        '/mysqlop/rwseperatecase/02-druidcase',
+        '/mysqlop/rwseperatecase/03-baomihuacase',
+        '/mysqlop/rwseperatecase/04-annotationcase',
+        '/mysqlop/rwseperatecase/05-serialmybatis',
+        '/mysqlop/rwseperatecase/06-serialmybatisplus',
+      ]
+    },
+    {
       title: 'MySQL备份与恢复',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1

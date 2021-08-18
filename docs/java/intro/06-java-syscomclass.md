@@ -372,7 +372,11 @@ string1.concat(string2);
 下面是一个例子:
 
 ```java
-public class StringDemo {    public static void main(String[] args) {             String string1 = "光束云网址：";             System.out.println("1、" + string1 + "www.work100.net");      }}
+public class StringDemo {    
+  public static void main(String[] args) {
+                 String string1 = "光束云网址：";
+                System.out.println("1、" + string1 + "www.work100.net");
+  }}
 ```
 
 以上实例编译运行结果如下：
@@ -479,7 +483,7 @@ public String[] split(String regex)
 
 还有如果想在串中使用"\"字符,则也需要转义.首先要表达"aaaa\bbbb"这个串就应该用"aaaa\\bbbb",如果要分隔就应该这样才能得到正确结果,
 
-```
+``` java
 String[] aa = "aaa\\bbb\\bccc".split("\\\\");
 ```
 
@@ -541,16 +545,135 @@ String[] aa = "aaa\\bbb\\bccc".split("\\\\");
 ------
 
 
+## java中substring()的用法
+
+
+ 
+
+str＝str.substring(int beginIndex);截取掉str从首字母起长度为beginIndex的字符串，将剩余字符串赋值给str；
+
+str＝str.substring(int beginIndex，int endIndex);截取str中从beginIndex开始至endIndex结束时的字符串，并将其赋值给str;
+
+补充:str＝str.substring(int beginIndex，int endIndex);中最终得到的值:
+
+​ 【重点表述】    beginIndex =< str的值 < endIndex
+
+示例：
+``` java
+
+ "hamburger".substring(4, 8) returns "urge"
+ "smiles".substring(1, 5) returns "mile"
+ "smiles".substring(1, 6) returns "miles"
+```
+
+以下是一段演示程序：
+``` java
+
+public class StringDemo{
+
+public static void main(String agrs[]){
+
+  String str="this is my original string";
+
+  String toDelete=" original";
+
+ 
+
+  if(str.startsWith(toDelete))
+
+  str=str.substring(toDelete.length());
+
+  else
+
+  if(str.endsWith(toDelete))
+
+   str=str.substring(0, str.length()-toDelete.length());
+
+  else
+
+  {
+
+   int index=str.indexOf(toDelete);
+
+   if(index!=-1)
+
+   {
+
+   String str1=str.substring(0, index);
+
+   String str2=str.substring(index+toDelete.length());
+
+   str=str1+str2;
+
+   }
+
+   else
+
+   System.out.println("string /""+toDelete+"/" not found");
+
+  }
+
+  System.out.println(str);
+
+}
+
+}
+```
+
+(原文引用自：http://hi.baidu.com/ccsos/blog/item/42ff84afe6e62bcd7dd92a62.html)
+
+补充:str＝str.substring(int beginIndex，int endIndex);中最终得到的值:
+
+​ 【重点表述】    beginIndex =< str的值 < endIndex
+
+
+
+ 
+
+以上补充内容是我自己以前的一点理解
+
+近日在API中看到对它的注解,
+
+把它发布在下面以便更多的和我一样的初学者更好的理解上面的程序
+
+substring
+
+``` java
+public  substring(int beginIndex,
+                        int endIndex)
+```
+
+返回一个新字符串，它是此字符串的一个子字符串。该子字符串从指定的 beginIndex 处开始，一直到索引 endIndex - 1处的字符。因此，该子字符串的长度为 endIndex-beginIndex。
+
+示例：
+``` java
+
+ "hamburger".substring(4, 8) returns "urge"
+ "smiles".substring(1, 5) returns "mile"
+ "smiles".substring(1, 6) returns "miles"
+```
+ 
+ 
+
+参数：
+
+beginIndex - 开始处的索引（包括）。
+
+endIndex - 结束处的索引（不包括）。
+
+返回：
+
+指定的子字符串。
+
+抛出：
+
+IndexOutOfBoundsException - 如果 beginIndex 为负，或 endIndex 大于此 String 对象的长度，或 beginIndex 大于 endIndex。
+
+
+
 ## 【----------------------------】
-## 四、StringBuffe类r
+## 四、StringBuffe类
 
-| 序号  | 文内章节                                                                                                  | 视频 |
-| :---: | :-------------------------------------------------------------------------------------------------------- | :--- |
-|   1   | [概述](https://www.cnblogs.com/liuxiaojun/p/training-java-stringbuffer.html#概述)                         | -    |
-|   2   | [StringBuffer类](https://www.cnblogs.com/liuxiaojun/p/training-java-stringbuffer.html#StringBuffer类)     | -    |
-|   3   | [StringBuffer方法](https://www.cnblogs.com/liuxiaojun/p/training-java-stringbuffer.html#StringBuffer方法) | -    |
-
-请参照如上`章节导航`进行阅读
 
 ## 1.概述
 
@@ -950,7 +1073,7 @@ public class DateDemo {
 
 以上实例编译运行结果如下:
 
-``` java
+```java
 Mon May 04 09:51:52 CDT 2019
 ```
 
@@ -1063,7 +1186,7 @@ public class DateDemo {
 
 以上实例编译运行结果如下:
 
-``` java
+```java
 全部日期和时间信息：星期一 九月 10 10:43:36 CST 2012  
 年-月-日格式：2012-09-10  
 月/日/年格式：09/10/12  
@@ -1077,37 +1200,103 @@ HH:MM格式（24时制）：10:43
 索引必须紧跟在 `%` 后面，而且必须以$结束。例如：
 
 ```java
-import java.util.Date;  public class DateDemo {    public static void main(String[] args) {       // 初始化 Date 对象       Date date = new Date();               // 使用toString()显示日期和时间       System.out.printf("%1$s %2$tB %2$td, %2$tY",                          "Due date:", date);   }}
+import java.util.Date;
+  
+public class DateDemo {
+ 
+   public static void main(String[] args) {
+       // 初始化 Date 对象
+       Date date = new Date();
+        
+       // 使用toString()显示日期和时间
+       System.out.printf("%1$s %2$tB %2$td, %2$tY", 
+                         "Due date:", date);
+   }
+}
 ```
 
 以上实例编译运行结果如下:
 
-``` java
+```java
 Due date: February 09, 2014
 ```
 
 或者，你可以使用 `<` 标志。它表明先前被格式化的参数要被再次使用。例如：
 
 ```java
-import java.util.Date;  public class DateDemo {    public static void main(String[] args) {       // 初始化 Date 对象       Date date = new Date();               // 显示格式化时间       System.out.printf("%s %tB %<te, %<tY",                          "Due date:", date);   }}
+import java.util.Date;
+  
+public class DateDemo {
+ 
+   public static void main(String[] args) {
+       // 初始化 Date 对象
+       Date date = new Date();
+        
+       // 显示格式化时间
+       System.out.printf("%s %tB %<te, %<tY", 
+                         "Due date:", date);
+   }
+}
 ```
 
 以上实例编译运行结果如下:
 
-``` java
+```java
 Due date: February 09, 2019
 ```
 
 定义日期格式的转换符可以使日期通过指定的转换符生成新字符串。这些日期转换符如下所示：
 
 ```java
-import java.util.*;  public class DateDemo {   public static void main(String[] args) {       Date date=new Date();                                              //b的使用，月份简称          String str=String.format(Locale.US,"英文月份简称：%tb",date);               System.out.println(str);                                                                                      System.out.printf("本地月份简称：%tb%n",date);          //B的使用，月份全称          str=String.format(Locale.US,"英文月份全称：%tB",date);          System.out.println(str);          System.out.printf("本地月份全称：%tB%n",date);          //a的使用，星期简称          str=String.format(Locale.US,"英文星期的简称：%ta",date);          System.out.println(str);          //A的使用，星期全称          System.out.printf("本地星期的简称：%tA%n",date);          //C的使用，年前两位          System.out.printf("年的前两位数字（不足两位前面补0）：%tC%n",date);          //y的使用，年后两位          System.out.printf("年的后两位数字（不足两位前面补0）：%ty%n",date);          //j的使用，一年的天数          System.out.printf("一年中的天数（即年的第几天）：%tj%n",date);          //m的使用，月份          System.out.printf("两位数字的月份（不足两位前面补0）：%tm%n",date);          //d的使用，日（二位，不够补零）          System.out.printf("两位数字的日（不足两位前面补0）：%td%n",date);          //e的使用，日（一位不补零）          System.out.printf("月份的日（前面不补0）：%te",date);     }}
+import java.util.*;
+  
+public class DateDemo {
+   public static void main(String[] args) {
+       Date date=new Date();                                      
+        //b的使用，月份简称  
+        String str=String.format(Locale.US,"英文月份简称：%tb",date);       
+        System.out.println(str);                                                                              
+        System.out.printf("本地月份简称：%tb%n",date);  
+        //B的使用，月份全称  
+        str=String.format(Locale.US,"英文月份全称：%tB",date);  
+        System.out.println(str);  
+        System.out.printf("本地月份全称：%tB%n",date);  
+        //a的使用，星期简称  
+        str=String.format(Locale.US,"英文星期的简称：%ta",date);  
+        System.out.println(str);  
+        //A的使用，星期全称  
+        System.out.printf("本地星期的简称：%tA%n",date);  
+        //C的使用，年前两位  
+        System.out.printf("年的前两位数字（不足两位前面补0）：%tC%n",date);  
+        //y的使用，年后两位  
+        System.out.printf("年的后两位数字（不足两位前面补0）：%ty%n",date);  
+        //j的使用，一年的天数  
+        System.out.printf("一年中的天数（即年的第几天）：%tj%n",date);  
+        //m的使用，月份  
+        System.out.printf("两位数字的月份（不足两位前面补0）：%tm%n",date);  
+        //d的使用，日（二位，不够补零）  
+        System.out.printf("两位数字的日（不足两位前面补0）：%td%n",date);  
+        //e的使用，日（一位不补零）  
+        System.out.printf("月份的日（前面不补0）：%te",date);  
+   }
+}
 ```
 
 输出结果为：
 
-``` java
-英文月份简称：May本地月份简称：五月英文月份全称：May本地月份全称：五月英文星期的简称：Thu本地星期的简称：星期四年的前两位数字（不足两位前面补0）：20年的后两位数字（不足两位前面补0）：17一年中的天数（即年的第几天）：124两位数字的月份（不足两位前面补0）：05两位数字的日（不足两位前面补0）：04月份的日（前面不补0）：4
+```java
+英文月份简称：May
+本地月份简称：五月
+英文月份全称：May
+本地月份全称：五月
+英文星期的简称：Thu
+本地星期的简称：星期四
+年的前两位数字（不足两位前面补0）：20
+年的后两位数字（不足两位前面补0）：17
+一年中的天数（即年的第几天）：124
+两位数字的月份（不足两位前面补0）：05
+两位数字的日（不足两位前面补0）：04
+月份的日（前面不补0）：4
 ```
 
 ## 7.解析字符串为时间
@@ -1117,13 +1306,37 @@ import java.util.*;  public class DateDemo {   public static void main(String[] 
 例如：
 
 ```java
-import java.util.*;import java.text.*;  public class DateDemo {    public static void main(String[] args) {      SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");        String input = args.length == 0 ? "1818-11-11" : args[0];        System.out.print(input + " Parses as ");        Date t;        try {           t = ft.parse(input);           System.out.println(t);       } catch (ParseException e) {           System.out.println("Unparseable using " + ft);       }   }}
+import java.util.*;
+import java.text.*;
+  
+public class DateDemo {
+ 
+   public static void main(String[] args) {
+      SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd"); 
+ 
+      String input = args.length == 0 ? "1818-11-11" : args[0]; 
+ 
+      System.out.print(input + " Parses as "); 
+ 
+      Date t; 
+ 
+      try { 
+          t = ft.parse(input); 
+          System.out.println(t); 
+      } catch (ParseException e) { 
+          System.out.println("Unparseable using " + ft); 
+      }
+   }
+}
 ```
 
 以上实例编译运行结果如下:
 
-``` java
-$ java DateDemo1818-11-11 Parses as Wed Nov 11 00:00:00 GMT 1818$ java DateDemo 2007-12-012007-12-01 Parses as Sat Dec 01 00:00:00 GMT 2007
+```java
+$ java DateDemo
+1818-11-11 Parses as Wed Nov 11 00:00:00 GMT 1818
+$ java DateDemo 2007-12-01
+2007-12-01 Parses as Sat Dec 01 00:00:00 GMT 2007
 ```
 
 ## 8.Java休眠(sleep)
@@ -1133,13 +1346,27 @@ $ java DateDemo1818-11-11 Parses as Wed Nov 11 00:00:00 GMT 1818$ java DateDemo 
 你可以让程序休眠一毫秒的时间或者到您的计算机的寿命长的任意段时间。例如，下面的程序会休眠3秒：
 
 ```java
-import java.util.*;  public class SleepDemo {   public static void main(String[] args) {      try {          System.out.println(new Date( ) + "\n");          Thread.sleep(1000*3);   // 休眠3秒         System.out.println(new Date( ) + "\n");       } catch (Exception e) {           System.out.println("Got an exception!");       }   }}
+import java.util.*;
+  
+public class SleepDemo {
+   public static void main(String[] args) {
+      try { 
+         System.out.println(new Date( ) + "\n"); 
+         Thread.sleep(1000*3);   // 休眠3秒
+         System.out.println(new Date( ) + "\n"); 
+      } catch (Exception e) { 
+          System.out.println("Got an exception!"); 
+      }
+   }
+}
 ```
 
 以上实例编译运行结果如下:
 
-``` java
-Thu Sep 17 10:20:30 CST 2019Thu Sep 17 10:20:33 CST 2019
+```java
+Thu Sep 17 10:20:30 CST 2019
+
+Thu Sep 17 10:20:33 CST 2019
 ```
 
 ## 9.测量时间
@@ -1147,13 +1374,34 @@ Thu Sep 17 10:20:30 CST 2019Thu Sep 17 10:20:33 CST 2019
 下面的一个例子表明如何测量时间间隔（以毫秒为单位）：
 
 ```java
-import java.util.*;  public class DiffDemo {    public static void main(String[] args) {      try {         long start = System.currentTimeMillis( );         System.out.println(new Date( ) + "\n");         Thread.sleep(5*60*10);         System.out.println(new Date( ) + "\n");         long end = System.currentTimeMillis( );         long diff = end - start;         System.out.println("Difference is : " + diff);      } catch (Exception e) {         System.out.println("Got an exception!");      }   }}
+import java.util.*;
+  
+public class DiffDemo {
+ 
+   public static void main(String[] args) {
+      try {
+         long start = System.currentTimeMillis( );
+         System.out.println(new Date( ) + "\n");
+         Thread.sleep(5*60*10);
+         System.out.println(new Date( ) + "\n");
+         long end = System.currentTimeMillis( );
+         long diff = end - start;
+         System.out.println("Difference is : " + diff);
+      } catch (Exception e) {
+         System.out.println("Got an exception!");
+      }
+   }
+}
 ```
 
 以上实例编译运行结果如下:
 
-``` java
-Fri Jan 08 09:48:47 CST 2016Fri Jan 08 09:48:50 CST 2016Difference is : 3019
+```java
+Fri Jan 08 09:48:47 CST 2016
+
+Fri Jan 08 09:48:50 CST 2016
+
+Difference is : 3019
 ```
 
 ## 10.Calendar类
@@ -1177,7 +1425,9 @@ Calendar c = Calendar.getInstance();//默认是当前日期
 使用 `Calendar` 类代表特定的时间，需要首先创建一个 `Calendar` 的对象，然后再设定该对象中的年月日参数来完成。
 
 ```java
-//创建一个代表2009年6月12日的Calendar对象Calendar c1 = Calendar.getInstance();c1.set(2009, 6 - 1, 12);
+//创建一个代表2009年6月12日的Calendar对象
+Calendar c1 = Calendar.getInstance();
+c1.set(2009, 6 - 1, 12);
 ```
 
 ### Calendar类对象字段类型
@@ -1209,7 +1459,9 @@ Calendar c1 = Calendar.getInstance();
 调用：
 
 ```java
-public final void set(int year,int month,int date)c1.set(2009, 6, 12);//把Calendar对象c1的年月日分别设这为：2009、6、12
+public final void set(int year,int month,int date)
+
+c1.set(2009, 6, 12);//把Calendar对象c1的年月日分别设这为：2009、6、12
 ```
 
 利用字段类型设置
@@ -1257,7 +1509,21 @@ c1.add(Calendar.DATE, -10);
 ### Calendar类对象信息的获得
 
 ```java
-Calendar c1 = Calendar.getInstance();// 获得年份int year = c1.get(Calendar.YEAR);// 获得月份int month = c1.get(Calendar.MONTH) + 1;// 获得日期int date = c1.get(Calendar.DATE);// 获得小时int hour = c1.get(Calendar.HOUR_OF_DAY);// 获得分钟int minute = c1.get(Calendar.MINUTE);// 获得秒int second = c1.get(Calendar.SECOND);// 获得星期几（注意（这个与Date类是不同的）：1代表星期日、2代表星期1、3代表星期二，以此类推）int day = c1.get(Calendar.DAY_OF_WEEK);
+Calendar c1 = Calendar.getInstance();
+// 获得年份
+int year = c1.get(Calendar.YEAR);
+// 获得月份
+int month = c1.get(Calendar.MONTH) + 1;
+// 获得日期
+int date = c1.get(Calendar.DATE);
+// 获得小时
+int hour = c1.get(Calendar.HOUR_OF_DAY);
+// 获得分钟
+int minute = c1.get(Calendar.MINUTE);
+// 获得秒
+int second = c1.get(Calendar.SECOND);
+// 获得星期几（注意（这个与Date类是不同的）：1代表星期日、2代表星期1、3代表星期二，以此类推）
+int day = c1.get(Calendar.DAY_OF_WEEK);
 ```
 
 ## 11.GregorianCalendar类
@@ -1313,13 +1579,48 @@ Calendar c1 = Calendar.getInstance();// 获得年份int year = c1.get(Calendar.Y
 #### 实例
 
 ```java
-import java.util.*;  public class GregorianCalendarDemo {    public static void main(String[] args) {      String months[] = {      "Jan", "Feb", "Mar", "Apr",      "May", "Jun", "Jul", "Aug",      "Sep", "Oct", "Nov", "Dec"};            int year;      // 初始化 Gregorian 日历      // 使用当前时间和日期      // 默认为本地时间和时区      GregorianCalendar gcalendar = new GregorianCalendar();      // 显示当前时间和日期的信息      System.out.print("Date: ");      System.out.print(months[gcalendar.get(Calendar.MONTH)]);      System.out.print(" " + gcalendar.get(Calendar.DATE) + " ");      System.out.println(year = gcalendar.get(Calendar.YEAR));      System.out.print("Time: ");      System.out.print(gcalendar.get(Calendar.HOUR) + ":");      System.out.print(gcalendar.get(Calendar.MINUTE) + ":");      System.out.println(gcalendar.get(Calendar.SECOND));            // 测试当前年份是否为闰年      if(gcalendar.isLeapYear(year)) {         System.out.println("当前年份是闰年");      }      else {         System.out.println("当前年份不是闰年");      }   }}
+import java.util.*;
+  
+public class GregorianCalendarDemo {
+ 
+   public static void main(String[] args) {
+      String months[] = {
+      "Jan", "Feb", "Mar", "Apr",
+      "May", "Jun", "Jul", "Aug",
+      "Sep", "Oct", "Nov", "Dec"};
+      
+      int year;
+      // 初始化 Gregorian 日历
+      // 使用当前时间和日期
+      // 默认为本地时间和时区
+      GregorianCalendar gcalendar = new GregorianCalendar();
+      // 显示当前时间和日期的信息
+      System.out.print("Date: ");
+      System.out.print(months[gcalendar.get(Calendar.MONTH)]);
+      System.out.print(" " + gcalendar.get(Calendar.DATE) + " ");
+      System.out.println(year = gcalendar.get(Calendar.YEAR));
+      System.out.print("Time: ");
+      System.out.print(gcalendar.get(Calendar.HOUR) + ":");
+      System.out.print(gcalendar.get(Calendar.MINUTE) + ":");
+      System.out.println(gcalendar.get(Calendar.SECOND));
+      
+      // 测试当前年份是否为闰年
+      if(gcalendar.isLeapYear(year)) {
+         System.out.println("当前年份是闰年");
+      }
+      else {
+         System.out.println("当前年份不是闰年");
+      }
+   }
+}
 ```
 
 以上实例编译运行结果如下：
 
-``` java
-Date: Apr 22 2009Time: 11:25:27当前年份不是闰年
+```java
+Date: Apr 22 2009
+Time: 11:25:27
+当前年份不是闰年
 ```
 
 #### 练习
@@ -1329,13 +1630,28 @@ Date: Apr 22 2009Time: 11:25:27当前年份不是闰年
 示例代码：
 
 ```java
-import java.util.Calendar;public class Test {    public static void main(String[] args) {            Calendar c1 = Calendar.getInstance();            c1.set(2017, 1, 1);            System.out.println(c1.get(Calendar.YEAR)                    +"-"+c1.get(Calendar.MONTH)                    +"-"+c1.get(Calendar.DATE));            c1.set(2017, 1, 0);            System.out.println(c1.get(Calendar.YEAR)                    +"-"+c1.get(Calendar.MONTH)                    +"-"+c1.get(Calendar.DATE));    }}
+import java.util.Calendar;
+
+public class Test {
+    public static void main(String[] args) {
+            Calendar c1 = Calendar.getInstance();
+            c1.set(2017, 1, 1);
+            System.out.println(c1.get(Calendar.YEAR)
+                    +"-"+c1.get(Calendar.MONTH)
+                    +"-"+c1.get(Calendar.DATE));
+            c1.set(2017, 1, 0);
+            System.out.println(c1.get(Calendar.YEAR)
+                    +"-"+c1.get(Calendar.MONTH)
+                    +"-"+c1.get(Calendar.DATE));
+    }
+}
 ```
 
 运行结果：
 
-``` java
-2017-1-12017-0-31
+```java
+2017-1-1
+2017-0-31
 ```
 
 可见，将日期设为0以后，月份变成了上个月，但月份可以为0
@@ -1343,13 +1659,28 @@ import java.util.Calendar;public class Test {    public static void main(String[
 把月份改为2试试：
 
 ```java
-import java.util.Calendar;public class Test {    public static void main(String[] args) {            Calendar c1 = Calendar.getInstance();            c1.set(2017, 2, 1);            System.out.println(c1.get(Calendar.YEAR)                    +"-"+c1.get(Calendar.MONTH)                    +"-"+c1.get(Calendar.DATE));            c1.set(2017, 2, 0);            System.out.println(c1.get(Calendar.YEAR)                    +"-"+c1.get(Calendar.MONTH)                    +"-"+c1.get(Calendar.DATE));    }}
+import java.util.Calendar;
+
+public class Test {
+    public static void main(String[] args) {
+            Calendar c1 = Calendar.getInstance();
+            c1.set(2017, 2, 1);
+            System.out.println(c1.get(Calendar.YEAR)
+                    +"-"+c1.get(Calendar.MONTH)
+                    +"-"+c1.get(Calendar.DATE));
+            c1.set(2017, 2, 0);
+            System.out.println(c1.get(Calendar.YEAR)
+                    +"-"+c1.get(Calendar.MONTH)
+                    +"-"+c1.get(Calendar.DATE));
+    }
+}
 ```
 
 运行结果：
 
-``` java
-2017-2-12017-1-28
+```java
+2017-2-1
+2017-1-28
 ```
 
 可以看到上个月的最后一天是28号，所以 `Calendar.MONTH` 为1的时候是2月
@@ -1376,7 +1707,7 @@ public class Test {
 
 运行结果：
 
-``` java
+```java
 2017-2-1
 2017-1-18
 ```
@@ -1387,6 +1718,7 @@ public class Test {
 
 实测将年份设为非正数时，会自动变为 `绝对值+1`，不知其意义。
 
+
 ## 参考文章
 * https://www.cnblogs.com/liuxiaojun/p/training-java-number-math.html
 * https://www.cnblogs.com/liuxiaojun/p/training-java-character.html
@@ -1396,3 +1728,4 @@ public class Test {
 * https://www.cnblogs.com/liuxiaojun/p/training-java-array.html
 * https://www.cnblogs.com/liuxiaojun/p/training-javajava-date-time.html
 * https://www.cnblogs.com/mingforyou/p/3299569.html
+* https://www.cnblogs.com/yuechuan/p/9022514.html

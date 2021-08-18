@@ -215,6 +215,7 @@ module.exports = {
         '/db/mysqlpro/04-devrela',
         '/db/mysqlpro/05-cursor',
         '/db/mysqlpro/06-trigger',
+        '/db/mysqlpro/06.1-triggercase',
       ]
     },
     {

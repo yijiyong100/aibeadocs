@@ -399,6 +399,53 @@ module.exports = {
       ]
     }
   ],
+  "/ai/": [
+    {
+      title: '人工智能基础概念介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ai/intro/01-intro',
+        '/ai/intro/02-subjectanddevelopment',
+        '/ai/intro/03-summary',
+      ]
+    },
+    {
+      title: '大数据和AI的联系区别',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ai/diff/01-intro',
+        '/ai/diff/02-diff2',
+        '/ai/diff/03-summary',
+      ]
+    }
+  ],
+  "/bigdata/": [
+    {
+      title: '大数据基础概念介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/bigdata/intro/01-intro',
+        '/bigdata/intro/02-comconcepts',
+        '/bigdata/intro/03-classiccase',
+      ]
+    },
+    {
+      title: '大数据技术体系介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/bigdata/techintro/01-intro',
+        '/bigdata/techintro/02-commtechcomponent',
+        '/bigdata/techintro/03-techarchitecture',
+        '/bigdata/techintro/04-techsystem',
+        '/bigdata/techintro/05-corearchitecture',
+        '/bigdata/techintro/06-techsystemsummary',
+      ]
+    }
+  ],
   "/spring/": [
     {
       title: 'Spring基础知识',   // 必要的

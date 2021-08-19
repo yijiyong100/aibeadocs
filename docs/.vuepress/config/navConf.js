@@ -117,9 +117,10 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: '基础知识总结', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: '入门知识介绍', link: '/bigdata/intro/01-intro' },
+            { text: '技术体系介绍', link: '/bigdata/techintro/01-intro' }
           ]
       }
     ]
@@ -129,9 +130,10 @@ module.exports = [
     ariaLabel: 'Language Menu',
     items: [
       {
-        text: '完善中', items:
+        text: '基础知识总结', items:
           [
-            { text: '敬请期待', link: '/building/' }
+            { text: '入门知识介绍', link: '/ai/intro/01-intro' },
+            { text: '大数据和AI关系', link: '/ai/diff/01-intro' }
           ]
       }
     ]

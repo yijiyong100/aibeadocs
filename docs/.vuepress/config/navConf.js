@@ -122,6 +122,13 @@ module.exports = [
             { text: '入门知识介绍', link: '/bigdata/intro/01-intro' },
             { text: '技术体系介绍', link: '/bigdata/techintro/01-intro' }
           ]
+      },
+      {
+        text: '数据采集总结', items:
+          [
+            { text: '入门知识介绍', link: '/dc/intro/01-intro' },
+            { text: '常用工具比较', link: '/dc/intro/02-diff' }
+          ]
       }
     ]
   },

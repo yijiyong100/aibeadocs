@@ -117,5 +117,18 @@ Hadoop的框架最核心的设计就是：HDFS和MapReduce。HDFS为海量的数
 
 - Mahout：是一个算法库,集成了很多算法。旨在帮助开发人员更加方便快捷地创建智能应用程序。Mahout包括许多实现，包括聚类、分类、推荐引擎、频繁子项挖掘等等。
 
+## 相关概念英文缩写
+
+**数据采集**：data collection             缩写：dc
+
+**数据存储**：data storage                缩写：ds
+
+**数据处理(数据加工)**：data processing    缩写：dp
+
+**数据仓库**: data warehouse              缩写：dw
+
+**数据挖掘**：data mining                 缩写：dm
+
+
 ## 参考文章
 * https://zhuanlan.zhihu.com/p/160903909

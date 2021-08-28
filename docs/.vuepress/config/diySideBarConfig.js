@@ -433,6 +433,16 @@ module.exports = {
       ]
     },
     {
+      title: 'OLTP和OLAP介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/bigdata/oltpandolap/01-intro',
+        '/bigdata/oltpandolap/02-diff',
+        '/bigdata/oltpandolap/03-summary',
+      ]
+    },
+    {
       title: '大数据技术体系介绍',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
@@ -443,6 +453,28 @@ module.exports = {
         '/bigdata/techintro/04-techsystem',
         '/bigdata/techintro/05-corearchitecture',
         '/bigdata/techintro/06-techsystemsummary',
+      ]
+    }
+  ],
+  "/dc/": [
+    {
+      title: '大数据采集-工具介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dc/intro/01-intro',
+        '/dc/intro/02-diff',
+        '/dc/intro/03-summary',
+      ]
+    },
+    {
+      title: '大数据采集-Sqoop',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dc/sqoop/01-intro',
+        '/dc/sqoop/02-prin',
+        '/dc/sqoop/03-summary',
       ]
     }
   ],
@@ -794,6 +826,15 @@ module.exports = {
         '/operation/linux/03-cmdsum',
         '/operation/linux/04-cmdcurl',
         '/operation/linux/05-shell',
+      ]
+    },
+    {
+      title: 'Linux系统运维总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/operation/linuxop/01-filesystem',
+        '/operation/linuxop/02-filesysdetail',
       ]
     },
     {

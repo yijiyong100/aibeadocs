@@ -9,11 +9,11 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 [[toc]]
 
 ## 【----------------------------】
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/bigdata/intro/case/intro-1.png')" alt="wxmp">
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/bigdata/techintro/tech5-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dc/intro/diff-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dc/intro/intro-1.png')" alt="wxmp">
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/diff/diff-1.png')" alt="wxmp">
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/techintro/intro-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dc/intro/intro-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dc/intro/intro-1.png')" alt="wxmp">
 
 
 

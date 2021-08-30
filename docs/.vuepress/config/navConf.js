@@ -129,6 +129,13 @@ module.exports = [
             { text: '入门知识介绍', link: '/dc/intro/01-intro' },
             { text: '常用工具比较', link: '/dc/intro/02-diff' }
           ]
+      },
+      {
+        text: '数据存储总结', items:
+          [
+            { text: 'Hadoop入门介绍', link: '/ds/intro/01-basicintro' },
+            { text: 'Hadoop生态介绍', link: '/ds/intro/02-detailintro' }
+          ]
       }
     ]
   },

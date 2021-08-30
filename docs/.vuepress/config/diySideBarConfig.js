@@ -476,6 +476,50 @@ module.exports = {
         '/dc/sqoop/02-prin',
         '/dc/sqoop/03-summary',
       ]
+    },
+    {
+      title: '大数据采集-Flume',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dc/flume/01-intro',
+        '/dc/flume/02-installuse',
+        '/dc/flume/03-prin',
+        '/dc/flume/04-flumesqoopdiff',
+        '/dc/flume/05-sumcase',
+        '/dc/flume/06-districonf',
+      ]
+    },
+    {
+      title: '大数据采集-Kafka',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dc/kafka/01-basiccase',
+        '/dc/kafka/02-caseprin',
+        '/dc/kafka/03-summarycase',
+      ]
+    },
+    {
+      title: '大数据采集-DataX',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dc/datax/01-intro',
+        '/dc/datax/02-prin',
+        '/dc/datax/03-case',
+      ]
+    }
+  ],
+  "/ds/": [
+    {
+      title: '大数据存储-Hadoop介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ds/intro/01-basicintro',
+        '/ds/intro/02-detailintro',
+      ]
     }
   ],
   "/spring/": [

@@ -519,6 +519,37 @@ module.exports = {
       children: [
         '/ds/intro/01-basicintro',
         '/ds/intro/02-detailintro',
+        '/ds/intro/03-hdfsintro',
+        '/ds/intro/04-corecomponent',
+        '/ds/intro/05-mrrunprin',
+        '/ds/intro/06-designprin',
+        '/ds/intro/07-workprin',
+        '/ds/intro/08-runprin',
+      ]
+    },
+    {
+      title: '大数据存储-Hadoop生态',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ds/ecology/01-intro',
+        '/ds/ecology/02-compnent',
+        '/ds/ecology/03-basicarchi',
+        '/ds/ecology/04-2.xverarchi',
+        '/ds/ecology/05-summary',
+      ]
+    },
+    {
+      title: '大数据存储-HDFS总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ds/hdfs/01-intro',
+        '/ds/hdfs/02-writeprocedure',
+        '/ds/hdfs/03-cmdinterface',
+        '/ds/hdfs/04-javainterface',
+        '/ds/hdfs/05-knowledgesum',
+        '/ds/hdfs/06-detailsum',
       ]
     }
   ],

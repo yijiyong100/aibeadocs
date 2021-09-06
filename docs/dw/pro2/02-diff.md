@@ -1,9 +1,9 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: Hive-和数据差别
 ---
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 Hive-和数据差别 。
 :::
 
 [[toc]]

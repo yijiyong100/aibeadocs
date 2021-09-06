@@ -1,9 +1,9 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: Hive-基础介绍
 ---
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 Hive-基础知识 。
 :::
 
 [[toc]]

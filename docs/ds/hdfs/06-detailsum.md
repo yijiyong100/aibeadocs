@@ -274,12 +274,12 @@ hdfs oev -i edits -o edits.xml
 hdfs oiv -i fsimage_0000000087 -p XML -o fsimage.xml
 ```
 
-> inputfile: 要查看的fsimage文件
->
-> ```dts
->    outputfile: 用于保存格式化之后的文件
->    process: 使用什么进程解码，XML|Web|...
-> ```
+
+``` shell
+inputfile: 要查看的fsimage文件
+outputfile: 用于保存格式化之后的文件
+process: 使用什么进程解码，XML|Web|...
+```
 
 #### 5.2.3 元数据的checkpoint
 

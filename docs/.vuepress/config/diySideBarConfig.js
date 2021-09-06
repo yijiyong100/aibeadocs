@@ -551,6 +551,40 @@ module.exports = {
         '/ds/hdfs/05-knowledgesum',
         '/ds/hdfs/06-detailsum',
       ]
+    },
+    {
+      title: '大数据存储-HBASE总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ds/hbase/01-intro',
+        '/ds/hbase/02-prin',
+        '/ds/hbase/03-opt1',
+        '/ds/hbase/04-opt2',
+        '/ds/hbase/05-archiprin',
+        '/ds/hbase/06-summary',
+      ]
+    }
+  ],
+  "/dw/": [
+    {
+      title: '大数据仓库-概念介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dw/intro/01-intro',
+        '/dw/intro/02-basicarchi',
+        '/dw/intro/03-summary',
+      ]
+    },
+    {
+      title: '大数据仓库-Hive总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dw/hive/01-intro',
+        '/dw/hive/02-basicarchi',
+      ]
     }
   ],
   "/spring/": [

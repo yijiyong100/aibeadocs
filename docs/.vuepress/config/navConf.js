@@ -141,7 +141,7 @@ module.exports = [
         text: '数据仓库总结', items:
           [
             { text: '数据仓库入门介绍', link: '/dw/intro/01-intro' },
-            { text: '数据仓库精华总结', link: '/dw/intro/02-detailintro' }
+            { text: '数据仓库精华总结', link: '/dw/intro/03-summary' }
           ]
       }
     ]

@@ -584,6 +584,36 @@ module.exports = {
       children: [
         '/dw/hive/01-intro',
         '/dw/hive/02-basicarchi',
+        '/dw/hive/03-basiclianzai',
+        '/dw/hive/04-storageandcompression',
+        '/dw/hive/05-hivesql',
+        '/dw/hive/06-hiveexplainplan',
+        '/dw/hive/07-hivesqlexecprin',
+        '/dw/hive/08-hivedataskew',
+        '/dw/hive/09-hiveenterpriselevelopt',
+        '/dw/hive/10-hivesqlexecsourcecode',
+      ]
+    },
+    {
+      title: '大数据仓库-Hive优化',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dw/hiveopt/01-optbasic',
+        '/dw/hiveopt/02-optstrategy',
+        '/dw/hiveopt/03-commonoptmethods',
+        '/dw/hiveopt/04-optsummary1',
+        '/dw/hiveopt/05-optsummary2',
+      ]
+    },
+    {
+      title: '大数据仓库-Pig介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dw/pig/01-intro',
+        '/dw/pig/02-basicprin',
+        '/dw/pig/03-summary',
       ]
     }
   ],

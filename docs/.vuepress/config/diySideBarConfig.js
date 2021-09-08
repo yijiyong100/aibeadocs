@@ -615,6 +615,50 @@ module.exports = {
         '/dw/pig/02-basicprin',
         '/dw/pig/03-summary',
       ]
+    },
+    {
+      title: '大数据仓库-ClickHouse介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dw/clickhouse/01-intro',
+        '/dw/clickhouse/02-summaryintro',
+        '/dw/clickhouse/03-caseintro',
+      ]
+    },
+    {
+      title: '大数据仓库-CDH介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dw/cdh/01-cdhintro',
+        '/dw/cdh/02-cmintroandinstall',
+        '/dw/cdh/03-summarycase',
+      ]
+    },
+    {
+      title: '大数据仓库-Ambari介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dw/ambari/01-introandinstall',
+        '/dw/ambari/02-installcase',
+        '/dw/ambari/03-diff',
+      ]
+    }
+  ],
+  "/dp/": [
+    {
+      title: '大数据处理-MapReduce介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/mr/01-intro',
+        '/dp/mr/02-basicprin',
+        '/dp/mr/03-prinandcase',
+        '/dp/mr/04-mreliminatecause',
+        '/dp/mr/05-summary',
+      ]
     }
   ],
   "/spring/": [

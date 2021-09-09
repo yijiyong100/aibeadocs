@@ -147,7 +147,7 @@ module.exports = [
       {
         text: '数据处理总结', items:
           [
-            { text: 'MapReduce-入门原理', link: '/dp/mr/01-intro' },
+            { text: 'MapReduce-入门介绍', link: '/dp/mr/01-intro' },
             { text: 'MapReduce-工作原理', link: '/dp/mr/02-basicprin' }
           ]
       }

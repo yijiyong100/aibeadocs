@@ -659,6 +659,29 @@ module.exports = {
         '/dp/mr/04-mreliminatecause',
         '/dp/mr/05-summary',
       ]
+    },
+    {
+      title: '大数据处理-Yarn介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/yarn/01-intro',
+        '/dp/yarn/02-archiprin',
+        '/dp/yarn/03-runprin',
+        '/dp/yarn/04-clusterbuild',
+        '/dp/yarn/05-configintro',
+        '/dp/yarn/06-summarycase',
+      ]
+    },
+    {
+      title: '大数据处理-Yarn优化',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/yarnopt/01-basicparamopt',
+        '/dp/yarnopt/02-memparamopt',
+        '/dp/yarnopt/03-summaryopt',
+      ]
     }
   ],
   "/spring/": [

@@ -9,8 +9,7 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 [[toc]]
 
 ## 【----------------------------】
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dp/yarnopt/sumopt-1.png')" alt="wxmp">
-
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dp/storm/clusterinstall-1.png')" alt="wxmp">
 
 
 

@@ -661,7 +661,7 @@ module.exports = {
       ]
     },
     {
-      title: '大数据处理-Yarn介绍',   // 必要的
+      title: '大数据【资源管理】-Yarn介绍',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
@@ -674,13 +674,36 @@ module.exports = {
       ]
     },
     {
-      title: '大数据处理-Yarn优化',   // 必要的
+      title: '大数据【资源管理】-Yarn优化',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/dp/yarnopt/01-basicparamopt',
         '/dp/yarnopt/02-memparamopt',
         '/dp/yarnopt/03-summaryopt',
+      ]
+    },
+    {
+      title: '大数据【批处理】-Tez介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/tez/01-intro',
+        '/dp/tez/02-installcase',
+        '/dp/tez/03-summary',
+      ]
+    },
+    {
+      title: '大数据【流处理】-Storm介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/storm/01-intro',
+        '/dp/storm/02-artchiandprin',
+        '/dp/storm/03-streamdealframe',
+        '/dp/storm/04-clusterinstallcase',
+        '/dp/storm/05-clusterandwordcase',
+        '/dp/storm/06-summary',
       ]
     }
   ],

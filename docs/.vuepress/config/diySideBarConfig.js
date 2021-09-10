@@ -705,6 +705,24 @@ module.exports = {
         '/dp/storm/05-clusterandwordcase',
         '/dp/storm/06-summary',
       ]
+    },
+    {
+      title: '大数据【流处理】-Spark介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/spark/01-intro',
+        '/dp/spark/02-caseintro',
+        '/dp/spark/03-rddintro',
+        '/dp/spark/04-basicarchi',
+        '/dp/spark/05-fourfeatures',
+        '/dp/spark/06-clusterinstall',
+        '/dp/spark/07-sparkshellintro',
+        '/dp/spark/08-sparksqlsum',
+        '/dp/spark/09-sparkmllibintro',
+        '/dp/spark/10-summary1',
+        '/dp/spark/11-summary2',
+      ]
     }
   ],
   "/spring/": [

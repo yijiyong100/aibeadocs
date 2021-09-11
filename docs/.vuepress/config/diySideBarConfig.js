@@ -723,6 +723,34 @@ module.exports = {
         '/dp/spark/10-summary1',
         '/dp/spark/11-summary2',
       ]
+    },
+    {
+      title: '大数据【流处理】-Flink介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/flink/01-intro',
+        '/dp/flink/02-install',
+        '/dp/flink/03-clusterinstall',
+        '/dp/flink/04-runprin',
+        '/dp/flink/05-checkpoints',
+        '/dp/flink/06-savepoints',
+        '/dp/flink/07-checkandsavepointdiff',
+        '/dp/flink/08-caseanalysis',
+        '/dp/flink/09-summary',
+      ]
+    },
+    {
+      title: '大数据【流处理框架比较】',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/streamdiff/01-stormandflinkdiff',
+        '/dp/streamdiff/02-sparkandflinkdiff',
+        '/dp/streamdiff/03-stormsaprkflinkbasicdiff',
+        '/dp/streamdiff/04-stormsaprkflinkdetaildiff',
+        '/dp/streamdiff/05-stormsaprkflinksummarydiff',
+      ]
     }
   ],
   "/spring/": [

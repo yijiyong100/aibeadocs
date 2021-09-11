@@ -725,6 +725,16 @@ module.exports = {
       ]
     },
     {
+      title: '大数据【流处理】-Spark优化',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/sparkopt/01-basicopt',
+        '/dp/sparkopt/02-commonopt',
+        '/dp/sparkopt/03-summaryopt',
+      ]
+    },
+    {
       title: '大数据【流处理】-Flink介绍',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
@@ -741,6 +751,16 @@ module.exports = {
       ]
     },
     {
+      title: '大数据【流处理】-Flink优化',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dp/flinkopt/01-basicopt',
+        '/dp/flinkopt/02-taskopt',
+        '/dp/flinkopt/03-summaryopt',
+      ]
+    },
+    {
       title: '大数据【流处理框架比较】',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
@@ -750,6 +770,20 @@ module.exports = {
         '/dp/streamdiff/03-stormsaprkflinkbasicdiff',
         '/dp/streamdiff/04-stormsaprkflinkdetaildiff',
         '/dp/streamdiff/05-stormsaprkflinksummarydiff',
+      ]
+    }
+  ],
+  "/da/": [
+    {
+      title: '数据应用-案例和原理',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/da/intro/01-intro',
+        '/da/intro/02-techandsecene',
+        '/da/intro/03-secnetecharchi',
+        '/da/intro/04-summarycase1',
+        '/da/intro/05-summarycase2',
       ]
     }
   ],

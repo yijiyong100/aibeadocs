@@ -150,6 +150,13 @@ module.exports = [
             { text: 'MapReduce-入门介绍', link: '/dp/mr/01-intro' },
             { text: 'MapReduce-工作原理', link: '/dp/mr/02-basicprin' }
           ]
+      },
+      {
+        text: '数据应用总结', items:
+          [
+            { text: '大数据应用场景基础介绍', link: '/da/intro/01-intro' },
+            { text: '大数据应用场景技术架构', link: '/da/intro/03-secnetecharchi' }
+          ]
       }
     ]
   },

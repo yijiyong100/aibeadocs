@@ -10,6 +10,9 @@ secret.js
 # ftp 数据上传的 
 ftp*
 
+# jar 文件不上传
+*.jar
+
 
 # local env files
 .env.local

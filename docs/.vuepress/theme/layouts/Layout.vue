@@ -25,10 +25,10 @@
             <!-- 文章的访问信息 和相关信息 -->
 
             <span>更新时间</span>
-            <span v-show="articleInfo.updateTime.length > 0">{{articleInfo.updateTime}}</span>
+            <span>{{$page.lastUpdated}}</span>
             &nbsp;&nbsp;
             <span>浏览</span>
-            <span v-show="articleInfo.updateTime.length > 0">{{articleInfo.visitNum}}</span>
+            <span>{{articleInfo.visitNum}}</span>
             &nbsp;&nbsp;
 
           </div>
@@ -173,7 +173,7 @@ export default {
       // 相对路径
       curUrlPath: "",
       // 上次相对路径
-      lastCurUrlPath: "",
+      lastCurUrlPath: "last",
       // 全路径 
       curAllUrlPath: "",
       isLeftSiderOpen: true,
@@ -272,6 +272,13 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
   },
 
+  created () {
+    this.initIndexList()
+    this.initArticleVisitInfo('created')
+    this.lastCurUrlPath = this.$page.path;
+    this.curUrlPath = this.$page.path;
+  },
+
   mounted () {
     this.initPath()
     this.initGetLastUpdate()
@@ -294,8 +301,8 @@ export default {
         return;
       }
       let param = new URLSearchParams()
-      param.append('url', this.curUrlPath)
-      param.append('updateTime', this.articleInfo.updateTime)
+      param.append('url', this.$page.path)
+      param.append('updateTime', this.$page.lastUpdated)
       param.append('blogTitle', this.$page.title)
       const { data: res } = await axios({
         method: 'post',
@@ -436,23 +443,11 @@ export default {
       this.topButtonShowFlag = false;
     },
     initPath () {
-      this.curUrlPath = window.location.pathname
+      this.curUrlPath = this.$page.path;
       this.curAllUrlPath = window.location.href
       this.qrCodeApiUrl = this.qrCodeApiPre + this.curAllUrlPath
     },
     initGetLastUpdate () {
-      // 更新时只执行一次
-      if (this.lastCurUrlPath === this.curUrlPath) {
-        return;
-      }
-      var updateInfo = document.getElementsByClassName('last-updated');
-      if (updateInfo.length > 0) {
-        var updateNode = updateInfo[0];
-        if (updateNode.children.length > 1) {
-          this.articleInfo.updateTime = updateNode.children[1].innerHTML;
-          // console.log(updateNode.children[1].innerHTML)
-        }
-      }
     },
     initGetPageNextLast () {
       var prevUpdated = 0;

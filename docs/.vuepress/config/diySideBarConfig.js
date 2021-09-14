@@ -331,8 +331,8 @@ module.exports = {
         '/algorithm/thought/03-thoughts5detail',
         '/algorithm/thought/04-divideandconquer',
         '/algorithm/thought/05-dynamicprogramming',
-        '/algorithm/thought/06-greedyalgorithm-',
-        '/algorithm/thought/07-backtracking ',
+        '/algorithm/thought/06-greedyalgorithm',
+        '/algorithm/thought/07-backtracking',
         '/algorithm/thought/08-branchandbound',
       ]
     },
@@ -784,6 +784,16 @@ module.exports = {
         '/da/intro/03-secnetecharchi',
         '/da/intro/04-summarycase1',
         '/da/intro/05-summarycase2',
+      ]
+    },
+    {
+      title: '数据应用-BI介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/da/introbi/01-intro',
+        '/da/introbi/02-bicommonmethod',
+        '/da/introbi/03-techsceneintro',
       ]
     }
   ],

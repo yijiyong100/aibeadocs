@@ -787,13 +787,27 @@ module.exports = {
       ]
     },
     {
-      title: '数据应用-BI介绍',   // 必要的
+      title: '数据应用-BI系统介绍',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/da/introbi/01-intro',
         '/da/introbi/02-bicommonmethod',
         '/da/introbi/03-techsceneintro',
+        '/da/introbi/04-bitoolintro',
+        '/da/introbi/05-bireportsintro',
+        '/da/introbi/06-traditionalandselfbidiff',
+        '/da/introbi/07-bidataarchi',
+      ]
+    },
+    {
+      title: '数据应用-BI工具介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/da/introbitool/01-commintro',
+        '/da/introbitool/02-aliquickbiintro',
+        '/da/introbitool/03-summarydiff',
       ]
     }
   ],

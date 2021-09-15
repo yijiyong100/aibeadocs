@@ -25,10 +25,10 @@
             <!-- 文章的访问信息 和相关信息 -->
 
             <span>更新时间</span>
-            <span>{{$page.lastUpdated}}</span>
+            <span v-show="articleInfo.visitNum > 0">{{$page.lastUpdated}}</span>
             &nbsp;&nbsp;
             <span>浏览</span>
-            <span>{{articleInfo.visitNum}}</span>
+            <span v-show="articleInfo.visitNum > 0">{{articleInfo.visitNum}}</span>
             &nbsp;&nbsp;
 
           </div>
@@ -43,7 +43,7 @@
         <div class="page_article_visit_tail">
           <img src="/assets/img/view/visit.png" alt="">
           &nbsp;
-          {{articleInfo.visitNum}}
+          <span v-show="articleInfo.visitNum > 0">{{articleInfo.visitNum}}</span>
         </div>
         <div class="page_article_comment">
           <!-- 暂时页面不开启评论   
@@ -194,7 +194,7 @@ export default {
       idxList: [],
       articleInfo: {
         updateTime: "",
-        visitNum: 1,
+        visitNum: 0,
         likeNum: 0
       }
     }

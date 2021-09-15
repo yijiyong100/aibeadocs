@@ -9,7 +9,7 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 [[toc]]
 
 ## 【----------------------------】
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/da/introbi/analysismethod-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/da/introbitool/toolsumdiff-1.png')" alt="wxmp">
 
 
 

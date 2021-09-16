@@ -809,6 +809,22 @@ module.exports = {
         '/da/introbitool/02-aliquickbiintro',
         '/da/introbitool/03-summarydiff',
       ]
+    },
+    {
+      title: '数据应用-数据可视化',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/da/dataview/01-intro',
+        '/da/dataview/02-30recommendtools',
+        '/da/dataview/03-dataviewbasicproedure',
+        '/da/dataview/04-dataviewlargescreentools',
+        '/da/dataview/05-datavintro',
+        '/da/dataview/06-datavsimplecase',
+        '/da/dataview/07-datavsummaryfunctions',
+        '/da/dataview/08-datavandsugardiff',
+        '/da/dataview/09-dataviewsummary',
+      ]
     }
   ],
   "/spring/": [

@@ -9,7 +9,7 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 [[toc]]
 
 ## 【----------------------------】
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/da/dataview/sum2-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/da/rtaspark/sum/newscase-1.png')" alt="wxmp">
 
 
 ## 参考文章

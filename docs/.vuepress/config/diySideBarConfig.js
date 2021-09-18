@@ -825,6 +825,22 @@ module.exports = {
         '/da/dataview/08-datavandsugardiff',
         '/da/dataview/09-dataviewsummary',
       ]
+    },
+    {
+      title: '实时分析-Spark应用',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/da/rtaspark/01-intro',
+        '/da/rtaspark/02-sparkuseranalysiscase',
+        '/da/rtaspark/03-sparkandspringboot',
+        '/da/rtaspark/04-realtimebuycase',
+        '/da/rtaspark/05-logfileanalysiscase',
+        '/da/rtaspark/06-realtimenewscase',
+        '/da/rtaspark/07-sparkappdeploy',
+        '/da/rtaspark/08-summarycaseandbolg',
+        '/da/rtaspark/09-summary',
+      ]
     }
   ],
   "/spring/": [

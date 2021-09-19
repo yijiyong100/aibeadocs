@@ -155,7 +155,7 @@ module.exports = [
         text: '数据应用总结', items:
           [
             { text: '大数据应用场景基础介绍', link: '/da/intro/01-intro' },
-            { text: '大数据应用场景技术架构', link: '/da/intro/03-secnetecharchi' }
+            { text: '大数据数据挖掘基础介绍', link: '/dm/intro/01-intro' }
           ]
       }
     ]

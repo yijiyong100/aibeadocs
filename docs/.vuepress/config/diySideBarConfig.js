@@ -841,6 +841,68 @@ module.exports = {
         '/da/rtaspark/08-summarycaseandbolg',
         '/da/rtaspark/09-summary',
       ]
+    },
+    {
+      title: '实时分析-Flink应用',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/da/rtaflink/01-streamwindowintro',
+        '/da/rtaflink/02-flinkspringboot',
+        '/da/rtaflink/03-finkandclickhouse',
+        '/da/rtaflink/04-flinkbootintro',
+        '/da/rtaflink/05-flinkuserbehaviorcasepro',
+        '/da/rtaflink/06-flinkrealtimegoodsstat',
+        '/da/rtaflink/07-flinkrealtimepagevist',
+        '/da/rtaflink/08-flinkecommercecoreindicators',
+        '/da/rtaflink/09-blogrecommend',
+        '/da/rtaflink/10-summary',
+      ]
+    }
+  ],
+  "/dm/": [
+    {
+      title: '数据挖掘-基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dm/intro/01-intro',
+        '/dm/intro/02-toptenalgorithm',
+        '/dm/intro/03-devproceduresummary',
+      ]
+    },
+    {
+      title: '数据挖掘-Mahout基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dm/mahoutintro/01-intro',
+        '/dm/mahoutintro/02-algorithmlibintro',
+        '/dm/mahoutintro/03-projectbuilddemo',
+      ]
+    },
+    {
+      title: '数据挖掘-Mahout推荐系统',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dm/mahoutrecommend/01-intro',
+        '/dm/mahoutrecommend/02-algorithmapitinro',
+        '/dm/mahoutrecommend/03-simplecase',
+        '/dm/mahoutrecommend/04-recommendsystemcase1',
+        '/dm/mahoutrecommend/05-recommendsystemcase2',
+        '/dm/mahoutrecommend/06-sourcecodeanalysis',
+      ]
+    },
+    {
+      title: '数据挖掘-Python库介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dm/pythonintro/01-intro',
+        '/dm/pythonintro/02-descriptivestatistics',
+        '/dm/pythonintro/03-summary',
+      ]
     }
   ],
   "/spring/": [

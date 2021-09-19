@@ -895,6 +895,16 @@ module.exports = {
       ]
     },
     {
+      title: '数据挖掘-SparkMLlib库介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dm/sparkmllibintro/01-intro',
+        '/dm/sparkmllibintro/02-archiprin',
+        '/dm/sparkmllibintro/03-blogrecommd',
+      ]
+    },
+    {
       title: '数据挖掘-Python库介绍',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1

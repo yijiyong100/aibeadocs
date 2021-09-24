@@ -419,6 +419,30 @@ module.exports = {
         '/ai/diff/02-diff2',
         '/ai/diff/03-summary',
       ]
+    },
+    {
+      title: '机器学习-基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ai/mlintro/01-intro',
+        '/ai/mlintro/01.1-mlcoreprocedure',
+        '/ai/mlintro/02-mlanddldiff',
+        '/ai/mlintro/02.1-mlcase',
+        '/ai/mlintro/03-summary',
+      ]
+    },
+    {
+      title: '深度学习-基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ai/dlintro/01-intro',
+        '/ai/dlintro/02-neuralnetworkintro',
+        '/ai/dlintro/03-developmentintro',
+        '/ai/dlintro/04-applicationsceneandprocedure',
+        '/ai/dlintro/05-summary',
+      ]
     }
   ],
   "/bigdata/": [

@@ -167,8 +167,11 @@ module.exports = [
       {
         text: '基础知识总结', items:
           [
-            { text: '入门知识介绍', link: '/ai/intro/01-intro' },
-            { text: '大数据和AI关系', link: '/ai/diff/01-intro' }
+            { text: '人工智能基础介绍', link: '/ai/intro/01-intro' },
+            { text: '机器学习基础介绍', link: '/ai/mlintro/01-intro' },
+            { text: '深度学习基础介绍', link: '/ai/dlintro/01-intro' },
+            { text: '神经网络基础介绍', link: '/ai/nnintro/01-intro' },
+            { text: '神经网络原理介绍', link: '/ai/nnprin/01-intro' }
           ]
       }
     ]

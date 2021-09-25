@@ -443,6 +443,26 @@ module.exports = {
         '/ai/dlintro/04-applicationsceneandprocedure',
         '/ai/dlintro/05-summary',
       ]
+    },
+    {
+      title: '神经网络-基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ai/nnintro/01-intro',
+        '/ai/nnintro/02-diff',
+        '/ai/nnintro/03-summary',
+      ]
+    },
+    {
+      title: '神经网络-原理介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ai/nnprin/01-intro',
+        '/ai/nnprin/02-algorithmprin',
+        '/ai/nnprin/03-bpnnprin',
+      ]
     }
   ],
   "/bigdata/": [

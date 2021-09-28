@@ -1,9 +1,9 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: 机器学习-概率统计总结
 ---
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 机器学习-概率统计总结 。
 :::
 
 [[toc]]
@@ -14,4 +14,4 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 ## 参考文章
-* 
+* https://www.cnblogs.com/jialin0421/p/8988834.html

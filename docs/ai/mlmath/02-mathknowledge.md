@@ -1,9 +1,9 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: 机器学习-数学知识点汇总
 ---
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 机器学习-数学知识点汇总 。
 :::
 
 [[toc]]
@@ -14,4 +14,4 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 ## 参考文章
-* 
+* https://zhuanlan.zhihu.com/p/81834108

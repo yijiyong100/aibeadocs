@@ -24,7 +24,7 @@ title: 数据分析-传统和自助BI区别
 
 传统BI一般面向IT研发人员，多集中在企业的技术部门。传统BI的打造方式：
 
-![img](https://pic2.zhimg.com/50/v2-7936cc55c11901c48a00a36e5761513c_720w.jpg?source=1940ef5c)![img](https://pic2.zhimg.com/80/v2-7936cc55c11901c48a00a36e5761513c_720w.jpg?source=1940ef5c)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/da/introbi/diff-1.png')" alt="wxmp">
 
 
 
@@ -39,8 +39,8 @@ title: 数据分析-传统和自助BI区别
 
 **自助BI**：面向的是不具备IT背景的业务分析人员，与传统BI相比更灵活且易于使用，而且一定程度上摆脱对IT部门的大幅度依赖，代表性的自助BI工具厂商如Tableau、帆软等 。不同于以往“IT主导的报表模式”，转而向“业务主导的自助分析模式”发展。自助BI通常的应用场景：
 
-![img](https://pic3.zhimg.com/50/v2-f1abd28cc77a6c2ac961493fa69838be_720w.jpg?source=1940ef5c)
-![img](https://pic3.zhimg.com/80/v2-f1abd28cc77a6c2ac961493fa69838be_720w.jpg?source=1940ef5c)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/da/introbi/diff-2.png')" alt="wxmp">
+
 
 **自助BI特点**：
 

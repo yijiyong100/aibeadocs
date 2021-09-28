@@ -463,6 +463,18 @@ module.exports = {
         '/ai/nnprin/02-algorithmprin',
         '/ai/nnprin/03-bpnnprin',
       ]
+    },
+    {
+      title: '机器学习-算法介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ai/mlalgorithm/01-intro',
+        '/ai/mlalgorithm/02-photointrotop10-1',
+        '/ai/mlalgorithm/03-photointrotop10-2',
+        '/ai/mlalgorithm/04-top10case',
+        '/ai/mlalgorithm/05-summary',
+      ]
     }
   ],
   "/bigdata/": [

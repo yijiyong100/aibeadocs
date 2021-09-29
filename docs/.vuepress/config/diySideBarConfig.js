@@ -487,6 +487,31 @@ module.exports = {
         '/ai/mlmath/04-linearalgebrasum',
         '/ai/mlmath/05-probabilitystatisticssum',
         '/ai/mlmath/06-blogserialsrecommend',
+        '/ai/mlmath/07-videorecommend',
+      ]
+    }
+  ],
+  "/ad/": [
+    {
+      title: 'AI开发框架-基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ad/intro/01-intro',
+        '/ad/intro/02-javamllibintro',
+        '/ad/intro/03-6javamllibintro',
+        '/ad/intro/04-pythonmllibintro',
+        '/ad/intro/05-top10diff',
+      ]
+    },
+    {
+      title: 'AI开发框架-DJ4J介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ad/dl4jintro/01-intro',
+        '/ad/dl4jintro/02-featuressummary',
+        '/ad/dl4jintro/03-learnsourcerecommend',
       ]
     }
   ],

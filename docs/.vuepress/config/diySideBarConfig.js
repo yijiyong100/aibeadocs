@@ -475,6 +475,19 @@ module.exports = {
         '/ai/mlalgorithm/04-top10case',
         '/ai/mlalgorithm/05-summary',
       ]
+    },
+    {
+      title: '机器学习-数学总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ai/mlmath/01-intro',
+        '/ai/mlmath/02-mathknowledge',
+        '/ai/mlmath/03-mathbasic',
+        '/ai/mlmath/04-linearalgebrasum',
+        '/ai/mlmath/05-probabilitystatisticssum',
+        '/ai/mlmath/06-blogserialsrecommend',
+      ]
     }
   ],
   "/bigdata/": [

@@ -170,8 +170,9 @@ module.exports = [
             { text: '人工智能基础介绍', link: '/ai/intro/01-intro' },
             { text: '机器学习基础介绍', link: '/ai/mlintro/01-intro' },
             { text: '深度学习基础介绍', link: '/ai/dlintro/01-intro' },
-            { text: '神经网络基础介绍', link: '/ai/nnintro/01-intro' },
-            { text: '神经网络原理介绍', link: '/ai/nnprin/01-intro' }
+            { text: '神经网络原理介绍', link: '/ai/nnprin/01-intro' },
+            { text: '机器学习算法介绍', link: '/ai/mlalgorithm/01-intro' },
+            { text: '机器学习数学介绍', link: '/ai/mlmath/01-intro' }
           ]
       }
     ]

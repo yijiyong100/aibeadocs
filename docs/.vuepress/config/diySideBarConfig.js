@@ -366,6 +366,7 @@ module.exports = {
         '/algorithm/sort/08-mergesort',
         '/algorithm/sort/09-radixsort',
         '/algorithm/sort/10-sumamry',
+        '/algorithm/sort/10.1-dyphotosummary',
         '/algorithm/sort/11-summarypython',
       ]
     },
@@ -501,6 +502,7 @@ module.exports = {
         '/ad/intro/02-javamllibintro',
         '/ad/intro/03-6javamllibintro',
         '/ad/intro/04-pythonmllibintro',
+        '/ad/intro/04.1-corepythonmldiff',
         '/ad/intro/05-top10diff',
       ]
     },
@@ -526,7 +528,17 @@ module.exports = {
         '/ad/dl4jcase/05-facerecognitioncase',
         '/ad/dl4jcase/06-casesummary',
       ]
-    }
+    },
+    {
+      title: 'AI开发框架-SKLearn介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ad/sklearn/01-intro',
+        '/ad/sklearn/02-simplecase',
+        '/ad/sklearn/03-summary',
+      ]
+    },
   ],
   "/bigdata/": [
     {

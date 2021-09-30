@@ -106,6 +106,3 @@ title: 排序-综合总结
 
 ## 参考文章
 * https://blog.csdn.net/hguisu/article/details/7776068
-
-## 参考文章
-* https://blog.csdn.net/hguisu/article/details/7776068

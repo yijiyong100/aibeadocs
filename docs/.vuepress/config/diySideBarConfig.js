@@ -513,6 +513,19 @@ module.exports = {
         '/ad/dl4jintro/02-featuressummary',
         '/ad/dl4jintro/03-learnsourcerecommend',
       ]
+    },
+    {
+      title: 'AI开发框架-DL4J案例',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ad/dl4jcase/01-intro',
+        '/ad/dl4jcase/02-devcasseintro',
+        '/ad/dl4jcase/03-trainingmodelandsave',
+        '/ad/dl4jcase/04-bpnetclassifier',
+        '/ad/dl4jcase/05-facerecognitioncase',
+        '/ad/dl4jcase/06-casesummary',
+      ]
     }
   ],
   "/bigdata/": [

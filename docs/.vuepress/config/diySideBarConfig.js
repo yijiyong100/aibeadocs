@@ -530,6 +530,32 @@ module.exports = {
       ]
     },
     {
+      title: 'Python机器学习-基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ad/pymlbasic/01-intro',
+        '/ad/pymlbasic/02-mathsymbols',
+        '/ad/pymlbasic/03-jupyternotebook',
+        '/ad/pymlbasic/04-numpyintro',
+        '/ad/pymlbasic/05-pandasintro',
+        '/ad/pymlbasic/06-matplotlibintro',
+      ]
+    },
+    {
+      title: 'Python机器学习-入门案例',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ad/pymlcase/01-intro',
+        '/ad/pymlcase/02-linearregressioncase',
+        '/ad/pymlcase/03-logisticregressionclassification',
+        '/ad/pymlcase/04-svmcase',
+        '/ad/pymlcase/05-decisiontreeandrandomforest',
+        '/ad/pymlcase/06-kmenascase',
+      ]
+    },
+    {
       title: 'AI开发框架-SKLearn介绍',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1
@@ -538,7 +564,7 @@ module.exports = {
         '/ad/sklearn/02-simplecase',
         '/ad/sklearn/03-summary',
       ]
-    },
+    }
   ],
   "/bigdata/": [
     {

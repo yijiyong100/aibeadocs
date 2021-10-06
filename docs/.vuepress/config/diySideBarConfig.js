@@ -443,6 +443,7 @@ module.exports = {
         '/ai/dlintro/03-developmentintro',
         '/ai/dlintro/04-applicationsceneandprocedure',
         '/ai/dlintro/05-summary',
+        '/ai/dlintro/06-blogrecommend',
       ]
     },
     {
@@ -563,6 +564,20 @@ module.exports = {
         '/ad/sklearn/01-intro',
         '/ad/sklearn/02-simplecase',
         '/ad/sklearn/03-summary',
+      ]
+    },
+    {
+      title: 'AI开发框架-Tensorflow介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ad/tensorflow/01-intro',
+        '/ad/tensorflow/02-intsall',
+        '/ad/tensorflow/03-datastructureandconcept',
+        '/ad/tensorflow/04-core3function',
+        '/ad/tensorflow/05-simplecase',
+        '/ad/tensorflow/06-blogrecommend',
+        '/ad/tensorflow/07-summary',
       ]
     }
   ],

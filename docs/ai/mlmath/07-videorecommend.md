@@ -26,7 +26,7 @@ title: 机器学习-数学视频推荐
 
 [图解机器学习的数学直觉：线性代数，微积分，PCA（全完结）](https://www.bilibili.com/video/BV1iW411T781)
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/mlmath/videorecommend-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/mlmath/videorecommend-2.png')" alt="wxmp">
 
 
 ## 【----------------------------】
@@ -37,7 +37,7 @@ title: 机器学习-数学视频推荐
 
 [7天学会机器学习与深度学习](https://www.bilibili.com/video/BV184411Q7Ng?p=1)
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/mlmath/videorecommend-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/mlmath/videorecommend-3.png')" alt="wxmp">
 
 
 ## 【----------------------------】
@@ -48,7 +48,7 @@ title: 机器学习-数学视频推荐
 
 [机器学习基础数学与算法](https://www.bilibili.com/video/BV1eb411k7k9)
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/mlmath/videorecommend-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/mlmath/videorecommend-4.png')" alt="wxmp">
 
 
 ## 【----------------------------】
@@ -59,7 +59,7 @@ title: 机器学习-数学视频推荐
 
 [三节课吃透机器学习必备数学知识（高数、概率论、线性代数）](https://www.bilibili.com/video/BV17E411s7MR)
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/mlmath/videorecommend-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/mlmath/videorecommend-5.png')" alt="wxmp">
 
 
 ## 参考文章

@@ -1,9 +1,9 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: Pytorch-图像识别案例(一)
 ---
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 Pytorch-图像识别案例(一)。
 :::
 
 [[toc]]
@@ -14,4 +14,4 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 ## 参考文章
-* 
+* https://cloud.tencent.com/developer/article/1542942

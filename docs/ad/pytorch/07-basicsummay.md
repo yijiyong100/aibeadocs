@@ -1,9 +1,9 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: Pytorch-基础精华总结
 ---
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 Pytorch-基础精华总结 。
 :::
 
 [[toc]]
@@ -14,4 +14,6 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 ## 参考文章
-* 
+* https://www.cnblogs.com/minyuan/p/13958475.html#autoid-1-0-0
+* https://www.cnblogs.com/minyuan/p/13960119.html
+* https://www.cnblogs.com/minyuan/p/13969547.html

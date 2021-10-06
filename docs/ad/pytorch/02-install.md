@@ -1,9 +1,9 @@
 ---
-title: XXXXXXXXXXXXXXXXXXXXXXXXXX
+title: Pytorch-安装过程详解
 ---
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 Pytorch-安装过程详解 。
 :::
 
 [[toc]]
@@ -14,4 +14,5 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 ## 参考文章
-* 
+* https://www.jianshu.com/p/ee08ca2c1160
+* https://www.cnblogs.com/zhouzhiyao/p/11784055.html

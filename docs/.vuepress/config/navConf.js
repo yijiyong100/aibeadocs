@@ -179,7 +179,9 @@ module.exports = [
         text: '开发框架总结', items:
           [
             { text: '主流-AI开源开发框架介绍', link: '/ad/intro/01-intro' },
-            { text: 'JAVA-AI开发框架Dl4j介绍', link: '/ad/dl4jintro/01-intro' }
+            { text: 'JAVA-AI开发框架Dl4j介绍', link: '/ad/dl4jintro/01-intro' },
+            { text: 'AI开发框架-Pytorch介绍', link: '/ad/tensorflow/01-intro' },
+            { text: 'AI开发框架-TensorFlow介绍', link: '/ad/tensorflow/01-intro' }
           ]
       }
     ]

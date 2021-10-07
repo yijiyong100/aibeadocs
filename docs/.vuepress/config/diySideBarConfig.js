@@ -595,6 +595,18 @@ module.exports = {
       ]
     }
   ],
+  "/ac/": [
+    {
+      title: 'AI应用案例介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ac/intro/01-intro',
+        '/ac/intro/02-2019top100case',
+        '/ac/intro/03-2020top100case',
+      ]
+    }
+  ],
   "/bigdata/": [
     {
       title: '大数据基础概念介绍',   // 必要的

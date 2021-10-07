@@ -183,6 +183,12 @@ module.exports = [
             { text: 'AI开发框架-Pytorch介绍', link: '/ad/pytorch/01-intro' },
             { text: 'AI开发框架-TensorFlow介绍', link: '/ad/tensorflow/01-intro' }
           ]
+      },
+      {
+        text: '开发应用案例', items:
+          [
+            { text: 'AI常见案例和趋势介绍', link: '/ac/intro/01-intro' }
+          ]
       }
     ]
   },

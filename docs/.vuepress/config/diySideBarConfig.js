@@ -567,6 +567,20 @@ module.exports = {
       ]
     },
     {
+      title: 'AI开发框架-Pytorch介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ad/pytorch/01-intro',
+        '/ad/pytorch/02-install',
+        '/ad/pytorch/03-basicsprocedureandcase',
+        '/ad/pytorch/04-imagerecognitioncase1',
+        '/ad/pytorch/05-imagerecognitioncase2',
+        '/ad/pytorch/06-blogrecommend',
+        '/ad/pytorch/07-basicsummay',
+      ]
+    },
+    {
       title: 'AI开发框架-Tensorflow介绍',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1

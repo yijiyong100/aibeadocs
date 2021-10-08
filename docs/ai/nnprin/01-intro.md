@@ -12,6 +12,8 @@ title: 神经网络-工作原理简介
 
 强烈推荐 视频 ：[神经网络工作原理可视化](https://www.bilibili.com/video/BV1SJ411a7go/?spm_id_from=333.788.recommend_more_video.-1)
 
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ai/nnprin/nnprinvideo-1.png')" alt="wxmp">
+
 
 ## 神经网络通俗指南：一文看懂神经网络工作原理 
 

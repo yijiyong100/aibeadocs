@@ -605,6 +605,20 @@ module.exports = {
         '/ac/intro/02-2019top100case',
         '/ac/intro/03-2020top100case',
       ]
+    },
+    {
+      title: '推荐系统-基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ac/rsintro/01-intro',
+        '/ac/rsintro/02-rspdintro',
+        '/ac/rsintro/03-rstechintro',
+        '/ac/rsintro/04-basicalgorithm',
+        '/ac/rsintro/05-rsalgorithmdetail',
+        '/ac/rsintro/06-jdrshis',
+        '/ac/rsintro/07-rssummary',
+      ]
     }
   ],
   "/bigdata/": [

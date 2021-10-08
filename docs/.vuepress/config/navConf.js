@@ -187,7 +187,8 @@ module.exports = [
       {
         text: '开发应用案例', items:
           [
-            { text: 'AI常见案例和趋势介绍', link: '/ac/intro/01-intro' }
+            { text: 'AI常见案例和趋势介绍', link: '/ac/intro/01-intro' },
+            { text: 'AI应用案例-推荐系统介绍', link: '/ac/rsintro/01-intro' }
           ]
       }
     ]

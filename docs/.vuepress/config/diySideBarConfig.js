@@ -619,6 +619,21 @@ module.exports = {
         '/ac/rsintro/06-jdrshis',
         '/ac/rsintro/07-rssummary',
       ]
+    },
+    {
+      title: '推荐系统-案例介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ac/rscase/01-intro',
+        '/ac/rscase/02-casearchiprin',
+        '/ac/rscase/03-casealgorithmintro',
+        '/ac/rscase/04-collaborativefilteringalgorithm',
+        '/ac/rscase/05-casesummary1',
+        '/ac/rscase/06-casesummary2',
+        '/ac/rscase/07-caserecommendblog',
+        '/ac/rscase/08-caserecommendvideo',
+      ]
     }
   ],
   "/bigdata/": [

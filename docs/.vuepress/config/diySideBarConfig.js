@@ -646,6 +646,21 @@ module.exports = {
         '/ac/aicity/04-aicityandcitybraindiff',
         '/ac/aicity/05-aicitysummary',
       ]
+    },
+    {
+      title: '智慧大屏-基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ac/aibigscreen/01-intro',
+        '/ac/aibigscreen/02-5classiccase',
+        '/ac/aibigscreen/03-20caseview',
+        '/ac/aibigscreen/04-specialthemecaseview',
+        '/ac/aibigscreen/05-githubcaseview',
+        '/ac/aibigscreen/06-vuebigscreen',
+        '/ac/aibigscreen/07-ajreporttool',
+        '/ac/aibigscreen/08-summarycase',
+      ]
     }
   ],
   "/bigdata/": [

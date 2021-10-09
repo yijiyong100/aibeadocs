@@ -634,6 +634,18 @@ module.exports = {
         '/ac/rscase/07-caserecommendblog',
         '/ac/rscase/08-caserecommendvideo',
       ]
+    },
+    {
+      title: '智慧城市-基础介绍',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/ac/aicity/01-intro',
+        '/ac/aicity/02-aicitysmartmethod',
+        '/ac/aicity/03-citybrainintro',
+        '/ac/aicity/04-aicityandcitybraindiff',
+        '/ac/aicity/05-aicitysummary',
+      ]
     }
   ],
   "/bigdata/": [

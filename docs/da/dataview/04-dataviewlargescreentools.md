@@ -28,6 +28,9 @@ title: 数据可视化-大屏工具介绍
 
 地址：https://www.aliyun.com/product/bigdata/datav
 
+[链接地址 https://www.aliyun.com/product/bigdata/datav](https://www.aliyun.com/product/bigdata/datav)
+
+
 ## 2. 积木报表jimureport
 
 积木报表是 JeecgBoot 旗下的一款免费制作报表和大屏的软件，主打开源。跟阿里和百度一样，手机号一键注册，便可永久使用，重要的是：免费！免费！免费！
@@ -40,6 +43,9 @@ title: 数据可视化-大屏工具介绍
 
 地址：http://www.jimureport.com/
 
+[链接地址 http://www.jimureport.com/](http://www.jimureport.com/)
+
+
 ## 3. 百度Sugar
 
 跟阿里一样，手机号一键注册，会有30天的体验期，制作效果同样炫酷。
@@ -49,6 +55,8 @@ title: 数据可视化-大屏工具介绍
 （1）试用期不长，试用期一过，需要花钱续费；
 
 地址：https://cloud.baidu.com/product/sugar.html
+
+[链接地址 https://cloud.baidu.com/product/sugar.html](https://cloud.baidu.com/product/sugar.html)
 
 ## 4. 帆软
 
@@ -63,6 +71,9 @@ title: 数据可视化-大屏工具介绍
 （3）需要安装许多插件才可以实现一些动态效果；
 
 地址：https://www.fanruan.com/finereport
+
+[链接地址 https://www.fanruan.com/finereport](https://www.fanruan.com/finereport)
+
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/da/dataview/largescreentool-2.png')" alt="wxmp">
 

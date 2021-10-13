@@ -322,7 +322,8 @@ module.exports = [
           [
             { text: 'MySQL运维总结', link: '/mysqlop/basic/01-intro' },
             { text: 'Linux常用命令', link: '/operation/linux/01-intro' },
-            { text: 'Nginx精华总结', link: '/operation/ng/05-ngsum' }
+            { text: 'Nginx使用总结', link: '/operation/ng/05-ngsum' },
+            { text: '求职面试整理', link: '/post/javabasic/01-javabasic' }
           ]
       }
     ]

@@ -1614,6 +1614,28 @@ module.exports = {
       ]
     }
   ],
+  "/post/": [
+    {
+      title: '面试求职-基础篇',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/post/basic/01-prepareresume',
+        '/post/basic/02-selfintroduction',
+        '/post/basic/03-classicqa',
+        '/post/basic/04-needingattention',
+        '/post/basic/05-resourcesharing',
+      ]
+    },
+    {
+      title: 'Java面试-基础篇',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/post/javabasic/01-javabasic',
+      ]
+    }
+  ],
   "/projprod/": [
     {
       title: '研发效能介绍',   // 必要的

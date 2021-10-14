@@ -1633,6 +1633,12 @@ module.exports = {
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/post/javabasic/01-javabasic',
+        '/post/javabasic/02-network',
+        '/post/javabasic/03-collectiion',
+        '/post/javabasic/04-javaexception',
+        '/post/javabasic/05-concurrentprogramming',
+        '/post/javabasic/06-jvmbasic',
+        '/post/javabasic/07-nettybasic',
       ]
     }
   ],

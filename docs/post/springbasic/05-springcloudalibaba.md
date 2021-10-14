@@ -9,8 +9,8 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 [[toc]]
 
 ## 【----------------------------】
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/springbasic/springmvc-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/ac/aibigscreen/sumcase-1.png')" alt="wxmp">
 
 
 ## 参考文章
-* 
+* https://blog.csdn.net/BruceLiu_code/article/details/115322713

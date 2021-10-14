@@ -1,9 +1,9 @@
 ---
-title: MySQL数据库面试题
+title: 消息中间件MQ与RabbitMQ
 ---
 
 ::: tip
-本文主要是介绍 MySQL数据库面试题 。
+本文主要是介绍 消息中间件MQ与RabbitMQ 。
 :::
 
 [[toc]]
@@ -13,4 +13,4 @@ title: MySQL数据库面试题
 
 
 ## 参考文章
-* https://thinkwon.blog.csdn.net/article/details/104778621
+* https://thinkwon.blog.csdn.net/article/details/104588612

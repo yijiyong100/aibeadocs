@@ -255,7 +255,7 @@ module.exports = {
         '/db/redis/04-iomultiplexing',
         '/db/redis/05-coreknowledge',
         '/db/redis/06-summary',
-        '/db/redis/07-interviewknowledge',]
+      ]
     }
   ],
   "/algorithm/": [
@@ -1652,6 +1652,17 @@ module.exports = {
         '/post/springbasic/04-springcloud',
         '/post/springbasic/05-springcloudalibaba',
         '/post/springbasic/06-springcloudsummary',
+      ]
+    },
+    {
+      title: '数据库面试-基础篇',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/post/dbbasic/01-mybatis',
+        '/post/dbbasic/02-redis',
+        '/post/dbbasic/02.1-redissum',
+        '/post/dbbasic/04-mysqlbasic',
       ]
     }
   ],

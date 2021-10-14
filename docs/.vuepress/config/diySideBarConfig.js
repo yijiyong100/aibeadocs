@@ -1664,6 +1664,18 @@ module.exports = {
         '/post/dbbasic/02.1-redissum',
         '/post/dbbasic/04-mysqlbasic',
       ]
+    },
+    {
+      title: '系统架构和中间件基础',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/post/sysarchibasic/01-linuxbasic',
+        '/post/sysarchibasic/02-sysarchibasic',
+        '/post/sysarchibasic/03-structureandalgorithm',
+        '/post/sysarchibasic/04-zkbasic',
+        '/post/sysarchibasic/05-mqbasic',
+      ]
     }
   ],
   "/projprod/": [

@@ -18,15 +18,15 @@ Linux是一套免费使用和自由传播的类Unix操作系统，是一个基�
 
 Linux和Unix都是功能强大的操作系统，都是应用广泛的服务器操作系统，有很多相似之处，甚至有一部分人错误地认为Unix和Linux操作系统是一样的，然而，事实并非如此，以下是两者的区别。
 
-1. 开源性
+- 1. 开源性
    Linux是一款开源操作系统，不需要付费，即可使用；Unix是一款对源码实行知识产权保护的传统商业软件，使用需要付费授权使用。
-2. 跨平台性
+- 2. 跨平台性
    Linux操作系统具有良好的跨平台性能，可运行在多种硬件平台上；Unix操作系统跨平台性能较弱，大多需与硬件配套使用。
-3. 可视化界面
+- 3. 可视化界面
    Linux除了进行命令行操作，还有窗体管理系统；Unix只是命令行下的系统。
-4. 硬件环境
+- 4. 硬件环境
    Linux操作系统对硬件的要求较低，安装方法更易掌握；Unix对硬件要求比较苛刻，按照难度较大。
-5. 用户群体
+- 5. 用户群体
    Linux的用户群体很广泛，个人和企业均可使用；Unix的用户群体比较窄，多是安全性要求高的大型企业使用，如银行、电信部门等，或者Unix硬件厂商使用，如Sun等。
    相比于Unix操作系统，Linux操作系统更受广大计算机爱好者的喜爱，主要原因是Linux操作系统具有Unix操作系统的全部功能，并且能够在普通PC计算机上实现全部的Unix特性，开源免费的特性，更容易普及使用！
 
@@ -34,10 +34,10 @@ Linux和Unix都是功能强大的操作系统，都是应用广泛的服务器�
 
 Linux 系统的核心是内核。内核控制着计算机系统上的所有硬件和软件，在必要时分配硬件，并根据需要执行软件。
 
-1. 系统内存管理
-2. 应用程序管理
-3. 硬件设备管理
-4. 文件系统管理
+- 1. 系统内存管理
+- 2. 应用程序管理
+- 3. 硬件设备管理
+- 4. 文件系统管理
 
 ### Linux的基本组件是什么？
 
@@ -47,7 +47,7 @@ Linux 系统的核心是内核。内核控制着计算机系统上的所有硬�
 
 从大的方面讲，Linux 体系结构可以分为两块：
 
-![在这里插入图片描述](./15-(20条消息) Linux面试题（2020最新版）_ThinkWon的博客-CSDN博客_linux面试题_files/20200229173922281.png)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/sysarchibasic/linuxbasic-1.png')" alt="wxmp">
 
 - 用户空间(User Space) ：用户空间又包括用户的应用程序(User Applications)、C 库(C Library) 。
 - 内核空间(Kernel Space) ：内核空间又包括系统调用接口(System Call Interface)、内核(Kernel)、平台架构相关的代码(Architecture-Dependent Kernel Code) 。
@@ -155,21 +155,28 @@ BASH是Bourne Again SHell的缩写。它由Steve Bourne编写，作为原始Bour
 
 也就是说在 Linux 系统中有一个重要的概念**：一切都是文件**。其实这是 Unix 哲学的一个体现，而 Linux 是重写 Unix 而来，所以这个概念也就传承了下来。在 Unix 系统中，把一切资源都看作是文件，包括硬件设备。UNIX系统把每个硬件都看成是一个文件，通常称为设备文件，这样用户就可以用读写文件的方式实现对硬件的访问。
 
-Linux 支持 5 种文件类型，如下图所示：![文件类型](./15-(20条消息) Linux面试题（2020最新版）_ThinkWon的博客-CSDN博客_linux面试题_files/aHR0cDovL3N0YXRpYzIuaW9jb2Rlci5jbi9iNjg2NTQxN2RkMTI0NWU0ZjNjNGJhODc3Y2U5YzVhYQ)
+Linux 支持 5 种文件类型，如下图所示：
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/sysarchibasic/linuxbasic-2.png')" alt="wxmp">
+
 
 ### Linux 的目录结构是怎样的？
 
 > 这个问题，一般不会问。更多是实际使用时，需要知道。
 
 Linux 文件系统的结构层次鲜明，就像一棵倒立的树，最顶层是其根目录：
-![Linux的目录结构](./15-(20条消息) Linux面试题（2020最新版）_ThinkWon的博客-CSDN博客_linux面试题_files/aHR0cDovL3N0YXRpYzIuaW9jb2Rlci5jbi81YzJmNTRmMjhkNGVhYmJlMTM4ZmQ4Y2JiNzYzYTFmMQ)
+
+Linux的目录结构
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/sysarchibasic/linuxbasic-3.png')" alt="wxmp">
+
 
 **常见目录说明**：
 
 - **/bin**： 存放二进制可执行文件(ls,cat,mkdir等)，常用命令一般都在这里；
 - **/etc**： 存放系统管理和配置文件；
 - **/home**： 存放所有用户文件的根目录，是用户主目录的基点，比如用户user的主目录就是/home/user，可以用~user表示；
-- **/usr **： 用于存放系统应用程序；
+- **/usr**： 用于存放系统应用程序；
 - **/opt**： 额外安装的可选应用程序包所放置的位置。一般情况下，我们可以把tomcat等都安装到这里；
 - **/proc**： 虚拟文件系统目录，是系统内存的映射。可直接访问这个目录来获取系统信息；
 - **/root**： 超级用户（系统管理员）的主目录（特权阶级o）；
@@ -177,7 +184,7 @@ Linux 文件系统的结构层次鲜明，就像一棵倒立的树，最顶层�
 - **/dev**： 用于存放设备文件；
 - **/mnt**： 系统管理员安装临时文件系统的安装点，系统提供这个目录是让用户临时挂载其他的文件系统；
 - **/boot**： 存放用于系统引导时使用的各种文件；
-- **/lib **： 存放着和系统运行相关的库文件 ；
+- **/lib**： 存放着和系统运行相关的库文件 ；
 - **/tmp**： 用于存放各种临时文件，是公用的临时文件存储点；
 - **/var**： 用于存放运行时需要改变数据的文件，也是某些大文件的溢出区，比方说各种服务的日志文件（系统启动日志等。）等；
 - **/lost+found**： 这个目录平时是空的，系统非正常关机而留下“无家可归”的文件（windows下叫什么.chk）就在这里。
@@ -297,22 +304,18 @@ Linux 通过 inode 节点表将文件的逻辑结构和物理结构进行转换�
 在 Linux 操作系统，`"/bin/bash"` 是默认登录 Shell，是在创建用户时分配的。
 
 使用 chsh 命令可以改变默认的 Shell 。示例如下所示：
-
-```bash
+```shell
 ## chsh <用户名> -s <新shell>
 ## chsh ThinkWon -s /bin/sh
-12
 ```
 
 **在 Shell 脚本中，如何写入注释？**
 
 注释可以用来描述一个脚本可以做什么和它是如何工作的。每一行注释以 `#` 开头。例子如下：
-
-```bash
+```shell
 #!/bin/bash
 ## This is a command
 echo “I am logged in as $USER”
-123
 ```
 
 ### 语法级
@@ -329,35 +332,34 @@ echo “I am logged in as $USER”
 
   > 用户变量由系统用户来生成和定义，变量的值可以通过命令 `"echo $<变量名>"` 查看。
 
-**Shell脚本中 $? 标记的用途是什么？**
+**Shell脚本中 `$`? 标记的用途是什么？**
 
 在写一个 Shell 脚本时，如果你想要检查前一命令是否执行成功，在 `if` 条件中使用 `$?` 可以来检查前一命令的结束状态。
 
 - 如果结束状态是 0 ，说明前一个命令执行成功。例如：
 
-  ```bash
+  ```shell
   root@localhost:~## ls /usr/bin/shar
   /usr/bin/shar
   root@localhost:~## echo $?
   0
-  1234
+  
   ```
 
 - 如果结束状态不是0，说明命令执行失败。例如：
 
-  ```bash
+  ```shell
   root@localhost:~## ls /usr/bin/share
   ls: cannot access /usr/bin/share: No such file or directory
   root@localhost:~## echo $?
   2
-  1234
+  
   ```
 
 **Bourne Shell(bash) 中有哪些特殊的变量？**
 
 下面的表列出了 Bourne Shell 为命令行设置的特殊变量。
-
-```bash
+```shell
 内建变量    解释
 $0    命令行中的脚本名字
 $1    第一个命令行参数
@@ -366,21 +368,17 @@ $2    第二个命令行参数
 $9    第九个命令行参数
 $##    命令行参数的数量
 $*    所有命令行参数，以空格隔开
-12345678
 ```
 
 **如何取消变量或取消变量赋值？**
 
 `unset` 命令用于取消变量或取消变量赋值。语法如下所示：
-
-```bash
+```shell
 ## unset <变量名>
-1
 ```
 
 #### Shell 脚本中 `if` 语法如何嵌套?
-
-```bash
+```shell
 if [ 条件 ]
 then
 命令1
@@ -398,14 +396,12 @@ else
 …..
 fi
 fi
-1234567891011121314151617
 ```
 
 **在 Shell 脚本中如何比较两个数字？**
 
 在 `if-then` 中使用测试命令（ `-gt` 等）来比较两个数字。例如：
-
-```bash
+```shell
 #!/bin/bash
 x=10
 y=20
@@ -415,14 +411,12 @@ echo “x is greater than y”
 else
 echo “y is greater than x”
 fi
-123456789
 ```
 
 #### Shell 脚本中 `case` 语句的语法?
 
 基础语法如下：
-
-```bash
+```shell
 case 变量 in
 值1)
 命令1
@@ -437,14 +431,12 @@ case 变量 in
 最后命令
 ;;
 esac
-1234567891011121314
 ```
 
 #### Shell 脚本中 `for` 循环语法？
 
 基础语法如下：
-
-```bash
+```shell
 for 变量 in 循环列表
 do
 命令1
@@ -452,7 +444,6 @@ do
 ….
 最后命令
 done
-1234567
 ```
 
 #### Shell 脚本中 `while` 循环语法？
@@ -461,25 +452,21 @@ done
 不同于 `for`循环，`while` 循环会不断迭代，直到它的条件不为真。
 
 基础语法：
-
-```bash
+```shell
 while [ 条件 ]
 do
 命令…
 done
-1234
 ```
 
 **do-while 语句的基本格式？**
 
 `do-while` 语句类似于 `while` 语句，但检查条件语句之前先执行命令（LCTT 译注：意即至少执行一次。）。下面是用 `do-while` 语句的语法：
-
-```bash
+```shell
 do
 {
 命令
 } while (条件)
-1234
 ```
 
 **Shell 脚本中 break 命令的作用？**
@@ -514,8 +501,7 @@ do
 **在 Shell 脚本中，如何测试文件？**
 
 test 命令可以用来测试文件。基础用法如下表格：
-
-```bash
+```shell
 Test         用法
 -d 文件名    如果文件存在并且是目录，返回true
 -e 文件名    如果文件存在，返回true
@@ -524,14 +510,12 @@ Test         用法
 -s 文件名    如果文件存在并且不为空，返回true
 -w 文件名    如果文件存在并可写，返回true
 -x 文件名    如果文件存在并可执行，返回true
-12345678
 ```
 
 #### 在 Shell 脚本如何定义函数呢？
 
 函数是拥有名字的代码块。当我们定义代码块，我们就可以在我们的脚本调用函数名字，该块就会被执行。示例如下所示：
-
-```bash
+```shell
 $ diskusage () { df -h ; }
 译注：下面是我给的shell函数语法，原文没有
 [ function ] 函数名 [()]
@@ -539,14 +523,12 @@ $ diskusage () { df -h ; }
 命令;
 [return int;]
 }
-1234567
 ```
 
 **如何让 Shell 就脚本得到来自终端的输入?**
 
 read 命令可以读取来自终端（使用键盘）的数据。read 命令得到用户的输入并置于你给出的变量中。例子如下：
-
-```bash
+```shell
 ## vi /tmp/test.sh
 #!/bin/bash
 echo ‘Please enter your name’
@@ -556,7 +538,6 @@ echo “My Name is $name”
 Please enter your name
 ThinkWon
 My Name is ThinkWon
-123456789
 ```
 
 **如何执行算术运算？**
@@ -569,14 +550,16 @@ My Name is ThinkWon
 ### 编程题
 
 #### 判断一文件是不是字符设备文件，如果是将其拷贝到 `/dev` 目录下？
-
-```bash
-#!/bin/bashread -p "Input file name: " FILENAMEif [ -c "$FILENAME" ];then　　cp $FILENAME /devfi12345
+```shell
+#!/bin/bash
+read -p "Input file name: " FILENAME
+if [ -c "$FILENAME" ];then
+　　cp $FILENAME /dev
+fi
 ```
 
 #### 添加一个新组为 class1 ，然后添加属于这个组的 30 个用户，用户名的形式为 stdxx ，其中 xx 从 01 到 30 ？
-
-```bash
+```shell
 #!/bin/bash
 groupadd class1
 for((i=1;i<31;i++))
@@ -587,18 +570,15 @@ do
                 useradd -g class1 std$i
         fi
 done
-12345678910
 ```
 
 **编写 Shell 程序，实现自动删除 50 个账号的功能，账号名为stud1 至 stud50 ？**
-
-```bash
+```shell
 #!/bin/bash
 for((i=1;i<51;i++))
 do
                 userdel -r stud$i
 done
-12345
 ```
 
 #### 写一个 sed 命令，修改 `/tmp/input.txt` 文件的内容？
@@ -607,8 +587,7 @@ done
 
 - 删除所有空行。
 - 一行中，如果包含 “11111”，则在 “11111” 前面插入 “AAA”，在 “11111” 后面插入 “BBB” 。比如：将内容为 0000111112222 的一行改为 0000AAA11111BBB2222 。
-
-```bash
+```shell
 [root@~]## cat -n /tmp/input.txt
      1  000011111222
      2
@@ -641,7 +620,6 @@ AAA11111BBBAAA11111BBB11122222222222
 22AAA11111BBB111
 112222222
 1122
-1234567891011121314151617181920212223242526272829303132
 ```
 
 ## 实战
@@ -737,23 +715,20 @@ cat 命令用于连接文件并打印到标准输出设备上。
 cat 主要有三大功能：
 
 1.一次显示整个文件:
-
-```sh
-cat filename1
+```shell
+cat filename
 ```
 
 2.从键盘创建一个文件:
-
 ```shell
-cat > filename1
+cat > filename
 ```
 
 只能创建新文件，不能编辑已有文件。
 
 3.将几个文件合并为一个文件:
-
 ```shell
-cat file1 file2 > file1
+cat file1 file2 > file
 ```
 
 - -b 对非空输出行号
@@ -762,27 +737,35 @@ cat file1 file2 > file1
 **实例**：
 
 （1）把 log2012.log 的文件内容加上行号后输入 log2013.log 这个文件里
-
 ```shell
-cat -n log2012.log log2013.log1
+cat -n log2012.log log2013.log
 ```
 
 （2）把 log2012.log 和 log2013.log 的文件内容加上行号（空白行不加）之后将内容附加到 log.log 里
-
 ```shell
-cat -b log2012.log log2013.log log.log1
+cat -b log2012.log log2013.log log.log
 ```
 
 （3）使用 here doc 生成新文件
-
 ```shell
-cat >log.txt <<EOF>Hello>World>PWD=$(pwd)>EOFls -l log.txtcat log.txtHelloWorldPWD=/opt/soft/test12345678910
+cat >log.txt <<EOF
+>Hello
+>World
+>PWD=$(pwd)
+>EOF
+ls -l log.txt
+cat log.txt
+Hello
+World
+PWD=/opt/soft/test
 ```
 
 （4）反向列示
-
 ```shell
-tac log.txtPWD=/opt/soft/testWorldHello1234
+tac log.txt
+PWD=/opt/soft/test
+World
+Hello
 ```
 
 ### chmod 命令
@@ -794,83 +777,78 @@ Linux/Unix 的文件调用权限分为三级 : 文件拥有者、群组、其他
 每一文件或目录的访问权限都有三组，每组用三位表示，分别为文件属主的读、写和执行权限；与属主同组的用户的读、写和执行权限；系统中其他用户的读、写和执行权限。可使用 ls -l test.txt 查找。
 
 以文件 log2012.log 为例：
-
 ```shell
--rw-r--r-- 1 root root 296K 11-13 06:03 log2012.log1
+-rw-r--r-- 1 root root 296K 11-13 06:03 log2012.log
 ```
 
 第一列共有 10 个位置，第一个字符指定了文件类型。在通常意义上，一个目录也是一个文件。如果第一个字符是横线，表示是一个非目录的文件。如果是 d，表示是一个目录。从第二个字符开始到第十个 9 个字符，3 个字符一组，分别表示了 3 组用户对文件或者目录的权限。权限字符用横线代表空许可，r 代表只读，w 代表写，x 代表可执行。
 
 **常用参数**：
-
-```
--c 当发生改变时，报告处理信息-R 处理指定目录以及其子目录下所有文件12
-```
-
+```shell
+-c 当发生改变时，报告处理信息
+-R 处理指定目录以及其子目录下所有文件
 权限范围：
-
-```
-u ：目录或者文件的当前的用户g ：目录或者文件的当前的群组o ：除了目录或者文件的当前用户或群组之外的用户或者群组a ：所有的用户及群组1234
+```shell
+u ：目录或者文件的当前的用户
+g ：目录或者文件的当前的群组
+o ：除了目录或者文件的当前用户或群组之外的用户或者群组
+a ：所有的用户及群组
 ```
 
 权限代号：
-
-```
-r ：读权限，用数字4表示w ：写权限，用数字2表示x ：执行权限，用数字1表示- ：删除权限，用数字0表示s ：特殊权限12345
+```shell
+r ：读权限，用数字4表示
+w ：写权限，用数字2表示
+x ：执行权限，用数字1表示
+- ：删除权限，用数字0表示
+s ：特殊权限
 ```
 
 **实例**：
 
 （1）增加文件 t.log 所有用户可执行权限
-
 ```shell
-chmod a+x t.log1
+chmod a+x t.log
 ```
 
 （2）撤销原来所有的权限，然后使拥有者具有可读权限,并输出处理信息
-
 ```shell
-chmod u=r t.log -c1
+chmod u=r t.log -c
 ```
 
 （3）给 file 的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限
-
 ```shell
-chmod 751 t.log -c（或者：chmod u=rwx,g=rx,o=x t.log -c)1
+chmod 751 t.log -c（或者：chmod u=rwx,g=rx,o=x t.log -c)
 ```
 
 （4）将 test 目录及其子目录所有文件添加可读权限
-
 ```shell
-chmod u+r,g+r,o+r -R text/ -c1
+chmod u+r,g+r,o+r -R text/ -c
 ```
 
 ### chown 命令
 
 chown 将指定文件的拥有者改为指定的用户或组，用户可以是用户名或者用户 ID；组可以是组名或者组 ID；文件是以空格分开的要改变权限的文件列表，支持通配符。
-
 ```
--c 显示更改的部分的信息-R 处理指定目录及子目录12
+-c 显示更改的部分的信息
+-R 处理指定目录及子目录
 ```
 
 **实例**：
 
 （1）改变拥有者和群组 并显示改变信息
-
 ```shell
-chown -c mail:mail log2012.log1
+chown -c mail:mail log2012.log
 ```
 
 （2）改变文件群组
-
 ```shell
-chown -c :mail t.log1
+chown -c :mail t.log
 ```
 
 （3）改变文件夹及子文件目录属主及属组为 mail
-
 ```shell
-chown -cR mail: test/1
+chown -cR mail: test/
 ```
 
 ### cp 命令
@@ -878,23 +856,22 @@ chown -cR mail: test/1
 将源文件复制至目标文件，或将多个源文件复制至目标目录。
 
 注意：命令行复制，如果目标文件已经存在会提示是否覆盖，而在 shell 脚本中，如果不加 -i 参数，则不会提示，而是直接覆盖！
-
 ```
--i 提示-r 复制目录及目录内所有项目-a 复制的文件与原文件时间一样123
+-i 提示
+-r 复制目录及目录内所有项目
+-a 复制的文件与原文件时间一样
 ```
 
 **实例**：
 
 （1）复制 a.txt 到 test 目录下，保持原文件时间，如果原文件存在提示是否覆盖。
-
 ```shell
-cp -ai a.txt test1
+cp -ai a.txt test
 ```
 
 （2）为 a.txt 建议一个链接（快捷方式）
-
 ```shell
-cp -s a.txt link_a.txt1
+cp -s a.txt link_a.txt
 ```
 
 ### find 命令
@@ -902,53 +879,58 @@ cp -s a.txt link_a.txt1
 用于在文件树中查找文件，并作出相应的处理。
 
 命令格式：
-
 ```shell
-find pathname -options [-print -exec -ok ...]1
+find pathname -options [-print -exec -ok ...]
 ```
 
 命令参数：
-
-```
-pathname: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录。-print： find命令将匹配的文件输出到标准输出。-exec： find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为'command' {  } \;，注意{   }和\；之间的空格。-ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行。1234
+```shell
+pathname: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录。
+-print： find命令将匹配的文件输出到标准输出。
+-exec： find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为'command' {  } \;，注意{   }和\；之间的空格。
+-ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行。
 ```
 
 **命令选项**：
-
-```
--name 按照文件名查找文件-perm 按文件权限查找文件-user 按文件属主查找文件-group  按照文件所属的组来查找文件。-type  查找某一类型的文件，诸如：   b - 块设备文件   d - 目录   c - 字符设备文件   l - 符号链接文件   p - 管道文件   f - 普通文件1234567891011
+```shell
+-name 按照文件名查找文件
+-perm 按文件权限查找文件
+-user 按文件属主查找文件
+-group  按照文件所属的组来查找文件。
+-type  查找某一类型的文件，诸如：
+   b - 块设备文件
+   d - 目录
+   c - 字符设备文件
+   l - 符号链接文件
+   p - 管道文件
+   f - 普通文件
 ```
 
 **实例**：
 
 （1）查找 48 小时内修改过的文件
-
 ```shell
-find -atime -21
+find -atime -2
 ```
 
 （2）在当前目录查找 以 .log 结尾的文件。 **.** 代表当前目录
-
 ```shell
-find ./ -name '*.log'1
+find ./ -name '*.log'
 ```
 
 （3）查找 /opt 目录下 权限为 777 的文件
-
 ```shell
-find /opt -perm 7771
+find /opt -perm 777
 ```
 
 （4）查找大于 1K 的文件
-
 ```shell
-find -size +1000c1
+find -size +1000c
 ```
 
 查找等于 1000 字符的文件
-
 ```shell
-find -size 1000c 1
+find -size 1000c 
 ```
 
 -exec 参数后面跟的是 command 命令，它的终止是以 ; 为结束标志的，所以这句命令后面的分号是不可缺少的，考虑到各个系统中分号会有不同的意义，所以前面加反斜杠。{} 花括号代表前面find查找出来的文件名。
@@ -958,29 +940,25 @@ find -size 1000c 1
 head 用来显示档案的开头至标准输出中，默认 head 命令打印其相应文件的开头 10 行。
 
 **常用参数**：
-
 ```
--n<行数> 显示的行数（行数为复数表示从最后向前数）1
+-n<行数> 显示的行数（行数为复数表示从最后向前数）
 ```
 
 **实例**：
 
 （1）显示 1.log 文件中前 20 行
-
 ```shell
-head 1.log -n 201
+head 1.log -n 20
 ```
 
 （2）显示 1.log 文件前 20 字节
-
 ```shell
-head -c 20 log2014.log1
+head -c 20 log2014.log
 ```
 
 （3）显示 t.log最后 10 行
-
 ```shell
-head -n -10 t.log1
+head -n -10 t.log
 ```
 
 ### less 命令
@@ -988,23 +966,38 @@ head -n -10 t.log1
 less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移动，而且 less 在查看之前不会加载整个文件。
 
 **常用命令参数**：
-
-```
--i  忽略搜索时的大小写-N  显示每行的行号-o  <文件名> 将less 输出的内容在指定文件中保存起来-s  显示连续空行为一行/字符串：向下搜索“字符串”的功能?字符串：向上搜索“字符串”的功能n：重复前一个搜索（与 / 或 ? 有关）N：反向重复前一个搜索（与 / 或 ? 有关）-x <数字> 将“tab”键显示为规定的数字空格b  向后翻一页d  向后翻半页h  显示帮助界面Q  退出less 命令u  向前滚动半页y  向前滚动一行空格键 滚动一行回车键 滚动一页[pagedown]： 向下翻动一页[pageup]：   向上翻动一页12345678910111213141516171819
+```shell
+-i  忽略搜索时的大小写
+-N  显示每行的行号
+-o  <文件名> 将less 输出的内容在指定文件中保存起来
+-s  显示连续空行为一行
+/字符串：向下搜索“字符串”的功能
+?字符串：向上搜索“字符串”的功能
+n：重复前一个搜索（与 / 或 ? 有关）
+N：反向重复前一个搜索（与 / 或 ? 有关）
+-x <数字> 将“tab”键显示为规定的数字空格
+b  向后翻一页
+d  向后翻半页
+h  显示帮助界面
+Q  退出less 命令
+u  向前滚动半页
+y  向前滚动一行
+空格键 滚动一行
+回车键 滚动一页
+[pagedown]： 向下翻动一页
+[pageup]：   向上翻动一页
 ```
 
 **实例**：
 
 （1）ps 查看进程信息并通过 less 分页显示
-
 ```shell
-ps -aux | less -N1
+ps -aux | less -N
 ```
 
 （2）查看多个文件
-
 ```shell
-less 1.log 2.log1
+less 1.log 2.log
 ```
 
 可以使用 n 查看下一个，使用 p 查看前一个。
@@ -1035,29 +1028,25 @@ less 1.log 2.log1
 - 第三：ln指令用在链接文件或目录，如同时指定两个以上的文件或目录，且最后的目的地是一个已经存在的目录，则会把前面指定的所有文件或目录复制到该目录中。若同时指定多个文件或目录，且最后的目的地并非是一个已存在的目录，则会出现错误信息。
 
 **常用参数**：
-
 ```
--b 删除，覆盖以前建立的链接-s 软链接（符号链接）-v 显示详细处理过程123
+-b 删除，覆盖以前建立的链接-s 软链接（符号链接）-v 显示详细处理过程
 ```
 
 **实例**：
 
 （1）给文件创建软链接，并显示操作信息
-
 ```shell
-ln -sv source.log link.log1
+ln -sv source.log link.log
 ```
 
 （2）给文件创建硬链接，并显示操作信息
-
 ```shell
-ln -v source.log link1.log1
+ln -v source.log link1.log
 ```
 
 （3）给目录创建软链接
-
 ```shell
-ln -sv /opt/soft/test/test3 /opt/soft/test/test51
+ln -sv /opt/soft/test/test3 /opt/soft/test/test5
 ```
 
 ### locate 命令
@@ -1067,29 +1056,27 @@ locate 通过搜寻系统内建文档数据库达到快速找到档案，数据�
 locate 与 find 命令相似，可以使用如 *、? 等进行正则匹配查找
 
 **常用参数**：
-
-```
--l num（要显示的行数）-f   将特定的档案系统排除在外，如将proc排除在外-r   使用正则运算式做为寻找条件123
+```shell
+-l num（要显示的行数）
+-f   将特定的档案系统排除在外，如将proc排除在外
+-r   使用正则运算式做为寻找条件
 ```
 
 **实例**：
 
 （1）查找和 pwd 相关的所有文件(文件名中包含 pwd）
-
 ```shell
-locate pwd1
+locate pwd
 ```
 
 （2）搜索 etc 目录下所有以 sh 开头的文件
-
 ```shell
-locate /etc/sh1
+locate /etc/sh
 ```
 
 （3）查找 /var 目录下，以 reason 结尾的文件
-
 ```shell
-locate -r '^/var.*reason$'（其中.表示一个字符，*表示任务多个；.*表示任意多个字符）1
+locate -r '^/var.*reason$'（其中.表示一个字符，*表示任务多个；.*表示任意多个字符）
 ```
 
 ### more 命令
@@ -1097,29 +1084,41 @@ locate -r '^/var.*reason$'（其中.表示一个字符，*表示任务多个；.
 功能类似于 cat, more 会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示。
 
 **命令参数**：
-
-```
-+n      从笫 n 行开始显示-n       定义屏幕大小为n行+/pattern 在每个档案显示前搜寻该字串（pattern），然后从该字串前两行之后开始显示 -c       从顶部清屏，然后显示-d       提示“Press space to continue，’q’ to quit（按空格键继续，按q键退出）”，禁用响铃功能-l        忽略Ctrl+l（换页）字符-p       通过清除窗口而不是滚屏来对文件进行换页，与-c选项相似-s       把连续的多个空行显示为一行-u       把文件内容中的下画线去掉123456789
+```shell
++n      从笫 n 行开始显示
+-n       定义屏幕大小为n行
++/pattern 在每个档案显示前搜寻该字串（pattern），然后从该字串前两行之后开始显示 
+-c       从顶部清屏，然后显示
+-d       提示“Press space to continue，’q’ to quit（按空格键继续，按q键退出）”，禁用响铃功能
+-l        忽略Ctrl+l（换页）字符
+-p       通过清除窗口而不是滚屏来对文件进行换页，与-c选项相似
+-s       把连续的多个空行显示为一行
+-u       把文件内容中的下画线去掉
 ```
 
 **常用操作命令**：
-
-```
-Enter    向下 n 行，需要定义。默认为 1 行Ctrl+F   向下滚动一屏空格键  向下滚动一屏Ctrl+B  返回上一屏=       输出当前行的行号:f     输出文件名和当前行的行号V      调用vi编辑器!命令   调用Shell，并执行命令q       退出more123456789
+```shell
+Enter    向下 n 行，需要定义。默认为 1 行
+Ctrl+F   向下滚动一屏
+空格键  向下滚动一屏
+Ctrl+B  返回上一屏
+=       输出当前行的行号
+:f     输出文件名和当前行的行号
+V      调用vi编辑器
+!命令   调用Shell，并执行命令
+q       退出more
 ```
 
 **实例**：
 
 （1）显示文件中从第3行起的内容
-
 ```shell
-more +3 text.txt1
+more +3 text.txt
 ```
 
 （2）在所列出文件目录详细信息，借助管道使每次显示 5 行
-
 ```shell
-ls -l | more -51
+ls -l | more -5
 ```
 
 按空格显示下 5 行。
@@ -1133,55 +1132,47 @@ ls -l | more -51
 **实例**：
 
 （1）将文件 test.log 重命名为 test1.txt
-
 ```shell
-mv test.log test1.txt1
+mv test.log test1.txt
 ```
 
 （2）将文件 log1.txt,log2.txt,log3.txt 移动到根的 test3 目录中
-
 ```shell
-mv llog1.txt log2.txt log3.txt /test31
+mv llog1.txt log2.txt log3.txt /test3
 ```
 
 （3）将文件 file1 改名为 file2，如果 file2 已经存在，则询问是否覆盖
-
 ```shell
-mv -i log1.txt log2.txt1
+mv -i log1.txt log2.txt
 ```
 
 （4）移动当前文件夹下的所有文件到上一级目录
-
 ```shell
-mv * ../1
+mv * ../
 ```
 
 ### rm 命令
 
 删除一个目录中的一个或多个文件或目录，如果没有使用 -r 选项，则 rm 不会删除目录。如果使用 rm 来删除文件，通常仍可以将该文件恢复原状。
-
 ```shell
-rm [选项] 文件…1
+rm [选项] 文件…
 ```
 
 **实例**：
 
 （1）删除任何 .log 文件，删除前逐一询问确认：
-
 ```shell
-rm -i *.log1
+rm -i *.log
 ```
 
 （2）删除 test 子目录及子目录中所有档案删除，并且不用一一确认：
-
 ```shell
-rm -rf test1
+rm -rf test
 ```
 
 （3）删除以 -f 开头的文件
-
 ```shell
-rm -- -f*1
+rm -- -f*
 ```
 
 ### tail 命令
@@ -1189,21 +1180,19 @@ rm -- -f*1
 用于显示指定文件末尾内容，不指定文件时，作为输入信息进行处理。常用查看日志文件。
 
 **常用参数**：
-
 ```
--f 循环读取（常用于查看递增的日志文件）-n<行数> 显示行数（从后向前）12
+-f 循环读取（常用于查看递增的日志文件）
+-n<行数> 显示行数（从后向前）
 ```
 
 （1）循环读取逐渐增加的文件内容
-
 ```shell
-ping 127.0.0.1 > ping.log &1
+ping 127.0.0.1 > ping.log &
 ```
 
 后台运行：可使用 jobs -l 查看，也可使用 fg 将其移到前台运行。
-
 ```shell
-tail -f ping.log1
+tail -f ping.log
 ```
 
 （查看日志）
@@ -1215,9 +1204,8 @@ Linux touch命令用于修改文件或者目录的时间属性，包括存取时
 ls -l 可以显示档案的时间记录。
 
 **语法**
-
 ```
-touch [-acfm][-d<日期时间>][-r<参考文件或目录>] [-t<日期时间>][--help][--version][文件或目录…]1
+touch [-acfm][-d<日期时间>][-r<参考文件或目录>] [-t<日期时间>][--help][--version][文件或目录…]
 ```
 
 - **参数说明**：
@@ -1235,27 +1223,28 @@ touch [-acfm][-d<日期时间>][-r<参考文件或目录>] [-t<日期时间>][--
 **实例**
 
 使用指令"touch"修改文件"testfile"的时间属性为当前系统时间，输入如下命令：
-
 ```shell
-$ touch testfile                #修改文件的时间属性 1
+$ touch testfile                #修改文件的时间属性 
 ```
 
 首先，使用ls命令查看testfile文件的属性，如下所示：
-
 ```shell
-$ ls -l testfile                #查看文件的时间属性  #原来文件的修改时间为16:09  -rw-r--r-- 1 hdd hdd 55 2011-08-22 16:09 testfile  123
+$ ls -l testfile                #查看文件的时间属性  
+#原来文件的修改时间为16:09  
+-rw-r--r-- 1 hdd hdd 55 2011-08-22 16:09 testfile   
 ```
 
 执行指令"touch"修改文件属性以后，并再次查看该文件的时间属性，如下所示：
-
 ```shell
-$ touch testfile                #修改文件时间属性为当前系统时间  $ ls -l testfile                #查看文件的时间属性  #修改后文件的时间属性为当前系统时间  -rw-r--r-- 1 hdd hdd 55 2011-08-22 19:53 testfile  1234
+$ touch testfile                #修改文件时间属性为当前系统时间  
+$ ls -l testfile                #查看文件的时间属性  
+#修改后文件的时间属性为当前系统时间  
+-rw-r--r-- 1 hdd hdd 55 2011-08-22 19:53 testfile   
 ```
 
 使用指令"touch"时，如果指定的文件不存在，则将创建一个新的空白文件。例如，在当前目录下，使用该指令创建一个空白文件"file"，输入如下命令：
-
 ```shell
-$ touch file            #创建一个名为“file”的新的空白文件 1
+$ touch file            #创建一个名为“file”的新的空白文件 
 ```
 
 ### vim 命令
@@ -1270,88 +1259,74 @@ Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错�
 
 简单的说，我们可以将这三个模式想成底下的图标来表示：
 
-![img](./15-(20条消息) Linux面试题（2020最新版）_ThinkWon的博客-CSDN博客_linux面试题_files/aHR0cHM6Ly93d3cucnVub29iLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNy92aW0tdmktd29ya21vZGVsLnBuZw)
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/sysarchibasic/linuxbasic-4.png')" alt="wxmp">
 
 ### whereis 命令
 
 whereis 命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息。whereis 及 locate 都是基于系统内建的数据库进行搜索，因此效率很高，而find则是遍历硬盘查找文件。
 
 **常用参数**：
-
-```
--b   定位可执行文件。-m   定位帮助文件。-s   定位源代码文件。-u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件。1234
+```shell
+-b   定位可执行文件。
+-m   定位帮助文件。
+-s   定位源代码文件。
+-u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件。
 ```
 
 **实例**：
 
 （1）查找 locate 程序相关文件
-
 ```shell
-whereis locate1
+whereis locate
 ```
 
 （2）查找 locate 的源码文件
-
 ```shell
 whereis -s locate
-1
 ```
 
 （3）查找 lcoate 的帮助文件
-
 ```shell
 whereis -m locate
-1
 ```
 
 ### which 命令
 
 在 linux 要查找某个文件，但不知道放在哪里了，可以使用下面的一些命令来搜索：
-
 ```
 which     查看可执行文件的位置。
 whereis 查看文件的位置。
 locate  配合数据库查看文件位置。
 find        实际搜寻硬盘查询文件名称。
-1234
 ```
 
 which 是在 PATH 就是指定的路径中，搜索某个系统命令的位置，并返回第一个搜索结果。使用 which 命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。
 
 **常用参数**：
-
 ```
 -n 　指定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名。
-1
 ```
 
 **实例**：
 
 （1）查看 ls 命令是否存在，执行哪个
-
 ```shell
 which ls
-1
 ```
 
 （2）查看 which
-
 ```shell
-which which1
+which which
 ```
 
 （3）查看 cd
-
 ```shell
 which cd（显示不存在，因为 cd 是内建命令，而 which 查找显示是 PATH 中的命令）
-1
 ```
 
 查看当前 PATH 配置：
-
 ```shell
 echo $PATH
-1
 ```
 
 或使用 env 查看所有环境变量及对应值
@@ -1365,15 +1340,12 @@ echo $PATH
 grep 的工作方式是这样的，它在一个或多个文件中搜索字符串模板。如果模板包括空格，则必须被引用，模板后的所有字符串被看作文件名。搜索的结果被送到标准输出，不影响原文件内容。
 
 命令格式：
-
 ```
 grep [option] pattern file|dir
-1
 ```
 
 **常用参数**：
-
-```
+``` shell
 -A n --after-context显示匹配字符后n行
 -B n --before-context显示匹配字符前n行
 -C n --context 显示匹配字符前后n行
@@ -1383,55 +1355,58 @@ grep [option] pattern file|dir
 -f 从文件中读取关键词
 -n 显示匹配内容的所在文件中行数
 -R 递归查找文件夹
-123456789
 ```
 
 grep 的规则表达式:
-
-```
-^  #锚定行的开始 如：'^grep'匹配所有以grep开头的行。 $  #锚定行的结束 如：'grep$'匹配所有以grep结尾的行。 .  #匹配一个非换行符的字符 如：'gr.p'匹配gr后接一个任意字符，然后是p。  *  #匹配零个或多个先前字符 如：'*grep'匹配所有一个或多个空格后紧跟grep的行。.*   #一起用代表任意字符。  []   #匹配一个指定范围内的字符，如'[Gg]rep'匹配Grep和grep。 [^]  #匹配一个不在指定范围内的字符，如：'[^A-FH-Z]rep'匹配不包含A-R和T-Z的一个字母开头，紧跟rep的行。  \(..\)  #标记匹配字符，如'\(love\)'，love被标记为1。   \<      #锚定单词的开始，如:'\<grep'匹配包含以grep开头的单词的行。\>      #锚定单词的结束，如'grep\>'匹配包含以grep结尾的单词的行。x\{m\}  #重复字符x，m次，如：'0\{5\}'匹配包含5个o的行。 x\{m,\}  #重复字符x,至少m次，如：'o\{5,\}'匹配至少有5个o的行。  x\{m,n\}  #重复字符x，至少m次，不多于n次，如：'o\{5,10\}'匹配5--10个o的行。  \w    #匹配文字和数字字符，也就是[A-Za-z0-9]，如：'G\w*p'匹配以G后跟零个或多个文字或数字字符，然后是p。  \W    #\w的反置形式，匹配一个或多个非单词字符，如点号句号等。  \b    #单词锁定符，如: '\bgrep\b'只匹配grep。12345678910111213141516
+```shell
+^  #锚定行的开始 如：'^grep'匹配所有以grep开头的行。 
+$  #锚定行的结束 如：'grep$'匹配所有以grep结尾的行。 
+.  #匹配一个非换行符的字符 如：'gr.p'匹配gr后接一个任意字符，然后是p。  
+*  #匹配零个或多个先前字符 如：'*grep'匹配所有一个或多个空格后紧跟grep的行。
+.*   #一起用代表任意字符。  
+[]   #匹配一个指定范围内的字符，如'[Gg]rep'匹配Grep和grep。 
+[^]  #匹配一个不在指定范围内的字符，如：'[^A-FH-Z]rep'匹配不包含A-R和T-Z的一个字母开头，紧跟rep的行。  
+\(..\)  #标记匹配字符，如'\(love\)'，love被标记为1。   
+\<      #锚定单词的开始，如:'\<grep'匹配包含以grep开头的单词的行。
+\>      #锚定单词的结束，如'grep\>'匹配包含以grep结尾的单词的行。
+x\{m\}  #重复字符x，m次，如：'0\{5\}'匹配包含5个o的行。 
+x\{m,\}  #重复字符x,至少m次，如：'o\{5,\}'匹配至少有5个o的行。  
+x\{m,n\}  #重复字符x，至少m次，不多于n次，如：'o\{5,10\}'匹配5--10个o的行。  
+\w    #匹配文字和数字字符，也就是[A-Za-z0-9]，如：'G\w*p'匹配以G后跟零个或多个文字或数字字符，然后是p。  
+\W    #\w的反置形式，匹配一个或多个非单词字符，如点号句号等。  
+\b    #单词锁定符，如: '\bgrep\b'只匹配grep。
 ```
 
 **实例**：
 
 （1）查找指定进程
-
 ```shell
-ps -ef | grep svn1
+ps -ef | grep svn
 ```
 
 （2）查找指定进程个数
-
 ```shell
-ps -ef | grep svn -c1
+ps -ef | grep svn -c
 ```
 
 （3）从文件中读取关键词
-
 ```shell
 cat test1.txt | grep -f key.log
-1
 ```
 
 （4）从文件夹中递归查找以grep开头的行，并只列出文件
-
 ```shell
 grep -lR '^grep' /tmp
-1
 ```
 
 （5）查找非x开关的行内容
-
 ```shell
 grep '^[^x]' test.txt
-1
 ```
 
 （6）显示包含 ed 或者 at 字符的内容行
-
 ```shell
 grep -E 'ed|at' test.txt
-1
 ```
 
 ### wc 命令
@@ -1439,40 +1414,33 @@ grep -E 'ed|at' test.txt
 wc(word count)功能为统计指定的文件中字节数、字数、行数，并将统计结果输出
 
 命令格式：
-
 ```
 wc [option] file..
-1
 ```
 
 **命令参数**：
-
-```
+```shell
 -c 统计字节数
 -l 统计行数
 -m 统计字符数
 -w 统计词数，一个字被定义为由空白、跳格或换行字符分隔的字符串
-1234
 ```
 
 **实例**：
 
 （1）查找文件的 行数 单词数 字节数 文件名
-
 ```shell
-wc text.txt1
+wc text.txt
 ```
 
 结果：
-
 ```shell
-7     8     70     test.txt1
+7     8     70     test.txt
 ```
 
 （2）统计输出结果的行数
-
 ```shell
-cat test.txt | wc -l1
+cat test.txt | wc -l
 ```
 
 ## 磁盘管理命令
@@ -1480,9 +1448,8 @@ cat test.txt | wc -l1
 ### cd 命令
 
 cd(changeDirectory) 命令语法：
-
 ```
-cd [目录名]1
+cd [目录名]
 ```
 
 说明：切换当前目录至 dirName。
@@ -1490,49 +1457,47 @@ cd [目录名]1
 **实例**：
 
 （1）进入要目录
-
 ```shell
-cd /1
+cd /
 ```
 
 （2）进入 “home” 目录
-
 ```shell
-cd ~1
+cd ~
 ```
 
 （3）进入上一次工作路径
-
 ```shell
-cd -1
+cd -
 ```
 
 （4）把上个命令的参数作为cd参数使用。
-
 ```shell
-cd !$1
+cd !$
 ```
 
 ### df 命令
 
 显示磁盘空间使用情况。获取硬盘被占用了多少空间，目前还剩下多少空间等信息，如果没有文件名被指定，则所有当前被挂载的文件系统的可用空间将被显示。默认情况下，磁盘空间将以 1KB 为单位进行显示，除非环境变量 POSIXLY_CORRECT 被指定，那样将以512字节为单位进行显示：
-
-```
--a 全部文件系统列表-h 以方便阅读的方式显示信息-i 显示inode信息-k 区块为1024字节-l 只显示本地磁盘-T 列出文件系统类型123456
+```shell
+-a 全部文件系统列表
+-h 以方便阅读的方式显示信息
+-i 显示inode信息
+-k 区块为1024字节
+-l 只显示本地磁盘
+-T 列出文件系统类型
 ```
 
 **实例**：
 
 （1）显示磁盘使用情况
-
 ```shell
-df -l1
+df -l
 ```
 
 （2）以易读方式列出所有文件系统及其类型
-
 ```shell
-df -haT1
+df -haT
 ```
 
 ### du 命令
@@ -1540,41 +1505,41 @@ df -haT1
 du 命令也是查看使用空间的，但是与 df 命令不同的是 Linux du 命令是对文件和目录磁盘使用的空间的查看：
 
 命令格式：
-
 ```
-du [选项] [文件]1
+du [选项] [文件]
 ```
 
 **常用参数**：
-
 ```
--a 显示目录中所有文件大小-k 以KB为单位显示文件大小-m 以MB为单位显示文件大小-g 以GB为单位显示文件大小-h 以易读方式显示文件大小-s 仅显示总计-c或--total  除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和1234567
+-a 显示目录中所有文件大小
+-k 以KB为单位显示文件大小
+-m 以MB为单位显示文件大小
+-g 以GB为单位显示文件大小
+-h 以易读方式显示文件大小
+-s 仅显示总计
+-c或--total  除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和
 ```
 
 **实例**：
 
 （1）以易读方式显示文件夹内及子文件夹大小
-
 ```shell
-du -h scf/1
+du -h scf/
 ```
 
 （2）以易读方式显示文件夹内所有文件大小
-
 ```shell
-du -ah scf/1
+du -ah scf/
 ```
 
 （3）显示几个文件或目录各自占用磁盘空间的大小，还统计它们的总和
-
 ```shell
-du -hc test/ scf/1
+du -hc test/ scf/
 ```
 
 （4）输出当前目录下各个子目录所使用的空间
-
 ```shell
-du -hc --max-depth=1 scf/1
+du -hc --max-depth=1 scf/
 ```
 
 ### ls命令
@@ -1582,41 +1547,41 @@ du -hc --max-depth=1 scf/1
 就是 list 的缩写，通过 ls 命令不仅可以查看 linux 文件夹包含的文件，而且可以查看文件权限(包括目录、文件夹、文件权限)查看目录信息等等。
 
 **常用参数搭配**：
-
 ```
-ls -a 列出目录所有文件，包含以.开始的隐藏文件ls -A 列出除.及..的其它文件ls -r 反序排列ls -t 以文件修改时间排序ls -S 以文件大小排序ls -h 以易读大小显示ls -l 除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来1234567
+ls -a 列出目录所有文件，包含以.开始的隐藏文件
+ls -A 列出除.及..的其它文件
+ls -r 反序排列
+ls -t 以文件修改时间排序
+ls -S 以文件大小排序
+ls -h 以易读大小显示
+ls -l 除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来
 ```
 
 **实例**：
 
 (1) 按易读方式按时间反序排序，并显示文件详细信息
-
 ```shell
-ls -lhrt1
+ls -lhrt
 ```
 
 (2) 按大小反序显示文件详细信息
-
 ```shell
-ls -lrS1
+ls -lrS
 ```
 
 (3)列出当前目录中所有以"t"开头的目录的详细内容
-
 ```shell
-ls -l t*1
+ls -l t*
 ```
 
 (4) 列出文件绝对路径（不包含隐藏文件）
-
 ```shell
-ls | sed "s:^:`pwd`/:"1
+ls | sed "s:^:`pwd`/:"
 ```
 
 (5) 列出文件绝对路径（包含隐藏文件）
-
 ```shell
-find $pwd -maxdepth 1 | xargs ls -ld1
+find $pwd -maxdepth 1 | xargs ls -ld
 ```
 
 ### mkdir 命令
@@ -1631,15 +1596,13 @@ mkdir 命令用于创建文件夹。
 **实例**：
 
 （1）当前工作目录下创建名为 t的文件夹
-
 ```shell
-mkdir t1
+mkdir t
 ```
 
 （2）在 tmp 目录下创建路径为 test/t1/t 的目录，若不存在，则创建：
-
 ```shell
-mkdir -p /tmp/test/t1/t1
+mkdir -p /tmp/test/t1/t
 ```
 
 ### pwd 命令
@@ -1649,15 +1612,13 @@ pwd 命令用于查看当前工作目录路径。
 **实例**：
 
 （1）查看当前路径
-
 ```shell
-pwd1
+pwd
 ```
 
 （2）查看软链接的实际路径
-
 ```shell
-pwd -P1
+pwd -P
 ```
 
 ### rmdir 命令
@@ -1669,9 +1630,8 @@ pwd -P1
 **实例**：
 
 （1）当 parent 子目录被删除后使它也成为空目录的话，则顺便一并删除：
-
 ```shell
-rmdir -p parent/child/child111
+rmdir -p parent/child/child11
 ```
 
 ## 网络通讯命令
@@ -1703,9 +1663,8 @@ Linux netstat命令用于显示网络状态。
 利用netstat指令可让你得知整个Linux系统的网络情况。
 
 语法
-
-```
-netstat [-acCeFghilMnNoprstuvVwx][-A<网络类型>][--ip]1
+```shell
+netstat [-acCeFghilMnNoprstuvVwx][-A<网络类型>][--ip]
 ```
 
 **参数说明**：
@@ -1738,15 +1697,28 @@ netstat [-acCeFghilMnNoprstuvVwx][-A<网络类型>][--ip]1
 **实例**
 
 **如何查看系统都开启了哪些端口？**
-
 ```shell
-[root@centos6 ~ 13:20 #55]# netstat -lnpActive Internet connections (only servers)Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program nametcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1035/sshdtcp        0      0 :::22                       :::*                        LISTEN      1035/sshdudp        0      0 0.0.0.0:68                  0.0.0.0:*                               931/dhclientActive UNIX domain sockets (only servers)Proto RefCnt Flags       Type       State         I-Node PID/Program name    Pathunix  2      [ ACC ]     STREAM     LISTENING     6825   1/init              @/com/ubuntu/upstartunix  2      [ ACC ]     STREAM     LISTENING     8429   1003/dbus-daemon    /var/run/dbus/system_bus_socket12345678910
+[root@centos6 ~ 13:20 #55]# netstat -lnp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name
+tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1035/sshd
+tcp        0      0 :::22                       :::*                        LISTEN      1035/sshd
+udp        0      0 0.0.0.0:68                  0.0.0.0:*                               931/dhclient
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node PID/Program name    Path
+unix  2      [ ACC ]     STREAM     LISTENING     6825   1/init              @/com/ubuntu/upstart
+unix  2      [ ACC ]     STREAM     LISTENING     8429   1003/dbus-daemon    /var/run/dbus/system_bus_socket
 ```
 
 **如何查看网络连接状况？**
-
 ```shell
-[root@centos6 ~ 13:22 #58]# netstat -anActive Internet connections (servers and established)Proto Recv-Q Send-Q Local Address               Foreign Address             Statetcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTENtcp        0      0 192.168.147.130:22          192.168.147.1:23893         ESTABLISHEDtcp        0      0 :::22                       :::*                        LISTENudp        0      0 0.0.0.0:68                  0.0.0.0:*1234567
+[root@centos6 ~ 13:22 #58]# netstat -an
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN
+tcp        0      0 192.168.147.130:22          192.168.147.1:23893         ESTABLISHED
+tcp        0      0 :::22                       :::*                        LISTEN
+udp        0      0 0.0.0.0:68                  0.0.0.0:*
 ```
 
 **如何统计系统当前进程连接数？**
@@ -1759,9 +1731,14 @@ netstat [-acCeFghilMnNoprstuvVwx][-A<网络类型>][--ip]1
 > 严格来说，这个题目考验的是对 awk 的使用。
 
 首先，使用 `netstat -an|grep ESTABLISHED` 命令。结果如下：
-
 ```shell
-tcp        0      0 120.27.146.122:80       113.65.18.33:62721      ESTABLISHEDtcp        0      0 120.27.146.122:80       27.43.83.115:47148      ESTABLISHEDtcp        0      0 120.27.146.122:58838    106.39.162.96:443       ESTABLISHEDtcp        0      0 120.27.146.122:52304    203.208.40.121:443      ESTABLISHEDtcp        0      0 120.27.146.122:33194    203.208.40.122:443      ESTABLISHEDtcp        0      0 120.27.146.122:53758    101.37.183.144:443      ESTABLISHEDtcp        0      0 120.27.146.122:27017    23.105.193.30:50556     ESTABLISHED1234567
+[root@centos6 ~ 13:22 #58]# netstat -an
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State
+tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN
+tcp        0      0 192.168.147.130:22          192.168.147.1:23893         ESTABLISHED
+tcp        0      0 :::22                       :::*                        LISTEN
+udp        0      0 0.0.0.0:68                  0.0.0.0:*
 ```
 
 ### ping 命令
@@ -1771,9 +1748,8 @@ Linux ping命令用于检测主机。
 执行ping指令会使用ICMP传输协议，发出要求回应的信息，若远端主机的网络功能没有问题，就会回应该信息，因而得知该主机运作正常。
 
 指定接收包的次数
-
 ```shell
-ping -c 2 www.baidu.com1
+ping -c 2 www.baidu.com
 ```
 
 ### telnet 命令
@@ -1783,9 +1759,8 @@ Linux telnet命令用于远端登入。
 执行telnet指令开启终端机阶段作业，并登入远端主机。
 
 语法
-
-```
-telnet [-8acdEfFKLrx][-b<主机别名>][-e<脱离字符>][-k<域名>][-l<用户名称>][-n<记录文件>][-S<服务类型>][-X<认证形态>][主机名称或IP地址<通信端口>]1
+```shell
+telnet [-8acdEfFKLrx][-b<主机别名>][-e<脱离字符>][-k<域名>][-l<用户名称>][-n<记录文件>][-S<服务类型>][-X<认证形态>][主机名称或IP地址<通信端口>]
 ```
 
 **参数说明**：
@@ -1812,11 +1787,9 @@ telnet [-8acdEfFKLrx][-b<主机别名>][-e<脱离字符>][-k<域名>][-l<用户�
 **实例**
 
 登录远程主机
-
 ```shell
 # 登录IP为 192.168.0.5 的远程主机
 telnet 192.168.0.5 
-12
 ```
 
 ## 系统管理命令
@@ -1826,8 +1799,7 @@ telnet 192.168.0.5
 显示或设定系统的日期与时间。
 
 命令参数：
-
-```
+```shell
 -d<字符串> 　显示字符串所指的日期与时间。字符串前后必须加上双引号。
 -s<字符串> 　根据字符串来设置日期与时间。字符串前后必须加上双引号。
 -u 　显示GMT。
@@ -1843,20 +1815,16 @@ telnet 192.168.0.5
 %m 月份(以01-12来表示)。
 %y 年份(以00-99来表示)。
 %Y 年份(以四位数来表示)。
-123456789101112131415
 ```
 
 **实例**：
 
 （1）显示下一天
-
 ```shell
 date +%Y%m%d --date="+1 day"  //显示下一天的日期
-1
 ```
 
 （2）-d参数使用
-
 ```shell
 date -d "nov 22"  今年的 11 月 22 日是星期三
 date -d '2 weeks' 2周后的日期
@@ -1865,7 +1833,6 @@ date -d next-day +%Y%m%d（明天的日期）或者：date -d tomorrow +%Y%m%d
 date -d last-day +%Y%m%d(昨天的日期) 或者：date -d yesterday +%Y%m%d
 date -d last-month +%Y%m(上个月是几月)
 date -d next-month +%Y%m(下个月是几月)
-1234567
 ```
 
 ### free 命令
@@ -1873,40 +1840,32 @@ date -d next-month +%Y%m(下个月是几月)
 显示系统内存使用情况，包括物理内存、交互区内存(swap)和内核缓冲区内存。
 
 **命令参数**：
-
-```
+```shell
 -b 以Byte显示内存使用情况
 -k 以kb为单位显示内存使用情况
 -m 以mb为单位显示内存使用情况
 -g 以gb为单位显示内存使用情况
 -s<间隔秒数> 持续显示内存
 -t 显示内存使用总合
-123456
 ```
 
 **实例**：
 
 （1）显示内存使用情况
-
 ```shell
 free
 free -k
 free -m
-123
 ```
 
 （2）以总和的形式显示内存的使用信息
-
 ```shell
 free -t
-1
 ```
 
 （3）周期性查询内存使用情况
-
 ```shell
 free -s 10
-1
 ```
 
 ### kill 命令
@@ -1914,22 +1873,19 @@ free -s 10
 发送指定的信号到相应进程。不指定型号将发送SIGTERM（15）终止指定进程。如果任无法终止该程序可用"-KILL" 参数，其发送的信号为SIGKILL(9) ，将强制结束进程，使用ps命令或者jobs 命令可以查看进程号。root用户将影响用户的进程，非root用户只能影响自己的进程。
 
 **常用参数**：
-
-```
+```shell
 -l  信号，若果不加信号的编号参数，则使用“-l”参数会列出全部的信号名称
 -a  当处理当前进程时，不限制命令名和进程号的对应关系
 -p  指定kill 命令只打印相关进程的进程号，而不发送任何信号
 -s  指定发送信号
 -u  指定用户
-12345
 ```
 
 **实例**：
 
 （1）先使用ps查找进程pro1，然后用kill杀掉
-
 ```shell
-kill -9 $(ps -ef | grep pro1)1
+kill -9 $(ps -ef | grep pro1)
 ```
 
 ### ps 命令
@@ -1938,48 +1894,53 @@ ps(process status)，用来查看当前运行的进程状态，一次性查看�
 
 linux上进程有5种状态:
 
-1. 运行(正在运行或在运行队列中等待)
-2. 中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号)
-3. 不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生)
-4. 僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放)
-5. 停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行)
+- 1. 运行(正在运行或在运行队列中等待)
+- 2. 中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号)
+- 3. 不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生)
+- 4. 僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放)
+- 5. 停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行)
 
 ps 工具标识进程的5种状态码:
-
-```
-D 不可中断 uninterruptible sleep (usually IO)R 运行 runnable (on run queue)S 中断 sleepingT 停止 traced or stoppedZ 僵死 a defunct (”zombie”) process12345
+```shell
+D 不可中断 uninterruptible sleep (usually IO)
+R 运行 runnable (on run queue)
+S 中断 sleeping
+T 停止 traced or stopped
+Z 僵死 a defunct (”zombie”) process
 ```
 
 **命令参数**：
-
-```
--A 显示所有进程a 显示所有进程-a 显示同一终端下所有进程c 显示进程真实名称e 显示环境变量f 显示进程间的关系r 显示当前终端运行的进程-aux 显示所有包含其它使用的进程12345678
+```shell
+-A 显示所有进程
+a 显示所有进程
+-a 显示同一终端下所有进程
+c 显示进程真实名称
+e 显示环境变量
+f 显示进程间的关系
+r 显示当前终端运行的进程
+-aux 显示所有包含其它使用的进程
 ```
 
 **实例**：
 
 （1）显示当前所有进程环境变量及进程间关系
-
 ```shell
-ps -ef1
+ps -ef
 ```
 
 （2）显示当前所有进程
-
 ```shell
-ps -A1
+ps -A
 ```
 
 （3）与grep联用查找某进程
-
 ```shell
-ps -aux | grep apache1
+ps -aux | grep apache
 ```
 
 （4）找出与 cron 与 syslog 这两个服务有关的 PID 号码
-
 ```shell
-ps aux | grep '(cron|syslog)'1
+ps aux | grep '(cron|syslog)'
 ```
 
 ### rpm 命令
@@ -1987,9 +1948,13 @@ ps aux | grep '(cron|syslog)'1
 Linux rpm 命令用于管理套件。
 
 rpm(redhat package manager) 原本是 Red Hat Linux 发行版专门用来管理 Linux 各项套件的程序，由于它遵循 GPL 规则且功能强大方便，因而广受欢迎。逐渐受到其他发行版的采用。RPM 套件管理方式的出现，让 Linux 易于安装，升级，间接提升了 Linux 的适用度。
-
 ```shell
-# 查看系统自带jdkrpm -qa | grep jdk# 删除系统自带jdkrpm -e --nodeps 查看jdk显示的数据# 安装jdkrpm -ivh jdk-7u80-linux-x64.rpm123456
+# 查看系统自带jdk
+rpm -qa | grep jdk
+# 删除系统自带jdk
+rpm -e --nodeps 查看jdk显示的数据
+# 安装jdk
+rpm -ivh jdk-7u80-linux-x64.rpm
 ```
 
 ### top 命令
@@ -1997,15 +1962,22 @@ rpm(redhat package manager) 原本是 Red Hat Linux 发行版专门用来管理 
 显示当前系统正在执行的进程的相关信息，包括进程 ID、内存占用率、CPU 占用率等
 
 **常用参数**：
-
 ```
--c 显示完整的进程命令-s 保密模式-p <进程号> 指定进程显示-n <次数>循环显示次数1234
+-c 显示完整的进程命令
+-s 保密模式
+-p <进程号> 指定进程显示
+-n <次数>循环显示次数
 ```
 
 **实例**：
-
 ```shell
-top - 14:06:23 up 70 days, 16:44,  2 users,  load average: 1.25, 1.32, 1.35Tasks: 206 total,   1 running, 205 sleeping,   0 stopped,   0 zombieCpu(s):  5.9%us,  3.4%sy,  0.0%ni, 90.4%id,  0.0%wa,  0.0%hi,  0.2%si,  0.0%stMem:  32949016k total, 14411180k used, 18537836k free,   169884k buffersSwap: 32764556k total,        0k used, 32764556k free,  3612636k cachedPID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND  28894 root      22   0 1501m 405m  10m S 52.2  1.3   2534:16 java  1234567
+top - 14:06:23 up 70 days, 16:44,  2 users,  load average: 1.25, 1.32, 1.35
+Tasks: 206 total,   1 running, 205 sleeping,   0 stopped,   0 zombie
+Cpu(s):  5.9%us,  3.4%sy,  0.0%ni, 90.4%id,  0.0%wa,  0.0%hi,  0.2%si,  0.0%st
+Mem:  32949016k total, 14411180k used, 18537836k free,   169884k buffers
+Swap: 32764556k total,        0k used, 32764556k free,  3612636k cached
+PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND  
+28894 root      22   0 1501m 405m  10m S 52.2  1.3   2534:16 java   
 ```
 
 前五行是当前系统情况整体的统计信息区。
@@ -2027,8 +1999,7 @@ load average数据是每隔5秒钟检查一次活跃的进程数，然后按特�
 系统现在共有206个进程，其中处于运行中的有1个，205个在休眠（sleep），stoped状态的有0个，zombie状态（僵尸）的有0个。
 
 **第三行，cpu状态信息，具体属性说明如下**：
-
-```
+```shell
 5.9%us — 用户空间占用CPU的百分比。
 3.4% sy — 内核空间占用CPU的百分比。
 0.0% ni — 改变过优先级的进程占用CPU的百分比
@@ -2036,36 +2007,30 @@ load average数据是每隔5秒钟检查一次活跃的进程数，然后按特�
 0.0% wa — IO等待占用CPU的百分比
 0.0% hi — 硬中断（Hardware IRQ）占用CPU的百分比
 0.2% si — 软中断（Software Interrupts）占用CPU的百分比
-1234567
 ```
 
 **备注**：在这里CPU的使用比率和windows概念不同，需要理解linux系统用户空间和内核空间的相关知识！
 
 第四行，内存状态，具体信息如下：
-
-```
+```shell
 32949016k total — 物理内存总量（32GB）
 14411180k used — 使用中的内存总量（14GB）
 18537836k free — 空闲内存总量（18GB）
 169884k buffers — 缓存的内存量 （169M）
-1234
 ```
 
 **第五行，swap交换分区信息，具体信息说明如下**：
-
-```
+```shell
 32764556k total — 交换区总量（32GB）
 0k used — 使用的交换区总量（0K）
 32764556k free — 空闲交换区总量（32GB）
 3612636k cached — 缓冲的交换区总量（3.6GB）
-1234
 ```
 
 **第六行，空行。**
 
 **第七行以下：各进程（任务）的状态监控，项目列信息说明如下**：
-
-```
+```shell
 PID — 进程id
 USER — 进程所有者
 PR — 进程优先级
@@ -2078,12 +2043,10 @@ S — 进程状态。D=不可中断的睡眠状态 R=运行 S=睡眠 T=跟踪/�
 %MEM — 进程使用的物理内存百分比
 TIME+ — 进程使用的CPU时间总计，单位1/100秒
 COMMAND — 进程名称（命令名/命令行）
-123456789101112
 ```
 
 **top 交互命令**
-
-```
+```shell
 h 显示top交互命令帮助信息
 c 切换显示命令名称和完整命令行
 m 以内存使用率排序
@@ -2091,7 +2054,6 @@ P 根据CPU使用百分比大小进行排序
 T 根据时间/累计时间进行排序
 W 将当前设置写入~/.toprc文件中
 o或者O 改变显示项目的顺序
-1234567
 ```
 
 ### yum 命令
@@ -2118,10 +2080,8 @@ yum提供了查找、安装、删除某一个、一组甚至全部软件包的�
 **实例**
 
 安装 pam-devel
-
 ```shell
 [root@www ~]# yum install pam-devel
-1
 ```
 
 ## 备份压缩命令
@@ -2144,8 +2104,7 @@ yum提供了查找、安装、删除某一个、一组甚至全部软件包的�
 弄清两个概念：打包和压缩。打包是指将一大堆文件或目录变成一个总的文件；压缩则是将一个大的文件通过一些压缩算法变成一个小文件
 
 **常用参数**：
-
-```
+``` shell
 -c 建立新的压缩文件
 -f 指定压缩文件
 -r 添加文件到已经压缩文件包中
@@ -2156,48 +2115,37 @@ yum提供了查找、安装、删除某一个、一组甚至全部软件包的�
 -j 支持bzip2压缩
 -Z 支持compress解压文件
 -v 显示操作过程
-12345678910
 ```
 
 有关 gzip 及 bzip2 压缩:
-
-```
+``` shell
 gzip 实例：压缩 gzip fileName .tar.gz 和.tgz  解压：gunzip filename.gz 或 gzip -d filename.gz
           对应：tar zcvf filename.tar.gz     tar zxvf filename.tar.gz
 
 bz2实例：压缩 bzip2 -z filename .tar.bz2 解压：bunzip filename.bz2或bzip -d filename.bz2
        对应：tar jcvf filename.tar.gz         解压：tar jxvf filename.tar.bz2
-12345
 ```
 
 **实例**：
 
 （1）将文件全部打包成 tar 包
-
 ```shell
 tar -cvf log.tar 1.log,2.log 或tar -cvf log.*
-1
 ```
 
 （2）将 /etc 下的所有文件及目录打包到指定目录，并使用 gz 压缩
-
 ```shell
 tar -zcvf /tmp/etc.tar.gz /etc
-1
 ```
 
 （3）查看刚打包的文件内容（一定加z，因为是使用 gzip 压缩的）
-
 ```shell
 tar -ztvf /tmp/etc.tar.gz
-1
 ```
 
 （4）要压缩打包 /home, /etc ，但不要 /home/dmtsai
-
 ```shell
 tar --exclude /home/dmtsai -zcvf myfile.tar.gz /home/* /etc
-1
 ```
 
 ### unzip 命令

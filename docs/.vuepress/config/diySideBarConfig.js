@@ -44,6 +44,8 @@ module.exports = {
           '/java/collection/08-hashcollectionprin',
           '/java/collection/08.1-listconvertarray',
           '/java/collection/08.2-listlistdeal',
+          '/java/collection/08.3-lambdabascigrammar',
+          '/java/collection/08.3-lambdagrammarstream',
           '/java/collection/08.3-lambdaintro',
           '/java/collection/08.4-lambdacommon',
           '/java/collection/08.5-lambdaintroprosum',

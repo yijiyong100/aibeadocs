@@ -1,9 +1,9 @@
 ---
-title: Spring面试题
+title: Spring 面试题
 ---
 
 ::: tip
-本文主要是介绍 Spring面试题 。
+本文主要是介绍 Spring 面试题 。
 :::
 
 [[toc]]
@@ -83,7 +83,7 @@ IoC让相互协作的组件保持松散的耦合，而AOP编程允许你把遍�
 
 Spring 总共大约有 20 个模块， 由 1300 多个不同的文件构成。 而这些组件被分别整合在`核心容器（Core Container）` 、 `AOP（Aspect Oriented Programming）和设备支持（Instrmentation）` 、`数据访问与集成（Data Access/Integeration）` 、 `Web`、 `消息（Messaging）` 、 `Test`等 6 个模块中。 以下是 Spring 5 的模块结构图：
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/springbasic/netty-1.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/springbasic/springbasic-1.png')" alt="wxmp">
 
 - spring core：提供了框架的基本组成部分，包括控制反转（Inversion of Control，IOC）和依赖注入（Dependency Injection，DI）功能。
 - spring beans：提供了BeanFactory，是工厂模式的一个经典实现，Spring将管理对象称为Bean。
@@ -266,7 +266,7 @@ BeanFactory和ApplicationContext的关系
 
 为了更直观的展示 “低级容器” 和 “高级容器” 的关系，这里通过常用的 ClassPathXmlApplicationContext 类来展示整个容器的层级 UML 关系。
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/springbasic/netty-2.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/springbasic/springbasic-2.png')" alt="wxmp">
 
 有点复杂？ 先不要慌，我来解释一下。
 
@@ -402,7 +402,7 @@ ThreadLocal会为每一个线程提供一个独立的变量副本，从而隔离
 
 在传统的Java应用中，bean的生命周期很简单。使用Java关键字new进行bean实例化，然后该bean就可以使用了。一旦该bean不再被使用，则由Java自动进行垃圾回收。相比之下，Spring容器中的bean的生命周期就显得相对复杂多了。正确理解Spring bean的生命周期非常重要，因为你或许要利用Spring提供的扩展点来自定义bean的创建过程。下图展示了bean装载到Spring应用上下文中的一个典型的生命周期过程。
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/springbasic/netty-3.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/springbasic/springbasic-3.png')" alt="wxmp">
 
 bean在Spring容器中从创建到销毁经历了若干阶段，每一阶段都可以针对Spring如何管理bean进行个性化定制。
 
@@ -805,7 +805,7 @@ AOP 的工作重心在于如何将增强编织目标对象的连接点上, 这�
 
 可以简单地认为, 使用 @Aspect 注解的类就是切面.
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/springbasic/netty-4.png')" alt="wxmp">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/post/springbasic/springbasic-4.png')" alt="wxmp">
 
 ### 解释基于XML Schema方式的切面实现
 

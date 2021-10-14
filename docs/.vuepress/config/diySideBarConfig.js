@@ -1640,6 +1640,19 @@ module.exports = {
         '/post/javabasic/06-jvmbasic',
         '/post/javabasic/07-nettybasic',
       ]
+    },
+    {
+      title: 'Spring面试-基础篇',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/post/springbasic/01-springbasic',
+        '/post/springbasic/02-springmvc',
+        '/post/springbasic/03-springboot',
+        '/post/springbasic/04-springcloud',
+        '/post/springbasic/05-springcloudalibaba',
+        '/post/springbasic/06-springcloudsummary',
+      ]
     }
   ],
   "/projprod/": [

@@ -3,7 +3,7 @@ title: MyBatis面试题
 ---
 
 ::: tip
-本文主要是介绍 MyBatis面试题 。
+本文主要是介绍 MyBatis面试题，面试题和相关解答来自网络，难免有纰漏和疏忽，阅读的时候，发现有疑问的地方，建议多方求证，也可以关注原文评论区，也欢迎在本站[【问题反馈页面】](https://www.yijiyong.com/about/aboutqa.html)留言反馈。
 :::
 
 [[toc]]
@@ -655,6 +655,8 @@ Mybatis仅可以编写针对ParameterHandler、ResultSetHandler、StatementHandl
 2）二级缓存与一级缓存其机制相同，默认也是采用 PerpetualCache，HashMap 存储，不同在于其存储作用域为 Mapper(Namespace)，并且可自定义存储源，如 Ehcache。默认不打开二级缓存，要开启二级缓存，使用二级缓存属性类需要实现Serializable序列化接口(可用来保存对象的状态),可在它的映射文件中配置`<cache/>` ；
 
 3）对于缓存数据更新机制，当某一个作用域(一级缓存 Session/二级缓存Namespaces)的进行了C/U/D 操作后，默认该作用域下所有 select 中的缓存将被 clear。
+
+
 
 ## 参考文章
 * https://thinkwon.blog.csdn.net/article/details/101292950

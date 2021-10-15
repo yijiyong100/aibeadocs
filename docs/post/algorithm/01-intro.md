@@ -3,7 +3,7 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 ---
 
 ::: tip
-本文主要是介绍 XXXXXXXXXXXXXXXXXXXXXXXXXX 。
+本文主要是介绍 算法和数据结构 。
 :::
 
 [[toc]]

@@ -1678,6 +1678,26 @@ module.exports = {
         '/post/sysarchibasic/04-zkbasic',
         '/post/sysarchibasic/05-mqbasic',
       ]
+    },
+    {
+      title: '源码解析-基础篇',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/post/sourcecode/01-intro',
+        '/post/sourcecode/02-javaio',
+        '/post/sourcecode/03-arraylist',
+        '/post/sourcecode/04-arrayblockingqueue',
+        '/post/sourcecode/05-vector',
+        '/post/sourcecode/06-linkedlist',
+        '/post/sourcecode/07-hashmap1',
+        '/post/sourcecode/08-hashmap2',
+        '/post/sourcecode/09-concurrenthashmpap',
+        '/post/sourcecode/10-arraylistandlinkedlist',
+        '/post/sourcecode/11-copyonwritearraylist ',
+        '/post/sourcecode/12-startprincodeanalysis',
+        '/post/sourcecode/13-recommendvideo',
+      ]
     }
   ],
   "/projprod/": [

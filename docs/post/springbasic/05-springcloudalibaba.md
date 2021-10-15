@@ -18,6 +18,7 @@ Spring Cloud是Spring开源组织下的一个子项目，提供了一系列用�
 
 Spring Cloud Alibaba是Spring Cloud的子项目；包含微服务开发必备组件；基于和符合Spring Cloud标准的阿里的微服务解决方案。
 
+
 ## 3.服务注册和发现是什么意思？Spring Cloud如何实现？
 
 当我们开始一个项目时，我们通常在属性文件中进行所有的配置。随着越来越多的服务开发和部署，添加和修改这些属性变得更加复杂。有些服务可能会下降，而某些位置可能会发生变化。手动更改属性可能会产生问题。 Nacos服务注册和发现可以在这种情况下提供帮助。由于所有服务都在Eureka服务器上注册并通过调用Nacos服务器完成查找，因此无需处理服务地点的任何更改和处理。
@@ -257,6 +258,12 @@ Seata有三个组成部分：事务协调器TC：协调者、事务管理器TM�
 - 2、使用LCN
 - 3、使用Seata
 - 4、2PC、3PC
+
+## 26、SpringCloud Alibaba的面试题视频参考：
+SpringCloud Alibaba的面试题视频参考:https://www.bilibili.com/video/av500291691
+
+[SpringCloud Alibaba的面试题视频参考](https://www.bilibili.com/video/av500291691)
+
 
 ## 参考文章
 * https://blog.csdn.net/BruceLiu_code/article/details/115322713

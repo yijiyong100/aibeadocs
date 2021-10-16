@@ -1644,6 +1644,19 @@ module.exports = {
       ]
     },
     {
+      title: '算法面试-基础篇',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/post/algorithm/01-50basic',
+        '/post/algorithm/02-commonalgorithmoverview ',
+        '/post/algorithm/03-commonalgorithmquestions',
+        '/post/algorithm/04-30classicinterviewquestions',
+        '/post/algorithm/05-80classicinterviewquestions',
+        '/post/algorithm/06-recommendvideo',
+      ]
+    },
+    {
       title: 'Spring面试-基础篇',   // 必要的
       collapsable: false, // 可选的, 默认值是 true,
       sidebarDepth: 0,    // 可选的, 默认值是 1

@@ -1393,6 +1393,18 @@ module.exports = {
         '/dev/deveffciency/08-siliconvalley5skills',
         '/dev/deveffciency/09-summary',
       ]
+    },
+    {
+      title: '技术能力评估总结',   // 必要的
+      collapsable: false, // 可选的, 默认值是 true,
+      sidebarDepth: 0,    // 可选的, 默认值是 1
+      children: [
+        '/dev/abilityevaluation/01-abilityevbasic',
+        '/dev/abilityevaluation/02-6devabilitystage',
+        '/dev/abilityevaluation/03-abilityevmethod',
+        '/dev/abilityevaluation/04-gradeevaluationgossip',
+        '/dev/abilityevaluation/05-abilitysummary',
+      ]
     }
   ],
   "/middleware/": [

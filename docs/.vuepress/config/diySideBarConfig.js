@@ -1719,7 +1719,7 @@ module.exports = {
         '/post/sourcecode/08-hashmap2',
         '/post/sourcecode/09-concurrenthashmpap',
         '/post/sourcecode/10-arraylistandlinkedlist',
-        '/post/sourcecode/11-copyonwritearraylist ',
+        '/post/sourcecode/11-copyonwritearraylist',
         '/post/sourcecode/12-startprincodeanalysis',
         '/post/sourcecode/13-recommendvideo',
       ]

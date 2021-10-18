@@ -1930,8 +1930,6 @@ HashMap是线程不安全的实现，而HashTable是线程安全的实现。所�
 819 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
 
 ## 参考文章
 * https://www.cnblogs.com/midiyu/p/8126237.html

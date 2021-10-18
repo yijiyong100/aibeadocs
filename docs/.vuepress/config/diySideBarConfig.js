@@ -167,6 +167,7 @@ module.exports = {
       children: [
         '/db/intro/01-intro',
         '/db/intro/02-relationdb',
+        '/db/intro/02.1-dbcatintro',
         '/db/intro/03-sqlintro',
         '/db/intro/04-security',
         '/db/intro/05-commplete',

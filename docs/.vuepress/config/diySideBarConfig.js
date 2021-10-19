@@ -141,6 +141,8 @@ module.exports = {
           '/java/jvm/02-workprinciple',
           '/java/jvm/03-memorymodel',
           '/java/jvm/04-classload',
+          '/java/jvm/04.1-classloadprocedure',
+          '/java/jvm/04.2-classloaderdiff',
           '/java/jvm/05-gc',
           '/java/jvm/06-optcmd',
           '/java/jvm/07-optcase',

@@ -1,5 +1,5 @@
 ---
-title: Java反射机制
+title: Java反射机制基础
 ---
 
 
@@ -350,6 +350,412 @@ Method addMethod=classType.getMethod("add",new Class[]{int.class,int.class});
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/reflect_4.png')" alt="wxmp">
 
+## 【----------------------------】
+
+##  Java学习总结（十四）——java反射机制，利用反射动态创建对象
+
+
+## 一．Java反射机制
+### 1.什么是反射：
+反射就是把Java类中的各种成份影射成一个个的Java对象。例：一个类有：成员变量，方法，构造方法等，包等等信息，利用反射技术可以对一个类进行剖析，把各个组成部分影射成一个个对象。
+
+## 2.Java反射常用类：
+- （1）Class类—可获取类和类的成员信息
+- （2）Field类—可访问类的属性
+- （3）Method—可调用类的方法
+- （4）Constructor—可调用类的构造方法
+
+## 3.如何使用反射（基本步骤）：
+- （1）导入java.lang.reflect.*
+- （2）获得需要操作的类的Java.lang.Class对象
+- （3）调用Class的方法获取Field,Method等对象
+- （4）使用反射API进行操作（设置属性，调用方法）
+
+## 4.Class类：
+- （1）Class类是Java反射机制的起源和入口
+- （2）Class类的实例化对象代表一个正在运行的Java类或接口
+ 每个类都有自己的Class对象
+ 用于获取与类相关的各种信息
+ 提供了获取类信息的相关方法
+ Class类继承至Object类
+- （3）Class类存放类的结构信息
+·类名；·父类，接口；·方法，构造方法，属性；·注释
+
+## 5.获取Class类对象的三种方式：
+- （1）方法一：
+
+//方法1：对象.getClass()
+
+Student stu=new Student();
+Class clazz=stu.getClass();
+
+- （2）方法二：
+//方法2：类.class
+Class clazz= Student.class;
+Class clazz=String.class;
+
+
+- (3) //方法三： 方法3：Class.forName()
+clazz=Class.forName(“java.lang.String”);
+clazz=Class.forName(“java.util.Date”);
+例（代码）：
+学生信息类（bean）
+
+```java
+package org.reflect.Class;
+
+public class Student {
+	private String name;
+	private int age;
+	private double score;
+
+	public Student() {
+	}
+
+	public Student(String name, int age, double score) {
+		this.name = name;
+		this.age = age;
+		this.score = score;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+	
+	public void learn() {
+		System.out.println(this.name + "正在学习...");
+	}
+	
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", age=" + age + ", score=" + score
+				+ "]";
+	}
+
+}
+
+
+```
+
+获取Class类对象测试类
+
+```java
+package org.reflect.Class;
+
+import java.lang.reflect.Modifier;
+public class ClassDemo {
+
+	public static void main(String[] args) {
+		Student stu=new Student();
+		Class<?> c1=stu.getClass();//方式一
+		Class<Student> c2= Student.class;//方式二
+		Class<?> c3=null;
+		try {
+			c3=Class.forName("org.reflect.Class.Student");   // 方式三
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println("方式一获取的Class对象为："+c1.getSimpleName());
+		System.out.println("方式二获取的Class对象为："+c2);
+		System.out.println("方式三获取的Class对象为："+c3);
+		int mod=c1.getModifiers();//获取修饰符所对应的整数
+		String modifier=Modifier.toString(mod);//获取修饰符
+		System.out.println(c1+"类所用的修饰符为："+modifier);
+	}
+
+}
+
+
+```
+
+运行结果：
+方式一获取Class类对象：Student
+
+方式二获取Class类对象：reflect.Student
+
+方式三获取Class类对象：reflect.Student
+
+Student类的修饰符：public
+
+
+## 6.使用Class类获取类的结构信息
+### （1）获取类的Class对象：
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/reflectcase-1.png')" alt="wxmp">
+
+
+### （2）获取Filed对象
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/reflectcase-2.png')" alt="wxmp">
+
+
+### （3）获取Method对象
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/reflectcase-3.png')" alt="wxmp">
+
+
+### （4）获取Constructor对象
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/reflectcase-4.png')" alt="wxmp">
+
+
+代码示例（示例均已上述Student类为基础）
+
+例1（获取Filed对象）
+
+```java
+package org.reflect.Filed;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+public class FiledDemo {
+
+	public static void main(String[] args) {
+		Class<Student> cl=Student.class;//获取代表Student类的Class对象
+		Field[] fields=cl.getDeclaredFields();//获取属性对象，返回数组
+		System.out.println(cl.getSimpleName()+"类中声明的属性有：");
+		for(Field f:fields){
+			String filedName=f.getName();//获取属性名
+			Class<?> filedType=f.getType();//获取属性类型
+			int mod=f.getModifiers();//获取修饰符对应整数
+			String modifier=Modifier.toString(mod);//获取修饰符
+			System.out.println(modifier+" "+filedType.getSimpleName()+" "+filedName);
+		}
+	}
+
+}
+
+
+```
+
+运行结果：
+Student类中声明的属性有：
+
+```java
+private String name
+private int age
+private double score
+```
+
+例2（获取Method对象）
+
+```java
+package method;
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+
+public class MethodDemo {
+
+	public static void main(String[] args) {
+		try {
+			Class<?> cls=Class.forName("method.Student");
+			Method[] methods=cls.getDeclaredMethods();
+			for(Method method:methods){
+				String methodName=method.getName();   // 获取方法名称
+				Class<?> returnType=method.getReturnType();  // 获取方法的返回值类型
+				String modStr=Modifier.toString(method.getModifiers());   // 获取方法的修饰符
+				Class<?>[] paramTypes=method.getParameterTypes();   // 获取参数类型
+				System.out.print(modStr+" "+returnType.getSimpleName()+" "+methodName+"(");
+				if(paramTypes.length==0){
+					System.out.print(")");
+				}
+				for(int i=0;i<paramTypes.length;i++){   // 遍历形式参数类型
+					if(i==paramTypes.length-1){
+						System.out.print(paramTypes[i].getSimpleName()+" args"+i+")");
+					}else{
+						System.out.print(paramTypes[i].getSimpleName()+" args"+i+",");
+					}
+				}
+				System.out.println();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
+
+
+```
+
+运行结果：
+
+```java
+public void eat(String args0,String args1)
+public int getAge()
+public void setAge(int args0)
+public double getScore()
+public void setScore(double args0)
+```
+
+## 7.使用反射动态创建对象
+### （1）方法一：
+使用Class的newInstance()方法，仅适用于无参构造方法
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/reflectcase-5.png')" alt="wxmp">
+
+
+### （2）方法二：
+方法二：调用Constructor的newInstance()方法，适用所有构造方法
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/reflectcase-6.png')" alt="wxmp">
+
+
+例3（获取Constructor对象）
+
+```java
+package org.reflect.Constructor;
+
+import java.lang.reflect.Constructor;
+
+public class ConstructorDemo {
+
+	public static void main(String[] args) {
+		Class<Student> cl=Student.class;//获取Class对象，代表Student类
+		try {
+			Constructor<Student> con=cl.getDeclaredConstructor(String.class,int.class,double.class);//获取散参构造方法
+			Student stu=con.newInstance("张无忌",23,96.7);
+			System.out.println(stu);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+	}
+
+}
+
+
+``` 
+
+运行结果：
+Student [name=张无忌, age=23, score=96.7]
+
+例4（动态创建方法）：
+
+```java
+package method;
+
+import java.lang.reflect.Method;
+
+public class InvokeMethod {
+
+	public static void main(String[] args) {
+		Class<Student> cls=Student.class;
+		try {
+			Student stu=cls.newInstance();   // 通过反射机制实例化对象,使用此newInstance()方法，要求类中必须包含一个无参构造方法
+			Method setNameMethod=cls.getMethod("setName",String.class);
+			setNameMethod.invoke(stu,"风清扬");   // 使用stu对象调用setName(String name)方法，传入"风清扬"参数
+			Method getNameMethod=cls.getMethod("getName");
+			System.out.println(getNameMethod.invoke(stu));  // 使用stu对象调用getName()方法，返回一个值
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+
+	}
+
+}
+
+
+```
+
+运行结果：
+风清扬
+
+## 【----------------------------】
+
+## Java反射生成Class的3种方式以及反射创建对象的2种方式
+
+想要了解反射生成class和创建java对象，首先我们要了解什么是反射？
+
+## **一、什么是反射？**
+
+Java反射说的是在运行状态中，对于任何一个类，我们都能够知道这个类有哪些方法和属性。对于任何一个对象，我们都能够对它的方法和属性进行调用。
+
+**我们把这种动态获取对象信息和调用对象方法的功能称之为反射机制。**
+
+## **二、反射生成Class的三种方式**
+
+### **1.第一种方式（利用getClass（）方法）**
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/classnew-1.png')" alt="wxmp">
+
+ 
+
+### **2.第二种方式（直接对象的.class）**
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/classnew-2.png')" alt="wxmp">
+
+ 
+
+### **3.第三种方式（Class.forName()）**
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/classnew-3.png')" alt="wxmp">
+
+ 
+
+ 
+
+注意：此种方法通过对象的全路径来获取Class的，当对象不存在时，会出现ClassNotFoundException异常。详细的可以看下Class.forName()的底层代码。
+
+ 
+
+## **三、反射生成java对象的两种方式**
+
+### **1.第一种方式newInstance();**
+
+
+```java
+调用public``无参构造器 ，若是没有，则会报异常
+Object o = clazz.newInstance();　
+没有无参构造函数异常：
+```
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/classnew-4.png')" alt="wxmp">
+
+
+私有的构造函数异常：
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/classnew-5.png')" alt="wxmp">
+
+ 
+
+### **2.第二种方式：**
+
+有带参数的构造函数的类，先获取到其构造对象，再通过该构造方法类获取实例：
+
+/ /获取构造函数类的对象
+
+Constroctor constroctor = User.class.getConstructor(String.class); 
+
+// 使用构造器对象的newInstance方法初始化对象
+
+Object obj = constroctor.newInstance("name"); 
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/reflection/classnew-6.png')" alt="wxmp">
+
+
 ## 参考文章
 
 * https://www.cnblogs.com/adamjwh/p/8372114.html
+* https://blog.51cto.com/u_13501268/2104207
+* https://www.cnblogs.com/HaveChen/p/11778129.html

@@ -10,10 +10,6 @@ title: XXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ## 【----------------------------】
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dc/flume/intro-1.png')" alt="wxmp">
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dc/intro/intro-1.png')" alt="wxmp">
-
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dc/intro/intro-1.png')" alt="wxmp">
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/dc/intro/intro-1.png')" alt="wxmp">
 
 
 

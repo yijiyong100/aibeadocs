@@ -25,8 +25,12 @@ module.exports = {
           '/java/basic/01-lan-feature',
           '/java/basic/02-oop-feature',
           '/java/basic/03-class',
+          '/java/basic/03.1-generics',
           '/java/basic/04-reflection',
-          '/java/basic/05-exception',
+          '/java/basic/04.1-relectionsummay',
+          '/java/basic/05-annotation',
+          '/java/basic/05.1-annotationandreflection',
+          '/java/basic/06-exception',
         ]
       },
       {
@@ -166,8 +170,8 @@ module.exports = {
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/db/intro/01-intro',
-        '/db/intro/02-relationdb',
         '/db/intro/02.1-dbcatintro',
+        '/db/intro/02-relationdb',
         '/db/intro/03-sqlintro',
         '/db/intro/04-security',
         '/db/intro/05-commplete',

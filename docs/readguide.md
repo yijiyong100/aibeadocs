@@ -53,9 +53,9 @@ QQ群:569556849
 
 ## 知识分类的目录整理：
 
-## Java相关整理
+## 【------Java篇-------】
 
-## Java历史简述
+### Java历史简述
 
 计算机被发明以后，经历了主要有三代语言，第一代：机器语言，第二代：汇编语言，第三代：高级语言，前面两代语言都是面向机器"0"和"1"，理解和使用都还是比较困难的。第三代高级语言，进入了 面向人类 的阶段。主要分类面向过程和面向对象两种，其中面向过程的 语言有C、ADA、COBOL、Fortan、PASCAL，面对对象的语言代表有：C#、C++、Java、Python，其中 C++ 是属于半面向对象，半面向过程。另外C#属于微软.Net的生态语言，设计和使用和Java极为相似。Python属于面向对象的解释性语言，性能较慢，而且语言版本之间的兼容性不是很好，比如Python2和python3之间的语法和使用有很多的差别，没有延续性，但是Python的使用极为简单，而且提供大量非常丰富的数学、机器学习、网络服务、文件处理的工具库。在爬虫类、AI机器学习、大数据挖掘这方面有非常广泛的使用。
 
@@ -71,7 +71,7 @@ Java 分为三个体系：
 
 2005年6月，JavaOne 大会召开，Sun 公司公开 Java SE 6。此时，Java 的各种版本已经更名以取消其中的数字"2"：J2EE更名为Java EE, J2SE更名为Java SE，J2ME更名为Java ME。
 
-## Java虚拟机
+### Java虚拟机
 
 Java语言的核心设计理念之一：跨平台。一处编写，处处执行，成为Java早期传播和发展的重要口号。
 
@@ -86,7 +86,7 @@ Java虚拟机的工作原理。从最初的我们编写的Java源文件（.java�
 - [虚拟机知识入门](/java/jvm/01-intro.html)
 - [虚拟机工作原理](/java/jvm/02-workprinciple.html)
 
-## Java语言特性
+### Java语言特性
 - **简单**
 
 Java 语言的语法与 `C` 语言和 `C++` 语言很接近，使得大多数程序员很容易学习和使用。另一方面，Java 丢弃了 `C++` 中很少使用的、很难理解的、令人迷惑的那些特性，如操作符重载、多继承、自动的强制类型转换。特别地，Java 语言不使用指针，而使用引用。并提供了自动的垃圾回收，使得程序员不必为内存管理而担忧。
@@ -105,7 +105,7 @@ Java 的强类型机制、异常处理、垃圾的自动收集等是 Java 程序
 
 推荐阅读：
 
-  - [Java异常和错误](/java/basic/05-exception.html)
+  - [Java异常和错误](/java/basic/06-exception.html)
 
 
 - **安全**
@@ -181,8 +181,8 @@ Java 语言的设计目标之一是适应于动态变化的环境。Java 程序�
   - [Java语言特性](/java/basic/01-lan-feature.html)
   - [Java面向对象特征](/java/basic/02-oop-feature.html)
   - [Java类和接口基础](/java/basic/03-class.html)
-  - [Java反射机制](/java/basic/04-reflection.html)
-  - [Java异常和错误](/java/basic/05-exception.html)
+  - [Java反射机制基础](/java/basic/04-reflection.html)
+  - [Java异常和错误](/java/basic/06-exception.html)
 ### Java集合类
   - [Java集合类基础介绍](/java/collection/01-intro.html)
   - [集合接口Collction、Map](/java/collection/02-collectionmap.html)
@@ -271,7 +271,7 @@ Java 语言的设计目标之一是适应于动态变化的环境。Java 程序�
   - [Java 14语言新特性](/java/characteristic/07-java14.html)
   - [Java 15语言新特性](/java/characteristic/08-java15.html)
 
-## 数据库相关知识体系
+## 【------数据库-------】
 
 数据库是数据管理的最新技术，是计算机科学的重要分支。
 

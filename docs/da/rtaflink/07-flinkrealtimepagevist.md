@@ -75,7 +75,6 @@ val timestamp = sdf.parse(linearray(3)).getTime
 ApacheLogEvent(linearray(0), linearray(2), timestamp, 
 linearray(5), linearray(6))
 })
-1234567
 ```
 
 ​    因为后面部分的逻辑可以说与实时商品统计部分的逻辑是一样的，所以这里小菌就不再带着大家一步步去分析了，完整代码如下：
@@ -253,14 +252,13 @@ object NetworkFlow {
     properties.setProperty("value.deserializer",
       "org.apache.kafka.common.serialization.StringDeserializer")
     properties.setProperty("auto.offset.reset", "latest")
-12345678
 ```
 
 ​    当然，根据实际的需要，我们还可以将Sink指定为Kafka、ES、Redis或其它存储，这里就不一一展开实现了。
 
 ## 参考
 
-> https://www.bilibili.com/video/BV1y54y127h2?from=search&seid=5631307517601819264
+[B站视频：https://www.bilibili.com/video/BV1y54y127h2](https://www.bilibili.com/video/BV1y54y127h2)
 
 ## 小结
 

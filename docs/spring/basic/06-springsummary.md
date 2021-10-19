@@ -21,14 +21,14 @@ title: Spring-精华知识总结
 
 ### 2. 使用Spring框架的好处是什么？
 
-- **轻量：**Spring 是轻量的，基本的版本大约2MB。
+- **轻量**：Spring 是轻量的，基本的版本大约2MB。
 - **方便解耦，简化开发** （高内聚低耦合） Spring就是一个大工厂（容器），可以将所有对象创建和依赖关系维护，交给Spring管理 spring工厂是用于生成bean
-- **控制反转\**(IOC)\**：**Spring通过控制反转实现了松散耦合，对象们给出它们的依赖，而不是创建或查找依赖的对象们。
-- **面向切面的编程(AOP)：**Spring支持面向切面的编程，并且把应用业务逻辑和系统服务分开，可以方便的实现对程序进行权限拦截、运行监控等功能。
-- **容器：**Spring 包含并管理应用中对象的生命周期和配置。
+- **控制反转\**(IOC)\****：Spring通过控制反转实现了松散耦合，对象们给出它们的依赖，而不是创建或查找依赖的对象们。
+- **面向切面的编程(AOP)**：Spring支持面向切面的编程，并且把应用业务逻辑和系统服务分开，可以方便的实现对程序进行权限拦截、运行监控等功能。
+- **容器**：Spring 包含并管理应用中对象的生命周期和配置。
 - **MVC框架**：Spring的WEB框架是个精心设计的框架，是Web框架的一个很好的替代品。
-- **事务管理：**Spring 提供一个持续的事务管理接口，可以扩展到上至本地事务下至全局事务（JTA）。
-- **异常处理：**Spring 提供方便的API把具体技术相关的异常（比如由JDBC，Hibernate or JDO抛出的）转化为一致的unchecked 异常。
+- **事务管理**：Spring 提供一个持续的事务管理接口，可以扩展到上至本地事务下至全局事务（JTA）。
+- **异常处理**：Spring 提供方便的API把具体技术相关的异常（比如由JDBC，Hibernate or JDO抛出的）转化为一致的unchecked 异常。
 
 ### 3. Spring由哪些模块组成?
 
@@ -92,9 +92,9 @@ IOC 或 依赖注入把应用的代码量降到最低。它使应用容易测试
 
 ### 14. ApplicationContext通常的实现是什么?
 
-- **FileSystemXmlApplicationContext ：**此容器从一个XML文件中加载beans的定义，XML Bean 配置文件的全路径名必须提供给它的构造函数。
-- **ClassPathXmlApplicationContext：**此容器也从一个XML文件中加载beans的定义，这里，你需要正确设置classpath因为这个容器将在classpath里找bean配置。
-- **WebXmlApplicationContext：**此容器加载一个XML文件，此文件定义了一个WEB应用的所有bean。
+- **FileSystemXmlApplicationContext **：此容器从一个XML文件中加载beans的定义，XML Bean 配置文件的全路径名必须提供给它的构造函数。
+- **ClassPathXmlApplicationContext**：此容器也从一个XML文件中加载beans的定义，这里，你需要正确设置classpath因为这个容器将在classpath里找bean配置。
+- **WebXmlApplicationContext**：此容器加载一个XML文件，此文件定义了一个WEB应用的所有bean。
 
 ### 15. Bean 工厂和 Application contexts 有什么区别？
 
@@ -124,8 +124,8 @@ Application contexts提供一种方法处理文本消息，一个通常的做法
 
 ### 19. 有哪些不同类型的IOC（依赖注入）方式？
 
-- **构造器依赖注入：**构造器依赖注入通过容器触发一个类的构造器来实现的，该类有一系列参数，每个参数代表一个对其他类的依赖。
-- **Setter方法注入：**Setter方法注入是容器通过调用无参构造器或无参static工厂 方法实例化bean之后，调用该bean的setter方法，即实现了基于setter的依赖注入。
+- **构造器依赖注入**：构造器依赖注入通过容器触发一个类的构造器来实现的，该类有一系列参数，每个参数代表一个对其他类的依赖。
+- **Setter方法注入**：Setter方法注入是容器通过调用无参构造器或无参static工厂 方法实例化bean之后，调用该bean的setter方法，即实现了基于setter的依赖注入。
 - 基于特定接口（侵入式方案） 
 
 ### 20. **哪种依赖注入方式你建议使用，构造器注入，还是 Setter方法注入？**
@@ -226,10 +226,10 @@ Spring 容器能够自动装配相互合作的bean，这意味着容器不需要
    有五种自动装配的方式，可以用来指导Spring容器用自动装配方式来进行依赖注入。
 
 - **no**：默认的方式是不进行自动装配，通过显式设置ref 属性来进行装配。
-- **byName：**通过参数名 自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byname，之后容器试图匹配、装配和该bean的属性具有相同名字的bean。
-- **byType:：**通过参数类型自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byType，之后容器试图匹配、装配和该bean的属性具有相同类型的bean。如果有多个bean符合条件，则抛出错误。
+- **byName**：通过参数名 自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byname，之后容器试图匹配、装配和该bean的属性具有相同名字的bean。
+- **byType:**：通过参数类型自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byType，之后容器试图匹配、装配和该bean的属性具有相同类型的bean。如果有多个bean符合条件，则抛出错误。
 - **constructor：这个方式类似于**byType， 但是要提供给构造器参数，如果没有确定的带参数的构造器参数类型，将会抛出异常。
-- **autodetect：**首先尝试使用constructor来自动装配，如果无法工作，则使用byType方式。
+- **autodetect**：首先尝试使用constructor来自动装配，如果无法工作，则使用byType方式。
 
 ### 34. 自动装配有哪些局限性 ?
 
@@ -349,7 +349,7 @@ Spring支持以下ORM：
 Spring支持两种类型的事务管理：
 
 - **编程式事务管理**：这意味你通过编程的方式管理事务，给你带来极大的灵活性，但是难维护。
-- **声明式事务管理：**这意味着你可以将业务代码和事务管理分离，你只需用注解和XML配置来管理事务。
+- **声明式事务管理**：这意味着你可以将业务代码和事务管理分离，你只需用注解和XML配置来管理事务。
 
 ### 49. Spring框架的事务管理有哪些优点？
 

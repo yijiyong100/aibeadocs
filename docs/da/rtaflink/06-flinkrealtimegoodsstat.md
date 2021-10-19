@@ -574,7 +574,7 @@ class TopNHotItems(nSize:Int) extends KeyedProcessFunction[Long,ItemViewCount,St
 
 ## 参考
 
-> https://www.bilibili.com/video/BV1y54y127h2?from=search&seid=5631307517601819264
+[B站视频：https://www.bilibili.com/video/BV1y54y127h2](https://www.bilibili.com/video/BV1y54y127h2)
 
 ## 参考文章
 * https://alice.blog.csdn.net/article/details/110024317

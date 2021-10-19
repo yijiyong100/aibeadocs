@@ -52,7 +52,9 @@ https://www.bilibili.com/video/BV1vb411m7NY?p=1
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/wx/wxmp.jpg')" alt="wxmp">
 
-如果你有问题期待和作者以及其他的同学们一起交流，也可以加入如果QQ群：
+如果你有问题期待和站长以及其他的同学们一起交流，也可以加入如果QQ群：
+
 QQ群:569556849 
+
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/qq/qqgroup.png')" alt="wxmp">
 

@@ -1668,7 +1668,7 @@ module.exports = {
       sidebarDepth: 0,    // 可选的, 默认值是 1
       children: [
         '/post/algorithm/01-50basic',
-        '/post/algorithm/02-commonalgorithmoverview ',
+        '/post/algorithm/02-commonalgorithmoverview',
         '/post/algorithm/03-commonalgorithmquestions',
         '/post/algorithm/04-30classicinterviewquestions',
         '/post/algorithm/05-80classicinterviewquestions',

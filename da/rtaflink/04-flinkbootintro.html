@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flink-Boot脚手架介绍 | 智能后端和架构</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="智能后端和架构的文档">
+    <meta name="icon" content="">
+    <meta name="author" content="landry -- seo 选项">
+    <meta name="keywords" content="后端 java 架构 面试 -- seo 选项">
+    
+    <link rel="preload" href="/assets/css/0.styles.183d1d00.css" as="style"><link rel="preload" href="/assets/js/app.db30138a.js" as="script"><link rel="preload" href="/assets/js/5.df8bf371.js" as="script"><link rel="preload" href="/assets/js/1.60d99fe1.js" as="script"><link rel="preload" href="/assets/js/255.19234ae1.js" as="script"><link rel="prefetch" href="/assets/js/10.034bcceb.js"><link rel="prefetch" href="/assets/js/100.bc78c9c9.js"><link rel="prefetch" href="/assets/js/101.fc021eba.js"><link rel="prefetch" href="/assets/js/102.44f58839.js"><link rel="prefetch" href="/assets/js/103.cd3ce876.js"><link rel="prefetch" href="/assets/js/104.ece12d4f.js"><link rel="prefetch" href="/assets/js/105.e0ef0178.js"><link rel="prefetch" href="/assets/js/106.f8113fb8.js"><link rel="prefetch" href="/assets/js/107.7af90320.js"><link rel="prefetch" href="/assets/js/108.a76af7ab.js"><link rel="prefetch" href="/assets/js/109.ae7dfcbe.js"><link rel="prefetch" href="/assets/js/11.22d5654f.js"><link rel="prefetch" href="/assets/js/110.829dbd72.js"><link rel="prefetch" href="/assets/js/111.2612d028.js"><link rel="prefetch" href="/assets/js/112.381ba79f.js"><link rel="prefetch" href="/assets/js/113.52309728.js"><link rel="prefetch" href="/assets/js/114.afd46270.js"><link rel="prefetch" href="/assets/js/115.cfff1785.js"><link rel="prefetch" href="/assets/js/116.b9e85eed.js"><link rel="prefetch" href="/assets/js/117.c88c3ceb.js"><link rel="prefetch" href="/assets/js/118.0cfd8d46.js"><link rel="prefetch" href="/assets/js/119.972e6fcd.js"><link rel="prefetch" href="/assets/js/12.a1fbf449.js"><link rel="prefetch" href="/assets/js/120.c4d0fa30.js"><link rel="prefetch" href="/assets/js/121.a05fb7c8.js"><link rel="prefetch" href="/assets/js/122.84bc99e8.js"><link rel="prefetch" href="/assets/js/123.6e40db8b.js"><link rel="prefetch" href="/assets/js/124.679f60f0.js"><link rel="prefetch" href="/assets/js/125.7b983b12.js"><link rel="prefetch" href="/assets/js/126.c6529e34.js"><link rel="prefetch" href="/assets/js/127.62896466.js"><link rel="prefetch" href="/assets/js/128.11cadf09.js"><link rel="prefetch" href="/assets/js/129.a2c6007b.js"><link rel="prefetch" href="/assets/js/13.773a30c0.js"><link rel="prefetch" href="/assets/js/130.cd51d586.js"><link rel="prefetch" href="/assets/js/131.5d81a3a4.js"><link rel="prefetch" href="/assets/js/132.c062c43a.js"><link rel="prefetch" href="/assets/js/133.94b50107.js"><link rel="prefetch" href="/assets/js/134.e787c6f2.js"><link rel="prefetch" href="/assets/js/135.514b39b8.js"><link rel="prefetch" href="/assets/js/136.2209902a.js"><link rel="prefetch" href="/assets/js/137.8ee62050.js"><link rel="prefetch" href="/assets/js/138.30076406.js"><link rel="prefetch" href="/assets/js/139.153f79f0.js"><link rel="prefetch" href="/assets/js/14.a010702c.js"><link rel="prefetch" href="/assets/js/140.c22ae524.js"><link rel="prefetch" href="/assets/js/141.03388ce3.js"><link rel="prefetch" href="/assets/js/142.be052d72.js"><link rel="prefetch" href="/assets/js/143.86f4f723.js"><link rel="prefetch" href="/assets/js/144.58a81178.js"><link rel="prefetch" href="/assets/js/145.b6065cbb.js"><link rel="prefetch" href="/assets/js/146.a7d48393.js"><link rel="prefetch" href="/assets/js/147.1f5a2c27.js"><link rel="prefetch" href="/assets/js/148.e545c932.js"><link rel="prefetch" href="/assets/js/149.b7f633ea.js"><link rel="prefetch" href="/assets/js/15.6612b8a7.js"><link rel="prefetch" href="/assets/js/150.0c633255.js"><link rel="prefetch" href="/assets/js/151.7518fca9.js"><link rel="prefetch" href="/assets/js/152.85ebf0bb.js"><link rel="prefetch" href="/assets/js/153.6696affd.js"><link rel="prefetch" href="/assets/js/154.a488a746.js"><link rel="prefetch" href="/assets/js/155.b1285b65.js"><link rel="prefetch" href="/assets/js/156.c7d65add.js"><link rel="prefetch" href="/assets/js/157.95b667f4.js"><link rel="prefetch" href="/assets/js/158.36dcae64.js"><link rel="prefetch" href="/assets/js/159.5ab4607b.js"><link rel="prefetch" href="/assets/js/16.9728f201.js"><link rel="prefetch" href="/assets/js/160.f31c31c5.js"><link rel="prefetch" href="/assets/js/161.7faa6f5b.js"><link rel="prefetch" href="/assets/js/162.8bed1a3e.js"><link rel="prefetch" href="/assets/js/163.bccb4b94.js"><link rel="prefetch" href="/assets/js/164.d019f9f6.js"><link rel="prefetch" href="/assets/js/165.4ea2fcec.js"><link rel="prefetch" href="/assets/js/166.937ae33a.js"><link rel="prefetch" href="/assets/js/167.63bf2a10.js"><link rel="prefetch" href="/assets/js/168.8501b450.js"><link rel="prefetch" href="/assets/js/169.52064ac2.js"><link rel="prefetch" href="/assets/js/17.01684033.js"><link rel="prefetch" href="/assets/js/170.bc536396.js"><link rel="prefetch" href="/assets/js/171.5c44671a.js"><link rel="prefetch" href="/assets/js/172.cbc9f01e.js"><link rel="prefetch" href="/assets/js/173.036cc49c.js"><link rel="prefetch" href="/assets/js/174.7900267f.js"><link rel="prefetch" href="/assets/js/175.7f350261.js"><link rel="prefetch" href="/assets/js/176.abfbdc57.js"><link rel="prefetch" href="/assets/js/177.679877f2.js"><link rel="prefetch" href="/assets/js/178.87fc5aba.js"><link rel="prefetch" href="/assets/js/179.26c9f0a4.js"><link rel="prefetch" href="/assets/js/18.e64f0610.js"><link rel="prefetch" href="/assets/js/180.bd2cdacc.js"><link rel="prefetch" href="/assets/js/181.3ad737a4.js"><link rel="prefetch" href="/assets/js/182.3e7faf1a.js"><link rel="prefetch" href="/assets/js/183.4d65d295.js"><link rel="prefetch" href="/assets/js/184.460482ae.js"><link rel="prefetch" href="/assets/js/185.46d4a7fe.js"><link rel="prefetch" href="/assets/js/186.61235089.js"><link rel="prefetch" href="/assets/js/187.397bcfe8.js"><link rel="prefetch" href="/assets/js/188.060a1cb7.js"><link rel="prefetch" href="/assets/js/189.e3995463.js"><link rel="prefetch" href="/assets/js/19.f8b70585.js"><link rel="prefetch" href="/assets/js/190.dcaa16c4.js"><link rel="prefetch" href="/assets/js/191.f4c5aa96.js"><link rel="prefetch" href="/assets/js/192.8b10742f.js"><link rel="prefetch" href="/assets/js/193.64a40b9c.js"><link rel="prefetch" href="/assets/js/194.2ea34c9f.js"><link rel="prefetch" href="/assets/js/195.6bb470df.js"><link rel="prefetch" href="/assets/js/196.a0f55724.js"><link rel="prefetch" href="/assets/js/197.493d62fe.js"><link rel="prefetch" href="/assets/js/198.285ec3f4.js"><link rel="prefetch" href="/assets/js/199.c26664a8.js"><link rel="prefetch" href="/assets/js/20.c407011e.js"><link rel="prefetch" href="/assets/js/200.e172c025.js"><link rel="prefetch" href="/assets/js/201.88cbb622.js"><link rel="prefetch" href="/assets/js/202.da403177.js"><link rel="prefetch" href="/assets/js/203.6eb14b41.js"><link rel="prefetch" href="/assets/js/204.2ddae4bf.js"><link rel="prefetch" href="/assets/js/205.0a89efc1.js"><link rel="prefetch" href="/assets/js/206.480a66d3.js"><link rel="prefetch" href="/assets/js/207.bf5c1d60.js"><link rel="prefetch" href="/assets/js/208.b187dc67.js"><link rel="prefetch" href="/assets/js/209.20c99616.js"><link rel="prefetch" href="/assets/js/21.7edc8b1b.js"><link rel="prefetch" href="/assets/js/210.e4f1f766.js"><link rel="prefetch" href="/assets/js/211.1ed7b354.js"><link rel="prefetch" href="/assets/js/212.7e1243ab.js"><link rel="prefetch" href="/assets/js/213.6daddd4b.js"><link rel="prefetch" href="/assets/js/214.e548b00f.js"><link rel="prefetch" href="/assets/js/215.5e7f305a.js"><link rel="prefetch" href="/assets/js/216.d02d9a10.js"><link rel="prefetch" href="/assets/js/217.4ee282a4.js"><link rel="prefetch" href="/assets/js/218.d95d737e.js"><link rel="prefetch" href="/assets/js/219.fab5907a.js"><link rel="prefetch" href="/assets/js/22.fdbd00d3.js"><link rel="prefetch" href="/assets/js/220.56c6f7cc.js"><link rel="prefetch" href="/assets/js/221.3ee9e8ae.js"><link rel="prefetch" href="/assets/js/222.30c2d9ac.js"><link rel="prefetch" href="/assets/js/223.d6f5a1ce.js"><link rel="prefetch" href="/assets/js/224.b964e9b3.js"><link rel="prefetch" href="/assets/js/225.4f7cdb7b.js"><link rel="prefetch" href="/assets/js/226.34f5bc46.js"><link rel="prefetch" href="/assets/js/227.0c1d6c32.js"><link rel="prefetch" href="/assets/js/228.5c4850fa.js"><link rel="prefetch" href="/assets/js/229.0e83acaa.js"><link rel="prefetch" href="/assets/js/23.714595d5.js"><link rel="prefetch" href="/assets/js/230.d56ff6f6.js"><link rel="prefetch" href="/assets/js/231.19e033e0.js"><link rel="prefetch" href="/assets/js/232.b020bd32.js"><link rel="prefetch" href="/assets/js/233.19037210.js"><link rel="prefetch" href="/assets/js/234.10d14014.js"><link rel="prefetch" href="/assets/js/235.91bc5ad5.js"><link rel="prefetch" href="/assets/js/236.e9193180.js"><link rel="prefetch" href="/assets/js/237.e9be28a3.js"><link rel="prefetch" href="/assets/js/238.d1ac2fd8.js"><link rel="prefetch" href="/assets/js/239.44f2f146.js"><link rel="prefetch" href="/assets/js/24.2611c0d6.js"><link rel="prefetch" href="/assets/js/240.c8fe20cb.js"><link rel="prefetch" href="/assets/js/241.b232c3db.js"><link rel="prefetch" href="/assets/js/242.5bacdca9.js"><link rel="prefetch" href="/assets/js/243.bc85e605.js"><link rel="prefetch" href="/assets/js/244.975158d1.js"><link rel="prefetch" href="/assets/js/245.a139b48a.js"><link rel="prefetch" href="/assets/js/246.3138e906.js"><link rel="prefetch" href="/assets/js/247.070da83a.js"><link rel="prefetch" href="/assets/js/248.a1d8ac56.js"><link rel="prefetch" href="/assets/js/249.aadb0dca.js"><link rel="prefetch" href="/assets/js/25.2272f92f.js"><link rel="prefetch" href="/assets/js/250.c9cbf057.js"><link rel="prefetch" href="/assets/js/251.e8ddac0a.js"><link rel="prefetch" href="/assets/js/252.47894d0d.js"><link rel="prefetch" href="/assets/js/253.38f4c081.js"><link rel="prefetch" href="/assets/js/254.73808710.js"><link rel="prefetch" href="/assets/js/256.dbd6b6af.js"><link rel="prefetch" href="/assets/js/257.c16eae54.js"><link rel="prefetch" href="/assets/js/258.89a54cc9.js"><link rel="prefetch" href="/assets/js/259.ff8893b9.js"><link rel="prefetch" href="/assets/js/26.4d1df400.js"><link rel="prefetch" href="/assets/js/260.da83ef3e.js"><link rel="prefetch" href="/assets/js/261.39869cb6.js"><link rel="prefetch" href="/assets/js/262.6df31a71.js"><link rel="prefetch" href="/assets/js/263.a98eab49.js"><link rel="prefetch" href="/assets/js/264.1204725e.js"><link rel="prefetch" href="/assets/js/265.b6ce2d26.js"><link rel="prefetch" href="/assets/js/266.0c03e783.js"><link rel="prefetch" href="/assets/js/267.d686ec0e.js"><link rel="prefetch" href="/assets/js/268.e7c76c63.js"><link rel="prefetch" href="/assets/js/269.9ec0a34d.js"><link rel="prefetch" href="/assets/js/27.a88ca8bc.js"><link rel="prefetch" href="/assets/js/270.99f54d10.js"><link rel="prefetch" href="/assets/js/271.b9e143e2.js"><link rel="prefetch" href="/assets/js/272.1c93e968.js"><link rel="prefetch" href="/assets/js/273.7235d019.js"><link rel="prefetch" href="/assets/js/274.fbed798d.js"><link rel="prefetch" href="/assets/js/275.0006136b.js"><link rel="prefetch" href="/assets/js/276.8fc094f0.js"><link rel="prefetch" href="/assets/js/277.20e11e67.js"><link rel="prefetch" href="/assets/js/278.f8dc8f8f.js"><link rel="prefetch" href="/assets/js/279.651a9f88.js"><link rel="prefetch" href="/assets/js/28.69be6cc7.js"><link rel="prefetch" href="/assets/js/280.94aed3df.js"><link rel="prefetch" href="/assets/js/281.b9e4a0c1.js"><link rel="prefetch" href="/assets/js/282.fcbf917d.js"><link rel="prefetch" href="/assets/js/283.4b9335f2.js"><link rel="prefetch" href="/assets/js/284.a2748605.js"><link rel="prefetch" href="/assets/js/285.75119aca.js"><link rel="prefetch" href="/assets/js/286.a4a0abc2.js"><link rel="prefetch" href="/assets/js/287.0e10db49.js"><link rel="prefetch" href="/assets/js/288.540945f8.js"><link rel="prefetch" href="/assets/js/289.65991a71.js"><link rel="prefetch" href="/assets/js/29.3d144449.js"><link rel="prefetch" href="/assets/js/290.3cda3c0a.js"><link rel="prefetch" href="/assets/js/291.a7c9d6a2.js"><link rel="prefetch" href="/assets/js/292.2ce3fd5f.js"><link rel="prefetch" href="/assets/js/293.6572edb6.js"><link rel="prefetch" href="/assets/js/294.2a04291f.js"><link rel="prefetch" href="/assets/js/295.9a0fdf51.js"><link rel="prefetch" href="/assets/js/296.76bf15e5.js"><link rel="prefetch" href="/assets/js/297.ca22f9e0.js"><link rel="prefetch" href="/assets/js/298.dfd560c6.js"><link rel="prefetch" href="/assets/js/299.ea6a076f.js"><link rel="prefetch" href="/assets/js/3.19255846.js"><link rel="prefetch" href="/assets/js/30.c9924233.js"><link rel="prefetch" href="/assets/js/300.08ab4a0a.js"><link rel="prefetch" href="/assets/js/301.493634b6.js"><link rel="prefetch" href="/assets/js/302.088b770b.js"><link rel="prefetch" href="/assets/js/303.fdda8763.js"><link rel="prefetch" href="/assets/js/304.6e6a4a01.js"><link rel="prefetch" href="/assets/js/305.a3a1ae34.js"><link rel="prefetch" href="/assets/js/306.5835726c.js"><link rel="prefetch" href="/assets/js/307.0fce17cb.js"><link rel="prefetch" href="/assets/js/308.1e172ca3.js"><link rel="prefetch" href="/assets/js/309.80af26f3.js"><link rel="prefetch" href="/assets/js/31.f9f57568.js"><link rel="prefetch" href="/assets/js/310.b5f3ed6f.js"><link rel="prefetch" href="/assets/js/311.82c7e552.js"><link rel="prefetch" href="/assets/js/312.a48280c0.js"><link rel="prefetch" href="/assets/js/313.7c31693f.js"><link rel="prefetch" href="/assets/js/314.307f9eda.js"><link rel="prefetch" href="/assets/js/315.9f1e1099.js"><link rel="prefetch" href="/assets/js/316.7d255d6d.js"><link rel="prefetch" href="/assets/js/317.ef013a1a.js"><link rel="prefetch" href="/assets/js/318.64d24469.js"><link rel="prefetch" href="/assets/js/319.59c19af0.js"><link rel="prefetch" href="/assets/js/32.b29dc01b.js"><link rel="prefetch" href="/assets/js/320.add9fa10.js"><link rel="prefetch" href="/assets/js/321.22b199c2.js"><link rel="prefetch" href="/assets/js/322.ad9a2dff.js"><link rel="prefetch" href="/assets/js/323.b4183fc2.js"><link rel="prefetch" href="/assets/js/324.cf1aca23.js"><link rel="prefetch" href="/assets/js/325.83a4f1cf.js"><link rel="prefetch" href="/assets/js/326.f5c26436.js"><link rel="prefetch" href="/assets/js/327.16102be7.js"><link rel="prefetch" href="/assets/js/328.da84fbb0.js"><link rel="prefetch" href="/assets/js/329.4bdbc8ed.js"><link rel="prefetch" href="/assets/js/33.961516b8.js"><link rel="prefetch" href="/assets/js/330.0a98e84a.js"><link rel="prefetch" href="/assets/js/331.36e66e80.js"><link rel="prefetch" href="/assets/js/332.1b010d76.js"><link rel="prefetch" href="/assets/js/333.bf2def9d.js"><link rel="prefetch" href="/assets/js/334.373631c9.js"><link rel="prefetch" href="/assets/js/335.68121e51.js"><link rel="prefetch" href="/assets/js/336.49a94ea2.js"><link rel="prefetch" href="/assets/js/337.661abdcc.js"><link rel="prefetch" href="/assets/js/338.389c4be2.js"><link rel="prefetch" href="/assets/js/339.098329ed.js"><link rel="prefetch" href="/assets/js/34.7cb1f223.js"><link rel="prefetch" href="/assets/js/340.5c400f4d.js"><link rel="prefetch" href="/assets/js/341.41d84f2d.js"><link rel="prefetch" href="/assets/js/342.ef356713.js"><link rel="prefetch" href="/assets/js/343.d1e1952a.js"><link rel="prefetch" href="/assets/js/344.1980f7cc.js"><link rel="prefetch" href="/assets/js/345.0f7d9b9f.js"><link rel="prefetch" href="/assets/js/346.c3878425.js"><link rel="prefetch" href="/assets/js/347.dd74c55a.js"><link rel="prefetch" href="/assets/js/348.89584af8.js"><link rel="prefetch" href="/assets/js/349.c7bc7bc1.js"><link rel="prefetch" href="/assets/js/35.51ade70c.js"><link rel="prefetch" href="/assets/js/350.d2df1d20.js"><link rel="prefetch" href="/assets/js/351.a1b78a34.js"><link rel="prefetch" href="/assets/js/352.08ae09fd.js"><link rel="prefetch" href="/assets/js/353.aced76b3.js"><link rel="prefetch" href="/assets/js/354.f033ee07.js"><link rel="prefetch" href="/assets/js/355.95831785.js"><link rel="prefetch" href="/assets/js/356.893584e1.js"><link rel="prefetch" href="/assets/js/357.5f070ca5.js"><link rel="prefetch" href="/assets/js/358.35f2ade5.js"><link rel="prefetch" href="/assets/js/359.e45099bd.js"><link rel="prefetch" href="/assets/js/36.82c64b8f.js"><link rel="prefetch" href="/assets/js/360.59aa32f9.js"><link rel="prefetch" href="/assets/js/361.bd3c2fdd.js"><link rel="prefetch" href="/assets/js/362.3566e79d.js"><link rel="prefetch" href="/assets/js/363.b4ab82f7.js"><link rel="prefetch" href="/assets/js/364.7f50d299.js"><link rel="prefetch" href="/assets/js/365.4f8e93f6.js"><link rel="prefetch" href="/assets/js/366.8fd91814.js"><link rel="prefetch" href="/assets/js/367.0d47f5a8.js"><link rel="prefetch" href="/assets/js/368.fb7814d2.js"><link rel="prefetch" href="/assets/js/369.d6d8c504.js"><link rel="prefetch" href="/assets/js/37.5165b622.js"><link rel="prefetch" href="/assets/js/370.00a807a6.js"><link rel="prefetch" href="/assets/js/371.867a9db3.js"><link rel="prefetch" href="/assets/js/372.decca4ce.js"><link rel="prefetch" href="/assets/js/373.98b37511.js"><link rel="prefetch" href="/assets/js/374.6313e71a.js"><link rel="prefetch" href="/assets/js/375.f2e2fa05.js"><link rel="prefetch" href="/assets/js/376.7103c034.js"><link rel="prefetch" href="/assets/js/377.9bf388c9.js"><link rel="prefetch" href="/assets/js/378.57ae31cf.js"><link rel="prefetch" href="/assets/js/379.739ee8d7.js"><link rel="prefetch" href="/assets/js/38.563ce632.js"><link rel="prefetch" href="/assets/js/380.6256f3c8.js"><link rel="prefetch" href="/assets/js/381.38f7eb5a.js"><link rel="prefetch" href="/assets/js/382.ae035904.js"><link rel="prefetch" href="/assets/js/383.2d1b99c3.js"><link rel="prefetch" href="/assets/js/384.094517c8.js"><link rel="prefetch" href="/assets/js/385.62ddf499.js"><link rel="prefetch" href="/assets/js/386.8315cf9d.js"><link rel="prefetch" href="/assets/js/387.2bef00d3.js"><link rel="prefetch" href="/assets/js/388.178f867f.js"><link rel="prefetch" href="/assets/js/389.d893ba15.js"><link rel="prefetch" href="/assets/js/39.29556252.js"><link rel="prefetch" href="/assets/js/390.1b85f452.js"><link rel="prefetch" href="/assets/js/391.12fe014e.js"><link rel="prefetch" href="/assets/js/392.8c88755d.js"><link rel="prefetch" href="/assets/js/393.72aa7675.js"><link rel="prefetch" href="/assets/js/394.df13d1f7.js"><link rel="prefetch" href="/assets/js/395.8f8d96d9.js"><link rel="prefetch" href="/assets/js/396.aa362f3c.js"><link rel="prefetch" href="/assets/js/397.cca49694.js"><link rel="prefetch" href="/assets/js/398.d9fd0617.js"><link rel="prefetch" href="/assets/js/399.96f3fede.js"><link rel="prefetch" href="/assets/js/4.623783fc.js"><link rel="prefetch" href="/assets/js/40.0330d609.js"><link rel="prefetch" href="/assets/js/400.a1472f96.js"><link rel="prefetch" href="/assets/js/401.3d4e1a6b.js"><link rel="prefetch" href="/assets/js/402.0a8a7162.js"><link rel="prefetch" href="/assets/js/403.b1393b0f.js"><link rel="prefetch" href="/assets/js/404.7e485063.js"><link rel="prefetch" href="/assets/js/405.1037d751.js"><link rel="prefetch" href="/assets/js/406.ae7d83bb.js"><link rel="prefetch" href="/assets/js/407.cb9ade38.js"><link rel="prefetch" href="/assets/js/408.a105752d.js"><link rel="prefetch" href="/assets/js/409.a56202e0.js"><link rel="prefetch" href="/assets/js/41.dcb7a3f5.js"><link rel="prefetch" href="/assets/js/410.f615dd75.js"><link rel="prefetch" href="/assets/js/411.29882ac4.js"><link rel="prefetch" href="/assets/js/412.ed8e6abb.js"><link rel="prefetch" href="/assets/js/413.2a212c18.js"><link rel="prefetch" href="/assets/js/414.9717c94d.js"><link rel="prefetch" href="/assets/js/415.ad521b94.js"><link rel="prefetch" href="/assets/js/416.981646b8.js"><link rel="prefetch" href="/assets/js/417.3bcf1a86.js"><link rel="prefetch" href="/assets/js/418.d6d8bc33.js"><link rel="prefetch" href="/assets/js/419.79a736e3.js"><link rel="prefetch" href="/assets/js/42.61434728.js"><link rel="prefetch" href="/assets/js/420.bd2fe57b.js"><link rel="prefetch" href="/assets/js/421.040b2b27.js"><link rel="prefetch" href="/assets/js/422.5cc63c45.js"><link rel="prefetch" href="/assets/js/423.9d447e90.js"><link rel="prefetch" href="/assets/js/424.51734eb2.js"><link rel="prefetch" href="/assets/js/425.f6a00d75.js"><link rel="prefetch" href="/assets/js/426.896f7a5b.js"><link rel="prefetch" href="/assets/js/427.e099dd6a.js"><link rel="prefetch" href="/assets/js/428.beef8eb2.js"><link rel="prefetch" href="/assets/js/429.266ed61e.js"><link rel="prefetch" href="/assets/js/43.667a4108.js"><link rel="prefetch" href="/assets/js/430.cd857ec2.js"><link rel="prefetch" href="/assets/js/431.cb5550b2.js"><link rel="prefetch" href="/assets/js/432.3a31614c.js"><link rel="prefetch" href="/assets/js/433.c9f73ea8.js"><link rel="prefetch" href="/assets/js/434.c3d546a3.js"><link rel="prefetch" href="/assets/js/435.6a5558d5.js"><link rel="prefetch" href="/assets/js/436.fac0cdde.js"><link rel="prefetch" href="/assets/js/437.858e2dbc.js"><link rel="prefetch" href="/assets/js/438.4f6fd7f1.js"><link rel="prefetch" href="/assets/js/439.d823d6d5.js"><link rel="prefetch" href="/assets/js/44.2e051a69.js"><link rel="prefetch" href="/assets/js/440.8d4edefe.js"><link rel="prefetch" href="/assets/js/441.806f144c.js"><link rel="prefetch" href="/assets/js/442.56b1ae7b.js"><link rel="prefetch" href="/assets/js/443.0c9c92ed.js"><link rel="prefetch" href="/assets/js/444.4484d097.js"><link rel="prefetch" href="/assets/js/445.6e68718d.js"><link rel="prefetch" href="/assets/js/446.5bdd4ab4.js"><link rel="prefetch" href="/assets/js/447.6202d37b.js"><link rel="prefetch" href="/assets/js/448.88ae6dd3.js"><link rel="prefetch" href="/assets/js/449.2e911cca.js"><link rel="prefetch" href="/assets/js/45.08ce102a.js"><link rel="prefetch" href="/assets/js/450.16bda76e.js"><link rel="prefetch" href="/assets/js/451.ee603a5b.js"><link rel="prefetch" href="/assets/js/452.ff4a503b.js"><link rel="prefetch" href="/assets/js/453.f4bf543d.js"><link rel="prefetch" href="/assets/js/454.fb1e37fa.js"><link rel="prefetch" href="/assets/js/455.55467fe9.js"><link rel="prefetch" href="/assets/js/456.c1ccc8ef.js"><link rel="prefetch" href="/assets/js/457.aaeaefa6.js"><link rel="prefetch" href="/assets/js/458.f59b0607.js"><link rel="prefetch" href="/assets/js/459.201f603d.js"><link rel="prefetch" href="/assets/js/46.074adfe9.js"><link rel="prefetch" href="/assets/js/460.4e283c1a.js"><link rel="prefetch" href="/assets/js/461.c2492681.js"><link rel="prefetch" href="/assets/js/462.9362354d.js"><link rel="prefetch" href="/assets/js/463.a4087f38.js"><link rel="prefetch" href="/assets/js/464.e5828e7e.js"><link rel="prefetch" href="/assets/js/465.e95594b5.js"><link rel="prefetch" href="/assets/js/466.7b75c1f4.js"><link rel="prefetch" href="/assets/js/467.8e9d9c24.js"><link rel="prefetch" href="/assets/js/468.b87a6973.js"><link rel="prefetch" href="/assets/js/469.3411b392.js"><link rel="prefetch" href="/assets/js/47.8175158f.js"><link rel="prefetch" href="/assets/js/470.95363b28.js"><link rel="prefetch" href="/assets/js/471.21a1606b.js"><link rel="prefetch" href="/assets/js/472.f9687e9c.js"><link rel="prefetch" href="/assets/js/473.64f85306.js"><link rel="prefetch" href="/assets/js/474.8a9f362d.js"><link rel="prefetch" href="/assets/js/475.5d6399de.js"><link rel="prefetch" href="/assets/js/476.70d49b7b.js"><link rel="prefetch" href="/assets/js/477.7e3e21a3.js"><link rel="prefetch" href="/assets/js/478.67387462.js"><link rel="prefetch" href="/assets/js/479.a239eaa0.js"><link rel="prefetch" href="/assets/js/48.f20bc2b0.js"><link rel="prefetch" href="/assets/js/480.6f0b953b.js"><link rel="prefetch" href="/assets/js/481.b3ec6e3e.js"><link rel="prefetch" href="/assets/js/482.ef931c32.js"><link rel="prefetch" href="/assets/js/483.e2271a83.js"><link rel="prefetch" href="/assets/js/484.544c1072.js"><link rel="prefetch" href="/assets/js/485.d8a5505a.js"><link rel="prefetch" href="/assets/js/486.1ea2510a.js"><link rel="prefetch" href="/assets/js/487.e954f3bc.js"><link rel="prefetch" href="/assets/js/488.dbfe8c7c.js"><link rel="prefetch" href="/assets/js/489.92152c72.js"><link rel="prefetch" href="/assets/js/49.f4b7dc24.js"><link rel="prefetch" href="/assets/js/490.8ea88875.js"><link rel="prefetch" href="/assets/js/491.d1e2d1b6.js"><link rel="prefetch" href="/assets/js/492.217b7fd1.js"><link rel="prefetch" href="/assets/js/493.6d188156.js"><link rel="prefetch" href="/assets/js/494.adcca4bf.js"><link rel="prefetch" href="/assets/js/495.13cdbf74.js"><link rel="prefetch" href="/assets/js/496.53a4b758.js"><link rel="prefetch" href="/assets/js/497.0763c40d.js"><link rel="prefetch" href="/assets/js/498.debcfb1b.js"><link rel="prefetch" href="/assets/js/499.7d3cf6eb.js"><link rel="prefetch" href="/assets/js/50.41ac06fd.js"><link rel="prefetch" href="/assets/js/500.28473fb4.js"><link rel="prefetch" href="/assets/js/501.90241d8d.js"><link rel="prefetch" href="/assets/js/502.a096c362.js"><link rel="prefetch" href="/assets/js/503.539676ba.js"><link rel="prefetch" href="/assets/js/504.39d8e399.js"><link rel="prefetch" href="/assets/js/505.2b2a130b.js"><link rel="prefetch" href="/assets/js/506.7811ad79.js"><link rel="prefetch" href="/assets/js/507.2817d33b.js"><link rel="prefetch" href="/assets/js/508.89b8d712.js"><link rel="prefetch" href="/assets/js/509.80dcd2b5.js"><link rel="prefetch" href="/assets/js/51.3ef6cdbe.js"><link rel="prefetch" href="/assets/js/510.a8f28525.js"><link rel="prefetch" href="/assets/js/511.e890924a.js"><link rel="prefetch" href="/assets/js/512.9a073fe1.js"><link rel="prefetch" href="/assets/js/513.0a302efb.js"><link rel="prefetch" href="/assets/js/514.6b43f3e7.js"><link rel="prefetch" href="/assets/js/515.c7b0284a.js"><link rel="prefetch" href="/assets/js/516.5daf0566.js"><link rel="prefetch" href="/assets/js/517.67f7c508.js"><link rel="prefetch" href="/assets/js/518.7854e40b.js"><link rel="prefetch" href="/assets/js/519.dcb88d39.js"><link rel="prefetch" href="/assets/js/52.840d0f74.js"><link rel="prefetch" href="/assets/js/520.6f40c4e7.js"><link rel="prefetch" href="/assets/js/521.3c0a006c.js"><link rel="prefetch" href="/assets/js/522.ed57f1a7.js"><link rel="prefetch" href="/assets/js/523.39d637e2.js"><link rel="prefetch" href="/assets/js/524.acd5ee1f.js"><link rel="prefetch" href="/assets/js/525.0836647e.js"><link rel="prefetch" href="/assets/js/526.9e2af36c.js"><link rel="prefetch" href="/assets/js/527.9337d948.js"><link rel="prefetch" href="/assets/js/528.cacbd480.js"><link rel="prefetch" href="/assets/js/529.21a67f8f.js"><link rel="prefetch" href="/assets/js/53.fb86a936.js"><link rel="prefetch" href="/assets/js/530.3373ac51.js"><link rel="prefetch" href="/assets/js/531.1b371c24.js"><link rel="prefetch" href="/assets/js/532.64685d6d.js"><link rel="prefetch" href="/assets/js/533.d3344f80.js"><link rel="prefetch" href="/assets/js/534.1adcd2e2.js"><link rel="prefetch" href="/assets/js/535.cf0f4bbe.js"><link rel="prefetch" href="/assets/js/536.f3cadbc2.js"><link rel="prefetch" href="/assets/js/537.d2071727.js"><link rel="prefetch" href="/assets/js/538.b700925e.js"><link rel="prefetch" href="/assets/js/539.a5de8601.js"><link rel="prefetch" href="/assets/js/54.e8d5a023.js"><link rel="prefetch" href="/assets/js/540.525e8630.js"><link rel="prefetch" href="/assets/js/541.0b14ac8a.js"><link rel="prefetch" href="/assets/js/542.fc96e578.js"><link rel="prefetch" href="/assets/js/543.53cf25d0.js"><link rel="prefetch" href="/assets/js/544.f9b3e911.js"><link rel="prefetch" href="/assets/js/545.b353670e.js"><link rel="prefetch" href="/assets/js/546.5ed48a56.js"><link rel="prefetch" href="/assets/js/547.9843edce.js"><link rel="prefetch" href="/assets/js/548.f8eb7890.js"><link rel="prefetch" href="/assets/js/549.990650c2.js"><link rel="prefetch" href="/assets/js/55.b268240f.js"><link rel="prefetch" href="/assets/js/550.c7ba17a1.js"><link rel="prefetch" href="/assets/js/551.2ea79a07.js"><link rel="prefetch" href="/assets/js/552.950843bd.js"><link rel="prefetch" href="/assets/js/553.d1f94516.js"><link rel="prefetch" href="/assets/js/554.873b4336.js"><link rel="prefetch" href="/assets/js/555.12e7f37d.js"><link rel="prefetch" href="/assets/js/556.c84abfa5.js"><link rel="prefetch" href="/assets/js/557.76108e15.js"><link rel="prefetch" href="/assets/js/558.ad0caf91.js"><link rel="prefetch" href="/assets/js/559.efc5fcaa.js"><link rel="prefetch" href="/assets/js/56.862368c6.js"><link rel="prefetch" href="/assets/js/560.82032a52.js"><link rel="prefetch" href="/assets/js/561.b776e2e3.js"><link rel="prefetch" href="/assets/js/562.8f48c34e.js"><link rel="prefetch" href="/assets/js/563.1916b1f0.js"><link rel="prefetch" href="/assets/js/564.89eef1bf.js"><link rel="prefetch" href="/assets/js/565.2ca43acb.js"><link rel="prefetch" href="/assets/js/566.6caf93e6.js"><link rel="prefetch" href="/assets/js/567.1888604a.js"><link rel="prefetch" href="/assets/js/568.c909a75b.js"><link rel="prefetch" href="/assets/js/569.6862733a.js"><link rel="prefetch" href="/assets/js/57.d93cbd65.js"><link rel="prefetch" href="/assets/js/570.ce0e3115.js"><link rel="prefetch" href="/assets/js/571.0da49310.js"><link rel="prefetch" href="/assets/js/572.c34ca3fd.js"><link rel="prefetch" href="/assets/js/573.895c8f8d.js"><link rel="prefetch" href="/assets/js/574.e59b6191.js"><link rel="prefetch" href="/assets/js/575.842ef1ff.js"><link rel="prefetch" href="/assets/js/576.9b5dd540.js"><link rel="prefetch" href="/assets/js/577.2d0e6020.js"><link rel="prefetch" href="/assets/js/578.2e49a333.js"><link rel="prefetch" href="/assets/js/579.005171f1.js"><link rel="prefetch" href="/assets/js/58.10ca5b0d.js"><link rel="prefetch" href="/assets/js/580.74d9d14e.js"><link rel="prefetch" href="/assets/js/581.404aa6ad.js"><link rel="prefetch" href="/assets/js/582.4c756647.js"><link rel="prefetch" href="/assets/js/583.84f8db17.js"><link rel="prefetch" href="/assets/js/584.0c4307db.js"><link rel="prefetch" href="/assets/js/585.9cbe1c6c.js"><link rel="prefetch" href="/assets/js/586.94d5912f.js"><link rel="prefetch" href="/assets/js/587.08073e55.js"><link rel="prefetch" href="/assets/js/588.a4cb5da6.js"><link rel="prefetch" href="/assets/js/589.ff2423ac.js"><link rel="prefetch" href="/assets/js/59.3eb351e6.js"><link rel="prefetch" href="/assets/js/590.1a498879.js"><link rel="prefetch" href="/assets/js/591.eb8d6c20.js"><link rel="prefetch" href="/assets/js/592.850eee03.js"><link rel="prefetch" href="/assets/js/593.12b28022.js"><link rel="prefetch" href="/assets/js/594.9c805b81.js"><link rel="prefetch" href="/assets/js/595.e9119b0e.js"><link rel="prefetch" href="/assets/js/596.6b641a7e.js"><link rel="prefetch" href="/assets/js/597.77bf95f8.js"><link rel="prefetch" href="/assets/js/598.da53697e.js"><link rel="prefetch" href="/assets/js/599.281b72be.js"><link rel="prefetch" href="/assets/js/6.8773fb47.js"><link rel="prefetch" href="/assets/js/60.1c1a9cd1.js"><link rel="prefetch" href="/assets/js/600.4aa56a28.js"><link rel="prefetch" href="/assets/js/601.93029330.js"><link rel="prefetch" href="/assets/js/602.3dee7fe6.js"><link rel="prefetch" href="/assets/js/603.cdc313ee.js"><link rel="prefetch" href="/assets/js/604.965166a0.js"><link rel="prefetch" href="/assets/js/605.7c70961f.js"><link rel="prefetch" href="/assets/js/606.a9f02486.js"><link rel="prefetch" href="/assets/js/607.73baa5d1.js"><link rel="prefetch" href="/assets/js/608.e8fa09f4.js"><link rel="prefetch" href="/assets/js/609.ac51d009.js"><link rel="prefetch" href="/assets/js/61.9683ebee.js"><link rel="prefetch" href="/assets/js/610.644de93e.js"><link rel="prefetch" href="/assets/js/611.4435581a.js"><link rel="prefetch" href="/assets/js/612.27640be2.js"><link rel="prefetch" href="/assets/js/613.5010499b.js"><link rel="prefetch" href="/assets/js/614.cf985a78.js"><link rel="prefetch" href="/assets/js/615.175e2d87.js"><link rel="prefetch" href="/assets/js/616.c034e53d.js"><link rel="prefetch" href="/assets/js/617.fe843932.js"><link rel="prefetch" href="/assets/js/618.17ffbf18.js"><link rel="prefetch" href="/assets/js/619.c968374b.js"><link rel="prefetch" href="/assets/js/62.2276e6d3.js"><link rel="prefetch" href="/assets/js/620.f34c0fa0.js"><link rel="prefetch" href="/assets/js/621.815b8624.js"><link rel="prefetch" href="/assets/js/622.d534821e.js"><link rel="prefetch" href="/assets/js/623.936ac4e3.js"><link rel="prefetch" href="/assets/js/624.68e1aa29.js"><link rel="prefetch" href="/assets/js/625.07b94155.js"><link rel="prefetch" href="/assets/js/626.96720feb.js"><link rel="prefetch" href="/assets/js/627.6c0097f7.js"><link rel="prefetch" href="/assets/js/628.1b01c525.js"><link rel="prefetch" href="/assets/js/629.6b7b7051.js"><link rel="prefetch" href="/assets/js/63.21657e0e.js"><link rel="prefetch" href="/assets/js/630.5e364b4e.js"><link rel="prefetch" href="/assets/js/631.1dbc5bc2.js"><link rel="prefetch" href="/assets/js/632.26cf0433.js"><link rel="prefetch" href="/assets/js/633.f5940046.js"><link rel="prefetch" href="/assets/js/634.631e139f.js"><link rel="prefetch" href="/assets/js/635.dcb1483c.js"><link rel="prefetch" href="/assets/js/636.99b6e8c3.js"><link rel="prefetch" href="/assets/js/637.ac8ad035.js"><link rel="prefetch" href="/assets/js/638.5782cc19.js"><link rel="prefetch" href="/assets/js/639.1db80fe2.js"><link rel="prefetch" href="/assets/js/64.02fb1ddb.js"><link rel="prefetch" href="/assets/js/640.bc54f7f5.js"><link rel="prefetch" href="/assets/js/641.cdff8819.js"><link rel="prefetch" href="/assets/js/642.df23e220.js"><link rel="prefetch" href="/assets/js/643.89df1b3c.js"><link rel="prefetch" href="/assets/js/644.5f0031ba.js"><link rel="prefetch" href="/assets/js/645.f7daa126.js"><link rel="prefetch" href="/assets/js/646.d47a3e0e.js"><link rel="prefetch" href="/assets/js/647.d1c8f3ae.js"><link rel="prefetch" href="/assets/js/648.0506ce23.js"><link rel="prefetch" href="/assets/js/649.6cf2a641.js"><link rel="prefetch" href="/assets/js/65.b4028009.js"><link rel="prefetch" href="/assets/js/650.89785dee.js"><link rel="prefetch" href="/assets/js/651.8b6fa105.js"><link rel="prefetch" href="/assets/js/652.5e42ce8f.js"><link rel="prefetch" href="/assets/js/653.eddc84e1.js"><link rel="prefetch" href="/assets/js/654.48762cb9.js"><link rel="prefetch" href="/assets/js/655.7bcd5aa3.js"><link rel="prefetch" href="/assets/js/656.bf91b745.js"><link rel="prefetch" href="/assets/js/657.332eec27.js"><link rel="prefetch" href="/assets/js/658.9e9b31c8.js"><link rel="prefetch" href="/assets/js/659.b469808c.js"><link rel="prefetch" href="/assets/js/66.33d6767a.js"><link rel="prefetch" href="/assets/js/660.25843c88.js"><link rel="prefetch" href="/assets/js/661.ca1a9580.js"><link rel="prefetch" href="/assets/js/662.cd6fe6ce.js"><link rel="prefetch" href="/assets/js/663.dddb87c3.js"><link rel="prefetch" href="/assets/js/664.c4d2b9b4.js"><link rel="prefetch" href="/assets/js/665.e26ea7fd.js"><link rel="prefetch" href="/assets/js/666.918a92c2.js"><link rel="prefetch" href="/assets/js/667.5f06fa05.js"><link rel="prefetch" href="/assets/js/668.7b783af2.js"><link rel="prefetch" href="/assets/js/669.efe734b4.js"><link rel="prefetch" href="/assets/js/67.0737d4e2.js"><link rel="prefetch" href="/assets/js/670.70a7afa1.js"><link rel="prefetch" href="/assets/js/671.d82e7481.js"><link rel="prefetch" href="/assets/js/672.f4e33cf4.js"><link rel="prefetch" href="/assets/js/673.f3b26cca.js"><link rel="prefetch" href="/assets/js/674.d5327fdb.js"><link rel="prefetch" href="/assets/js/675.06e1587e.js"><link rel="prefetch" href="/assets/js/676.b81eab7c.js"><link rel="prefetch" href="/assets/js/677.65c1f157.js"><link rel="prefetch" href="/assets/js/678.dd3c35f4.js"><link rel="prefetch" href="/assets/js/679.1b3371c6.js"><link rel="prefetch" href="/assets/js/68.ff08cac1.js"><link rel="prefetch" href="/assets/js/680.4c431b6d.js"><link rel="prefetch" href="/assets/js/681.4b4df97f.js"><link rel="prefetch" href="/assets/js/682.daa28558.js"><link rel="prefetch" href="/assets/js/683.019ac4bf.js"><link rel="prefetch" href="/assets/js/684.72942987.js"><link rel="prefetch" href="/assets/js/685.b232df8f.js"><link rel="prefetch" href="/assets/js/686.27dc24b3.js"><link rel="prefetch" href="/assets/js/687.4a8ef826.js"><link rel="prefetch" href="/assets/js/688.0ba25fdf.js"><link rel="prefetch" href="/assets/js/689.be8172ba.js"><link rel="prefetch" href="/assets/js/69.516fa4ee.js"><link rel="prefetch" href="/assets/js/690.88418e50.js"><link rel="prefetch" href="/assets/js/691.1d8c222b.js"><link rel="prefetch" href="/assets/js/692.85d9e426.js"><link rel="prefetch" href="/assets/js/693.a78b6c7b.js"><link rel="prefetch" href="/assets/js/694.8348e02c.js"><link rel="prefetch" href="/assets/js/695.0bbdae98.js"><link rel="prefetch" href="/assets/js/696.f9dcc8bf.js"><link rel="prefetch" href="/assets/js/697.1c6c7982.js"><link rel="prefetch" href="/assets/js/698.fa867a93.js"><link rel="prefetch" href="/assets/js/699.5ad98f0b.js"><link rel="prefetch" href="/assets/js/7.e86883c6.js"><link rel="prefetch" href="/assets/js/70.d7c0b02d.js"><link rel="prefetch" href="/assets/js/700.da097ba8.js"><link rel="prefetch" href="/assets/js/701.8f40c007.js"><link rel="prefetch" href="/assets/js/702.2ac7cfc8.js"><link rel="prefetch" href="/assets/js/703.e4f83f34.js"><link rel="prefetch" href="/assets/js/704.3230d5d3.js"><link rel="prefetch" href="/assets/js/705.9f2ac56e.js"><link rel="prefetch" href="/assets/js/706.479ef752.js"><link rel="prefetch" href="/assets/js/707.12907b99.js"><link rel="prefetch" href="/assets/js/708.a54c005e.js"><link rel="prefetch" href="/assets/js/709.2f084e72.js"><link rel="prefetch" href="/assets/js/71.c9ef60a6.js"><link rel="prefetch" href="/assets/js/710.992d9298.js"><link rel="prefetch" href="/assets/js/711.3dec9e74.js"><link rel="prefetch" href="/assets/js/712.fbba000f.js"><link rel="prefetch" href="/assets/js/713.644be223.js"><link rel="prefetch" href="/assets/js/714.20e703bd.js"><link rel="prefetch" href="/assets/js/715.7ac51064.js"><link rel="prefetch" href="/assets/js/716.5f8c7487.js"><link rel="prefetch" href="/assets/js/717.cdd46244.js"><link rel="prefetch" href="/assets/js/718.7b7a44e2.js"><link rel="prefetch" href="/assets/js/719.ed06b003.js"><link rel="prefetch" href="/assets/js/72.c23e24e9.js"><link rel="prefetch" href="/assets/js/720.202718be.js"><link rel="prefetch" href="/assets/js/721.1426ef3c.js"><link rel="prefetch" href="/assets/js/722.79f56663.js"><link rel="prefetch" href="/assets/js/723.6dcfa3ed.js"><link rel="prefetch" href="/assets/js/724.4c098acf.js"><link rel="prefetch" href="/assets/js/725.381dd189.js"><link rel="prefetch" href="/assets/js/726.baa6dcfe.js"><link rel="prefetch" href="/assets/js/727.f893500e.js"><link rel="prefetch" href="/assets/js/728.977ee9a0.js"><link rel="prefetch" href="/assets/js/729.3dc27591.js"><link rel="prefetch" href="/assets/js/73.d2b5812c.js"><link rel="prefetch" href="/assets/js/730.e62b3efb.js"><link rel="prefetch" href="/assets/js/731.8b21fd00.js"><link rel="prefetch" href="/assets/js/732.0e4b5daf.js"><link rel="prefetch" href="/assets/js/733.1cc505b4.js"><link rel="prefetch" href="/assets/js/734.55c0fe79.js"><link rel="prefetch" href="/assets/js/735.4eb02d3a.js"><link rel="prefetch" href="/assets/js/736.40c2728a.js"><link rel="prefetch" href="/assets/js/737.73c562f3.js"><link rel="prefetch" href="/assets/js/738.6dd69adf.js"><link rel="prefetch" href="/assets/js/739.af66a4dc.js"><link rel="prefetch" href="/assets/js/74.408525bc.js"><link rel="prefetch" href="/assets/js/740.eff57d99.js"><link rel="prefetch" href="/assets/js/741.7c9b1745.js"><link rel="prefetch" href="/assets/js/742.87bf09be.js"><link rel="prefetch" href="/assets/js/743.fd587ae7.js"><link rel="prefetch" href="/assets/js/744.b207d76b.js"><link rel="prefetch" href="/assets/js/745.5da05a37.js"><link rel="prefetch" href="/assets/js/746.05f0fcc4.js"><link rel="prefetch" href="/assets/js/747.8afc4f80.js"><link rel="prefetch" href="/assets/js/748.a6328657.js"><link rel="prefetch" href="/assets/js/749.488acffe.js"><link rel="prefetch" href="/assets/js/75.d6223e36.js"><link rel="prefetch" href="/assets/js/750.b778f9b2.js"><link rel="prefetch" href="/assets/js/751.046fb057.js"><link rel="prefetch" href="/assets/js/752.4fa1c3ec.js"><link rel="prefetch" href="/assets/js/753.2023ccf5.js"><link rel="prefetch" href="/assets/js/754.68df0df4.js"><link rel="prefetch" href="/assets/js/755.7289134a.js"><link rel="prefetch" href="/assets/js/756.bce7616e.js"><link rel="prefetch" href="/assets/js/757.3403e5f9.js"><link rel="prefetch" href="/assets/js/758.8f0d0bdf.js"><link rel="prefetch" href="/assets/js/759.cdd31702.js"><link rel="prefetch" href="/assets/js/76.f65eed64.js"><link rel="prefetch" href="/assets/js/760.9bfe29ed.js"><link rel="prefetch" href="/assets/js/761.e23339c6.js"><link rel="prefetch" href="/assets/js/762.db375c5b.js"><link rel="prefetch" href="/assets/js/763.8b16c3fe.js"><link rel="prefetch" href="/assets/js/764.f1f4f712.js"><link rel="prefetch" href="/assets/js/765.23e53b3a.js"><link rel="prefetch" href="/assets/js/766.3d3bb3ff.js"><link rel="prefetch" href="/assets/js/767.35ad7cea.js"><link rel="prefetch" href="/assets/js/768.295d1f7a.js"><link rel="prefetch" href="/assets/js/769.2f8fe776.js"><link rel="prefetch" href="/assets/js/77.ec9614b4.js"><link rel="prefetch" href="/assets/js/770.a89ea5e2.js"><link rel="prefetch" href="/assets/js/771.0d2cf3ee.js"><link rel="prefetch" href="/assets/js/772.a10354a4.js"><link rel="prefetch" href="/assets/js/773.ee60e68b.js"><link rel="prefetch" href="/assets/js/774.ba4aad28.js"><link rel="prefetch" href="/assets/js/775.7d35f9cc.js"><link rel="prefetch" href="/assets/js/776.b3ec764c.js"><link rel="prefetch" href="/assets/js/777.c124aefe.js"><link rel="prefetch" href="/assets/js/778.325cfc0e.js"><link rel="prefetch" href="/assets/js/779.d2b575a6.js"><link rel="prefetch" href="/assets/js/78.f56b2037.js"><link rel="prefetch" href="/assets/js/780.218c6b47.js"><link rel="prefetch" href="/assets/js/781.0eac52b7.js"><link rel="prefetch" href="/assets/js/782.79965326.js"><link rel="prefetch" href="/assets/js/783.60892b73.js"><link rel="prefetch" href="/assets/js/784.b8f79fd0.js"><link rel="prefetch" href="/assets/js/785.0528258e.js"><link rel="prefetch" href="/assets/js/786.1dbadb12.js"><link rel="prefetch" href="/assets/js/787.f247b164.js"><link rel="prefetch" href="/assets/js/788.3dd93a34.js"><link rel="prefetch" href="/assets/js/789.7b97a48d.js"><link rel="prefetch" href="/assets/js/79.ed5ad905.js"><link rel="prefetch" href="/assets/js/790.8ceeb0b3.js"><link rel="prefetch" href="/assets/js/791.e926d9a8.js"><link rel="prefetch" href="/assets/js/792.3e5a323a.js"><link rel="prefetch" href="/assets/js/793.43419085.js"><link rel="prefetch" href="/assets/js/794.b8c22345.js"><link rel="prefetch" href="/assets/js/795.7370ff3c.js"><link rel="prefetch" href="/assets/js/796.9509e009.js"><link rel="prefetch" href="/assets/js/797.4a4202c2.js"><link rel="prefetch" href="/assets/js/798.3961cf47.js"><link rel="prefetch" href="/assets/js/799.69707d57.js"><link rel="prefetch" href="/assets/js/8.3fe9535a.js"><link rel="prefetch" href="/assets/js/80.202c3322.js"><link rel="prefetch" href="/assets/js/800.f72c31a2.js"><link rel="prefetch" href="/assets/js/801.2372cb79.js"><link rel="prefetch" href="/assets/js/802.3aefd131.js"><link rel="prefetch" href="/assets/js/803.18443761.js"><link rel="prefetch" href="/assets/js/804.301bf327.js"><link rel="prefetch" href="/assets/js/805.e169a32a.js"><link rel="prefetch" href="/assets/js/806.27cbd296.js"><link rel="prefetch" href="/assets/js/807.b0443249.js"><link rel="prefetch" href="/assets/js/808.91924bc7.js"><link rel="prefetch" href="/assets/js/809.865e8932.js"><link rel="prefetch" href="/assets/js/81.9d064e1c.js"><link rel="prefetch" href="/assets/js/810.28dafb2c.js"><link rel="prefetch" href="/assets/js/811.9248d0a5.js"><link rel="prefetch" href="/assets/js/812.8bb147f8.js"><link rel="prefetch" href="/assets/js/813.57a8a982.js"><link rel="prefetch" href="/assets/js/814.f80c73c9.js"><link rel="prefetch" href="/assets/js/815.2b3d99fc.js"><link rel="prefetch" href="/assets/js/816.4a05e284.js"><link rel="prefetch" href="/assets/js/817.6c8508c2.js"><link rel="prefetch" href="/assets/js/818.c72f5330.js"><link rel="prefetch" href="/assets/js/819.35126624.js"><link rel="prefetch" href="/assets/js/82.210310b3.js"><link rel="prefetch" href="/assets/js/820.d5254c3c.js"><link rel="prefetch" href="/assets/js/821.c69c6b2c.js"><link rel="prefetch" href="/assets/js/822.1ccbb204.js"><link rel="prefetch" href="/assets/js/823.0436449a.js"><link rel="prefetch" href="/assets/js/824.a9d3c6f0.js"><link rel="prefetch" href="/assets/js/825.f9bf8329.js"><link rel="prefetch" href="/assets/js/826.e0d5f786.js"><link rel="prefetch" href="/assets/js/827.cf88e320.js"><link rel="prefetch" href="/assets/js/828.67da7389.js"><link rel="prefetch" href="/assets/js/829.21c2eac1.js"><link rel="prefetch" href="/assets/js/83.d74f6f93.js"><link rel="prefetch" href="/assets/js/830.1eb4ea1b.js"><link rel="prefetch" href="/assets/js/831.6b51565e.js"><link rel="prefetch" href="/assets/js/832.07a20675.js"><link rel="prefetch" href="/assets/js/833.0f7823b8.js"><link rel="prefetch" href="/assets/js/834.27bf9c2e.js"><link rel="prefetch" href="/assets/js/835.409429ce.js"><link rel="prefetch" href="/assets/js/836.28de2c29.js"><link rel="prefetch" href="/assets/js/837.5e7df1f1.js"><link rel="prefetch" href="/assets/js/838.5adc5f6e.js"><link rel="prefetch" href="/assets/js/839.11c3bfc2.js"><link rel="prefetch" href="/assets/js/84.4cf98a31.js"><link rel="prefetch" href="/assets/js/840.65d20fee.js"><link rel="prefetch" href="/assets/js/841.1949a396.js"><link rel="prefetch" href="/assets/js/842.f7a8d098.js"><link rel="prefetch" href="/assets/js/843.65694aa6.js"><link rel="prefetch" href="/assets/js/844.7a62cf9b.js"><link rel="prefetch" href="/assets/js/85.22b95924.js"><link rel="prefetch" href="/assets/js/86.a6f80a36.js"><link rel="prefetch" href="/assets/js/87.3b138e3b.js"><link rel="prefetch" href="/assets/js/88.bb56b7a2.js"><link rel="prefetch" href="/assets/js/89.198a78ff.js"><link rel="prefetch" href="/assets/js/9.59b98557.js"><link rel="prefetch" href="/assets/js/90.d743afe3.js"><link rel="prefetch" href="/assets/js/91.3b6d096c.js"><link rel="prefetch" href="/assets/js/92.a61a93f5.js"><link rel="prefetch" href="/assets/js/93.89cc3bad.js"><link rel="prefetch" href="/assets/js/94.fafb4ea3.js"><link rel="prefetch" href="/assets/js/95.52a52f2e.js"><link rel="prefetch" href="/assets/js/96.82379902.js"><link rel="prefetch" href="/assets/js/97.fb013838.js"><link rel="prefetch" href="/assets/js/98.17d2f72a.js"><link rel="prefetch" href="/assets/js/99.b355b28b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.183d1d00.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-17815e06><header class="navbar" data-v-17815e06><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.png" alt="智能后端和架构" class="logo"> <span class="site-name can-hide">智能后端和架构</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/readguide.html" class="nav-link">
+  导读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java基础" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java基础" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java语言基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/intro/01-java-intro.html" class="nav-link">
+  Java入门介绍
+</a></li><li class="dropdown-subitem"><a href="/java/intro/03-java-grammer.html" class="nav-link">
+  Java基础语法
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java面向对象基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/basic/01-lan-feature.html" class="nav-link">
+  语言基础特性
+</a></li><li class="dropdown-subitem"><a href="/java/basic/02-oop-feature.html" class="nav-link">
+  面向对象特征
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java集合类编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/collection/01-intro.html" class="nav-link">
+  集合类基础介绍
+</a></li><li class="dropdown-subitem"><a href="/java/collection/02-collectionmap.html" class="nav-link">
+  集合框架Collction、Map
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java文件和网络编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/file/01-intro.html" class="nav-link">
+  Java文件IO流入门
+</a></li><li class="dropdown-subitem"><a href="/java/net/01-intro.html" class="nav-link">
+  Java网络编程入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java并发编程和JUC
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/thread/01-intro.html" class="nav-link">
+  Java并发 基础入门
+</a></li><li class="dropdown-subitem"><a href="/java/juc/01-intro.html" class="nav-link">
+  Java并发 JUC入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java虚拟机和语言特性
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/jvm/01-intro.html" class="nav-link">
+  Java  虚拟机
+</a></li><li class="dropdown-subitem"><a href="/java/characteristic/01-java8.html" class="nav-link">
+  Java8 语言特性
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和SQL
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/intro/01-intro.html" class="nav-link">
+  数据库绪论
+</a></li><li class="dropdown-subitem"><a href="/db/intro/02-relationdb.html" class="nav-link">
+  关系数据库
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/01-basicselect.html" class="nav-link">
+  基本查询SQL
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/02-joinselect.html" class="nav-link">
+  连表查询SQL
+</a></li></ul></li><li class="dropdown-item"><h4>
+          MySQL基础和优化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/mysqlbasic/01-intro.html" class="nav-link">
+  入门介绍
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt1/01-solutionsum.html" class="nav-link">
+  性能优化方案
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/01-districtandtable.html" class="nav-link">
+  分区和分表
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/05-readwritesepration.html" class="nav-link">
+  读写分离介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/redis/01-intro.html" class="nav-link">
+  Redis介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础概念总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/basic/01-basicconcept.html" class="nav-link">
+  数据结构基础概念
+</a></li><li class="dropdown-subitem"><a href="/algorithm/basic/02-intro.html" class="nav-link">
+  算法和数据结构介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/01-commondy.html" class="nav-link">
+  常用算法动态展示
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/04-visualgo.html" class="nav-link">
+  visualgo-中文算法展示
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法思想总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/thought/01-thoughts8intro.html" class="nav-link">
+  八种常用算法思想
+</a></li><li class="dropdown-subitem"><a href="/algorithm/thought/02-thoughts5intro.html" class="nav-link">
+  五种基本算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用算法总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/search/01-intro.html" class="nav-link">
+  常用查找算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/sort/01-intro.html" class="nav-link">
+  常用排序算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/strmatch/01-intro.html" class="nav-link">
+  常用字符串匹配-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/encryption/01-intro.html" class="nav-link">
+  常用加密解密算法-介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">大数据</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">大数据</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/bigdata/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/bigdata/techintro/01-intro.html" class="nav-link">
+  技术体系介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据采集总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dc/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/dc/intro/02-diff.html" class="nav-link">
+  常用工具比较
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据存储总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ds/intro/01-basicintro.html" class="nav-link">
+  Hadoop入门介绍
+</a></li><li class="dropdown-subitem"><a href="/ds/intro/02-detailintro.html" class="nav-link">
+  Hadoop生态介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据仓库总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dw/intro/01-intro.html" class="nav-link">
+  数据仓库入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dw/intro/03-summary.html" class="nav-link">
+  数据仓库精华总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据处理总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dp/mr/01-intro.html" class="nav-link">
+  MapReduce-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dp/mr/02-basicprin.html" class="nav-link">
+  MapReduce-工作原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据应用总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/da/intro/01-intro.html" class="nav-link">
+  大数据应用场景基础介绍
+</a></li><li class="dropdown-subitem"><a href="/dm/intro/01-intro.html" class="nav-link">
+  大数据数据挖掘基础介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">人工智能</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">人工智能</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/intro/01-intro.html" class="nav-link">
+  人工智能基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlintro/01-intro.html" class="nav-link">
+  机器学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/dlintro/01-intro.html" class="nav-link">
+  深度学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/nnprin/01-intro.html" class="nav-link">
+  神经网络原理介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlalgorithm/01-intro.html" class="nav-link">
+  机器学习算法介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlmath/01-intro.html" class="nav-link">
+  机器学习数学介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ad/intro/01-intro.html" class="nav-link">
+  主流-AI开源开发框架介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/dl4jintro/01-intro.html" class="nav-link">
+  JAVA-AI开发框架Dl4j介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/pytorch/01-intro.html" class="nav-link">
+  AI开发框架-Pytorch介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/tensorflow/01-intro.html" class="nav-link">
+  AI开发框架-TensorFlow介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发应用案例
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ac/intro/01-intro.html" class="nav-link">
+  AI常见案例和趋势介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/rsintro/01-intro.html" class="nav-link">
+  AI应用案例-推荐系统介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aicity/01-intro.html" class="nav-link">
+  AI应用案例-智慧城市介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aibigscreen/01-intro.html" class="nav-link">
+  AI应用案例-智慧大屏介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Spring</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Spring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Spring基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/basic/01-intro.html" class="nav-link">
+  Spring-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/basic/02-iocaopintro.html" class="nav-link">
+  IOC和AOP-原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringMVC总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springmvc/01-intro.html" class="nav-link">
+  SpringMVC-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springmvc/02-prinintro.html" class="nav-link">
+  SpringMVC-工作原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringBoot总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springboot/03-workprin.html" class="nav-link">
+  SpringBoot-工作原理
+</a></li><li class="dropdown-subitem"><a href="/spring/springboot/06-startprincodeanalysis.html" class="nav-link">
+  启动原理分析和源码解读
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring注解总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/annotation/03-springannprin.html" class="nav-link">
+  Spring注解实现原理
+</a></li><li class="dropdown-subitem"><a href="/spring/annotation/04-anntotal1.html" class="nav-link">
+  Spring注解大全(一)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringCloud知识介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springcloud/01-intro.html" class="nav-link">
+  SpringCloud-基础介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springcloud/03-prindetail.html" class="nav-link">
+  SpringCloud-原理详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          框架基础总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/basic/01-intro.html" class="nav-link">
+  框架基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/02-commconceptdiff.html" class="nav-link">
+  框架架构组件区别
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/03-commconceptrela.html" class="nav-link">
+  框架架构组件关系
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/06-microserv15.html" class="nav-link">
+  常见15种微服务框架
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/07-springframethink.html" class="nav-link">
+  Spring框架思想总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/log/01-intro.html" class="nav-link">
+  日志框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/orm/01-intro.html" class="nav-link">
+  ORM框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nio/01-intro.html" class="nav-link">
+  NIO框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/netty/01-intro.html" class="nav-link">
+  Netty框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nettycase/01-intro.html" class="nav-link">
+  Netty案例-介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">架构</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">架构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          架构基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/architecture/basic/01-intro.html" class="nav-link">
+  架构基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/architecture/basic/02-essence.html" class="nav-link">
+  架构基本概念和本质
+</a></li><li class="dropdown-subitem"><a href="/architecture/microservanddistribute/01-intro.html" class="nav-link">
+  微服务架构知识介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/tool/01-intro.html" class="nav-link">
+  Java开发工具介绍
+</a></li><li class="dropdown-subitem"><a href="/dev/tool/05-idea20recommendedplug.html" class="nav-link">
+  Idea开发插件推荐
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/standard/01-intro.html" class="nav-link">
+  Java开发规范
+</a></li><li class="dropdown-subitem"><a href="/dev/designpattern/01-intro.html" class="nav-link">
+  Java设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发效率
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/deveffciency/02-commpromethods.html" class="nav-link">
+  效率提升常用方法
+</a></li><li class="dropdown-subitem"><a href="/dev/deveffciency/09-summary.html" class="nav-link">
+  效率提升精华总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">综合</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">综合</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中间件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/middleware/mq/01-intro.html" class="nav-link">
+  MQ消息队列介绍
+</a></li><li class="dropdown-subitem"><a href="/es/basic/01-intro.html" class="nav-link">
+  ES搜索服务器介绍
+</a></li><li class="dropdown-subitem"><a href="/middleware/zookeeper/01-intro.html" class="nav-link">
+  Zookeeper介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          综合技能
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mysqlop/basic/01-intro.html" class="nav-link">
+  MySQL运维总结
+</a></li><li class="dropdown-subitem"><a href="/operation/linux/01-intro.html" class="nav-link">
+  Linux常用命令
+</a></li><li class="dropdown-subitem"><a href="/operation/ng/05-ngsum.html" class="nav-link">
+  Nginx使用总结
+</a></li><li class="dropdown-subitem"><a href="/post/javabasic/01-javabasic.html" class="nav-link">
+  求职面试整理
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">项目|产品</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">项目|产品</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          研发效能介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/01-intro.html" class="nav-link">
+  研发效能入门介绍
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/06-efficiencysystem.html" class="nav-link">
+  研发效能体系构建
+</a></li></ul></li><li class="dropdown-item"><h4>
+          研发效能提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdeffciencypromote/09-summary.html" class="nav-link">
+  研发效能提升精华总结
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdeffciencytool/01-intro.html" class="nav-link">
+  研发效能系统管理工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-17815e06></div> <aside class="sidebar" data-v-17815e06><nav class="nav-links"><div class="nav-item"><a href="/readguide.html" class="nav-link">
+  导读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java基础" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java基础" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java语言基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/intro/01-java-intro.html" class="nav-link">
+  Java入门介绍
+</a></li><li class="dropdown-subitem"><a href="/java/intro/03-java-grammer.html" class="nav-link">
+  Java基础语法
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java面向对象基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/basic/01-lan-feature.html" class="nav-link">
+  语言基础特性
+</a></li><li class="dropdown-subitem"><a href="/java/basic/02-oop-feature.html" class="nav-link">
+  面向对象特征
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java集合类编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/collection/01-intro.html" class="nav-link">
+  集合类基础介绍
+</a></li><li class="dropdown-subitem"><a href="/java/collection/02-collectionmap.html" class="nav-link">
+  集合框架Collction、Map
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java文件和网络编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/file/01-intro.html" class="nav-link">
+  Java文件IO流入门
+</a></li><li class="dropdown-subitem"><a href="/java/net/01-intro.html" class="nav-link">
+  Java网络编程入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java并发编程和JUC
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/thread/01-intro.html" class="nav-link">
+  Java并发 基础入门
+</a></li><li class="dropdown-subitem"><a href="/java/juc/01-intro.html" class="nav-link">
+  Java并发 JUC入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java虚拟机和语言特性
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/jvm/01-intro.html" class="nav-link">
+  Java  虚拟机
+</a></li><li class="dropdown-subitem"><a href="/java/characteristic/01-java8.html" class="nav-link">
+  Java8 语言特性
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和SQL
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/intro/01-intro.html" class="nav-link">
+  数据库绪论
+</a></li><li class="dropdown-subitem"><a href="/db/intro/02-relationdb.html" class="nav-link">
+  关系数据库
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/01-basicselect.html" class="nav-link">
+  基本查询SQL
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/02-joinselect.html" class="nav-link">
+  连表查询SQL
+</a></li></ul></li><li class="dropdown-item"><h4>
+          MySQL基础和优化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/mysqlbasic/01-intro.html" class="nav-link">
+  入门介绍
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt1/01-solutionsum.html" class="nav-link">
+  性能优化方案
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/01-districtandtable.html" class="nav-link">
+  分区和分表
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/05-readwritesepration.html" class="nav-link">
+  读写分离介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/redis/01-intro.html" class="nav-link">
+  Redis介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础概念总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/basic/01-basicconcept.html" class="nav-link">
+  数据结构基础概念
+</a></li><li class="dropdown-subitem"><a href="/algorithm/basic/02-intro.html" class="nav-link">
+  算法和数据结构介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/01-commondy.html" class="nav-link">
+  常用算法动态展示
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/04-visualgo.html" class="nav-link">
+  visualgo-中文算法展示
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法思想总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/thought/01-thoughts8intro.html" class="nav-link">
+  八种常用算法思想
+</a></li><li class="dropdown-subitem"><a href="/algorithm/thought/02-thoughts5intro.html" class="nav-link">
+  五种基本算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用算法总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/search/01-intro.html" class="nav-link">
+  常用查找算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/sort/01-intro.html" class="nav-link">
+  常用排序算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/strmatch/01-intro.html" class="nav-link">
+  常用字符串匹配-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/encryption/01-intro.html" class="nav-link">
+  常用加密解密算法-介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">大数据</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">大数据</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/bigdata/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/bigdata/techintro/01-intro.html" class="nav-link">
+  技术体系介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据采集总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dc/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/dc/intro/02-diff.html" class="nav-link">
+  常用工具比较
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据存储总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ds/intro/01-basicintro.html" class="nav-link">
+  Hadoop入门介绍
+</a></li><li class="dropdown-subitem"><a href="/ds/intro/02-detailintro.html" class="nav-link">
+  Hadoop生态介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据仓库总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dw/intro/01-intro.html" class="nav-link">
+  数据仓库入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dw/intro/03-summary.html" class="nav-link">
+  数据仓库精华总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据处理总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dp/mr/01-intro.html" class="nav-link">
+  MapReduce-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dp/mr/02-basicprin.html" class="nav-link">
+  MapReduce-工作原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据应用总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/da/intro/01-intro.html" class="nav-link">
+  大数据应用场景基础介绍
+</a></li><li class="dropdown-subitem"><a href="/dm/intro/01-intro.html" class="nav-link">
+  大数据数据挖掘基础介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">人工智能</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">人工智能</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/intro/01-intro.html" class="nav-link">
+  人工智能基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlintro/01-intro.html" class="nav-link">
+  机器学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/dlintro/01-intro.html" class="nav-link">
+  深度学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/nnprin/01-intro.html" class="nav-link">
+  神经网络原理介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlalgorithm/01-intro.html" class="nav-link">
+  机器学习算法介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlmath/01-intro.html" class="nav-link">
+  机器学习数学介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ad/intro/01-intro.html" class="nav-link">
+  主流-AI开源开发框架介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/dl4jintro/01-intro.html" class="nav-link">
+  JAVA-AI开发框架Dl4j介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/pytorch/01-intro.html" class="nav-link">
+  AI开发框架-Pytorch介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/tensorflow/01-intro.html" class="nav-link">
+  AI开发框架-TensorFlow介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发应用案例
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ac/intro/01-intro.html" class="nav-link">
+  AI常见案例和趋势介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/rsintro/01-intro.html" class="nav-link">
+  AI应用案例-推荐系统介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aicity/01-intro.html" class="nav-link">
+  AI应用案例-智慧城市介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aibigscreen/01-intro.html" class="nav-link">
+  AI应用案例-智慧大屏介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Spring</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Spring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Spring基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/basic/01-intro.html" class="nav-link">
+  Spring-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/basic/02-iocaopintro.html" class="nav-link">
+  IOC和AOP-原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringMVC总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springmvc/01-intro.html" class="nav-link">
+  SpringMVC-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springmvc/02-prinintro.html" class="nav-link">
+  SpringMVC-工作原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringBoot总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springboot/03-workprin.html" class="nav-link">
+  SpringBoot-工作原理
+</a></li><li class="dropdown-subitem"><a href="/spring/springboot/06-startprincodeanalysis.html" class="nav-link">
+  启动原理分析和源码解读
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring注解总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/annotation/03-springannprin.html" class="nav-link">
+  Spring注解实现原理
+</a></li><li class="dropdown-subitem"><a href="/spring/annotation/04-anntotal1.html" class="nav-link">
+  Spring注解大全(一)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringCloud知识介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springcloud/01-intro.html" class="nav-link">
+  SpringCloud-基础介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springcloud/03-prindetail.html" class="nav-link">
+  SpringCloud-原理详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          框架基础总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/basic/01-intro.html" class="nav-link">
+  框架基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/02-commconceptdiff.html" class="nav-link">
+  框架架构组件区别
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/03-commconceptrela.html" class="nav-link">
+  框架架构组件关系
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/06-microserv15.html" class="nav-link">
+  常见15种微服务框架
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/07-springframethink.html" class="nav-link">
+  Spring框架思想总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/log/01-intro.html" class="nav-link">
+  日志框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/orm/01-intro.html" class="nav-link">
+  ORM框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nio/01-intro.html" class="nav-link">
+  NIO框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/netty/01-intro.html" class="nav-link">
+  Netty框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nettycase/01-intro.html" class="nav-link">
+  Netty案例-介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">架构</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">架构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          架构基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/architecture/basic/01-intro.html" class="nav-link">
+  架构基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/architecture/basic/02-essence.html" class="nav-link">
+  架构基本概念和本质
+</a></li><li class="dropdown-subitem"><a href="/architecture/microservanddistribute/01-intro.html" class="nav-link">
+  微服务架构知识介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/tool/01-intro.html" class="nav-link">
+  Java开发工具介绍
+</a></li><li class="dropdown-subitem"><a href="/dev/tool/05-idea20recommendedplug.html" class="nav-link">
+  Idea开发插件推荐
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/standard/01-intro.html" class="nav-link">
+  Java开发规范
+</a></li><li class="dropdown-subitem"><a href="/dev/designpattern/01-intro.html" class="nav-link">
+  Java设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发效率
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/deveffciency/02-commpromethods.html" class="nav-link">
+  效率提升常用方法
+</a></li><li class="dropdown-subitem"><a href="/dev/deveffciency/09-summary.html" class="nav-link">
+  效率提升精华总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">综合</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">综合</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中间件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/middleware/mq/01-intro.html" class="nav-link">
+  MQ消息队列介绍
+</a></li><li class="dropdown-subitem"><a href="/es/basic/01-intro.html" class="nav-link">
+  ES搜索服务器介绍
+</a></li><li class="dropdown-subitem"><a href="/middleware/zookeeper/01-intro.html" class="nav-link">
+  Zookeeper介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          综合技能
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mysqlop/basic/01-intro.html" class="nav-link">
+  MySQL运维总结
+</a></li><li class="dropdown-subitem"><a href="/operation/linux/01-intro.html" class="nav-link">
+  Linux常用命令
+</a></li><li class="dropdown-subitem"><a href="/operation/ng/05-ngsum.html" class="nav-link">
+  Nginx使用总结
+</a></li><li class="dropdown-subitem"><a href="/post/javabasic/01-javabasic.html" class="nav-link">
+  求职面试整理
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">项目|产品</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">项目|产品</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          研发效能介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/01-intro.html" class="nav-link">
+  研发效能入门介绍
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/06-efficiencysystem.html" class="nav-link">
+  研发效能体系构建
+</a></li></ul></li><li class="dropdown-item"><h4>
+          研发效能提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdeffciencypromote/09-summary.html" class="nav-link">
+  研发效能提升精华总结
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdeffciencytool/01-intro.html" class="nav-link">
+  研发效能系统管理工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>数据应用-案例和原理</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/da/intro/01-intro.html" class="sidebar-link">大数据基础和应用场景</a></li><li><a href="/da/intro/02-techandsecene.html" class="sidebar-link">大数据技术和应用场景</a></li><li><a href="/da/intro/03-secnetecharchi.html" class="sidebar-link">大数据应用场景技术方案</a></li><li><a href="/da/intro/04-summarycase1.html" class="sidebar-link">大数据应用综合案例(一)</a></li><li><a href="/da/intro/05-summarycase2.html" class="sidebar-link">大数据应用综合案例(二)</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>数据应用-BI系统介绍</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/da/introbi/01-intro.html" class="sidebar-link">数据分析-BI基础概念介绍</a></li><li><a href="/da/introbi/02-bicommonmethod.html" class="sidebar-link">数据分析-BI常用分析方法</a></li><li><a href="/da/introbi/03-techsceneintro.html" class="sidebar-link">数据分析-BI技术场景介绍</a></li><li><a href="/da/introbi/04-bitoolintro.html" class="sidebar-link">数据分析-自助BI工具介绍</a></li><li><a href="/da/introbi/05-bireportsintro.html" class="sidebar-link">数据分析-BI自助报表介绍</a></li><li><a href="/da/introbi/06-traditionalandselfbidiff.html" class="sidebar-link">数据分析-传统和自助BI区别</a></li><li><a href="/da/introbi/07-bidataarchi.html" class="sidebar-link">数据分析-BI系统架构方案</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>数据应用-BI工具介绍</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/da/introbitool/01-commintro.html" class="sidebar-link">常用BI工具基础介绍</a></li><li><a href="/da/introbitool/02-aliquickbiintro.html" class="sidebar-link">阿里QuickBI工具介绍</a></li><li><a href="/da/introbitool/03-summarydiff.html" class="sidebar-link">自助式BI工具综合比较</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>数据应用-数据可视化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/da/dataview/01-intro.html" class="sidebar-link">数据可视化-常用工具介绍</a></li><li><a href="/da/dataview/02-30recommendtools.html" class="sidebar-link">数据可视化-30款推荐工具</a></li><li><a href="/da/dataview/03-dataviewbasicproedure.html" class="sidebar-link">数据可视化-基本处理流程</a></li><li><a href="/da/dataview/04-dataviewlargescreentools.html" class="sidebar-link">数据可视化-大屏工具介绍</a></li><li><a href="/da/dataview/05-datavintro.html" class="sidebar-link">数据可视化-DataV基础介绍</a></li><li><a href="/da/dataview/06-datavsimplecase.html" class="sidebar-link">数据可视化-DataV简单案例</a></li><li><a href="/da/dataview/07-datavsummaryfunctions.html" class="sidebar-link">数据可视化-DataV功能特性</a></li><li><a href="/da/dataview/08-datavandsugardiff.html" class="sidebar-link">数据可视化-DataV和Sugar区别</a></li><li><a href="/da/dataview/09-dataviewsummary.html" class="sidebar-link">数据可视化-精华综合总结</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>实时分析-Spark应用</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/da/rtaspark/01-intro.html" class="sidebar-link">Spark-数据处理场景介绍</a></li><li><a href="/da/rtaspark/02-sparkuseranalysiscase.html" class="sidebar-link">Spark-用户分析系统设计</a></li><li><a href="/da/rtaspark/03-sparkandspringboot.html" class="sidebar-link">Spark-SpringBoot集成案例</a></li><li><a href="/da/rtaspark/04-realtimebuycase.html" class="sidebar-link">Spark-实时购物分析案例</a></li><li><a href="/da/rtaspark/05-logfileanalysiscase.html" class="sidebar-link">Spark-日志文件分析案例</a></li><li><a href="/da/rtaspark/06-realtimenewscase.html" class="sidebar-link">Spark-新闻实时分析案例</a></li><li><a href="/da/rtaspark/07-sparkappdeploy.html" class="sidebar-link">Spark-部署springboot项目</a></li><li><a href="/da/rtaspark/08-summarycaseandbolg.html" class="sidebar-link">Spark-综合案例和博客连载</a></li><li><a href="/da/rtaspark/09-summary.html" class="sidebar-link">Spark-大数据分析精华总结</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>实时分析-Flink应用</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/da/rtaflink/01-streamwindowintro.html" class="sidebar-link">Flink-流式窗口概念</a></li><li><a href="/da/rtaflink/02-flinkspringboot.html" class="sidebar-link">Flink-SpringBoot结合案例</a></li><li><a href="/da/rtaflink/03-finkandclickhouse.html" class="sidebar-link">Flink-ClickHouse结合案例</a></li><li><a href="/da/rtaflink/04-flinkbootintro.html" aria-current="page" class="active sidebar-link">Flink-Boot脚手架介绍</a></li><li><a href="/da/rtaflink/05-flinkuserbehaviorcasepro.html" class="sidebar-link">Flink-电商用户行为项目介绍</a></li><li><a href="/da/rtaflink/06-flinkrealtimegoodsstat.html" class="sidebar-link">Flink-电商实时热门商品统计</a></li><li><a href="/da/rtaflink/07-flinkrealtimepagevist.html" class="sidebar-link">Flink-电商实时访问流量统计</a></li><li><a href="/da/rtaflink/08-flinkecommercecoreindicators.html" class="sidebar-link">Flink-电商实时核心指标总结</a></li><li><a href="/da/rtaflink/09-blogrecommend.html" class="sidebar-link">Flink-实战基础和博客推荐</a></li><li><a href="/da/rtaflink/10-summary.html" class="sidebar-link">Flink-核心概念和原理回顾</a></li></ul></section></li></ul> </aside> <main class="page page-content-spec" data-v-17815e06><div class="page_article_title_info" data-v-17815e06><div class="page_content_title" data-v-17815e06>Flink-Boot脚手架介绍</div> <div class="page_content_visit" data-v-17815e06><span data-v-17815e06>更新时间</span> <span style="display:none;" data-v-17815e06>2021-09-19 16:59:04</span>
+            
+          <span data-v-17815e06>浏览</span> <span style="display:none;" data-v-17815e06>0</span>
+            
+
+        </div></div>  <div class="theme-default-content content__default"><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>本文主要是介绍 Flink-Boot脚手架介绍 。</p></div> <p></p><div class="table-of-contents"><ul><li><a href="#懒松鼠flink-boot-flink-spring-一款将flink与spring生态完美融合的脚手架工程">懒松鼠Flink-Boot(Flink+Spring):一款将Flink与Spring生态完美融合的脚手架工程</a></li><li><a href="#你可能面临如下苦恼">你可能面临如下苦恼：</a></li><li><a href="#懒松鼠-flink-boot脚手架-flinkboot脚手架">懒松鼠 Flink-Boot脚手架(FlinkBoot脚手架)</a><ul><li><a href="#接口缓存">接口缓存</a></li><li><a href="#重试机制">重试机制</a></li><li><a href="#bean校验">Bean校验</a></li><li><a href="#等等">等等......</a></li></ul></li><li><a href="#它为流计算开发工程师解决了">它为流计算开发工程师解决了</a><ul><li><a href="#有了它你的代码就像这样子">有了它你的代码就像这样子：</a></li></ul></li><li><a href="#仓库地址-懒松鼠flink-boot-https-github-com-intsmaze-flink-boot">仓库地址：懒松鼠Flink-Boot</a><ul><li><a href="#_1-组织结构">1. 组织结构</a></li><li><a href="#_2-技术选项和集成情况">2. 技术选项和集成情况</a></li><li><a href="#_3-快速开始">3. 快速开始</a></li></ul></li><li><a href="#参考文章">参考文章</a></li></ul></div><p></p> <h2 id="懒松鼠flink-boot-flink-spring-一款将flink与spring生态完美融合的脚手架工程"><a href="#懒松鼠flink-boot-flink-spring-一款将flink与spring生态完美融合的脚手架工程" class="header-anchor">#</a> 懒松鼠Flink-Boot(Flink+Spring):一款将Flink与Spring生态完美融合的脚手架工程</h2> <p>还在为开发Flink流处理应用程序时无法像开发Spring Boot程序那么优雅的分层以及装配Bean而烦恼吗？</p> <h2 id="你可能面临如下苦恼"><a href="#你可能面临如下苦恼" class="header-anchor">#</a> 你可能面临如下苦恼：</h2> <ul><li><ol><li>开发的Flink流处理应用程序，业务逻辑全部写在Flink的操作符中，代码无法服用，无法分层</li></ol></li> <li><ol start="2"><li>要是有一天它可以像开发Spring Boot程序那样可以优雅的分层，优雅的装配Bean，不需要自己new对象好了</li></ol></li> <li><ol start="3"><li>可以使用各种Spring生态的框架，一些琐碎的逻辑不再硬编码到代码中。</li></ol></li></ul> <p>GitHub最近超火的一款开源框架，懒松鼠Flink-Boot脚手架，该脚手架简直是Spring开发工程师的福音，完美融合Spring生态体系，再也不需要手动在Java类中创建臃肿的Java对象，简直是开发大型流处理应用程序的必不可少的工具。</p> <h2 id="懒松鼠-flink-boot脚手架-flinkboot脚手架"><a href="#懒松鼠-flink-boot脚手架-flinkboot脚手架" class="header-anchor">#</a> 懒松鼠 Flink-Boot脚手架(FlinkBoot脚手架)</h2> <p>地址：<a href="https://github.com/intsmaze/flink-boot" target="_blank" rel="noopener noreferrer">懒松鼠Flink-Boot 脚手架由《深入理解Flink核心设计与实践原理》作者开发。<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <img src="/assets/img/da/rtaflink/flinkboot-1.png" alt="wxmp" class="zoom-custom-imgs"> <h3 id="接口缓存"><a href="#接口缓存" class="header-anchor">#</a> 接口缓存</h3> <p><strong>你的现状</strong></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">static</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> cache<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">findUUID</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">String</span> value<span class="token operator">=</span>cache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>flowData<span class="token punctuation">.</span><span class="token function">getSubTestItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>value<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">String</span> uuid<span class="token operator">=</span>userMapper<span class="token punctuation">.</span><span class="token function">findUUID</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cache<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>uuid<span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> uuid<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>你想要的是这样</strong></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Cacheable</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;FlowData.findUUID&quot;</span><span class="token punctuation">,</span> key <span class="token operator">=</span> <span class="token string">&quot;#flowData.subTestItem&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">findUUID</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> userMapper<span class="token punctuation">.</span><span class="token function">findUUID</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="重试机制"><a href="#重试机制" class="header-anchor">#</a> 重试机制</h3> <p><strong>你的现状</strong></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insertFlow</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span><span class="token punctuation">{</span>
+        userMapper<span class="token punctuation">.</span><span class="token function">insertFlow</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token class-name">Cache</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span>
+      <span class="token punctuation">{</span>
+         <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         userMapper<span class="token punctuation">.</span><span class="token function">insertFlow</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>你想要的是这样</strong></p> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token annotation punctuation">@Retryable</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token class-name">Exception</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> maxAttempts <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> backoff <span class="token operator">=</span> <span class="token annotation punctuation">@Backoff</span><span class="token punctuation">(</span>delay <span class="token operator">=</span> <span class="token number">2000L</span><span class="token punctuation">,</span> multiplier <span class="token operator">=</span> <span class="token number">1.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insertFlow</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        userMapper<span class="token punctuation">.</span><span class="token function">insertFlow</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h3 id="bean校验"><a href="#bean校验" class="header-anchor">#</a> Bean校验</h3> <p><strong>你的现状</strong></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">if</span><span class="token punctuation">(</span>flowData<span class="token punctuation">.</span><span class="token function">getSubTestItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">2</span><span class="token operator">&amp;&amp;</span>flowData<span class="token punctuation">.</span><span class="token function">getSubTestItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>flowData<span class="token punctuation">.</span><span class="token function">getBillNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>你想要的是这样</strong></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">StringBuffer</span><span class="token punctuation">&gt;</span></span> validate <span class="token operator">=</span> <span class="token class-name">ValidatorUtil</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>validate <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>validate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FlowData</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> uuid<span class="token punctuation">;</span>
+    <span class="token comment">//声明该参数的校验规则字符串长度必须在7到20之间</span>
+    <span class="token annotation punctuation">@Size</span><span class="token punctuation">(</span>min <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> max <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> message <span class="token operator">=</span> <span class="token string">&quot;长度必须在{min}-{max}之间&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> subTestItem<span class="token punctuation">;</span>
+    <span class="token comment">//声明该参数的校验规则字符串不能为空</span>
+    <span class="token annotation punctuation">@NotBlank</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">&quot;billNumber不能为空&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> billNumber<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="等等"><a href="#等等" class="header-anchor">#</a> 等等......</h3> <p>GitHub最近超火的一款开源框架，懒松鼠Flink-Boot脚手架，该脚手架简直是Spring开发工程师的福音，完美融合Spring生态体系，再也不需要手动在Java类中创建臃肿的Java对象，简直是开发大型流处理应用程序的必不可少的工具。<a href="https://github.com/intsmaze/flink-boot" target="_blank" rel="noopener noreferrer">懒松鼠Flink-Boot 脚手架由《深入理解Flink核心设计与实践原理》作者开发。<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="它为流计算开发工程师解决了"><a href="#它为流计算开发工程师解决了" class="header-anchor">#</a> 它为流计算开发工程师解决了</h2> <ul><li><ol><li>将所有对象的创建和依赖关系的维护工作都交给Spring容器的管理，降低了对象之间的耦合性，使代码变得更简洁，拒绝臃肿。</li></ol></li> <li><ol start="2"><li>消除在工程中对单例的过多使用。</li></ol></li> <li><ol start="3"><li>声明式事务处理，通过配置就可以完成对事物的管理，而无须手动编程。</li></ol></li> <li><ol start="4"><li>声明式注解，可以通过注解定义方法的缓冲功能，无序手动编程。</li></ol></li> <li><ol start="5"><li>注解式定义Bean对象的校验规则，通过注解即可完成对对象的参数校验，无序手动编程。</li></ol></li> <li><ol start="6"><li>集成MyBatis ORM框架，注解式维护实例对象的依赖关系。</li></ol></li> <li><ol start="7"><li>解耦Flink SQL,SQL语句剥离出JAVA文件，以简洁的模式表现在XML文件中。</li></ol></li> <li><ol start="8"><li>封装Flink API，仅提供业务方法去编写，Spring生态融合全部搞定，无需操心。</li></ol></li></ul> <h3 id="有了它你的代码就像这样子"><a href="#有了它你的代码就像这样子" class="header-anchor">#</a> 有了它你的代码就像这样子：</h3> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+* github地址: https://github.com/intsmaze
+* 博客地址：https://www.cnblogs.com/intsmaze/
+* 出版书籍《深入理解Flink核心设计与实践原理》 随书代码
+* RichFlatMapFunction为Flink框架的一个通用型操作符（算子）,开发者一般在该算子的flatMap方法中编写业务逻辑
+* @auther: intsmaze(刘洋)
+* @date: 2020/10/15 18:33
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MybatisFlatMap</span> <span class="token keyword">extends</span> <span class="token class-name">RichFlatMapFunction</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+
+   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Gson</span> gson <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GsonBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setDateFormat</span><span class="token punctuation">(</span><span class="token string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token class-name">ApplicationContext</span> beanFactory<span class="token punctuation">;</span>
+    <span class="token comment">//mybatis的Service对象，操作数据库的user表</span>
+    <span class="token keyword">private</span> <span class="token class-name">UserService</span> userService<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token keyword">open</span><span class="token punctuation">(</span><span class="token class-name">Configuration</span> parameters<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">ExecutionConfig<span class="token punctuation">.</span>GlobalJobParameters</span> globalJobParameters <span class="token operator">=</span> <span class="token function">getRuntimeContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">getExecutionConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getGlobalJobParameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        beanFactory <span class="token operator">=</span> <span class="token class-name">BeanFactory</span><span class="token punctuation">.</span><span class="token function">getBeanFactory</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Configuration</span><span class="token punctuation">)</span> globalJobParameters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        userService <span class="token operator">=</span> beanFactory<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">UserServiceImpl</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token class-name">String</span> value<span class="token punctuation">,</span> <span class="token class-name">Collector</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> out<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token class-name">FlowData</span> flowData <span class="token operator">=</span> gson<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">TypeToken</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">FlowData</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">StringBuffer</span><span class="token punctuation">&gt;</span></span> validate <span class="token operator">=</span> <span class="token class-name">ValidatorUtil</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>validate <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>validate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">//数据库查询，屏蔽掉获取数据库连接，是否数据库连接，事务的声明等</span>
+        <span class="token class-name">String</span> flowUUID <span class="token operator">=</span> userService<span class="token punctuation">.</span><span class="token function">findUUID</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isBlank</span><span class="token punctuation">(</span>flowUUID<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            flowUUID <span class="token operator">=</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            flowData<span class="token punctuation">.</span><span class="token function">setUuid</span><span class="token punctuation">(</span>flowUUID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//数据库插入，屏蔽掉获取数据库连接，是否数据库连接，事务的声明等</span>
+            userService<span class="token punctuation">.</span><span class="token function">insertFlow</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        out<span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>gson<span class="token punctuation">.</span><span class="token function">toJson</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+
+    <span class="token class-name">String</span> <span class="token function">findUUID</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">void</span> <span class="token function">insertFlow</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//通过注解实例化Bean对象。</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token comment">//通过注解声明进行事务管理</span>
+<span class="token annotation punctuation">@Transactional</span>
+<span class="token comment">//通过注解声明方法具有异常重试机制</span>
+<span class="token annotation punctuation">@EnableRetry</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+   <span class="token comment">//通过注解进行依赖注入</span>
+    <span class="token annotation punctuation">@Resource</span>
+    <span class="token keyword">private</span> <span class="token class-name">UserMapper</span> userMapper<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Cacheable</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;FlowData.findUUID&quot;</span><span class="token punctuation">,</span> key <span class="token operator">=</span> <span class="token string">&quot;#flowData.subTestItem&quot;</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">findUUID</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userMapper<span class="token punctuation">.</span><span class="token function">findUUID</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+   <span class="token comment">//通过注解声明该方法异常后的重试机制，无需手动编程</span>
+    <span class="token annotation punctuation">@Retryable</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token class-name">Exception</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> maxAttempts <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> backoff <span class="token operator">=</span> <span class="token annotation punctuation">@Backoff</span><span class="token punctuation">(</span>delay <span class="token operator">=</span> <span class="token number">2000L</span><span class="token punctuation">,</span> multiplier <span class="token operator">=</span> <span class="token number">1.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insertFlow</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        userMapper<span class="token punctuation">.</span><span class="token function">insertFlow</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserMapper</span> <span class="token punctuation">{</span>
+
+    <span class="token class-name">String</span> <span class="token function">findUUID</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">void</span> <span class="token function">insertFlow</span><span class="token punctuation">(</span><span class="token class-name">FlowData</span> flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//注解式声明参数校验规则</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FlowData</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> uuid<span class="token punctuation">;</span>
+    <span class="token comment">//声明该参数的校验规则字符串长度必须在7到20之间</span>
+    <span class="token annotation punctuation">@Size</span><span class="token punctuation">(</span>min <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> max <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> message <span class="token operator">=</span> <span class="token string">&quot;长度必须在{min}-{max}之间&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> subTestItem<span class="token punctuation">;</span>
+    <span class="token comment">//声明该参数的校验规则字符串不能为空</span>
+    <span class="token annotation punctuation">@NotBlank</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">&quot;billNumber不能为空&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> billNumber<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@NotBlank</span><span class="token punctuation">(</span>message <span class="token operator">=</span> <span class="token string">&quot;barcode不能为空&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> barcode<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> flowName<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> flowStatus<span class="token punctuation">;</span>
+
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="仓库地址-懒松鼠flink-boot"><a href="#仓库地址-懒松鼠flink-boot" class="header-anchor">#</a> 仓库地址：<a href="https://github.com/intsmaze/flink-boot" target="_blank" rel="noopener noreferrer">懒松鼠Flink-Boot<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h2> <p><strong>仓库地址：<a href="https://github.com/intsmaze/flink-boot" target="_blank" rel="noopener noreferrer">懒松鼠Flink-Boot<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>脚手架由《深入理解Flink核心设计与实践原理》作者开发。</strong></p> <img src="/assets/img/da/rtaflink/flinkboot-2.png" alt="wxmp" class="zoom-custom-imgs"> <ul><li><ol><li>该脚手架屏蔽掉组装Flink API细节，让跨界变得简单，使得开发者能以传统Java WEB模式的开发方式开发出具备分布式计算能力的流处理程序。</li></ol></li> <li><ol start="2"><li>开发者完全不需要理解分布式计算的理论知识和Flink框架的细节，便可以快速编写业务代码实现。</li></ol></li> <li><ol start="3"><li>为了进一步提升开发者使用该脚手架开发大型项目的敏捷的程度，该脚手架工程默认集成Spring框架进行Bean管理，同时将微服务以及WEB开发领域中经常用到的框架集成进来，进一步提升开发速度。</li></ol></li> <li><ol start="4"><li>除此之外针对目前流行的各大Java框架，该Flink脚手架工程也进行了集成，加快开发人员的编码速度,比如:</li></ol></li> <li><p>集成Jbcp-template对Mysql,Oracle,SQLServer等关系型数据库的快速访问。</p></li> <li><p>集成Hibernate Validator框架进行参数校验。</p></li> <li><p>集成Spring Retry框架进行重试标志。</p></li> <li><p>集成Mybatis框架,提高对关系型数据库增，删，改，查的开发速度。</p></li> <li><p>集成Spring Cache框架,实现注解式定义方法缓存。</p></li> <li><p>......</p></li></ul> <h3 id="_1-组织结构"><a href="#_1-组织结构" class="header-anchor">#</a> 1. 组织结构</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>Flink-Boot
+├── Flink-Base -- Flink-Boot工程基础模块
+├── Flink-Client -- Flink-Boot 客户端模块
+├── flink-annotation -- 注解生效模块
+├── flink-mybatis -- mybatis orm模块
+├── flink-retry -- 注解重试机制模式
+├── flink-validate -- 校验模块
+├── flink-sql -- Flink SQL解耦至XML配置模块
+├── flink-cache-annotation -- 接口缓冲模块
+├── flink-junit -- 单元测试模块
+├── flink-apollo -- 阿波罗配置客户端模块
+</code></pre></div><h3 id="_2-技术选项和集成情况"><a href="#_2-技术选项和集成情况" class="header-anchor">#</a> 2. 技术选项和集成情况</h3> <table><thead><tr><th>技术</th> <th>名称</th> <th>状态</th></tr></thead> <tbody><tr><td>Spring Framework</td> <td>容器</td> <td>已集成</td></tr> <tr><td>Spring 基于XML方式配置Bean</td> <td>装配Bean</td> <td>已集成</td></tr> <tr><td>Spring 基于注解方式配置Bean</td> <td>装配Bean</td> <td>已集成</td></tr> <tr><td>Spring 基于注解声明方法重试机制</td> <td>Retry注解</td> <td>已集成</td></tr> <tr><td>Spring 基于注解声明方法缓存</td> <td>Cache注解</td> <td>已集成</td></tr> <tr><td>Hibernate Validator</td> <td>校验框架</td> <td>已集成</td></tr> <tr><td>Druid</td> <td>数据库连接池</td> <td>已集成</td></tr> <tr><td>MyBatis</td> <td>ORM框架</td> <td>已集成</td></tr> <tr><td>Kafka</td> <td>消息队列</td> <td>已集成</td></tr> <tr><td>HDFS</td> <td>分布式文件系统</td> <td>已集成</td></tr> <tr><td>Log4J</td> <td>日志组件</td> <td>已集成</td></tr> <tr><td>Junit</td> <td>单元测试</td> <td>已集成</td></tr> <tr><td>Mybatis-Plus</td> <td>MyBatis扩展包</td> <td>进行中</td></tr> <tr><td>PageHelper</td> <td>MyBatis物理分页插件</td> <td>进行中</td></tr> <tr><td>ZooKeeper</td> <td>分布式协调服务</td> <td>进行中</td></tr> <tr><td>Dubbo</td> <td>分布式服务框架</td> <td>进行中</td></tr> <tr><td>Redis</td> <td>分布式缓存数据库</td> <td>进行中</td></tr> <tr><td>Solr &amp; Elasticsearch</td> <td>分布式全文搜索引擎</td> <td>进行中</td></tr> <tr><td>Ehcache</td> <td>进程内缓存框架</td> <td>进行中</td></tr> <tr><td>sequence</td> <td>分布式高效ID生产</td> <td>进行中</td></tr> <tr><td>Dubbole消费者</td> <td>服务消费者</td> <td>进行中</td></tr> <tr><td>Spring eurake消费者</td> <td>服务消费者</td> <td>进行中</td></tr> <tr><td>Apollo配置中心</td> <td>携程阿波罗配置中心</td> <td>进行中</td></tr> <tr><td>Spring Config配置中心</td> <td>Spring Cloud Config配置中心</td> <td>进行中</td></tr></tbody></table> <h3 id="_3-快速开始"><a href="#_3-快速开始" class="header-anchor">#</a> 3. 快速开始</h3> <p>下面是集成Spring生态的基础手册.</p> <h4 id="_3-1-核心基础工程"><a href="#_3-1-核心基础工程" class="header-anchor">#</a> 3.1 核心基础工程</h4> <ul><li>flink-base :基础工程，封装了开发Flink工程的必须参数，同时集成Spring容器，为后续集成Spring各类框架提供了支撑。
+<ol><li>可以在本地开发环境和Flink集群运行环境中随意切换。</li> <li>可以在增量检查点和全量检查点之间随意切换。</li> <li>内置使用HDFS作为检查点的持久存储介质。</li> <li>默认使用Kafka作为数据源</li> <li>内置实现了任务的暂停机制-达到任务仍在运行但不再接收Kafka数据源中的数据，代替了停止任务后再重新部署任务这一繁琐流程。</li></ol></li> <li>flink-client：业务工程，该工程依赖flink-base工程，开发任务在该工程中进行业务逻辑的开发。</li></ul> <h4 id="_3-2-spring容器"><a href="#_3-2-spring容器" class="header-anchor">#</a> 3.2 Spring容器</h4> <p>该容器模式配置了JdbcTemplate实例，数据库连接池采用Druid，在业务方法中只需要获取容器中的JdbcTemplate实例便可以快速与关系型数据库进行交互,dataService实例封装了一些访问数据库表的方法。</p> <h5 id="topology-base-xml"><a href="#topology-base-xml" class="header-anchor">#</a> topology-base.xml</h5> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">......</span>
+       <span class="token attr-name">default-lazy-init</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">default-init-method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>init<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>property-placeholder</span> <span class="token attr-name">location</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>classpath:config.properties<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>druidDataSource<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>com.alibaba.druid.pool.DruidDataSource<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>driverClassName<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>com.mysql.jdbc.Driver<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>url<span class="token punctuation">&quot;</span></span>
+                  <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>${jdbc.url}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>username<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>${jdbc.user}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>password<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>${jdbc.password}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>jdbcTemplate<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>org.springframework.jdbc.core.JdbcTemplate<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor-arg</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>druidDataSource<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>constructor-arg</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dataService<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>com.intsmaze.flink.base.service.DataService<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>jdbcTemplate<span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>jdbcTemplate<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="config-properties"><a href="#config-properties" class="header-anchor">#</a> config.properties</h5> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token constant">jdbc.user</span> <span class="token attr-value"><span class="token punctuation">=</span> intsmaze</span>
+<span class="token constant">jdbc.password</span> <span class="token attr-value"><span class="token punctuation">=</span> intsmaze</span>
+<span class="token constant">jdbc.url</span> <span class="token attr-value"><span class="token punctuation">=</span> jdbc:mysql://127.0.0.1:3306/flink-boot?useUnicode=true&amp;characterEncoding=UTF-8</span>
+</code></pre></div><h4 id="_3-3-启动类示例"><a href="#_3-3-启动类示例" class="header-anchor">#</a> 3.3 启动类示例</h4> <p>如下是SimpleClient（com.intsmaze.flink.client.SimpleClient）类的示例代码，该类继承了BaseFlink，可以看到对应实现的方法中分别设置如下：</p> <ul><li>public String getTopoName()：定义本作业的名称。</li> <li>public String getConfigName()：定义本作业需要读取的spring配置文件的名称</li> <li>public String getPropertiesName()：定义本作业需要读取的properties配置文件的名称。</li> <li>public void createTopology(StreamExecutionEnvironment builder)：构造本作业的拓扑结构。</li></ul> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+ * github地址: https://github.com/intsmaze
+ * 博客地址：https://www.cnblogs.com/intsmaze/
+ * 出版书籍《深入理解Flink核心设计与实践原理》 随书代码
+ *
+ * @auther: intsmaze(刘洋)
+ * @date: 2020/10/15 18:33
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SimpleClient</span> <span class="token keyword">extends</span> <span class="token class-name">BaseFlink</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SimpleClient</span> topo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        topo<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">ParameterTool</span><span class="token punctuation">.</span><span class="token function">fromArgs</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getTopoName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;SimpleClient&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getConfigName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;topology-base.xml&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getPropertiesName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;config.properties&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">createTopology</span><span class="token punctuation">(</span><span class="token class-name">StreamExecutionEnvironment</span> builder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token class-name">DataStream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> inputDataStrem <span class="token operator">=</span> env<span class="token punctuation">.</span><span class="token function">addSource</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">SimpleDataSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">DataStream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> processDataStream <span class="token operator">=</span> inputDataStrem<span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">SimpleFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        processDataStream<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;输出结果&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_3-4-数据源"><a href="#_3-4-数据源" class="header-anchor">#</a> 3.4 数据源</h4> <p>采用自定义数据源，用户需要编写自定义DataSource类，该类需要继承XXX抽象类，实现如下方法。</p> <ul><li>public abstract void open(StormBeanFactory beanFactory):获取本作业在Spring配置文件中配置的bean对象。</li> <li>public abstract String sendMessage():本作业spout生成数据的方法，在该方法内编写业务逻辑产生源数据，产生的数据以String类型进行返回。</li></ul> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SimpleDataSource</span> <span class="token keyword">extends</span> <span class="token class-name">CommonDataSource</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Gson</span> gson <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GsonBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setDateFormat</span><span class="token punctuation">(</span><span class="token string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token keyword">open</span><span class="token punctuation">(</span><span class="token class-name">Configuration</span> parameters<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token keyword">open</span><span class="token punctuation">(</span>parameters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token comment">//构造读取各类外部系统数据的连接实例</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">sendMess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token class-name">MainData</span> mainData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MainData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token comment">//通过外部系统数据的连接实例读取外部系统数据，封装进MainData对象中，然后返回即可。</span>
+        <span class="token keyword">return</span> gson<span class="token punctuation">.</span><span class="token function">toJson</span><span class="token punctuation">(</span>mainData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_3-5-业务逻辑实现"><a href="#_3-5-业务逻辑实现" class="header-anchor">#</a> 3.5 业务逻辑实现</h4> <p>本作业计算的业务逻辑在Flink转换操作符中进行实现，一般来说开发者只需要实现flatMap算子即可以满足大部分算子的使用。</p> <p>用户编写的自定义类需要继承com.intsmaze.flink.base.transform.CommonFunction抽象类，均需实现如下方法。</p> <ul><li>public abstract String execute(String message)：本作业业务逻辑计算的方法，参数message为Kafka主题中读取过来的参数，默认参数为String类型，如果需要将处理的数据发送给Kakfa主题中，则要通过return将处理的数据返回即可。</li></ul> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SimpleFunction</span> <span class="token keyword">extends</span> <span class="token class-name">CommonFunction</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Gson</span> gson <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GsonBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setDateFormat</span><span class="token punctuation">(</span><span class="token string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">execute</span><span class="token punctuation">(</span><span class="token class-name">String</span> message<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">FlowData</span> flowData <span class="token operator">=</span> gson<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">TypeToken</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">FlowData</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">String</span> flowUUID <span class="token operator">=</span> dataService<span class="token punctuation">.</span><span class="token function">findUUID</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isBlank</span><span class="token punctuation">(</span>flowUUID<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            flowUUID <span class="token operator">=</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            flowData<span class="token punctuation">.</span><span class="token function">setUuid</span><span class="token punctuation">(</span>flowUUID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            dataService<span class="token punctuation">.</span><span class="token function">insertFlow</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> gson<span class="token punctuation">.</span><span class="token function">toJson</span><span class="token punctuation">(</span>flowData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="commonfunction"><a href="#commonfunction" class="header-anchor">#</a> CommonFunction</h5> <p>CommonFunction抽象类中默认在open方法中通过BeanFactory对象获取到了Spring容器中对于的dataService实例，对于Spring中的其他实例同理在SimpleFunction类中的open方法中获取即可。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">CommonFunction</span> <span class="token keyword">extends</span> <span class="token class-name">RichFlatMapFunction</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">IntCounter</span> numLines <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntCounter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token class-name">DataService</span> dataService<span class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token class-name">ApplicationContext</span> beanFactory<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token keyword">open</span><span class="token punctuation">(</span><span class="token class-name">Configuration</span> parameters<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">getRuntimeContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addAccumulator</span><span class="token punctuation">(</span><span class="token string">&quot;num-FlatMap&quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>numLines<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">ExecutionConfig<span class="token punctuation">.</span>GlobalJobParameters</span> globalJobParameters <span class="token operator">=</span> <span class="token function">getRuntimeContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">getExecutionConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getGlobalJobParameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        beanFactory <span class="token operator">=</span> <span class="token class-name">BeanFactory</span><span class="token punctuation">.</span><span class="token function">getBeanFactory</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Configuration</span><span class="token punctuation">)</span> globalJobParameters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        dataService <span class="token operator">=</span> beanFactory<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">DataService</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token class-name">String</span> value<span class="token punctuation">,</span> <span class="token class-name">Collector</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> out<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>numLines<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> execute <span class="token operator">=</span> <span class="token function">execute</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isNotBlank</span><span class="token punctuation">(</span>execute<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            out<span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>execute<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token class-name">String</span> <span class="token function">execute</span><span class="token punctuation">(</span><span class="token class-name">String</span> message<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>可以根据情况选择重写open(Configuration parameters)方法，同时重写的open(Configuration parameters)方法的第一行要调用父类的open(Configuration parameters)方法。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token keyword">open</span><span class="token punctuation">(</span><span class="token class-name">Configuration</span> parameters<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">super</span><span class="token punctuation">.</span><span class="token keyword">open</span><span class="token punctuation">(</span>parameters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token comment">//获取在Spring配置文件中配置的实例</span>
+	<span class="token class-name">XXX</span> xxx<span class="token operator">=</span>beanFactory<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span>XXX<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_3-6-集群-本地运行"><a href="#_3-6-集群-本地运行" class="header-anchor">#</a> 3.6 集群/本地运行</h4> <p>在自定义的Topology类编写Main方法，创建自定义的Topology对象后，调用对象的run(...)方法。</p> <p>public class SimpleClient extends BaseFlink {</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+ * 本地启动参数  -isLocal local
+ * 集群启动参数  -isIncremental isIncremental
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+    <span class="token class-name">SimpleClient</span> topo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    topo<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">ParameterTool</span><span class="token punctuation">.</span><span class="token function">fromArgs</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre></div><p>作者：<a href="http://www.cnblogs.com/intsmaze/" target="_blank" rel="noopener noreferrer">intsmaze(刘洋)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>畅销书籍：<a href="http://www.cnblogs.com/intsmaze/" target="_blank" rel="noopener noreferrer">《深入理解Flink核心设计与实践原理》<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>作者</p> <p>出处：http://www.cnblogs.com/intsmaze/</p> <p>老铁，你的---&gt;推荐，---&gt;关注,---&gt;评论---&gt;是我继续写作的动力。</p> <p>由于博主能力有限，文中可能存在描述不正确，欢迎指正、补充！</p> <p>本文版权归作者和博客园共有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。</p> <h2 id="参考文章"><a href="#参考文章" class="header-anchor">#</a> 参考文章</h2> <ul><li>https://www.cnblogs.com/intsmaze/p/14110713.html</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2021-09-19 16:59:04</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/da/rtaflink/03-finkandclickhouse.html" class="prev">
+        Flink-ClickHouse结合案例
+      </a></span> <span class="next"><a href="/da/rtaflink/05-flinkuserbehaviorcasepro.html">
+        Flink-电商用户行为项目介绍
+      </a>
+      →
+    </span></p></div> <div class="page_article_visit_tail" data-v-17815e06><img src="/assets/img/view/visit.png" alt="" data-v-17815e06>
+         
+        <span style="display:none;" data-v-17815e06>0</span></div> <div class="page_article_comment" data-v-17815e06></div></main> <div class="page-right-index-sidebar" data-v-17815e06><div class="content_index_title" data-v-17815e06>
+      Flink-Boot脚手架介绍
+    </div> <div class="page-right-index-toc" data-v-17815e06><ul data-v-17815e06><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#懒松鼠flink-boot-flink-spring-一款将flink与spring生态完美融合的脚手架工程" aria-current="page" class="unactive_index_li" data-v-17815e06>懒松鼠Flink-Boot(Flink+Spring):一款将Flink与Spring生态完美融合的脚手架工程
+          </a> </li><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#你可能面临如下苦恼" aria-current="page" class="unactive_index_li" data-v-17815e06>你可能面临如下苦恼：
+          </a> </li><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#懒松鼠-flink-boot脚手架-flinkboot脚手架" aria-current="page" class="unactive_index_li" data-v-17815e06>懒松鼠 Flink-Boot脚手架(FlinkBoot脚手架)
+          </a> <ul data-v-17815e06><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#接口缓存" aria-current="page" class="unactive_index_li" data-v-17815e06>接口缓存</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#重试机制" aria-current="page" class="unactive_index_li" data-v-17815e06>重试机制</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#bean校验" aria-current="page" class="unactive_index_li" data-v-17815e06>Bean校验</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#等等" aria-current="page" class="unactive_index_li" data-v-17815e06>等等......</a></li></ul></li><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#它为流计算开发工程师解决了" aria-current="page" class="unactive_index_li" data-v-17815e06>它为流计算开发工程师解决了
+          </a> <ul data-v-17815e06><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#有了它你的代码就像这样子" aria-current="page" class="unactive_index_li" data-v-17815e06>有了它你的代码就像这样子：</a></li></ul></li><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#仓库地址-懒松鼠flink-boot" aria-current="page" class="unactive_index_li" data-v-17815e06>仓库地址：懒松鼠Flink-Boot
+          </a> <ul data-v-17815e06><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#_1-组织结构" aria-current="page" class="unactive_index_li" data-v-17815e06>1. 组织结构</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#_2-技术选项和集成情况" aria-current="page" class="unactive_index_li" data-v-17815e06>2. 技术选项和集成情况</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#_3-快速开始" aria-current="page" class="unactive_index_li" data-v-17815e06>3. 快速开始</a></li></ul></li><li data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html#参考文章" aria-current="page" class="unactive_index_li" data-v-17815e06>参考文章
+          </a> </li></ul> <div style="height:10px" data-v-17815e06></div></div></div> <div class="page-right-tool-sidebar" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/phone.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>手机看</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/wechat.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>公众号</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/communication.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>讨论</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/leftclose.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>左栏</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/fullscreen.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>全屏</div></div> <div style="display:none;" data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html" aria-current="page" class="router-link-exact-active router-link-active" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/prev.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>上一篇</div></div></a></div> <div style="display:none;" data-v-17815e06><a href="/da/rtaflink/04-flinkbootintro.html" aria-current="page" class="router-link-exact-active router-link-active" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/next.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>下一篇</div></div></a></div></div> <div id="qrCodeDiv" class="toolbar_qrcode_unactive" data-v-17815e06><div class=" toolbar_head_tile" data-v-17815e06>扫一扫 手机阅读</div> <img src="" class="img-qrcode" data-v-17815e06> <h5 data-v-17815e06>可分享给好友和朋友圈</h5></div> <div id="wxmpDiv" class="toolbar_wxmp_active" style="display:none;" data-v-17815e06><div class="toolbar_head_tile" data-v-17815e06>扫描关注公众号，回复&quot;资料&quot;，下载相关图书和资料</div> <img src="/assets/img/wx/wxmp.jpg" class="img-wx-mp" data-v-17815e06> <h5 data-v-17815e06>公众号:智能后端和架构</h5></div> <div id="coummpDiv" class="toolbar_communication_active" style="display:none;" data-v-17815e06><div class="toolbar_head_tile" data-v-17815e06>QQ群:569556849 <br data-v-17815e06>问题咨询和技术交流</div> <img src="/assets/img/qq/qqgroup.png" class="img-wx-mp" data-v-17815e06> <h5 data-v-17815e06>PS 备注:智能后端和架构</h5></div> <div class="topDivImg" style="display:none;" data-v-17815e06><img src="/assets/img/toolbar/top.png" class="tool_top_img_icon" data-v-17815e06></div> <div style="display:none" data-v-17815e06><script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279777129&web_id=1279777129" data-v-17815e06></script></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.db30138a.js" defer></script><script src="/assets/js/5.df8bf371.js" defer></script><script src="/assets/js/1.60d99fe1.js" defer></script><script src="/assets/js/255.19234ae1.js" defer></script>
+  </body>
+</html>

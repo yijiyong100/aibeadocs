@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JUC-锁-AQS原理 | 智能后端和架构</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="智能后端和架构的文档">
+    <meta name="icon" content="">
+    <meta name="author" content="landry -- seo 选项">
+    <meta name="keywords" content="后端 java 架构 面试 -- seo 选项">
+    
+    <link rel="preload" href="/assets/css/0.styles.183d1d00.css" as="style"><link rel="preload" href="/assets/js/app.db30138a.js" as="script"><link rel="preload" href="/assets/js/5.df8bf371.js" as="script"><link rel="preload" href="/assets/js/1.60d99fe1.js" as="script"><link rel="preload" href="/assets/js/613.5010499b.js" as="script"><link rel="prefetch" href="/assets/js/10.034bcceb.js"><link rel="prefetch" href="/assets/js/100.bc78c9c9.js"><link rel="prefetch" href="/assets/js/101.fc021eba.js"><link rel="prefetch" href="/assets/js/102.44f58839.js"><link rel="prefetch" href="/assets/js/103.cd3ce876.js"><link rel="prefetch" href="/assets/js/104.ece12d4f.js"><link rel="prefetch" href="/assets/js/105.e0ef0178.js"><link rel="prefetch" href="/assets/js/106.f8113fb8.js"><link rel="prefetch" href="/assets/js/107.7af90320.js"><link rel="prefetch" href="/assets/js/108.a76af7ab.js"><link rel="prefetch" href="/assets/js/109.ae7dfcbe.js"><link rel="prefetch" href="/assets/js/11.22d5654f.js"><link rel="prefetch" href="/assets/js/110.829dbd72.js"><link rel="prefetch" href="/assets/js/111.2612d028.js"><link rel="prefetch" href="/assets/js/112.381ba79f.js"><link rel="prefetch" href="/assets/js/113.52309728.js"><link rel="prefetch" href="/assets/js/114.afd46270.js"><link rel="prefetch" href="/assets/js/115.cfff1785.js"><link rel="prefetch" href="/assets/js/116.b9e85eed.js"><link rel="prefetch" href="/assets/js/117.c88c3ceb.js"><link rel="prefetch" href="/assets/js/118.0cfd8d46.js"><link rel="prefetch" href="/assets/js/119.972e6fcd.js"><link rel="prefetch" href="/assets/js/12.a1fbf449.js"><link rel="prefetch" href="/assets/js/120.c4d0fa30.js"><link rel="prefetch" href="/assets/js/121.a05fb7c8.js"><link rel="prefetch" href="/assets/js/122.84bc99e8.js"><link rel="prefetch" href="/assets/js/123.6e40db8b.js"><link rel="prefetch" href="/assets/js/124.679f60f0.js"><link rel="prefetch" href="/assets/js/125.7b983b12.js"><link rel="prefetch" href="/assets/js/126.c6529e34.js"><link rel="prefetch" href="/assets/js/127.62896466.js"><link rel="prefetch" href="/assets/js/128.11cadf09.js"><link rel="prefetch" href="/assets/js/129.a2c6007b.js"><link rel="prefetch" href="/assets/js/13.773a30c0.js"><link rel="prefetch" href="/assets/js/130.cd51d586.js"><link rel="prefetch" href="/assets/js/131.5d81a3a4.js"><link rel="prefetch" href="/assets/js/132.c062c43a.js"><link rel="prefetch" href="/assets/js/133.94b50107.js"><link rel="prefetch" href="/assets/js/134.e787c6f2.js"><link rel="prefetch" href="/assets/js/135.514b39b8.js"><link rel="prefetch" href="/assets/js/136.2209902a.js"><link rel="prefetch" href="/assets/js/137.8ee62050.js"><link rel="prefetch" href="/assets/js/138.30076406.js"><link rel="prefetch" href="/assets/js/139.153f79f0.js"><link rel="prefetch" href="/assets/js/14.a010702c.js"><link rel="prefetch" href="/assets/js/140.c22ae524.js"><link rel="prefetch" href="/assets/js/141.03388ce3.js"><link rel="prefetch" href="/assets/js/142.be052d72.js"><link rel="prefetch" href="/assets/js/143.86f4f723.js"><link rel="prefetch" href="/assets/js/144.58a81178.js"><link rel="prefetch" href="/assets/js/145.b6065cbb.js"><link rel="prefetch" href="/assets/js/146.a7d48393.js"><link rel="prefetch" href="/assets/js/147.1f5a2c27.js"><link rel="prefetch" href="/assets/js/148.e545c932.js"><link rel="prefetch" href="/assets/js/149.b7f633ea.js"><link rel="prefetch" href="/assets/js/15.6612b8a7.js"><link rel="prefetch" href="/assets/js/150.0c633255.js"><link rel="prefetch" href="/assets/js/151.7518fca9.js"><link rel="prefetch" href="/assets/js/152.85ebf0bb.js"><link rel="prefetch" href="/assets/js/153.6696affd.js"><link rel="prefetch" href="/assets/js/154.a488a746.js"><link rel="prefetch" href="/assets/js/155.b1285b65.js"><link rel="prefetch" href="/assets/js/156.c7d65add.js"><link rel="prefetch" href="/assets/js/157.95b667f4.js"><link rel="prefetch" href="/assets/js/158.36dcae64.js"><link rel="prefetch" href="/assets/js/159.5ab4607b.js"><link rel="prefetch" href="/assets/js/16.9728f201.js"><link rel="prefetch" href="/assets/js/160.f31c31c5.js"><link rel="prefetch" href="/assets/js/161.7faa6f5b.js"><link rel="prefetch" href="/assets/js/162.8bed1a3e.js"><link rel="prefetch" href="/assets/js/163.bccb4b94.js"><link rel="prefetch" href="/assets/js/164.d019f9f6.js"><link rel="prefetch" href="/assets/js/165.4ea2fcec.js"><link rel="prefetch" href="/assets/js/166.937ae33a.js"><link rel="prefetch" href="/assets/js/167.63bf2a10.js"><link rel="prefetch" href="/assets/js/168.8501b450.js"><link rel="prefetch" href="/assets/js/169.52064ac2.js"><link rel="prefetch" href="/assets/js/17.01684033.js"><link rel="prefetch" href="/assets/js/170.bc536396.js"><link rel="prefetch" href="/assets/js/171.5c44671a.js"><link rel="prefetch" href="/assets/js/172.cbc9f01e.js"><link rel="prefetch" href="/assets/js/173.036cc49c.js"><link rel="prefetch" href="/assets/js/174.7900267f.js"><link rel="prefetch" href="/assets/js/175.7f350261.js"><link rel="prefetch" href="/assets/js/176.abfbdc57.js"><link rel="prefetch" href="/assets/js/177.679877f2.js"><link rel="prefetch" href="/assets/js/178.87fc5aba.js"><link rel="prefetch" href="/assets/js/179.26c9f0a4.js"><link rel="prefetch" href="/assets/js/18.e64f0610.js"><link rel="prefetch" href="/assets/js/180.bd2cdacc.js"><link rel="prefetch" href="/assets/js/181.3ad737a4.js"><link rel="prefetch" href="/assets/js/182.3e7faf1a.js"><link rel="prefetch" href="/assets/js/183.4d65d295.js"><link rel="prefetch" href="/assets/js/184.460482ae.js"><link rel="prefetch" href="/assets/js/185.46d4a7fe.js"><link rel="prefetch" href="/assets/js/186.61235089.js"><link rel="prefetch" href="/assets/js/187.397bcfe8.js"><link rel="prefetch" href="/assets/js/188.060a1cb7.js"><link rel="prefetch" href="/assets/js/189.e3995463.js"><link rel="prefetch" href="/assets/js/19.f8b70585.js"><link rel="prefetch" href="/assets/js/190.dcaa16c4.js"><link rel="prefetch" href="/assets/js/191.f4c5aa96.js"><link rel="prefetch" href="/assets/js/192.8b10742f.js"><link rel="prefetch" href="/assets/js/193.64a40b9c.js"><link rel="prefetch" href="/assets/js/194.2ea34c9f.js"><link rel="prefetch" href="/assets/js/195.6bb470df.js"><link rel="prefetch" href="/assets/js/196.a0f55724.js"><link rel="prefetch" href="/assets/js/197.493d62fe.js"><link rel="prefetch" href="/assets/js/198.285ec3f4.js"><link rel="prefetch" href="/assets/js/199.c26664a8.js"><link rel="prefetch" href="/assets/js/20.c407011e.js"><link rel="prefetch" href="/assets/js/200.e172c025.js"><link rel="prefetch" href="/assets/js/201.88cbb622.js"><link rel="prefetch" href="/assets/js/202.da403177.js"><link rel="prefetch" href="/assets/js/203.6eb14b41.js"><link rel="prefetch" href="/assets/js/204.2ddae4bf.js"><link rel="prefetch" href="/assets/js/205.0a89efc1.js"><link rel="prefetch" href="/assets/js/206.480a66d3.js"><link rel="prefetch" href="/assets/js/207.bf5c1d60.js"><link rel="prefetch" href="/assets/js/208.b187dc67.js"><link rel="prefetch" href="/assets/js/209.20c99616.js"><link rel="prefetch" href="/assets/js/21.7edc8b1b.js"><link rel="prefetch" href="/assets/js/210.e4f1f766.js"><link rel="prefetch" href="/assets/js/211.1ed7b354.js"><link rel="prefetch" href="/assets/js/212.7e1243ab.js"><link rel="prefetch" href="/assets/js/213.6daddd4b.js"><link rel="prefetch" href="/assets/js/214.e548b00f.js"><link rel="prefetch" href="/assets/js/215.5e7f305a.js"><link rel="prefetch" href="/assets/js/216.d02d9a10.js"><link rel="prefetch" href="/assets/js/217.4ee282a4.js"><link rel="prefetch" href="/assets/js/218.d95d737e.js"><link rel="prefetch" href="/assets/js/219.fab5907a.js"><link rel="prefetch" href="/assets/js/22.fdbd00d3.js"><link rel="prefetch" href="/assets/js/220.56c6f7cc.js"><link rel="prefetch" href="/assets/js/221.3ee9e8ae.js"><link rel="prefetch" href="/assets/js/222.30c2d9ac.js"><link rel="prefetch" href="/assets/js/223.d6f5a1ce.js"><link rel="prefetch" href="/assets/js/224.b964e9b3.js"><link rel="prefetch" href="/assets/js/225.4f7cdb7b.js"><link rel="prefetch" href="/assets/js/226.34f5bc46.js"><link rel="prefetch" href="/assets/js/227.0c1d6c32.js"><link rel="prefetch" href="/assets/js/228.5c4850fa.js"><link rel="prefetch" href="/assets/js/229.0e83acaa.js"><link rel="prefetch" href="/assets/js/23.714595d5.js"><link rel="prefetch" href="/assets/js/230.d56ff6f6.js"><link rel="prefetch" href="/assets/js/231.19e033e0.js"><link rel="prefetch" href="/assets/js/232.b020bd32.js"><link rel="prefetch" href="/assets/js/233.19037210.js"><link rel="prefetch" href="/assets/js/234.10d14014.js"><link rel="prefetch" href="/assets/js/235.91bc5ad5.js"><link rel="prefetch" href="/assets/js/236.e9193180.js"><link rel="prefetch" href="/assets/js/237.e9be28a3.js"><link rel="prefetch" href="/assets/js/238.d1ac2fd8.js"><link rel="prefetch" href="/assets/js/239.44f2f146.js"><link rel="prefetch" href="/assets/js/24.2611c0d6.js"><link rel="prefetch" href="/assets/js/240.c8fe20cb.js"><link rel="prefetch" href="/assets/js/241.b232c3db.js"><link rel="prefetch" href="/assets/js/242.5bacdca9.js"><link rel="prefetch" href="/assets/js/243.bc85e605.js"><link rel="prefetch" href="/assets/js/244.975158d1.js"><link rel="prefetch" href="/assets/js/245.a139b48a.js"><link rel="prefetch" href="/assets/js/246.3138e906.js"><link rel="prefetch" href="/assets/js/247.070da83a.js"><link rel="prefetch" href="/assets/js/248.a1d8ac56.js"><link rel="prefetch" href="/assets/js/249.aadb0dca.js"><link rel="prefetch" href="/assets/js/25.2272f92f.js"><link rel="prefetch" href="/assets/js/250.c9cbf057.js"><link rel="prefetch" href="/assets/js/251.e8ddac0a.js"><link rel="prefetch" href="/assets/js/252.47894d0d.js"><link rel="prefetch" href="/assets/js/253.38f4c081.js"><link rel="prefetch" href="/assets/js/254.73808710.js"><link rel="prefetch" href="/assets/js/255.19234ae1.js"><link rel="prefetch" href="/assets/js/256.dbd6b6af.js"><link rel="prefetch" href="/assets/js/257.c16eae54.js"><link rel="prefetch" href="/assets/js/258.89a54cc9.js"><link rel="prefetch" href="/assets/js/259.ff8893b9.js"><link rel="prefetch" href="/assets/js/26.4d1df400.js"><link rel="prefetch" href="/assets/js/260.da83ef3e.js"><link rel="prefetch" href="/assets/js/261.39869cb6.js"><link rel="prefetch" href="/assets/js/262.6df31a71.js"><link rel="prefetch" href="/assets/js/263.a98eab49.js"><link rel="prefetch" href="/assets/js/264.1204725e.js"><link rel="prefetch" href="/assets/js/265.b6ce2d26.js"><link rel="prefetch" href="/assets/js/266.0c03e783.js"><link rel="prefetch" href="/assets/js/267.d686ec0e.js"><link rel="prefetch" href="/assets/js/268.e7c76c63.js"><link rel="prefetch" href="/assets/js/269.9ec0a34d.js"><link rel="prefetch" href="/assets/js/27.a88ca8bc.js"><link rel="prefetch" href="/assets/js/270.99f54d10.js"><link rel="prefetch" href="/assets/js/271.b9e143e2.js"><link rel="prefetch" href="/assets/js/272.1c93e968.js"><link rel="prefetch" href="/assets/js/273.7235d019.js"><link rel="prefetch" href="/assets/js/274.fbed798d.js"><link rel="prefetch" href="/assets/js/275.0006136b.js"><link rel="prefetch" href="/assets/js/276.8fc094f0.js"><link rel="prefetch" href="/assets/js/277.20e11e67.js"><link rel="prefetch" href="/assets/js/278.f8dc8f8f.js"><link rel="prefetch" href="/assets/js/279.651a9f88.js"><link rel="prefetch" href="/assets/js/28.69be6cc7.js"><link rel="prefetch" href="/assets/js/280.94aed3df.js"><link rel="prefetch" href="/assets/js/281.b9e4a0c1.js"><link rel="prefetch" href="/assets/js/282.fcbf917d.js"><link rel="prefetch" href="/assets/js/283.4b9335f2.js"><link rel="prefetch" href="/assets/js/284.a2748605.js"><link rel="prefetch" href="/assets/js/285.75119aca.js"><link rel="prefetch" href="/assets/js/286.a4a0abc2.js"><link rel="prefetch" href="/assets/js/287.0e10db49.js"><link rel="prefetch" href="/assets/js/288.540945f8.js"><link rel="prefetch" href="/assets/js/289.65991a71.js"><link rel="prefetch" href="/assets/js/29.3d144449.js"><link rel="prefetch" href="/assets/js/290.3cda3c0a.js"><link rel="prefetch" href="/assets/js/291.a7c9d6a2.js"><link rel="prefetch" href="/assets/js/292.2ce3fd5f.js"><link rel="prefetch" href="/assets/js/293.6572edb6.js"><link rel="prefetch" href="/assets/js/294.2a04291f.js"><link rel="prefetch" href="/assets/js/295.9a0fdf51.js"><link rel="prefetch" href="/assets/js/296.76bf15e5.js"><link rel="prefetch" href="/assets/js/297.ca22f9e0.js"><link rel="prefetch" href="/assets/js/298.dfd560c6.js"><link rel="prefetch" href="/assets/js/299.ea6a076f.js"><link rel="prefetch" href="/assets/js/3.19255846.js"><link rel="prefetch" href="/assets/js/30.c9924233.js"><link rel="prefetch" href="/assets/js/300.08ab4a0a.js"><link rel="prefetch" href="/assets/js/301.493634b6.js"><link rel="prefetch" href="/assets/js/302.088b770b.js"><link rel="prefetch" href="/assets/js/303.fdda8763.js"><link rel="prefetch" href="/assets/js/304.6e6a4a01.js"><link rel="prefetch" href="/assets/js/305.a3a1ae34.js"><link rel="prefetch" href="/assets/js/306.5835726c.js"><link rel="prefetch" href="/assets/js/307.0fce17cb.js"><link rel="prefetch" href="/assets/js/308.1e172ca3.js"><link rel="prefetch" href="/assets/js/309.80af26f3.js"><link rel="prefetch" href="/assets/js/31.f9f57568.js"><link rel="prefetch" href="/assets/js/310.b5f3ed6f.js"><link rel="prefetch" href="/assets/js/311.82c7e552.js"><link rel="prefetch" href="/assets/js/312.a48280c0.js"><link rel="prefetch" href="/assets/js/313.7c31693f.js"><link rel="prefetch" href="/assets/js/314.307f9eda.js"><link rel="prefetch" href="/assets/js/315.9f1e1099.js"><link rel="prefetch" href="/assets/js/316.7d255d6d.js"><link rel="prefetch" href="/assets/js/317.ef013a1a.js"><link rel="prefetch" href="/assets/js/318.64d24469.js"><link rel="prefetch" href="/assets/js/319.59c19af0.js"><link rel="prefetch" href="/assets/js/32.b29dc01b.js"><link rel="prefetch" href="/assets/js/320.add9fa10.js"><link rel="prefetch" href="/assets/js/321.22b199c2.js"><link rel="prefetch" href="/assets/js/322.ad9a2dff.js"><link rel="prefetch" href="/assets/js/323.b4183fc2.js"><link rel="prefetch" href="/assets/js/324.cf1aca23.js"><link rel="prefetch" href="/assets/js/325.83a4f1cf.js"><link rel="prefetch" href="/assets/js/326.f5c26436.js"><link rel="prefetch" href="/assets/js/327.16102be7.js"><link rel="prefetch" href="/assets/js/328.da84fbb0.js"><link rel="prefetch" href="/assets/js/329.4bdbc8ed.js"><link rel="prefetch" href="/assets/js/33.961516b8.js"><link rel="prefetch" href="/assets/js/330.0a98e84a.js"><link rel="prefetch" href="/assets/js/331.36e66e80.js"><link rel="prefetch" href="/assets/js/332.1b010d76.js"><link rel="prefetch" href="/assets/js/333.bf2def9d.js"><link rel="prefetch" href="/assets/js/334.373631c9.js"><link rel="prefetch" href="/assets/js/335.68121e51.js"><link rel="prefetch" href="/assets/js/336.49a94ea2.js"><link rel="prefetch" href="/assets/js/337.661abdcc.js"><link rel="prefetch" href="/assets/js/338.389c4be2.js"><link rel="prefetch" href="/assets/js/339.098329ed.js"><link rel="prefetch" href="/assets/js/34.7cb1f223.js"><link rel="prefetch" href="/assets/js/340.5c400f4d.js"><link rel="prefetch" href="/assets/js/341.41d84f2d.js"><link rel="prefetch" href="/assets/js/342.ef356713.js"><link rel="prefetch" href="/assets/js/343.d1e1952a.js"><link rel="prefetch" href="/assets/js/344.1980f7cc.js"><link rel="prefetch" href="/assets/js/345.0f7d9b9f.js"><link rel="prefetch" href="/assets/js/346.c3878425.js"><link rel="prefetch" href="/assets/js/347.dd74c55a.js"><link rel="prefetch" href="/assets/js/348.89584af8.js"><link rel="prefetch" href="/assets/js/349.c7bc7bc1.js"><link rel="prefetch" href="/assets/js/35.51ade70c.js"><link rel="prefetch" href="/assets/js/350.d2df1d20.js"><link rel="prefetch" href="/assets/js/351.a1b78a34.js"><link rel="prefetch" href="/assets/js/352.08ae09fd.js"><link rel="prefetch" href="/assets/js/353.aced76b3.js"><link rel="prefetch" href="/assets/js/354.f033ee07.js"><link rel="prefetch" href="/assets/js/355.95831785.js"><link rel="prefetch" href="/assets/js/356.893584e1.js"><link rel="prefetch" href="/assets/js/357.5f070ca5.js"><link rel="prefetch" href="/assets/js/358.35f2ade5.js"><link rel="prefetch" href="/assets/js/359.e45099bd.js"><link rel="prefetch" href="/assets/js/36.82c64b8f.js"><link rel="prefetch" href="/assets/js/360.59aa32f9.js"><link rel="prefetch" href="/assets/js/361.bd3c2fdd.js"><link rel="prefetch" href="/assets/js/362.3566e79d.js"><link rel="prefetch" href="/assets/js/363.b4ab82f7.js"><link rel="prefetch" href="/assets/js/364.7f50d299.js"><link rel="prefetch" href="/assets/js/365.4f8e93f6.js"><link rel="prefetch" href="/assets/js/366.8fd91814.js"><link rel="prefetch" href="/assets/js/367.0d47f5a8.js"><link rel="prefetch" href="/assets/js/368.fb7814d2.js"><link rel="prefetch" href="/assets/js/369.d6d8c504.js"><link rel="prefetch" href="/assets/js/37.5165b622.js"><link rel="prefetch" href="/assets/js/370.00a807a6.js"><link rel="prefetch" href="/assets/js/371.867a9db3.js"><link rel="prefetch" href="/assets/js/372.decca4ce.js"><link rel="prefetch" href="/assets/js/373.98b37511.js"><link rel="prefetch" href="/assets/js/374.6313e71a.js"><link rel="prefetch" href="/assets/js/375.f2e2fa05.js"><link rel="prefetch" href="/assets/js/376.7103c034.js"><link rel="prefetch" href="/assets/js/377.9bf388c9.js"><link rel="prefetch" href="/assets/js/378.57ae31cf.js"><link rel="prefetch" href="/assets/js/379.739ee8d7.js"><link rel="prefetch" href="/assets/js/38.563ce632.js"><link rel="prefetch" href="/assets/js/380.6256f3c8.js"><link rel="prefetch" href="/assets/js/381.38f7eb5a.js"><link rel="prefetch" href="/assets/js/382.ae035904.js"><link rel="prefetch" href="/assets/js/383.2d1b99c3.js"><link rel="prefetch" href="/assets/js/384.094517c8.js"><link rel="prefetch" href="/assets/js/385.62ddf499.js"><link rel="prefetch" href="/assets/js/386.8315cf9d.js"><link rel="prefetch" href="/assets/js/387.2bef00d3.js"><link rel="prefetch" href="/assets/js/388.178f867f.js"><link rel="prefetch" href="/assets/js/389.d893ba15.js"><link rel="prefetch" href="/assets/js/39.29556252.js"><link rel="prefetch" href="/assets/js/390.1b85f452.js"><link rel="prefetch" href="/assets/js/391.12fe014e.js"><link rel="prefetch" href="/assets/js/392.8c88755d.js"><link rel="prefetch" href="/assets/js/393.72aa7675.js"><link rel="prefetch" href="/assets/js/394.df13d1f7.js"><link rel="prefetch" href="/assets/js/395.8f8d96d9.js"><link rel="prefetch" href="/assets/js/396.aa362f3c.js"><link rel="prefetch" href="/assets/js/397.cca49694.js"><link rel="prefetch" href="/assets/js/398.d9fd0617.js"><link rel="prefetch" href="/assets/js/399.96f3fede.js"><link rel="prefetch" href="/assets/js/4.623783fc.js"><link rel="prefetch" href="/assets/js/40.0330d609.js"><link rel="prefetch" href="/assets/js/400.a1472f96.js"><link rel="prefetch" href="/assets/js/401.3d4e1a6b.js"><link rel="prefetch" href="/assets/js/402.0a8a7162.js"><link rel="prefetch" href="/assets/js/403.b1393b0f.js"><link rel="prefetch" href="/assets/js/404.7e485063.js"><link rel="prefetch" href="/assets/js/405.1037d751.js"><link rel="prefetch" href="/assets/js/406.ae7d83bb.js"><link rel="prefetch" href="/assets/js/407.cb9ade38.js"><link rel="prefetch" href="/assets/js/408.a105752d.js"><link rel="prefetch" href="/assets/js/409.a56202e0.js"><link rel="prefetch" href="/assets/js/41.dcb7a3f5.js"><link rel="prefetch" href="/assets/js/410.f615dd75.js"><link rel="prefetch" href="/assets/js/411.29882ac4.js"><link rel="prefetch" href="/assets/js/412.ed8e6abb.js"><link rel="prefetch" href="/assets/js/413.2a212c18.js"><link rel="prefetch" href="/assets/js/414.9717c94d.js"><link rel="prefetch" href="/assets/js/415.ad521b94.js"><link rel="prefetch" href="/assets/js/416.981646b8.js"><link rel="prefetch" href="/assets/js/417.3bcf1a86.js"><link rel="prefetch" href="/assets/js/418.d6d8bc33.js"><link rel="prefetch" href="/assets/js/419.79a736e3.js"><link rel="prefetch" href="/assets/js/42.61434728.js"><link rel="prefetch" href="/assets/js/420.bd2fe57b.js"><link rel="prefetch" href="/assets/js/421.040b2b27.js"><link rel="prefetch" href="/assets/js/422.5cc63c45.js"><link rel="prefetch" href="/assets/js/423.9d447e90.js"><link rel="prefetch" href="/assets/js/424.51734eb2.js"><link rel="prefetch" href="/assets/js/425.f6a00d75.js"><link rel="prefetch" href="/assets/js/426.896f7a5b.js"><link rel="prefetch" href="/assets/js/427.e099dd6a.js"><link rel="prefetch" href="/assets/js/428.beef8eb2.js"><link rel="prefetch" href="/assets/js/429.266ed61e.js"><link rel="prefetch" href="/assets/js/43.667a4108.js"><link rel="prefetch" href="/assets/js/430.cd857ec2.js"><link rel="prefetch" href="/assets/js/431.cb5550b2.js"><link rel="prefetch" href="/assets/js/432.3a31614c.js"><link rel="prefetch" href="/assets/js/433.c9f73ea8.js"><link rel="prefetch" href="/assets/js/434.c3d546a3.js"><link rel="prefetch" href="/assets/js/435.6a5558d5.js"><link rel="prefetch" href="/assets/js/436.fac0cdde.js"><link rel="prefetch" href="/assets/js/437.858e2dbc.js"><link rel="prefetch" href="/assets/js/438.4f6fd7f1.js"><link rel="prefetch" href="/assets/js/439.d823d6d5.js"><link rel="prefetch" href="/assets/js/44.2e051a69.js"><link rel="prefetch" href="/assets/js/440.8d4edefe.js"><link rel="prefetch" href="/assets/js/441.806f144c.js"><link rel="prefetch" href="/assets/js/442.56b1ae7b.js"><link rel="prefetch" href="/assets/js/443.0c9c92ed.js"><link rel="prefetch" href="/assets/js/444.4484d097.js"><link rel="prefetch" href="/assets/js/445.6e68718d.js"><link rel="prefetch" href="/assets/js/446.5bdd4ab4.js"><link rel="prefetch" href="/assets/js/447.6202d37b.js"><link rel="prefetch" href="/assets/js/448.88ae6dd3.js"><link rel="prefetch" href="/assets/js/449.2e911cca.js"><link rel="prefetch" href="/assets/js/45.08ce102a.js"><link rel="prefetch" href="/assets/js/450.16bda76e.js"><link rel="prefetch" href="/assets/js/451.ee603a5b.js"><link rel="prefetch" href="/assets/js/452.ff4a503b.js"><link rel="prefetch" href="/assets/js/453.f4bf543d.js"><link rel="prefetch" href="/assets/js/454.fb1e37fa.js"><link rel="prefetch" href="/assets/js/455.55467fe9.js"><link rel="prefetch" href="/assets/js/456.c1ccc8ef.js"><link rel="prefetch" href="/assets/js/457.aaeaefa6.js"><link rel="prefetch" href="/assets/js/458.f59b0607.js"><link rel="prefetch" href="/assets/js/459.201f603d.js"><link rel="prefetch" href="/assets/js/46.074adfe9.js"><link rel="prefetch" href="/assets/js/460.4e283c1a.js"><link rel="prefetch" href="/assets/js/461.c2492681.js"><link rel="prefetch" href="/assets/js/462.9362354d.js"><link rel="prefetch" href="/assets/js/463.a4087f38.js"><link rel="prefetch" href="/assets/js/464.e5828e7e.js"><link rel="prefetch" href="/assets/js/465.e95594b5.js"><link rel="prefetch" href="/assets/js/466.7b75c1f4.js"><link rel="prefetch" href="/assets/js/467.8e9d9c24.js"><link rel="prefetch" href="/assets/js/468.b87a6973.js"><link rel="prefetch" href="/assets/js/469.3411b392.js"><link rel="prefetch" href="/assets/js/47.8175158f.js"><link rel="prefetch" href="/assets/js/470.95363b28.js"><link rel="prefetch" href="/assets/js/471.21a1606b.js"><link rel="prefetch" href="/assets/js/472.f9687e9c.js"><link rel="prefetch" href="/assets/js/473.64f85306.js"><link rel="prefetch" href="/assets/js/474.8a9f362d.js"><link rel="prefetch" href="/assets/js/475.5d6399de.js"><link rel="prefetch" href="/assets/js/476.70d49b7b.js"><link rel="prefetch" href="/assets/js/477.7e3e21a3.js"><link rel="prefetch" href="/assets/js/478.67387462.js"><link rel="prefetch" href="/assets/js/479.a239eaa0.js"><link rel="prefetch" href="/assets/js/48.f20bc2b0.js"><link rel="prefetch" href="/assets/js/480.6f0b953b.js"><link rel="prefetch" href="/assets/js/481.b3ec6e3e.js"><link rel="prefetch" href="/assets/js/482.ef931c32.js"><link rel="prefetch" href="/assets/js/483.e2271a83.js"><link rel="prefetch" href="/assets/js/484.544c1072.js"><link rel="prefetch" href="/assets/js/485.d8a5505a.js"><link rel="prefetch" href="/assets/js/486.1ea2510a.js"><link rel="prefetch" href="/assets/js/487.e954f3bc.js"><link rel="prefetch" href="/assets/js/488.dbfe8c7c.js"><link rel="prefetch" href="/assets/js/489.92152c72.js"><link rel="prefetch" href="/assets/js/49.f4b7dc24.js"><link rel="prefetch" href="/assets/js/490.8ea88875.js"><link rel="prefetch" href="/assets/js/491.d1e2d1b6.js"><link rel="prefetch" href="/assets/js/492.217b7fd1.js"><link rel="prefetch" href="/assets/js/493.6d188156.js"><link rel="prefetch" href="/assets/js/494.adcca4bf.js"><link rel="prefetch" href="/assets/js/495.13cdbf74.js"><link rel="prefetch" href="/assets/js/496.53a4b758.js"><link rel="prefetch" href="/assets/js/497.0763c40d.js"><link rel="prefetch" href="/assets/js/498.debcfb1b.js"><link rel="prefetch" href="/assets/js/499.7d3cf6eb.js"><link rel="prefetch" href="/assets/js/50.41ac06fd.js"><link rel="prefetch" href="/assets/js/500.28473fb4.js"><link rel="prefetch" href="/assets/js/501.90241d8d.js"><link rel="prefetch" href="/assets/js/502.a096c362.js"><link rel="prefetch" href="/assets/js/503.539676ba.js"><link rel="prefetch" href="/assets/js/504.39d8e399.js"><link rel="prefetch" href="/assets/js/505.2b2a130b.js"><link rel="prefetch" href="/assets/js/506.7811ad79.js"><link rel="prefetch" href="/assets/js/507.2817d33b.js"><link rel="prefetch" href="/assets/js/508.89b8d712.js"><link rel="prefetch" href="/assets/js/509.80dcd2b5.js"><link rel="prefetch" href="/assets/js/51.3ef6cdbe.js"><link rel="prefetch" href="/assets/js/510.a8f28525.js"><link rel="prefetch" href="/assets/js/511.e890924a.js"><link rel="prefetch" href="/assets/js/512.9a073fe1.js"><link rel="prefetch" href="/assets/js/513.0a302efb.js"><link rel="prefetch" href="/assets/js/514.6b43f3e7.js"><link rel="prefetch" href="/assets/js/515.c7b0284a.js"><link rel="prefetch" href="/assets/js/516.5daf0566.js"><link rel="prefetch" href="/assets/js/517.67f7c508.js"><link rel="prefetch" href="/assets/js/518.7854e40b.js"><link rel="prefetch" href="/assets/js/519.dcb88d39.js"><link rel="prefetch" href="/assets/js/52.840d0f74.js"><link rel="prefetch" href="/assets/js/520.6f40c4e7.js"><link rel="prefetch" href="/assets/js/521.3c0a006c.js"><link rel="prefetch" href="/assets/js/522.ed57f1a7.js"><link rel="prefetch" href="/assets/js/523.39d637e2.js"><link rel="prefetch" href="/assets/js/524.acd5ee1f.js"><link rel="prefetch" href="/assets/js/525.0836647e.js"><link rel="prefetch" href="/assets/js/526.9e2af36c.js"><link rel="prefetch" href="/assets/js/527.9337d948.js"><link rel="prefetch" href="/assets/js/528.cacbd480.js"><link rel="prefetch" href="/assets/js/529.21a67f8f.js"><link rel="prefetch" href="/assets/js/53.fb86a936.js"><link rel="prefetch" href="/assets/js/530.3373ac51.js"><link rel="prefetch" href="/assets/js/531.1b371c24.js"><link rel="prefetch" href="/assets/js/532.64685d6d.js"><link rel="prefetch" href="/assets/js/533.d3344f80.js"><link rel="prefetch" href="/assets/js/534.1adcd2e2.js"><link rel="prefetch" href="/assets/js/535.cf0f4bbe.js"><link rel="prefetch" href="/assets/js/536.f3cadbc2.js"><link rel="prefetch" href="/assets/js/537.d2071727.js"><link rel="prefetch" href="/assets/js/538.b700925e.js"><link rel="prefetch" href="/assets/js/539.a5de8601.js"><link rel="prefetch" href="/assets/js/54.e8d5a023.js"><link rel="prefetch" href="/assets/js/540.525e8630.js"><link rel="prefetch" href="/assets/js/541.0b14ac8a.js"><link rel="prefetch" href="/assets/js/542.fc96e578.js"><link rel="prefetch" href="/assets/js/543.53cf25d0.js"><link rel="prefetch" href="/assets/js/544.f9b3e911.js"><link rel="prefetch" href="/assets/js/545.b353670e.js"><link rel="prefetch" href="/assets/js/546.5ed48a56.js"><link rel="prefetch" href="/assets/js/547.9843edce.js"><link rel="prefetch" href="/assets/js/548.f8eb7890.js"><link rel="prefetch" href="/assets/js/549.990650c2.js"><link rel="prefetch" href="/assets/js/55.b268240f.js"><link rel="prefetch" href="/assets/js/550.c7ba17a1.js"><link rel="prefetch" href="/assets/js/551.2ea79a07.js"><link rel="prefetch" href="/assets/js/552.950843bd.js"><link rel="prefetch" href="/assets/js/553.d1f94516.js"><link rel="prefetch" href="/assets/js/554.873b4336.js"><link rel="prefetch" href="/assets/js/555.12e7f37d.js"><link rel="prefetch" href="/assets/js/556.c84abfa5.js"><link rel="prefetch" href="/assets/js/557.76108e15.js"><link rel="prefetch" href="/assets/js/558.ad0caf91.js"><link rel="prefetch" href="/assets/js/559.efc5fcaa.js"><link rel="prefetch" href="/assets/js/56.862368c6.js"><link rel="prefetch" href="/assets/js/560.82032a52.js"><link rel="prefetch" href="/assets/js/561.b776e2e3.js"><link rel="prefetch" href="/assets/js/562.8f48c34e.js"><link rel="prefetch" href="/assets/js/563.1916b1f0.js"><link rel="prefetch" href="/assets/js/564.89eef1bf.js"><link rel="prefetch" href="/assets/js/565.2ca43acb.js"><link rel="prefetch" href="/assets/js/566.6caf93e6.js"><link rel="prefetch" href="/assets/js/567.1888604a.js"><link rel="prefetch" href="/assets/js/568.c909a75b.js"><link rel="prefetch" href="/assets/js/569.6862733a.js"><link rel="prefetch" href="/assets/js/57.d93cbd65.js"><link rel="prefetch" href="/assets/js/570.ce0e3115.js"><link rel="prefetch" href="/assets/js/571.0da49310.js"><link rel="prefetch" href="/assets/js/572.c34ca3fd.js"><link rel="prefetch" href="/assets/js/573.895c8f8d.js"><link rel="prefetch" href="/assets/js/574.e59b6191.js"><link rel="prefetch" href="/assets/js/575.842ef1ff.js"><link rel="prefetch" href="/assets/js/576.9b5dd540.js"><link rel="prefetch" href="/assets/js/577.2d0e6020.js"><link rel="prefetch" href="/assets/js/578.2e49a333.js"><link rel="prefetch" href="/assets/js/579.005171f1.js"><link rel="prefetch" href="/assets/js/58.10ca5b0d.js"><link rel="prefetch" href="/assets/js/580.74d9d14e.js"><link rel="prefetch" href="/assets/js/581.404aa6ad.js"><link rel="prefetch" href="/assets/js/582.4c756647.js"><link rel="prefetch" href="/assets/js/583.84f8db17.js"><link rel="prefetch" href="/assets/js/584.0c4307db.js"><link rel="prefetch" href="/assets/js/585.9cbe1c6c.js"><link rel="prefetch" href="/assets/js/586.94d5912f.js"><link rel="prefetch" href="/assets/js/587.08073e55.js"><link rel="prefetch" href="/assets/js/588.a4cb5da6.js"><link rel="prefetch" href="/assets/js/589.ff2423ac.js"><link rel="prefetch" href="/assets/js/59.3eb351e6.js"><link rel="prefetch" href="/assets/js/590.1a498879.js"><link rel="prefetch" href="/assets/js/591.eb8d6c20.js"><link rel="prefetch" href="/assets/js/592.850eee03.js"><link rel="prefetch" href="/assets/js/593.12b28022.js"><link rel="prefetch" href="/assets/js/594.9c805b81.js"><link rel="prefetch" href="/assets/js/595.e9119b0e.js"><link rel="prefetch" href="/assets/js/596.6b641a7e.js"><link rel="prefetch" href="/assets/js/597.77bf95f8.js"><link rel="prefetch" href="/assets/js/598.da53697e.js"><link rel="prefetch" href="/assets/js/599.281b72be.js"><link rel="prefetch" href="/assets/js/6.8773fb47.js"><link rel="prefetch" href="/assets/js/60.1c1a9cd1.js"><link rel="prefetch" href="/assets/js/600.4aa56a28.js"><link rel="prefetch" href="/assets/js/601.93029330.js"><link rel="prefetch" href="/assets/js/602.3dee7fe6.js"><link rel="prefetch" href="/assets/js/603.cdc313ee.js"><link rel="prefetch" href="/assets/js/604.965166a0.js"><link rel="prefetch" href="/assets/js/605.7c70961f.js"><link rel="prefetch" href="/assets/js/606.a9f02486.js"><link rel="prefetch" href="/assets/js/607.73baa5d1.js"><link rel="prefetch" href="/assets/js/608.e8fa09f4.js"><link rel="prefetch" href="/assets/js/609.ac51d009.js"><link rel="prefetch" href="/assets/js/61.9683ebee.js"><link rel="prefetch" href="/assets/js/610.644de93e.js"><link rel="prefetch" href="/assets/js/611.4435581a.js"><link rel="prefetch" href="/assets/js/612.27640be2.js"><link rel="prefetch" href="/assets/js/614.cf985a78.js"><link rel="prefetch" href="/assets/js/615.175e2d87.js"><link rel="prefetch" href="/assets/js/616.c034e53d.js"><link rel="prefetch" href="/assets/js/617.fe843932.js"><link rel="prefetch" href="/assets/js/618.17ffbf18.js"><link rel="prefetch" href="/assets/js/619.c968374b.js"><link rel="prefetch" href="/assets/js/62.2276e6d3.js"><link rel="prefetch" href="/assets/js/620.f34c0fa0.js"><link rel="prefetch" href="/assets/js/621.815b8624.js"><link rel="prefetch" href="/assets/js/622.d534821e.js"><link rel="prefetch" href="/assets/js/623.936ac4e3.js"><link rel="prefetch" href="/assets/js/624.68e1aa29.js"><link rel="prefetch" href="/assets/js/625.07b94155.js"><link rel="prefetch" href="/assets/js/626.96720feb.js"><link rel="prefetch" href="/assets/js/627.6c0097f7.js"><link rel="prefetch" href="/assets/js/628.1b01c525.js"><link rel="prefetch" href="/assets/js/629.6b7b7051.js"><link rel="prefetch" href="/assets/js/63.21657e0e.js"><link rel="prefetch" href="/assets/js/630.5e364b4e.js"><link rel="prefetch" href="/assets/js/631.1dbc5bc2.js"><link rel="prefetch" href="/assets/js/632.26cf0433.js"><link rel="prefetch" href="/assets/js/633.f5940046.js"><link rel="prefetch" href="/assets/js/634.631e139f.js"><link rel="prefetch" href="/assets/js/635.dcb1483c.js"><link rel="prefetch" href="/assets/js/636.99b6e8c3.js"><link rel="prefetch" href="/assets/js/637.ac8ad035.js"><link rel="prefetch" href="/assets/js/638.5782cc19.js"><link rel="prefetch" href="/assets/js/639.1db80fe2.js"><link rel="prefetch" href="/assets/js/64.02fb1ddb.js"><link rel="prefetch" href="/assets/js/640.bc54f7f5.js"><link rel="prefetch" href="/assets/js/641.cdff8819.js"><link rel="prefetch" href="/assets/js/642.df23e220.js"><link rel="prefetch" href="/assets/js/643.89df1b3c.js"><link rel="prefetch" href="/assets/js/644.5f0031ba.js"><link rel="prefetch" href="/assets/js/645.f7daa126.js"><link rel="prefetch" href="/assets/js/646.d47a3e0e.js"><link rel="prefetch" href="/assets/js/647.d1c8f3ae.js"><link rel="prefetch" href="/assets/js/648.0506ce23.js"><link rel="prefetch" href="/assets/js/649.6cf2a641.js"><link rel="prefetch" href="/assets/js/65.b4028009.js"><link rel="prefetch" href="/assets/js/650.89785dee.js"><link rel="prefetch" href="/assets/js/651.8b6fa105.js"><link rel="prefetch" href="/assets/js/652.5e42ce8f.js"><link rel="prefetch" href="/assets/js/653.eddc84e1.js"><link rel="prefetch" href="/assets/js/654.48762cb9.js"><link rel="prefetch" href="/assets/js/655.7bcd5aa3.js"><link rel="prefetch" href="/assets/js/656.bf91b745.js"><link rel="prefetch" href="/assets/js/657.332eec27.js"><link rel="prefetch" href="/assets/js/658.9e9b31c8.js"><link rel="prefetch" href="/assets/js/659.b469808c.js"><link rel="prefetch" href="/assets/js/66.33d6767a.js"><link rel="prefetch" href="/assets/js/660.25843c88.js"><link rel="prefetch" href="/assets/js/661.ca1a9580.js"><link rel="prefetch" href="/assets/js/662.cd6fe6ce.js"><link rel="prefetch" href="/assets/js/663.dddb87c3.js"><link rel="prefetch" href="/assets/js/664.c4d2b9b4.js"><link rel="prefetch" href="/assets/js/665.e26ea7fd.js"><link rel="prefetch" href="/assets/js/666.918a92c2.js"><link rel="prefetch" href="/assets/js/667.5f06fa05.js"><link rel="prefetch" href="/assets/js/668.7b783af2.js"><link rel="prefetch" href="/assets/js/669.efe734b4.js"><link rel="prefetch" href="/assets/js/67.0737d4e2.js"><link rel="prefetch" href="/assets/js/670.70a7afa1.js"><link rel="prefetch" href="/assets/js/671.d82e7481.js"><link rel="prefetch" href="/assets/js/672.f4e33cf4.js"><link rel="prefetch" href="/assets/js/673.f3b26cca.js"><link rel="prefetch" href="/assets/js/674.d5327fdb.js"><link rel="prefetch" href="/assets/js/675.06e1587e.js"><link rel="prefetch" href="/assets/js/676.b81eab7c.js"><link rel="prefetch" href="/assets/js/677.65c1f157.js"><link rel="prefetch" href="/assets/js/678.dd3c35f4.js"><link rel="prefetch" href="/assets/js/679.1b3371c6.js"><link rel="prefetch" href="/assets/js/68.ff08cac1.js"><link rel="prefetch" href="/assets/js/680.4c431b6d.js"><link rel="prefetch" href="/assets/js/681.4b4df97f.js"><link rel="prefetch" href="/assets/js/682.daa28558.js"><link rel="prefetch" href="/assets/js/683.019ac4bf.js"><link rel="prefetch" href="/assets/js/684.72942987.js"><link rel="prefetch" href="/assets/js/685.b232df8f.js"><link rel="prefetch" href="/assets/js/686.27dc24b3.js"><link rel="prefetch" href="/assets/js/687.4a8ef826.js"><link rel="prefetch" href="/assets/js/688.0ba25fdf.js"><link rel="prefetch" href="/assets/js/689.be8172ba.js"><link rel="prefetch" href="/assets/js/69.516fa4ee.js"><link rel="prefetch" href="/assets/js/690.88418e50.js"><link rel="prefetch" href="/assets/js/691.1d8c222b.js"><link rel="prefetch" href="/assets/js/692.85d9e426.js"><link rel="prefetch" href="/assets/js/693.a78b6c7b.js"><link rel="prefetch" href="/assets/js/694.8348e02c.js"><link rel="prefetch" href="/assets/js/695.0bbdae98.js"><link rel="prefetch" href="/assets/js/696.f9dcc8bf.js"><link rel="prefetch" href="/assets/js/697.1c6c7982.js"><link rel="prefetch" href="/assets/js/698.fa867a93.js"><link rel="prefetch" href="/assets/js/699.5ad98f0b.js"><link rel="prefetch" href="/assets/js/7.e86883c6.js"><link rel="prefetch" href="/assets/js/70.d7c0b02d.js"><link rel="prefetch" href="/assets/js/700.da097ba8.js"><link rel="prefetch" href="/assets/js/701.8f40c007.js"><link rel="prefetch" href="/assets/js/702.2ac7cfc8.js"><link rel="prefetch" href="/assets/js/703.e4f83f34.js"><link rel="prefetch" href="/assets/js/704.3230d5d3.js"><link rel="prefetch" href="/assets/js/705.9f2ac56e.js"><link rel="prefetch" href="/assets/js/706.479ef752.js"><link rel="prefetch" href="/assets/js/707.12907b99.js"><link rel="prefetch" href="/assets/js/708.a54c005e.js"><link rel="prefetch" href="/assets/js/709.2f084e72.js"><link rel="prefetch" href="/assets/js/71.c9ef60a6.js"><link rel="prefetch" href="/assets/js/710.992d9298.js"><link rel="prefetch" href="/assets/js/711.3dec9e74.js"><link rel="prefetch" href="/assets/js/712.fbba000f.js"><link rel="prefetch" href="/assets/js/713.644be223.js"><link rel="prefetch" href="/assets/js/714.20e703bd.js"><link rel="prefetch" href="/assets/js/715.7ac51064.js"><link rel="prefetch" href="/assets/js/716.5f8c7487.js"><link rel="prefetch" href="/assets/js/717.cdd46244.js"><link rel="prefetch" href="/assets/js/718.7b7a44e2.js"><link rel="prefetch" href="/assets/js/719.ed06b003.js"><link rel="prefetch" href="/assets/js/72.c23e24e9.js"><link rel="prefetch" href="/assets/js/720.202718be.js"><link rel="prefetch" href="/assets/js/721.1426ef3c.js"><link rel="prefetch" href="/assets/js/722.79f56663.js"><link rel="prefetch" href="/assets/js/723.6dcfa3ed.js"><link rel="prefetch" href="/assets/js/724.4c098acf.js"><link rel="prefetch" href="/assets/js/725.381dd189.js"><link rel="prefetch" href="/assets/js/726.baa6dcfe.js"><link rel="prefetch" href="/assets/js/727.f893500e.js"><link rel="prefetch" href="/assets/js/728.977ee9a0.js"><link rel="prefetch" href="/assets/js/729.3dc27591.js"><link rel="prefetch" href="/assets/js/73.d2b5812c.js"><link rel="prefetch" href="/assets/js/730.e62b3efb.js"><link rel="prefetch" href="/assets/js/731.8b21fd00.js"><link rel="prefetch" href="/assets/js/732.0e4b5daf.js"><link rel="prefetch" href="/assets/js/733.1cc505b4.js"><link rel="prefetch" href="/assets/js/734.55c0fe79.js"><link rel="prefetch" href="/assets/js/735.4eb02d3a.js"><link rel="prefetch" href="/assets/js/736.40c2728a.js"><link rel="prefetch" href="/assets/js/737.73c562f3.js"><link rel="prefetch" href="/assets/js/738.6dd69adf.js"><link rel="prefetch" href="/assets/js/739.af66a4dc.js"><link rel="prefetch" href="/assets/js/74.408525bc.js"><link rel="prefetch" href="/assets/js/740.eff57d99.js"><link rel="prefetch" href="/assets/js/741.7c9b1745.js"><link rel="prefetch" href="/assets/js/742.87bf09be.js"><link rel="prefetch" href="/assets/js/743.fd587ae7.js"><link rel="prefetch" href="/assets/js/744.b207d76b.js"><link rel="prefetch" href="/assets/js/745.5da05a37.js"><link rel="prefetch" href="/assets/js/746.05f0fcc4.js"><link rel="prefetch" href="/assets/js/747.8afc4f80.js"><link rel="prefetch" href="/assets/js/748.a6328657.js"><link rel="prefetch" href="/assets/js/749.488acffe.js"><link rel="prefetch" href="/assets/js/75.d6223e36.js"><link rel="prefetch" href="/assets/js/750.b778f9b2.js"><link rel="prefetch" href="/assets/js/751.046fb057.js"><link rel="prefetch" href="/assets/js/752.4fa1c3ec.js"><link rel="prefetch" href="/assets/js/753.2023ccf5.js"><link rel="prefetch" href="/assets/js/754.68df0df4.js"><link rel="prefetch" href="/assets/js/755.7289134a.js"><link rel="prefetch" href="/assets/js/756.bce7616e.js"><link rel="prefetch" href="/assets/js/757.3403e5f9.js"><link rel="prefetch" href="/assets/js/758.8f0d0bdf.js"><link rel="prefetch" href="/assets/js/759.cdd31702.js"><link rel="prefetch" href="/assets/js/76.f65eed64.js"><link rel="prefetch" href="/assets/js/760.9bfe29ed.js"><link rel="prefetch" href="/assets/js/761.e23339c6.js"><link rel="prefetch" href="/assets/js/762.db375c5b.js"><link rel="prefetch" href="/assets/js/763.8b16c3fe.js"><link rel="prefetch" href="/assets/js/764.f1f4f712.js"><link rel="prefetch" href="/assets/js/765.23e53b3a.js"><link rel="prefetch" href="/assets/js/766.3d3bb3ff.js"><link rel="prefetch" href="/assets/js/767.35ad7cea.js"><link rel="prefetch" href="/assets/js/768.295d1f7a.js"><link rel="prefetch" href="/assets/js/769.2f8fe776.js"><link rel="prefetch" href="/assets/js/77.ec9614b4.js"><link rel="prefetch" href="/assets/js/770.a89ea5e2.js"><link rel="prefetch" href="/assets/js/771.0d2cf3ee.js"><link rel="prefetch" href="/assets/js/772.a10354a4.js"><link rel="prefetch" href="/assets/js/773.ee60e68b.js"><link rel="prefetch" href="/assets/js/774.ba4aad28.js"><link rel="prefetch" href="/assets/js/775.7d35f9cc.js"><link rel="prefetch" href="/assets/js/776.b3ec764c.js"><link rel="prefetch" href="/assets/js/777.c124aefe.js"><link rel="prefetch" href="/assets/js/778.325cfc0e.js"><link rel="prefetch" href="/assets/js/779.d2b575a6.js"><link rel="prefetch" href="/assets/js/78.f56b2037.js"><link rel="prefetch" href="/assets/js/780.218c6b47.js"><link rel="prefetch" href="/assets/js/781.0eac52b7.js"><link rel="prefetch" href="/assets/js/782.79965326.js"><link rel="prefetch" href="/assets/js/783.60892b73.js"><link rel="prefetch" href="/assets/js/784.b8f79fd0.js"><link rel="prefetch" href="/assets/js/785.0528258e.js"><link rel="prefetch" href="/assets/js/786.1dbadb12.js"><link rel="prefetch" href="/assets/js/787.f247b164.js"><link rel="prefetch" href="/assets/js/788.3dd93a34.js"><link rel="prefetch" href="/assets/js/789.7b97a48d.js"><link rel="prefetch" href="/assets/js/79.ed5ad905.js"><link rel="prefetch" href="/assets/js/790.8ceeb0b3.js"><link rel="prefetch" href="/assets/js/791.e926d9a8.js"><link rel="prefetch" href="/assets/js/792.3e5a323a.js"><link rel="prefetch" href="/assets/js/793.43419085.js"><link rel="prefetch" href="/assets/js/794.b8c22345.js"><link rel="prefetch" href="/assets/js/795.7370ff3c.js"><link rel="prefetch" href="/assets/js/796.9509e009.js"><link rel="prefetch" href="/assets/js/797.4a4202c2.js"><link rel="prefetch" href="/assets/js/798.3961cf47.js"><link rel="prefetch" href="/assets/js/799.69707d57.js"><link rel="prefetch" href="/assets/js/8.3fe9535a.js"><link rel="prefetch" href="/assets/js/80.202c3322.js"><link rel="prefetch" href="/assets/js/800.f72c31a2.js"><link rel="prefetch" href="/assets/js/801.2372cb79.js"><link rel="prefetch" href="/assets/js/802.3aefd131.js"><link rel="prefetch" href="/assets/js/803.18443761.js"><link rel="prefetch" href="/assets/js/804.301bf327.js"><link rel="prefetch" href="/assets/js/805.e169a32a.js"><link rel="prefetch" href="/assets/js/806.27cbd296.js"><link rel="prefetch" href="/assets/js/807.b0443249.js"><link rel="prefetch" href="/assets/js/808.91924bc7.js"><link rel="prefetch" href="/assets/js/809.865e8932.js"><link rel="prefetch" href="/assets/js/81.9d064e1c.js"><link rel="prefetch" href="/assets/js/810.28dafb2c.js"><link rel="prefetch" href="/assets/js/811.9248d0a5.js"><link rel="prefetch" href="/assets/js/812.8bb147f8.js"><link rel="prefetch" href="/assets/js/813.57a8a982.js"><link rel="prefetch" href="/assets/js/814.f80c73c9.js"><link rel="prefetch" href="/assets/js/815.2b3d99fc.js"><link rel="prefetch" href="/assets/js/816.4a05e284.js"><link rel="prefetch" href="/assets/js/817.6c8508c2.js"><link rel="prefetch" href="/assets/js/818.c72f5330.js"><link rel="prefetch" href="/assets/js/819.35126624.js"><link rel="prefetch" href="/assets/js/82.210310b3.js"><link rel="prefetch" href="/assets/js/820.d5254c3c.js"><link rel="prefetch" href="/assets/js/821.c69c6b2c.js"><link rel="prefetch" href="/assets/js/822.1ccbb204.js"><link rel="prefetch" href="/assets/js/823.0436449a.js"><link rel="prefetch" href="/assets/js/824.a9d3c6f0.js"><link rel="prefetch" href="/assets/js/825.f9bf8329.js"><link rel="prefetch" href="/assets/js/826.e0d5f786.js"><link rel="prefetch" href="/assets/js/827.cf88e320.js"><link rel="prefetch" href="/assets/js/828.67da7389.js"><link rel="prefetch" href="/assets/js/829.21c2eac1.js"><link rel="prefetch" href="/assets/js/83.d74f6f93.js"><link rel="prefetch" href="/assets/js/830.1eb4ea1b.js"><link rel="prefetch" href="/assets/js/831.6b51565e.js"><link rel="prefetch" href="/assets/js/832.07a20675.js"><link rel="prefetch" href="/assets/js/833.0f7823b8.js"><link rel="prefetch" href="/assets/js/834.27bf9c2e.js"><link rel="prefetch" href="/assets/js/835.409429ce.js"><link rel="prefetch" href="/assets/js/836.28de2c29.js"><link rel="prefetch" href="/assets/js/837.5e7df1f1.js"><link rel="prefetch" href="/assets/js/838.5adc5f6e.js"><link rel="prefetch" href="/assets/js/839.11c3bfc2.js"><link rel="prefetch" href="/assets/js/84.4cf98a31.js"><link rel="prefetch" href="/assets/js/840.65d20fee.js"><link rel="prefetch" href="/assets/js/841.1949a396.js"><link rel="prefetch" href="/assets/js/842.f7a8d098.js"><link rel="prefetch" href="/assets/js/843.65694aa6.js"><link rel="prefetch" href="/assets/js/844.7a62cf9b.js"><link rel="prefetch" href="/assets/js/85.22b95924.js"><link rel="prefetch" href="/assets/js/86.a6f80a36.js"><link rel="prefetch" href="/assets/js/87.3b138e3b.js"><link rel="prefetch" href="/assets/js/88.bb56b7a2.js"><link rel="prefetch" href="/assets/js/89.198a78ff.js"><link rel="prefetch" href="/assets/js/9.59b98557.js"><link rel="prefetch" href="/assets/js/90.d743afe3.js"><link rel="prefetch" href="/assets/js/91.3b6d096c.js"><link rel="prefetch" href="/assets/js/92.a61a93f5.js"><link rel="prefetch" href="/assets/js/93.89cc3bad.js"><link rel="prefetch" href="/assets/js/94.fafb4ea3.js"><link rel="prefetch" href="/assets/js/95.52a52f2e.js"><link rel="prefetch" href="/assets/js/96.82379902.js"><link rel="prefetch" href="/assets/js/97.fb013838.js"><link rel="prefetch" href="/assets/js/98.17d2f72a.js"><link rel="prefetch" href="/assets/js/99.b355b28b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.183d1d00.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-17815e06><header class="navbar" data-v-17815e06><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.png" alt="智能后端和架构" class="logo"> <span class="site-name can-hide">智能后端和架构</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/readguide.html" class="nav-link">
+  导读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java基础" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java基础" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java语言基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/intro/01-java-intro.html" class="nav-link">
+  Java入门介绍
+</a></li><li class="dropdown-subitem"><a href="/java/intro/03-java-grammer.html" class="nav-link">
+  Java基础语法
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java面向对象基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/basic/01-lan-feature.html" class="nav-link">
+  语言基础特性
+</a></li><li class="dropdown-subitem"><a href="/java/basic/02-oop-feature.html" class="nav-link">
+  面向对象特征
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java集合类编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/collection/01-intro.html" class="nav-link">
+  集合类基础介绍
+</a></li><li class="dropdown-subitem"><a href="/java/collection/02-collectionmap.html" class="nav-link">
+  集合框架Collction、Map
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java文件和网络编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/file/01-intro.html" class="nav-link">
+  Java文件IO流入门
+</a></li><li class="dropdown-subitem"><a href="/java/net/01-intro.html" class="nav-link">
+  Java网络编程入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java并发编程和JUC
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/thread/01-intro.html" class="nav-link">
+  Java并发 基础入门
+</a></li><li class="dropdown-subitem"><a href="/java/juc/01-intro.html" class="nav-link">
+  Java并发 JUC入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java虚拟机和语言特性
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/jvm/01-intro.html" class="nav-link">
+  Java  虚拟机
+</a></li><li class="dropdown-subitem"><a href="/java/characteristic/01-java8.html" class="nav-link">
+  Java8 语言特性
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和SQL
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/intro/01-intro.html" class="nav-link">
+  数据库绪论
+</a></li><li class="dropdown-subitem"><a href="/db/intro/02-relationdb.html" class="nav-link">
+  关系数据库
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/01-basicselect.html" class="nav-link">
+  基本查询SQL
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/02-joinselect.html" class="nav-link">
+  连表查询SQL
+</a></li></ul></li><li class="dropdown-item"><h4>
+          MySQL基础和优化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/mysqlbasic/01-intro.html" class="nav-link">
+  入门介绍
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt1/01-solutionsum.html" class="nav-link">
+  性能优化方案
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/01-districtandtable.html" class="nav-link">
+  分区和分表
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/05-readwritesepration.html" class="nav-link">
+  读写分离介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/redis/01-intro.html" class="nav-link">
+  Redis介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础概念总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/basic/01-basicconcept.html" class="nav-link">
+  数据结构基础概念
+</a></li><li class="dropdown-subitem"><a href="/algorithm/basic/02-intro.html" class="nav-link">
+  算法和数据结构介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/01-commondy.html" class="nav-link">
+  常用算法动态展示
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/04-visualgo.html" class="nav-link">
+  visualgo-中文算法展示
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法思想总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/thought/01-thoughts8intro.html" class="nav-link">
+  八种常用算法思想
+</a></li><li class="dropdown-subitem"><a href="/algorithm/thought/02-thoughts5intro.html" class="nav-link">
+  五种基本算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用算法总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/search/01-intro.html" class="nav-link">
+  常用查找算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/sort/01-intro.html" class="nav-link">
+  常用排序算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/strmatch/01-intro.html" class="nav-link">
+  常用字符串匹配-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/encryption/01-intro.html" class="nav-link">
+  常用加密解密算法-介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">大数据</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">大数据</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/bigdata/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/bigdata/techintro/01-intro.html" class="nav-link">
+  技术体系介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据采集总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dc/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/dc/intro/02-diff.html" class="nav-link">
+  常用工具比较
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据存储总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ds/intro/01-basicintro.html" class="nav-link">
+  Hadoop入门介绍
+</a></li><li class="dropdown-subitem"><a href="/ds/intro/02-detailintro.html" class="nav-link">
+  Hadoop生态介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据仓库总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dw/intro/01-intro.html" class="nav-link">
+  数据仓库入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dw/intro/03-summary.html" class="nav-link">
+  数据仓库精华总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据处理总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dp/mr/01-intro.html" class="nav-link">
+  MapReduce-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dp/mr/02-basicprin.html" class="nav-link">
+  MapReduce-工作原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据应用总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/da/intro/01-intro.html" class="nav-link">
+  大数据应用场景基础介绍
+</a></li><li class="dropdown-subitem"><a href="/dm/intro/01-intro.html" class="nav-link">
+  大数据数据挖掘基础介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">人工智能</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">人工智能</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/intro/01-intro.html" class="nav-link">
+  人工智能基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlintro/01-intro.html" class="nav-link">
+  机器学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/dlintro/01-intro.html" class="nav-link">
+  深度学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/nnprin/01-intro.html" class="nav-link">
+  神经网络原理介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlalgorithm/01-intro.html" class="nav-link">
+  机器学习算法介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlmath/01-intro.html" class="nav-link">
+  机器学习数学介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ad/intro/01-intro.html" class="nav-link">
+  主流-AI开源开发框架介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/dl4jintro/01-intro.html" class="nav-link">
+  JAVA-AI开发框架Dl4j介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/pytorch/01-intro.html" class="nav-link">
+  AI开发框架-Pytorch介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/tensorflow/01-intro.html" class="nav-link">
+  AI开发框架-TensorFlow介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发应用案例
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ac/intro/01-intro.html" class="nav-link">
+  AI常见案例和趋势介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/rsintro/01-intro.html" class="nav-link">
+  AI应用案例-推荐系统介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aicity/01-intro.html" class="nav-link">
+  AI应用案例-智慧城市介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aibigscreen/01-intro.html" class="nav-link">
+  AI应用案例-智慧大屏介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Spring</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Spring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Spring基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/basic/01-intro.html" class="nav-link">
+  Spring-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/basic/02-iocaopintro.html" class="nav-link">
+  IOC和AOP-原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringMVC总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springmvc/01-intro.html" class="nav-link">
+  SpringMVC-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springmvc/02-prinintro.html" class="nav-link">
+  SpringMVC-工作原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringBoot总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springboot/03-workprin.html" class="nav-link">
+  SpringBoot-工作原理
+</a></li><li class="dropdown-subitem"><a href="/spring/springboot/06-startprincodeanalysis.html" class="nav-link">
+  启动原理分析和源码解读
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring注解总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/annotation/03-springannprin.html" class="nav-link">
+  Spring注解实现原理
+</a></li><li class="dropdown-subitem"><a href="/spring/annotation/04-anntotal1.html" class="nav-link">
+  Spring注解大全(一)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringCloud知识介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springcloud/01-intro.html" class="nav-link">
+  SpringCloud-基础介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springcloud/03-prindetail.html" class="nav-link">
+  SpringCloud-原理详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          框架基础总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/basic/01-intro.html" class="nav-link">
+  框架基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/02-commconceptdiff.html" class="nav-link">
+  框架架构组件区别
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/03-commconceptrela.html" class="nav-link">
+  框架架构组件关系
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/06-microserv15.html" class="nav-link">
+  常见15种微服务框架
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/07-springframethink.html" class="nav-link">
+  Spring框架思想总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/log/01-intro.html" class="nav-link">
+  日志框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/orm/01-intro.html" class="nav-link">
+  ORM框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nio/01-intro.html" class="nav-link">
+  NIO框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/netty/01-intro.html" class="nav-link">
+  Netty框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nettycase/01-intro.html" class="nav-link">
+  Netty案例-介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">架构</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">架构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          架构基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/architecture/basic/01-intro.html" class="nav-link">
+  架构基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/architecture/basic/02-essence.html" class="nav-link">
+  架构基本概念和本质
+</a></li><li class="dropdown-subitem"><a href="/architecture/microservanddistribute/01-intro.html" class="nav-link">
+  微服务架构知识介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/tool/01-intro.html" class="nav-link">
+  Java开发工具介绍
+</a></li><li class="dropdown-subitem"><a href="/dev/tool/05-idea20recommendedplug.html" class="nav-link">
+  Idea开发插件推荐
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/standard/01-intro.html" class="nav-link">
+  Java开发规范
+</a></li><li class="dropdown-subitem"><a href="/dev/designpattern/01-intro.html" class="nav-link">
+  Java设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发效率
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/deveffciency/02-commpromethods.html" class="nav-link">
+  效率提升常用方法
+</a></li><li class="dropdown-subitem"><a href="/dev/deveffciency/09-summary.html" class="nav-link">
+  效率提升精华总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">综合</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">综合</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中间件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/middleware/mq/01-intro.html" class="nav-link">
+  MQ消息队列介绍
+</a></li><li class="dropdown-subitem"><a href="/es/basic/01-intro.html" class="nav-link">
+  ES搜索服务器介绍
+</a></li><li class="dropdown-subitem"><a href="/middleware/zookeeper/01-intro.html" class="nav-link">
+  Zookeeper介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          综合技能
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mysqlop/basic/01-intro.html" class="nav-link">
+  MySQL运维总结
+</a></li><li class="dropdown-subitem"><a href="/operation/linux/01-intro.html" class="nav-link">
+  Linux常用命令
+</a></li><li class="dropdown-subitem"><a href="/operation/ng/05-ngsum.html" class="nav-link">
+  Nginx使用总结
+</a></li><li class="dropdown-subitem"><a href="/post/javabasic/01-javabasic.html" class="nav-link">
+  求职面试整理
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">项目|产品</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">项目|产品</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          研发效能介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/01-intro.html" class="nav-link">
+  研发效能入门介绍
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/06-efficiencysystem.html" class="nav-link">
+  研发效能体系构建
+</a></li></ul></li><li class="dropdown-item"><h4>
+          研发效能提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdeffciencypromote/09-summary.html" class="nav-link">
+  研发效能提升精华总结
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdeffciencytool/01-intro.html" class="nav-link">
+  研发效能系统管理工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-17815e06></div> <aside class="sidebar" data-v-17815e06><nav class="nav-links"><div class="nav-item"><a href="/readguide.html" class="nav-link">
+  导读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java基础" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java基础" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java语言基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/intro/01-java-intro.html" class="nav-link">
+  Java入门介绍
+</a></li><li class="dropdown-subitem"><a href="/java/intro/03-java-grammer.html" class="nav-link">
+  Java基础语法
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java面向对象基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/basic/01-lan-feature.html" class="nav-link">
+  语言基础特性
+</a></li><li class="dropdown-subitem"><a href="/java/basic/02-oop-feature.html" class="nav-link">
+  面向对象特征
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java集合类编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/collection/01-intro.html" class="nav-link">
+  集合类基础介绍
+</a></li><li class="dropdown-subitem"><a href="/java/collection/02-collectionmap.html" class="nav-link">
+  集合框架Collction、Map
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java文件和网络编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/file/01-intro.html" class="nav-link">
+  Java文件IO流入门
+</a></li><li class="dropdown-subitem"><a href="/java/net/01-intro.html" class="nav-link">
+  Java网络编程入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java并发编程和JUC
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/thread/01-intro.html" class="nav-link">
+  Java并发 基础入门
+</a></li><li class="dropdown-subitem"><a href="/java/juc/01-intro.html" class="nav-link">
+  Java并发 JUC入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java虚拟机和语言特性
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/jvm/01-intro.html" class="nav-link">
+  Java  虚拟机
+</a></li><li class="dropdown-subitem"><a href="/java/characteristic/01-java8.html" class="nav-link">
+  Java8 语言特性
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和SQL
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/intro/01-intro.html" class="nav-link">
+  数据库绪论
+</a></li><li class="dropdown-subitem"><a href="/db/intro/02-relationdb.html" class="nav-link">
+  关系数据库
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/01-basicselect.html" class="nav-link">
+  基本查询SQL
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/02-joinselect.html" class="nav-link">
+  连表查询SQL
+</a></li></ul></li><li class="dropdown-item"><h4>
+          MySQL基础和优化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/mysqlbasic/01-intro.html" class="nav-link">
+  入门介绍
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt1/01-solutionsum.html" class="nav-link">
+  性能优化方案
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/01-districtandtable.html" class="nav-link">
+  分区和分表
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/05-readwritesepration.html" class="nav-link">
+  读写分离介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/redis/01-intro.html" class="nav-link">
+  Redis介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础概念总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/basic/01-basicconcept.html" class="nav-link">
+  数据结构基础概念
+</a></li><li class="dropdown-subitem"><a href="/algorithm/basic/02-intro.html" class="nav-link">
+  算法和数据结构介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/01-commondy.html" class="nav-link">
+  常用算法动态展示
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/04-visualgo.html" class="nav-link">
+  visualgo-中文算法展示
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法思想总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/thought/01-thoughts8intro.html" class="nav-link">
+  八种常用算法思想
+</a></li><li class="dropdown-subitem"><a href="/algorithm/thought/02-thoughts5intro.html" class="nav-link">
+  五种基本算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用算法总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/search/01-intro.html" class="nav-link">
+  常用查找算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/sort/01-intro.html" class="nav-link">
+  常用排序算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/strmatch/01-intro.html" class="nav-link">
+  常用字符串匹配-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/encryption/01-intro.html" class="nav-link">
+  常用加密解密算法-介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">大数据</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">大数据</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/bigdata/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/bigdata/techintro/01-intro.html" class="nav-link">
+  技术体系介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据采集总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dc/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/dc/intro/02-diff.html" class="nav-link">
+  常用工具比较
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据存储总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ds/intro/01-basicintro.html" class="nav-link">
+  Hadoop入门介绍
+</a></li><li class="dropdown-subitem"><a href="/ds/intro/02-detailintro.html" class="nav-link">
+  Hadoop生态介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据仓库总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dw/intro/01-intro.html" class="nav-link">
+  数据仓库入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dw/intro/03-summary.html" class="nav-link">
+  数据仓库精华总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据处理总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dp/mr/01-intro.html" class="nav-link">
+  MapReduce-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dp/mr/02-basicprin.html" class="nav-link">
+  MapReduce-工作原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据应用总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/da/intro/01-intro.html" class="nav-link">
+  大数据应用场景基础介绍
+</a></li><li class="dropdown-subitem"><a href="/dm/intro/01-intro.html" class="nav-link">
+  大数据数据挖掘基础介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">人工智能</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">人工智能</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/intro/01-intro.html" class="nav-link">
+  人工智能基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlintro/01-intro.html" class="nav-link">
+  机器学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/dlintro/01-intro.html" class="nav-link">
+  深度学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/nnprin/01-intro.html" class="nav-link">
+  神经网络原理介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlalgorithm/01-intro.html" class="nav-link">
+  机器学习算法介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlmath/01-intro.html" class="nav-link">
+  机器学习数学介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ad/intro/01-intro.html" class="nav-link">
+  主流-AI开源开发框架介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/dl4jintro/01-intro.html" class="nav-link">
+  JAVA-AI开发框架Dl4j介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/pytorch/01-intro.html" class="nav-link">
+  AI开发框架-Pytorch介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/tensorflow/01-intro.html" class="nav-link">
+  AI开发框架-TensorFlow介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发应用案例
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ac/intro/01-intro.html" class="nav-link">
+  AI常见案例和趋势介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/rsintro/01-intro.html" class="nav-link">
+  AI应用案例-推荐系统介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aicity/01-intro.html" class="nav-link">
+  AI应用案例-智慧城市介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aibigscreen/01-intro.html" class="nav-link">
+  AI应用案例-智慧大屏介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Spring</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Spring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Spring基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/basic/01-intro.html" class="nav-link">
+  Spring-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/basic/02-iocaopintro.html" class="nav-link">
+  IOC和AOP-原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringMVC总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springmvc/01-intro.html" class="nav-link">
+  SpringMVC-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springmvc/02-prinintro.html" class="nav-link">
+  SpringMVC-工作原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringBoot总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springboot/03-workprin.html" class="nav-link">
+  SpringBoot-工作原理
+</a></li><li class="dropdown-subitem"><a href="/spring/springboot/06-startprincodeanalysis.html" class="nav-link">
+  启动原理分析和源码解读
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring注解总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/annotation/03-springannprin.html" class="nav-link">
+  Spring注解实现原理
+</a></li><li class="dropdown-subitem"><a href="/spring/annotation/04-anntotal1.html" class="nav-link">
+  Spring注解大全(一)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringCloud知识介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springcloud/01-intro.html" class="nav-link">
+  SpringCloud-基础介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springcloud/03-prindetail.html" class="nav-link">
+  SpringCloud-原理详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          框架基础总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/basic/01-intro.html" class="nav-link">
+  框架基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/02-commconceptdiff.html" class="nav-link">
+  框架架构组件区别
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/03-commconceptrela.html" class="nav-link">
+  框架架构组件关系
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/06-microserv15.html" class="nav-link">
+  常见15种微服务框架
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/07-springframethink.html" class="nav-link">
+  Spring框架思想总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/log/01-intro.html" class="nav-link">
+  日志框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/orm/01-intro.html" class="nav-link">
+  ORM框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nio/01-intro.html" class="nav-link">
+  NIO框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/netty/01-intro.html" class="nav-link">
+  Netty框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nettycase/01-intro.html" class="nav-link">
+  Netty案例-介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">架构</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">架构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          架构基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/architecture/basic/01-intro.html" class="nav-link">
+  架构基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/architecture/basic/02-essence.html" class="nav-link">
+  架构基本概念和本质
+</a></li><li class="dropdown-subitem"><a href="/architecture/microservanddistribute/01-intro.html" class="nav-link">
+  微服务架构知识介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/tool/01-intro.html" class="nav-link">
+  Java开发工具介绍
+</a></li><li class="dropdown-subitem"><a href="/dev/tool/05-idea20recommendedplug.html" class="nav-link">
+  Idea开发插件推荐
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/standard/01-intro.html" class="nav-link">
+  Java开发规范
+</a></li><li class="dropdown-subitem"><a href="/dev/designpattern/01-intro.html" class="nav-link">
+  Java设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发效率
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/deveffciency/02-commpromethods.html" class="nav-link">
+  效率提升常用方法
+</a></li><li class="dropdown-subitem"><a href="/dev/deveffciency/09-summary.html" class="nav-link">
+  效率提升精华总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">综合</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">综合</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中间件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/middleware/mq/01-intro.html" class="nav-link">
+  MQ消息队列介绍
+</a></li><li class="dropdown-subitem"><a href="/es/basic/01-intro.html" class="nav-link">
+  ES搜索服务器介绍
+</a></li><li class="dropdown-subitem"><a href="/middleware/zookeeper/01-intro.html" class="nav-link">
+  Zookeeper介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          综合技能
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mysqlop/basic/01-intro.html" class="nav-link">
+  MySQL运维总结
+</a></li><li class="dropdown-subitem"><a href="/operation/linux/01-intro.html" class="nav-link">
+  Linux常用命令
+</a></li><li class="dropdown-subitem"><a href="/operation/ng/05-ngsum.html" class="nav-link">
+  Nginx使用总结
+</a></li><li class="dropdown-subitem"><a href="/post/javabasic/01-javabasic.html" class="nav-link">
+  求职面试整理
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">项目|产品</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">项目|产品</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          研发效能介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/01-intro.html" class="nav-link">
+  研发效能入门介绍
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/06-efficiencysystem.html" class="nav-link">
+  研发效能体系构建
+</a></li></ul></li><li class="dropdown-item"><h4>
+          研发效能提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdeffciencypromote/09-summary.html" class="nav-link">
+  研发效能提升精华总结
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdeffciencytool/01-intro.html" class="nav-link">
+  研发效能系统管理工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Java语言基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/intro/01-java-intro.html" class="sidebar-link">Java基础介绍</a></li><li><a href="/java/intro/02-java-install.html" class="sidebar-link">Java安装和环境变量</a></li><li><a href="/java/intro/03-java-grammer.html" class="sidebar-link">Java基础语法</a></li><li><a href="/java/intro/04-java-classaobject.html" class="sidebar-link">Java类和对象操作</a></li><li><a href="/java/intro/05-java-process-op.html" class="sidebar-link">Java流程执行操作</a></li><li><a href="/java/intro/06-java-syscomclass.html" class="sidebar-link">Java常用类和结构</a></li><li><a href="/java/intro/06.1-java-typeconvert.html" class="sidebar-link">Java类型转换</a></li><li><a href="/java/intro/07-java-regexp.html" class="sidebar-link">Java正则表达式</a></li><li><a href="/java/intro/08-java-method.html" class="sidebar-link">Java方法定义和操作</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Java面向对象基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/basic/01-lan-feature.html" class="sidebar-link">Java语言特性</a></li><li><a href="/java/basic/02-oop-feature.html" class="sidebar-link">Java面向对象特征</a></li><li><a href="/java/basic/03-class.html" class="sidebar-link">Java类和接口基础</a></li><li><a href="/java/basic/03.1-generics.html" class="sidebar-link">Java泛型介绍</a></li><li><a href="/java/basic/04-reflection.html" class="sidebar-link">Java反射机制基础</a></li><li><a href="/java/basic/04.1-relectionsummay.html" class="sidebar-link">Java反射精华总结</a></li><li><a href="/java/basic/05-annotation.html" class="sidebar-link">Java注解基础</a></li><li><a href="/java/basic/05.1-annotationandreflection.html" class="sidebar-link">Java注解与反射</a></li><li><a href="/java/basic/06-exception.html" class="sidebar-link">Java异常和错误</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Java集合类</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/collection/01-intro.html" class="sidebar-link">Java集合类基础介绍</a></li><li><a href="/java/collection/02-collectionmap.html" class="sidebar-link">集合接口Collction、Map</a></li><li><a href="/java/collection/03-set.html" class="sidebar-link">Java集合类 Set</a></li><li><a href="/java/collection/04-list.html" class="sidebar-link">Java集合类 List</a></li><li><a href="/java/collection/05-queue.html" class="sidebar-link">Java集合类 Queue</a></li><li><a href="/java/collection/06-map.html" class="sidebar-link">Java集合类 Map</a></li><li><a href="/java/collection/07-listmapprinciple.html" class="sidebar-link">List原理和总结</a></li><li><a href="/java/collection/08-hashcollectionprin.html" class="sidebar-link">Hash集合原理和总结</a></li><li><a href="/java/collection/08.1-listconvertarray.html" class="sidebar-link">集合List和Array数组转化</a></li><li><a href="/java/collection/08.2-listlistdeal.html" class="sidebar-link">集合List交集、并集、差集</a></li><li><a href="/java/collection/08.3-lambdabascigrammar.html" class="sidebar-link">lambda表达式-基础语法</a></li><li><a href="/java/collection/08.3-lambdagrammarstream.html" class="sidebar-link">lambda表达式-Stream语法</a></li><li><a href="/java/collection/08.3-lambdaintro.html" class="sidebar-link">lambda表达式-入门介绍</a></li><li><a href="/java/collection/08.4-lambdacommon.html" class="sidebar-link">lambda表达式-使用案例总结</a></li><li><a href="/java/collection/08.5-lambdaintroprosum.html" class="sidebar-link">lambda表达式-项目常用总结</a></li><li><a href="/java/collection/09-collectionsummary.html" class="sidebar-link">集合类精华总结</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Java文件IO流</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/file/01-intro.html" class="sidebar-link">IO流编程入门</a></li><li><a href="/java/file/02-file.html" class="sidebar-link">File类介绍</a></li><li><a href="/java/file/03-iobasic.html" class="sidebar-link">IO流输入输出操作</a></li><li><a href="/java/file/04-iodetail.html" class="sidebar-link">IO流详解</a></li><li><a href="/java/file/05-summary.html" class="sidebar-link">IO流精华总结</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Java网络编程</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/net/01-intro.html" class="sidebar-link">Java网络编程入门</a></li><li><a href="/java/net/02-netmodel.html" class="sidebar-link">OSI七层模型和TCP/IP</a></li><li><a href="/java/net/03-basicconcept.html" class="sidebar-link">网络编程基本概念</a></li><li><a href="/java/net/04-basicintro.html" class="sidebar-link">网络编程基础入门</a></li><li><a href="/java/net/05-tcpdetail.html" class="sidebar-link">网络编程-TCP详解</a></li><li><a href="/java/net/06-udpdetail.html" class="sidebar-link">网络编程-UDP详解</a></li><li><a href="/java/net/07-urlanduri.html" class="sidebar-link">网络编程-URI和URL</a></li><li><a href="/java/net/08-netdetail.html" class="sidebar-link">网络编程-分类详解</a></li><li><a href="/java/net/09-netsummary.html" class="sidebar-link">网络编程-精华总结</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Java并发编程基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/thread/01-intro.html" class="sidebar-link">并发编程-入门介绍</a></li><li><a href="/java/thread/02-multithread.html" class="sidebar-link">并发编程-线程创建</a></li><li><a href="/java/thread/03-conintro.html" class="sidebar-link">并发编程-综合介绍</a></li><li><a href="/java/thread/04-threadcreatediff.html" class="sidebar-link">线程-实现方式比较</a></li><li><a href="/java/thread/05-threadattrop.html" class="sidebar-link">线程-基础操作和属性</a></li><li><a href="/java/thread/06-threadmethod.html" class="sidebar-link">线程-常用方法和修饰符</a></li><li><a href="/java/thread/07-threadsyncsum.html" class="sidebar-link">线程-同步问题总结</a></li><li><a href="/java/thread/08-threadlocal.html" class="sidebar-link">线程-变量副本</a></li><li><a href="/java/thread/09-threadgroup.html" class="sidebar-link">线程-线程组</a></li><li><a href="/java/thread/10-threadsyncalgorithm.html" class="sidebar-link">线程-非阻塞算法介绍</a></li><li><a href="/java/thread/11-threadhookexception.html" class="sidebar-link">线程-Hook和异常捕捉</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Java并发编程JUC</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/juc/01-intro.html" class="sidebar-link">并发编程-JUC简介</a></li><li><a href="/java/juc/02-juccatogray.html" class="sidebar-link">并发编程-JUC包介绍</a></li><li><a href="/java/juc/03-jucblogrecommend.html" class="sidebar-link">并发编程-JUC博客推荐</a></li><li><a href="/java/juc/04-juclockintro.html" class="sidebar-link">JUC-锁-介绍</a></li><li><a href="/java/juc/05-juclockdiff.html" class="sidebar-link">JUC-锁-比较</a></li><li><a href="/java/juc/06-juclockaqs.html" aria-current="page" class="active sidebar-link">JUC-锁-AQS原理</a></li><li><a href="/java/juc/07-juclockuse.html" class="sidebar-link">JUC-锁-基础使用</a></li><li><a href="/java/juc/08-jucatounsafe.html" class="sidebar-link">JUC-原子框架-Unsafe类</a></li><li><a href="/java/juc/09-jucatointro.html" class="sidebar-link">JUC-原子框架-原子类介绍</a></li><li><a href="/java/juc/10-jucatocas.html" class="sidebar-link">JUC-原子框架-CAS原理</a></li><li><a href="/java/juc/11-jucatoaba.html" class="sidebar-link">JUC-原子框架-ABA解决方案</a></li><li><a href="/java/juc/12-jucsyncintro.html" class="sidebar-link">JUC-同步器-介绍</a></li><li><a href="/java/juc/13-jucsyncaqs.html" class="sidebar-link">JUC-同步器-AQS框架原理</a></li><li><a href="/java/juc/14-juccolintro.html" class="sidebar-link">JUC-集合-基础介绍</a></li><li><a href="/java/juc/15-juccolhashmapbasic.html" class="sidebar-link">JUC-ConcurrentHashMap原理</a></li><li><a href="/java/juc/16-juccolhashmapadd.html" class="sidebar-link">JUC-ConcurrentHashMap扩容</a></li><li><a href="/java/juc/17-juccolhashmapdiff.html" class="sidebar-link">JUC-ConcurrentHashMap比较</a></li><li><a href="/java/juc/18-jucexeintro.html" class="sidebar-link">JUC-执行器-框架介绍</a></li><li><a href="/java/juc/19-jucexecommonthreadpool.html" class="sidebar-link">JUC-执行器-普通线程池</a></li><li><a href="/java/juc/20-jucexescheduldthreadpool.html" class="sidebar-link">JUC-执行器-计划线程池</a></li><li><a href="/java/juc/21-jucexefuture.html" class="sidebar-link">JUC-执行器-Future 模式</a></li><li><a href="/java/juc/22-jucexeforkjoinprin.html" class="sidebar-link">JUC-执行器-Fork/Join原理</a></li><li><a href="/java/juc/23-jucexeforkjoindetail.html" class="sidebar-link">JUC-执行器-Fork/Join实现</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Jvm虚拟机相关</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/jvm/01-intro.html" class="sidebar-link">虚拟机知识入门</a></li><li><a href="/java/jvm/02-workprinciple.html" class="sidebar-link">虚拟机工作原理</a></li><li><a href="/java/jvm/03-memorymodel.html" class="sidebar-link">JVM-内存模型</a></li><li><a href="/java/jvm/04-classload.html" class="sidebar-link">JVM-类加载机制</a></li><li><a href="/java/jvm/04.1-classloadprocedure.html" class="sidebar-link">JVM-类加载过程</a></li><li><a href="/java/jvm/04.2-classloaderdiff.html" class="sidebar-link">JVM-类加载器区别</a></li><li><a href="/java/jvm/05-gc.html" class="sidebar-link">JVM-垃圾回收机制</a></li><li><a href="/java/jvm/06-optcmd.html" class="sidebar-link">JVM-优化命令</a></li><li><a href="/java/jvm/07-optcase.html" class="sidebar-link">JVM-优化案例</a></li><li><a href="/java/jvm/08-summary.html" class="sidebar-link">JVM-精华总结</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Java语言特性</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java/characteristic/01-java8.html" class="sidebar-link">Java 8语言新特性</a></li><li><a href="/java/characteristic/02-java9.html" class="sidebar-link">Java 9语言新特性</a></li><li><a href="/java/characteristic/03-java10.html" class="sidebar-link">Java 10语言新特性</a></li><li><a href="/java/characteristic/04-java11.html" class="sidebar-link">Java 11语言新特性</a></li><li><a href="/java/characteristic/05-java12.html" class="sidebar-link">Java 12语言新特性</a></li><li><a href="/java/characteristic/06-java13.html" class="sidebar-link">Java 13语言新特性</a></li><li><a href="/java/characteristic/07-java14.html" class="sidebar-link">Java 14语言新特性</a></li><li><a href="/java/characteristic/08-java15.html" class="sidebar-link">Java 15语言新特性</a></li></ul></section></li></ul> </aside> <main class="page page-content-spec" data-v-17815e06><div class="page_article_title_info" data-v-17815e06><div class="page_content_title" data-v-17815e06>JUC-锁-AQS原理</div> <div class="page_content_visit" data-v-17815e06><span data-v-17815e06>更新时间</span> <span style="display:none;" data-v-17815e06>2021-07-08 14:50:19</span>
+            
+          <span data-v-17815e06>浏览</span> <span style="display:none;" data-v-17815e06>0</span>
+            
+
+        </div></div>  <div class="theme-default-content content__default"><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>本文主要是介绍 JUC-锁-AQS原理 。</p></div> <p></p><div class="table-of-contents"><ul><li><a href="#一、概述">一、概述</a></li><li><a href="#二、源码分析">二、源码分析</a></li><li><a href="#_2-1、node节点以aqs的内部类存在-其中属性">2.1、Node节点以AQS的内部类存在，其中属性</a></li><li><a href="#_2-2、abstractqueuedsynchronizer属性">2.2、AbstractQueuedSynchronizer属性</a></li><li><a href="#_2-3、独占模式同步状态的获取-以reentrantlock的非公平锁为例">2.3、独占模式同步状态的获取-以ReentrantLock的非公平锁为例</a><ul><li><a href="#_2-3-1、代码入口获取锁">2.3.1、代码入口获取锁</a></li><li><a href="#_2-3-2、针对acquire">2.3.2、针对acquire</a></li><li><a href="#_2-3-3、-acquirequeued自旋">2.3.3、acquireQueued自旋</a></li><li><a href="#独占模式获取同步状态-小结">独占模式获取同步状态-小结：</a></li></ul></li><li><a href="#_2-4、独占模式同步状态的释放-以reentrantlock的非公平锁为例">2.4、独占模式同步状态的释放 -以ReentrantLock的非公平锁为例</a><ul><li><a href="#_2-4-1、release">2.4.1、release</a></li></ul></li><li><a href="#_2-5、共享模式同步状态的获取">2.5、共享模式同步状态的获取</a></li><li><a href="#_2-6、共享模式同步状态的释放">2.6、共享模式同步状态的释放</a></li><li><a href="#参考文章">参考文章</a></li></ul></div><p></p> <h1 id="_009-多线程-基础-abstractqueuedsynchronizer-用于构建锁和同步容器的框架、独占锁与共享锁的获取与释放"><a href="#_009-多线程-基础-abstractqueuedsynchronizer-用于构建锁和同步容器的框架、独占锁与共享锁的获取与释放" class="header-anchor">#</a> 009-多线程-基础-AbstractQueuedSynchronizer-用于构建锁和同步容器的框架、独占锁与共享锁的获取与释放</h1> <h2 id="一、概述"><a href="#一、概述" class="header-anchor">#</a> 一、概述</h2> <p>AbstractQueuedSynchronizer （简称AQS），位于java.util.concurrent.locks.AbstractQueuedSynchronizer包下，</p> <p>AQS是一个用于构建锁和同步容器的框架。事实上concurrent包内许多类都是基于AQS构建，例如ReentrantLock，Semaphore，CountDownLatch，ReentrantReadWriteLock，FutureTask等。AQS解决了在实现同步容器时设计的大量细节问题。这些锁都有一个特点，都不是直接扩展自AQS，而是都有一个内部类继承自AQS。为什么会这么设计而不是直接继承呢？简而言之，锁面向的是使用者，同步器面向的是线程控制，在锁的实现中聚合同步器而不是直接继承AQS很好的隔离了二者所关注的领域。</p> <p>AQS使用一个FIFO的队列表示排队等待锁的线程，队列头节点称作“哨兵节点”或者“哑节点”，它不与任何线程关联。其他的节点与等待线程关联，每个节点维护一个等待状态waitStatus。</p> <p>UML类图</p> <img src="/assets/img/java/juc/juclockaqs-1.png" alt="wxmp" class="zoom-custom-imgs"> <h2 id="二、源码分析"><a href="#二、源码分析" class="header-anchor">#</a> 二、源码分析</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>locks</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">TimeUnit</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Collection</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Date</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">sun<span class="token punctuation">.</span>misc<span class="token punctuation">.</span></span><span class="token class-name">Unsafe</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 提供一个框架，用于实现依赖先进先出（FIFO）等待队列的阻塞锁和相关同步器（信号量、事件等）。
+ * 此类被设计为大多数类型的同步器的有用基础，这些同步器依赖单个原子@code int值来表示状态。
+ * 子类必须定义更改此状态的受保护方法，以及定义此状态对于正在获取或释放的对象意味着什么。
+ * 考虑到这些，这个类中的其他方法执行所有排队和阻塞机制。
+ * 子类可以维护其他状态字段，但只有使用方法@link getstate、@link setstate和@link compareandsetstate对原子更新的@code int值进行同步跟踪。
+ **/</span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">AbstractQueuedSynchronizer</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractOwnableSynchronizer</span> <span class="token keyword">implements</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>Serializable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token number">7373984972572414691L</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token class-name">AbstractQueuedSynchronizer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Wait queue node class.
+     *
+     * 等待队列是“clh”（craig、landin和hagersten）锁队列的变体。CLH锁通常用于旋转锁。
+     * 相反，我们使用它们来阻塞同步器，但是使用相同的基本策略来保存关于其节点前一个线程的一些控制信息。
+     * 每个节点中的“状态”字段跟踪线程是否应该阻塞。节点的前一个版本发布时会发出信号。
+     * 否则，队列的每个节点都充当一个特定的通知样式监控器，其中包含一个等待线程。但状态字段不控制是否授予线程锁等。
+     * 如果线程是队列中的第一个线程，它可能会尝试获取。但是，作为第一名并不能保证成功，它只给予竞争的权利。
+     * 因此，当前发布的竞争者线程可能需要重新等待。
+     *
+     */</span>
+    <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+        <span class="token comment">/** Marker to indicate a node is waiting in shared mode */</span>
+        <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Node</span> SHARED <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">/** Marker to indicate a node is waiting in exclusive mode */</span>
+        <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Node</span> EXCLUSIVE <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/** waitStatus value to indicate thread has cancelled */</span>
+        <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> CANCELLED <span class="token operator">=</span>  <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">/** waitStatus value to indicate successor's thread needs unparking */</span>
+        <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> SIGNAL    <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">/** waitStatus value to indicate thread is waiting on condition */</span>
+        <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> CONDITION <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token comment">/**
+         * waitStatus value to indicate the next acquireShared should
+         * unconditionally propagate
+         */</span>
+        <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PROPAGATE <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/**
+         * Status field, taking on only the values:
+         *   SIGNAL:     The successor of this node is (or will soon be)
+         *               blocked (via park), so the current node must
+         *               unpark its successor when it releases or
+         *               cancels. To avoid races, acquire methods must
+         *               first indicate they need a signal,
+         *               then retry the atomic acquire, and then,
+         *               on failure, block.
+         *   CANCELLED:  This node is cancelled due to timeout or interrupt.
+         *               Nodes never leave this state. In particular,
+         *               a thread with cancelled node never again blocks.
+         *   CONDITION:  This node is currently on a condition queue.
+         *               It will not be used as a sync queue node
+         *               until transferred, at which time the status
+         *               will be set to 0. (Use of this value here has
+         *               nothing to do with the other uses of the
+         *               field, but simplifies mechanics.)
+         *   PROPAGATE:  A releaseShared should be propagated to other
+         *               nodes. This is set (for head node only) in
+         *               doReleaseShared to ensure propagation
+         *               continues, even if other operations have
+         *               since intervened.
+         *   0:          None of the above
+         *
+         * The values are arranged numerically to simplify use.
+         * Non-negative values mean that a node doesn't need to
+         * signal. So, most code doesn't need to check for particular
+         * values, just for sign.
+         *
+         * The field is initialized to 0 for normal sync nodes, and
+         * CONDITION for condition nodes.  It is modified using CAS
+         * (or when possible, unconditional volatile writes).
+         */</span>
+        <span class="token keyword">volatile</span> <span class="token keyword">int</span> waitStatus<span class="token punctuation">;</span>
+
+        <span class="token comment">/**
+         * Link to predecessor node that current node/thread relies on
+         * for checking waitStatus. Assigned during enqueuing, and nulled
+         * out (for sake of GC) only upon dequeuing.  Also, upon
+         * cancellation of a predecessor, we short-circuit while
+         * finding a non-cancelled one, which will always exist
+         * because the head node is never cancelled: A node becomes
+         * head only as a result of successful acquire. A
+         * cancelled thread never succeeds in acquiring, and a thread only
+         * cancels itself, not any other node.
+         */</span>
+        <span class="token keyword">volatile</span> <span class="token class-name">Node</span> prev<span class="token punctuation">;</span>
+
+        <span class="token comment">/**
+         * Link to the successor node that the current node/thread
+         * unparks upon release. Assigned during enqueuing, adjusted
+         * when bypassing cancelled predecessors, and nulled out (for
+         * sake of GC) when dequeued.  The enq operation does not
+         * assign next field of a predecessor until after attachment,
+         * so seeing a null next field does not necessarily mean that
+         * node is at end of queue. However, if a next field appears
+         * to be null, we can scan prev's from the tail to
+         * double-check.  The next field of cancelled nodes is set to
+         * point to the node itself instead of null, to make life
+         * easier for isOnSyncQueue.
+         */</span>
+        <span class="token keyword">volatile</span> <span class="token class-name">Node</span> next<span class="token punctuation">;</span>
+
+        <span class="token comment">/**
+         * The thread that enqueued this node.  Initialized on
+         * construction and nulled out after use.
+         */</span>
+        <span class="token keyword">volatile</span> <span class="token class-name">Thread</span> thread<span class="token punctuation">;</span>
+
+        <span class="token comment">/**
+         * Link to next node waiting on condition, or the special
+         * value SHARED.  Because condition queues are accessed only
+         * when holding in exclusive mode, we just need a simple
+         * linked queue to hold nodes while they are waiting on
+         * conditions. They are then transferred to the queue to
+         * re-acquire. And because conditions can only be exclusive,
+         * we save a field by using special value to indicate shared
+         * mode.
+         */</span>
+        <span class="token class-name">Node</span> nextWaiter<span class="token punctuation">;</span>
+
+        <span class="token comment">/**
+         * Returns true if node is waiting in shared mode.
+         */</span>
+        <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">isShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> nextWaiter <span class="token operator">==</span> SHARED<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/**
+         * Returns previous node, or throws NullPointerException if null.
+         * Use when predecessor cannot be null.  The null check could
+         * be elided, but is present to help the VM.
+         *
+         * @return the predecessor of this node
+         */</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span> <span class="token function">predecessor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">NullPointerException</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span> p <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NullPointerException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                <span class="token keyword">return</span> p<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment">// Used to establish initial head or SHARED marker</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token class-name">Thread</span> thread<span class="token punctuation">,</span> <span class="token class-name">Node</span> mode<span class="token punctuation">)</span> <span class="token punctuation">{</span>     <span class="token comment">// Used by addWaiter</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>nextWaiter <span class="token operator">=</span> mode<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>thread <span class="token operator">=</span> thread<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token class-name">Thread</span> thread<span class="token punctuation">,</span> <span class="token keyword">int</span> waitStatus<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// Used by Condition</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>waitStatus <span class="token operator">=</span> waitStatus<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>thread <span class="token operator">=</span> thread<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    更多内容参见 JDK源代码
+<span class="token punctuation">}</span>
+</code></pre></div><p>示意图</p> <img src="/assets/img/java/juc/juclockaqs-2.png" alt="wxmp" class="zoom-custom-imgs"> <p>AbstractQueuedSynchronizer在内部依赖一个双向同步队列来完成同步状态的管理，当前线程获取同步状态失败时，同步器会将该线程和等待状态信息构造成一个节点并将其加入到同步队列中。Node节点以AQS的内部类存在。</p> <h2 id="_2-1、node节点以aqs的内部类存在-其中属性"><a href="#_2-1、node节点以aqs的内部类存在-其中属性" class="header-anchor">#</a> 2.1、Node节点以AQS的内部类存在，其中属性</h2> <table><thead><tr><th>AbstractQueuedSynchronizer$Node</th> <th></th></tr></thead> <tbody><tr><td>属性</td> <td>描述</td></tr> <tr><td>volatile int waitStatus</td> <td>等待状态，并不是同步状态，而是在队列中的线程节点等待状态（Node节点中一共定义四种状态）CANCELLED = 1  //线程由于超时或被中断会被取消在队列中的等待，被取消了的线程不会再被阻塞，即状态不会再改变SIGNAL = -1  //后继节点处于等待状态，当前节点释放锁或者取消等待时会通知后继节点CONDITION = -2  //暂时忽略，涉及ConditionPROPAGATE = -3  //下一次共享式同步状态获取将会无条件传播下去</td></tr> <tr><td>volatile Node prev</td> <td>前驱节点</td></tr> <tr><td>volatile Node next</td> <td>后继节点</td></tr> <tr><td>volatile Thread thread</td> <td>保持对当前获取同步状态线程的引用</td></tr> <tr><td>Node nextWaiter</td> <td>等待队列中的后继节点，同时也表示该节点是共享模式（SHARED）还是独占（EXCLUSIVE）模式。它们共用一个字段。因为在等待队列中的线程一定是独占模式。所以如果nextWatiter == SHARED，那么表示该节点为共享模式。</td></tr></tbody></table> <p>在AQS同步器中由一个头节点和尾节点来维护这个同步队列。</p> <h2 id="_2-2、abstractqueuedsynchronizer属性"><a href="#_2-2、abstractqueuedsynchronizer属性" class="header-anchor">#</a> 2.2、AbstractQueuedSynchronizer属性</h2> <table><thead><tr><th>AbstractQueuedSynchronizer</th> <th></th></tr></thead> <tbody><tr><td>属性</td> <td>描述</td></tr> <tr><td>private transient volatile Node head</td> <td>同步队列头节点</td></tr> <tr><td>private transient volatile Node tail</td> <td>同步队列尾节点</td></tr></tbody></table> <p>注意其中的volatile【主存中存取】、transient【不被<strong>串行化</strong>】等</p> <img src="/assets/img/java/juc/juclockaqs-3.png" alt="wxmp" class="zoom-custom-imgs"> <p>同步器中是依靠一个同步队列来完成的同步状态管理，当线程获取锁（或者称为同步状态）失败时，会将线程构造为一个Node节点新增到同步队列的尾部。</p> <p>在锁的获取当中，并不一定是只有一个线程才能持有这个锁（或者称为同步状态），所以此时有了独占模式和共享模式的区别，也就是在Node节点中由nextWait来标识。比如ReentrantLock就是一个独占锁，只能有一个线程获得锁，而WriteAndReadLock的读锁则能由多个线程同时获取，但它的写锁则只能由一个线程持有。独占模式下锁（或者称为同步状态）的获取与释放，在此之前要稍微提一下“模板方法模式”，在AQS同步器中提供了不少的模板方法，定义一个操作中的算法的骨架，而将一些步骤的实现延迟到子类中。</p> <p>独占模式锁：ReentrantLock的公平锁和非公平锁</p> <p>共享模式锁：java.util.concurrent.Semaphore的公平锁和非公平锁、java.util.concurrent.CountDownLatch、java.util.concurrent.locks.ReentrantReadWriteLock等</p> <h2 id="_2-3、独占模式同步状态的获取-以reentrantlock的非公平锁为例"><a href="#_2-3、独占模式同步状态的获取-以reentrantlock的非公平锁为例" class="header-anchor">#</a> 2.3、独占模式同步状态的获取-以ReentrantLock的非公平锁为例</h2> <h3 id="_2-3-1、代码入口获取锁"><a href="#_2-3-1、代码入口获取锁" class="header-anchor">#</a> 2.3.1、代码入口获取锁</h3> <div class="language-java extra-class"><pre class="language-java"><code>        <span class="token class-name">Lock</span> lock<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>内部调用</p> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        sync<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>查看sync的非公平锁实现</p> <div class="language-java extra-class"><pre class="language-java"><code>        <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareAndSetState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token function">setExclusiveOwnerThread</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                <span class="token function">acquire</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</code></pre></div><p>compareAndSetState(0, 1) 这个是尝试获取锁,把state的状态从0改为1表示取得锁.这个时候设置获取锁的线程就是当前线程.</p> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token keyword">protected</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">compareAndSetState</span><span class="token punctuation">(</span><span class="token keyword">int</span> expect<span class="token punctuation">,</span> <span class="token keyword">int</span> update<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// See below for intrinsics setup to support this</span>
+        <span class="token keyword">return</span> unsafe<span class="token punctuation">.</span><span class="token function">compareAndSwapInt</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> stateOffset<span class="token punctuation">,</span> expect<span class="token punctuation">,</span> update<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>底层有unsafe方法实现，Unsafe类是什么呢？java不能直接访问操作系统底层，而是通过本地方法来访问。Unsafe类提供了硬件级别的原子操作。</p> <h3 id="_2-3-2、针对acquire"><a href="#_2-3-2、针对acquire" class="header-anchor">#</a> 2.3.2、针对acquire</h3> <table><thead><tr><th>AbstractQueuedSynchronizer</th> <th></th></tr></thead> <tbody><tr><td>方法</td> <td>描述</td></tr> <tr><td>public final void acquire(int arg)</td> <td>独占模式下获取同步状态，忽略中断，即表示无论如何也会在获得同步状态后才返回。</td></tr></tbody></table> <p>此方法实现</p> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">acquire</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">tryAcquire</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+            <span class="token function">acquireQueued</span><span class="token punctuation">(</span><span class="token function">addWaiter</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">.</span>EXCLUSIVE<span class="token punctuation">)</span><span class="token punctuation">,</span> arg<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token function">selfInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h4 id="_2-3-2-1、父类框架实现"><a href="#_2-3-2-1、父类框架实现" class="header-anchor">#</a> 2.3.2.1、父类框架实现</h4> <p>tryAcquire:AQS中有一个默认实现，其默认实现即抛出一个UnsupportedOperationException异常，意为默认下独占模式是不支持此操作的。需要在子类中实现具体逻辑</p> <div class="language- extra-class"><pre class="language-text"><code>    protected boolean tryAcquire(int arg) {
+        throw new UnsupportedOperationException();
+    }
+</code></pre></div><h4 id="_2-3-2-1、模板方法子类实现"><a href="#_2-3-2-1、模板方法子类实现" class="header-anchor">#</a> 2.3.2.1、模板方法子类实现</h4> <p>可以通过查看ReentrantLock中的Sync的子类实现，如非公平锁</p> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">NonfairSync</span> <span class="token keyword">extends</span> <span class="token class-name">Sync</span> <span class="token punctuation">{</span>
+        <span class="token comment">//……</span>
+        <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//do</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">protected</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">tryAcquire</span><span class="token punctuation">(</span><span class="token keyword">int</span> acquires<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">nonfairTryAcquire</span><span class="token punctuation">(</span>acquires<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>非公平锁获取的实现</p> <div class="language-java extra-class"><pre class="language-java"><code> <span class="token keyword">boolean</span> <span class="token function">nonfairTryAcquire</span><span class="token punctuation">(</span><span class="token keyword">int</span> acquires<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">final</span> <span class="token class-name">Thread</span> current <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//获取当前线程</span>
+            <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//获取标志位</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//没有线程竞争锁</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareAndSetState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> acquires<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//通过cas设置状态位</span>
+                    <span class="token function">setExclusiveOwnerThread</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//如果cas成功，则代表当前线程获取锁，把当前线程设置到aqs参数中</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">==</span> <span class="token function">getExclusiveOwnerThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//因为ReentrantLock是可重入锁，这里判断获取锁的线程是不是当前线程</span>
+                <span class="token keyword">int</span> nextc <span class="token operator">=</span> c <span class="token operator">+</span> acquires<span class="token punctuation">;</span><span class="token comment">//每次重入+1，</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>nextc <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// overflow</span>
+                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&quot;Maximum lock count exceeded&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">setState</span><span class="token punctuation">(</span>nextc<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//设置状态</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</code></pre></div><p>如果如果获取锁，tryAcquire返回true，反之，返回false。回到AQS的acquire方法继续执行addWaiter。</p> <p>该方法会首先判断当前状态，如果c==0说明没有线程正在竞争该锁，如果不c !=0 说明有线程正拥有了该锁。</p> <p>如果发现c==0，则通过CAS设置该状态值为acquires,acquires的初始调用值为1，每次线程重入该锁都会+1，每次unlock都会-1，但为0时释放锁。如果CAS设置成功，则可以预计其他任何线程调用CAS都不会再成功，也就认为当前线程得到了该锁，也作为Running线程，很显然这个Running线程并未进入等待队列。</p> <p>如果c !=0 但发现自己已经拥有锁，只是简单地++acquires，并修改status值，但因为没有竞争，所以通过setStatus修改，而非CAS，也就是说这段代码实现了偏向锁的功能，并且实现的非常漂亮。</p> <h4 id="_2-3-2-3、addwaiter"><a href="#_2-3-2-3、addwaiter" class="header-anchor">#</a> 2.3.2.3、addWaiter</h4> <p>通过上述在AQS的其中一个实现中，ReentrantLock$Sync对它进行了重写。这个在AQS定义的方法表示该方法保证线程安全的获取同步状态，如果同步状态获取失败（返回false）则构造同步节点并将节点加入到同步队列的尾部，这个操作即是addWaiter方法的实现：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token class-name">Node</span> <span class="token function">addWaiter</span><span class="token punctuation">(</span><span class="token class-name">Node</span> mode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Node</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//将线程构造成Node节点。</span>
+    <span class="token comment">/*尝试强行直接挂到同步队列的尾部*/</span>
+    <span class="token class-name">Node</span> pred <span class="token operator">=</span> tail<span class="token punctuation">;</span>   
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pred <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       node<span class="token punctuation">.</span>prev <span class="token operator">=</span> pred<span class="token punctuation">;</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareAndSetTail</span><span class="token punctuation">(</span>pred<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           pred<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+           <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/*如果此时有多个线程都在想把自己挂到同步队列的尾部，上面的操作就会
+    失败，此时将“无限期”线程安全的等待着挂到同步队列的尾部*/</span>
+    <span class="token function">enq</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在enq的实现中实际就是一个for“死循环”，其目的就是直到成功地添加到同步队列尾部才推出循环。</p> <p>其中入队实现</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token class-name">Node</span> <span class="token function">enq</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">Node</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//CAS&quot;自旋&quot;，直到成功加入队尾</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Node</span> t <span class="token operator">=</span> tail<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 队列为空，创建一个空的标志结点作为head结点，并将tail也指向它。</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareAndSetHead</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                tail <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token comment">//正常流程，放入队尾</span>
+            node<span class="token punctuation">.</span>prev <span class="token operator">=</span> t<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareAndSetTail</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                t<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+                <span class="token keyword">return</span> t<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如果看过AtomicInteger.getAndIncrement()函数源码，那么相信你一眼便看出这段代码的精华。<strong>CAS自旋volatile变量</strong>，是一种很经典的用法。</p> <h3 id="_2-3-3、acquirequeued自旋"><a href="#_2-3-3、acquirequeued自旋" class="header-anchor">#</a> 2.3.3、<strong>acquireQueued自旋</strong></h3> <p>在获取同步状态失败(tryAcqurie) -&gt;构造节点(addWaiter)-&gt;添加到同步队列尾部(addWaiter)过后，接下来就是一个很重要的操作<strong>acquireQueued自旋</strong>。这个动作很重要，其目的就在于每个节点都各自的在做判断是否能获取到同步状态，每个节点都在自省地观察，当条件满足获取到了同步状态则可以从自旋过程中退出，否则继续。</p> <p>通过tryAcquire()和addWaiter()，该线程获取资源失败，已经被放入等待队列尾部了。进入等待状态休息，直到其他线程彻底释放资源后唤醒自己，自己再拿到资源，然后就可以去干自己想干的事了。在等待队列中排队拿号（中间没其它事干可以休息），直到拿到号后再返回。这个函数非常关键，</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">acquireQueued</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">Node</span> node<span class="token punctuation">,</span> <span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">boolean</span> failed <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment">//标记是否成功拿到资源</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token keyword">boolean</span> interrupted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span><span class="token comment">//标记等待过程中是否被中断过</span>
+        
+        <span class="token comment">//“自旋”！</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">final</span> <span class="token class-name">Node</span> p <span class="token operator">=</span> node<span class="token punctuation">.</span><span class="token function">predecessor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//拿到前驱</span>
+            <span class="token comment">//如果前驱是head，即该结点已成老二，那么便有资格去尝试获取资源（可能是老大释放完资源唤醒自己的，当然也可能被interrupt了）。</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> head <span class="token operator">&amp;&amp;</span> <span class="token function">tryAcquire</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">setHead</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//拿到资源后，将head指向该结点。所以head所指的标杆结点，就是当前获取到资源的那个结点或null。</span>
+                p<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// setHead中node.prev已置为null，此处再将head.next置为null，就是为了方便GC回收以前的head结点。也就意味着之前拿完资源的结点出队了！</span>
+                failed <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> interrupted<span class="token punctuation">;</span><span class="token comment">//返回等待过程中是否被中断过</span>
+            <span class="token punctuation">}</span>
+            
+            <span class="token comment">//如果自己可以休息了，就进入waiting状态，直到被unpark()</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">shouldParkAfterFailedAcquire</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> node<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+                <span class="token function">parkAndCheckInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                interrupted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment">//如果等待过程中被中断过，哪怕只有那么一次，就将interrupted标记为true</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>failed<span class="token punctuation">)</span>
+            <span class="token function">cancelAcquire</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>从上面的代码实现我们可以看到，尽管每个节点都在“无限期”的获取锁，但并不是每个节点能有获取锁的这个资格，而是当它的前驱节点是头节点时才会去获取锁(tryAcquire)。当这个节点获取同步状态时，接下来的方法shouldParkAfterFailedAcquire则会判断当前线程是否需要被阻塞，而这个判断方法则是通过它的前驱节点的waitStatus判断。</p> <h4 id="_2-3-3-1、shouldparkafterfailedacquire"><a href="#_2-3-3-1、shouldparkafterfailedacquire" class="header-anchor">#</a> 2.3.3.1、shouldParkAfterFailedAcquire</h4> <p>此方法主要用于检查状态，看看自己是否真的可以去休息了（进入waiting状态</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">shouldParkAfterFailedAcquire</span><span class="token punctuation">(</span><span class="token class-name">Node</span> pred<span class="token punctuation">,</span> <span class="token class-name">Node</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ws <span class="token operator">=</span> pred<span class="token punctuation">.</span>waitStatus<span class="token punctuation">;</span>   <span class="token comment">//首先获取当前节点的前驱节点等待状态</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ws <span class="token operator">==</span> <span class="token class-name">Node</span><span class="token punctuation">.</span>SIGNAL<span class="token punctuation">)</span>   <span class="token comment">//当前线程需要被阻塞，即需要被unpark(唤醒)</span>
+       <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ws <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//pred.waitStatus == CANCELLED</span>
+       <span class="token keyword">do</span> <span class="token punctuation">{</span>
+           node<span class="token punctuation">.</span>prev <span class="token operator">=</span> pred <span class="token operator">=</span> pred<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>   <span class="token comment">//前驱节点等待状态已经处于取消，即不会再获取同步状态时，把前驱节点从同步状态中移除。</span>
+        <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>pred<span class="token punctuation">.</span>waitStatus <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    　　pred<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>   <span class="token comment">//pred.waitStatus == CONDITION || PROPAGATE</span>
+       <span class="token function">compareAndSetWaitStatus</span><span class="token punctuation">(</span>pred<span class="token punctuation">,</span> ws<span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token punctuation">.</span>SIGNAL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如果调用该方法判断为当前线程需要被阻塞（返回true），则接着执行parkAndCheckInterrupt阻塞当前线程，直到当前线程被唤醒的时候才从parkAndCheckInterrupt返回。</p> <p>Node结点是对每一个访问同步代码的线程的封装，其包含了需要同步的线程本身以及线程的状态，如是否被阻塞，是否等待唤醒，是否已经被取消等。变量waitStatus则表示当前被封装成Node结点的等待状态，共有4种取值CANCELLED、SIGNAL、CONDITION、PROPAGATE。</p> <ul><li>CANCELLED：值为1，在同步队列中等待的线程等待超时或被中断，需要从同步队列中取消该Node的结点，其结点的waitStatus为CANCELLED，即结束状态，进入该状态后的结点将不会再变化。</li> <li>SIGNAL：值为-1，被标识为该等待唤醒状态的后继结点，当其前继结点的线程释放了同步锁或被取消，将会通知该后继结点的线程执行。说白了，就是处于唤醒状态，只要前继结点释放锁，就会通知标识为SIGNAL状态的后继结点的线程执行。</li> <li>CONDITION：值为-2，与Condition相关，该标识的结点处于<strong>等待队列</strong>中，结点的线程等待在Condition上，当其他线程调用了Condition的signal()方法后，CONDITION状态的结点将<strong>从等待队列转移到同步队列中</strong>，等待获取同步锁。</li> <li>PROPAGATE：值为-3，与共享模式相关，在共享模式中，该状态标识结点的线程处于可运行状态。</li> <li>0状态：值为0，代表初始化状态。</li></ul> <p>AQS在判断状态时，通过用waitStatus&gt;0表示取消状态，而waitStatus&lt;0表示有效状态。</p> <p>用当前线程去构造一个Node对象，然后加入到对尾。其中参数mode是独占锁还是共享锁，默认为null，独占锁。这里lock调用的是AQS独占的API。在队列不为空的时候，先尝试通过cas方式修改尾节点为最新的节点，如果修改失败，意味着有并发，这个时候才会进入enq中死循环，“自旋”方式修改。</p> <p>将线程的节点接入到队里中后，当让还需要做一件事:将当前线程挂起！这个事，由acquireQueued来做。</p> <h4 id="_2-3-3-2、parkandcheckinterrupt"><a href="#_2-3-3-2、parkandcheckinterrupt" class="header-anchor">#</a> 2.3.3.2、parkAndCheckInterrupt()</h4> <p>此方法就是让线程去休息，真正进入等待状态</p> <div class="language-java extra-class"><pre class="language-java"><code> <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">parkAndCheckInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token class-name">LockSupport</span><span class="token punctuation">.</span><span class="token function">park</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//调用park()使线程进入waiting状态</span>
+     <span class="token keyword">return</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">interrupted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//如果被唤醒，查看自己是不是被中断的。</span>
+ <span class="token punctuation">}</span>
+</code></pre></div><p>park()会让当前线程进入waiting状态。在此状态下，有两种途径可以唤醒该线程：1）被unpark()；2）被interrupt()。需要注意的是，Thread.interrupted()会清除当前线程的中断标记位。</p> <h3 id="独占模式获取同步状态-小结"><a href="#独占模式获取同步状态-小结" class="header-anchor">#</a> 独占模式获取同步状态-小结：</h3> <p>AQS的模板方法acquire通过调用子类自定义实现的tryAcquire获取同步状态失败后-&gt;将线程构造成Node节点(addWaiter)-&gt;将Node节点添加到同步队列对尾(addWaiter)-&gt;每个节点以自旋的方法获取同步状态(acquirQueued)。在节点自旋获取同步状态时，只有其前驱节点是头节点的时候才会尝试获取同步状态，如果该节点的前驱不是头节点或者该节点的前驱节点是头节点单获取同步状态失败，则判断当前线程需要阻塞，如果需要阻塞则需要被唤醒过后才返回。</p> <h2 id="_2-4、独占模式同步状态的释放-以reentrantlock的非公平锁为例"><a href="#_2-4、独占模式同步状态的释放-以reentrantlock的非公平锁为例" class="header-anchor">#</a> 2.4、独占模式同步状态的释放 -以ReentrantLock的非公平锁为例</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        sync<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-4-1、release"><a href="#_2-4-1、release" class="header-anchor">#</a> 2.4.1、release</h3> <table><thead><tr><th>AbstractQueuedSynchronizer</th> <th></th></tr></thead> <tbody><tr><td>方法</td> <td>描述</td></tr> <tr><td>public final boolean release(int arg)</td> <td>释放同步状态，并唤醒后继节点</td></tr></tbody></table> <p>当线程获取到了同步状态并且执行了相应的逻辑过后，此时就应该释放同步状态。</p> <p>release此方法是独占模式下线程释放共享资源的顶层入口。它会释放指定量的资源，如果彻底释放了（即state=0）,它会唤醒等待队列里的其他线程来获取资源。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">release</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">tryRelease</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Node</span> h <span class="token operator">=</span> head<span class="token punctuation">;</span><span class="token comment">//找到头结点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>h <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> h<span class="token punctuation">.</span>waitStatus <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token function">unparkSuccessor</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//唤醒等待队列里的下一个线程</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>调用tryRelease()来释放资源。有一点需要注意的是，它是根据tryRelease()的返回值来判断该线程是否已经完成释放掉资源了！所以自定义同步器在设计tryRelease()的时候要明确这一点</p> <p>unlock方法调用了AQS的release方法，同样传入了参数1，和获取锁的相应对应，获取一个锁，标示为+1，释放一个锁，标志位-1。tryRelease有子类实现。</p> <p>跟tryAcquire()一样，这个方法是需要独占模式的自定义同步器去实现的。正常来说，tryRelease()都会成功的，因为这是独占模式，该线程来释放资源，那么它肯定已经拿到独占资源了，直接减掉相应量的资源即可(state-=arg)，也不需要考虑线程安全的问题。但要注意它的返回值，上面已经提到了，**release()是根据tryRelease()的返回值来判断该线程是否已经完成释放掉资源了！**所以自义定同步器在实现时，如果已经彻底释放资源(state=0)，要返回true，否则返回false。</p> <h4 id="_2-4-1-1、tryrelease"><a href="#_2-4-1-1、tryrelease" class="header-anchor">#</a> 2.4.1.1、tryRelease</h4> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">protected</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">tryRelease</span><span class="token punctuation">(</span><span class="token keyword">int</span> releases<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> releases<span class="token punctuation">;</span><span class="token comment">//释放，-1</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token function">getExclusiveOwnerThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//判断释放的线程跟获取锁的线程是否一致</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalMonitorStateException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">boolean</span> free <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//因为重入的关系，则进行多次释放，直至status==0则真正释放锁</span>
+                free <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token function">setExclusiveOwnerThread</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">setState</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> free<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</code></pre></div><p>释放锁，成功后，找到AQS的头节点（Head），并唤醒它即可unparkSuccessor：</p> <h4 id="_2-4-1-2、unparksucessor"><a href="#_2-4-1-2、unparksucessor" class="header-anchor">#</a> 2.4.1.2、unparkSucessor</h4> <p>AQS中的release释放同步状态和acquire获取同步状态一样，都是模板方法，tryRelease释放的具体操作都有子类去实现，父类AQS只提供一个算法骨架。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">unparkSucessor</span><span class="token punctuation">(</span><span class="token class-name">Node</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ws <span class="token operator">=</span> node<span class="token punctuation">.</span>waitStatus<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ws <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>   <span class="token comment">//ws != CANCELLED</span>
+    <span class="token function">compareAndSetWaitStatus</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> ws<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//利用CAS将当前线程的等待状态置为CANCELLE</span>
+    <span class="token class-name">Node</span> s <span class="token operator">=</span> node<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> s<span class="token punctuation">.</span>waitSatatus <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">//如果当前线程的后继节点为空，则从同步队列的尾节点开始向前寻找当前线程的下一个不为空的节点</span>
+       s <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+       <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span> t <span class="token operator">=</span> tail<span class="token punctuation">;</span> t <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> t <span class="token operator">!=</span> node<span class="token punctuation">;</span> t <span class="token operator">=</span> t<span class="token punctuation">.</span>prev<span class="token punctuation">)</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>waitStatus <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>  
+               s <span class="token operator">=</span> r<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+        <span class="token class-name">LockSuport</span><span class="token punctuation">.</span><span class="token function">unpark</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>thread<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//如果当前线程的后继节点不为空，则调用LockSuport.unpark唤醒其后继节点，使得后继节点得以重新尝试获取同步状态</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>用unpark()唤醒等待队列中最前边的那个未放弃线程</p> <h2 id="_2-5、共享模式同步状态的获取"><a href="#_2-5、共享模式同步状态的获取" class="header-anchor">#</a> 2.5、共享模式同步状态的获取</h2> <table><thead><tr><th>AbstractQueuedSynchronizer</th> <th></th></tr></thead> <tbody><tr><td>方法</td> <td>描述</td></tr> <tr><td>public final void acquireShared (int arg)</td> <td>共享模式下获取同步状态，忽略中断</td></tr></tbody></table> <p>同独占模式获取同步状态的acquire方法类似</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//AbstractQueuedSynchronizer#acquireShared</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">acquireShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">tryAcquireShared</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//获取锁，由子类具体实现</span>
+    <span class="token function">doAcquireShared</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>针对tryAcquireShared的实现可以发现有：java.util.concurrent.Semaphore的公平锁和非公平锁、java.util.concurrent.CountDownLatch、java.util.concurrent.locks.ReentrantReadWriteLock等</p> <p>查看doAcquireShared代码</p> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">doAcquireShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span> node <span class="token operator">=</span> <span class="token function">addWaiter</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">.</span>SHARED<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> failed <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">boolean</span> interrupted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">final</span> <span class="token class-name">Node</span> p <span class="token operator">=</span> node<span class="token punctuation">.</span><span class="token function">predecessor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token function">tryAcquireShared</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>r <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token function">setHeadAndPropagate</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        p<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// help GC</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>interrupted<span class="token punctuation">)</span>
+                            <span class="token function">selfInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        failed <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                        <span class="token keyword">return</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">shouldParkAfterFailedAcquire</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> node<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+                    <span class="token function">parkAndCheckInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    interrupted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>failed<span class="token punctuation">)</span>
+                <span class="token function">cancelAcquire</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>共享模式下获取同步状态的自旋过程和独占模式大致相同，从代码实现角度来看不同的是共享模式下把线程构造节点加入队列，以及在获取同步状态后中断当前线程都放到了同一个方法里doAcquireShared。共享模式同样也是只有在是其前驱节点是头结点的时候才会尝试获取同步状态，调用tryAcquireShared获取同步状态成功后会返回大于等于0的数，这个时候将会执行setHeadAndPropagate方法，这个方法首先会将当前获取同步状态的这个线程置为头节点（同独占模式一样），但在将当前线程置为头节点过后，又做了一部分操作，其代码如下：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">setHeadAndPropagate</span><span class="token punctuation">(</span><span class="token class-name">Node</span> node<span class="token punctuation">,</span> <span class="token keyword">int</span> propagate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Node</span> h <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token function">setHead</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//将当前获取到同步状态的线程节点置为头节点 </span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>propagate <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">||</span> h <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> h<span class="token punctuation">.</span>waitStatus <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment">//唤醒后继节点</span>
+    <span class="token class-name">Node</span> s <span class="token operator">=</span> node<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">isShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+        <span class="token function">doReleaseShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//唤醒后继节点，因为是共享模式，所以允许多个线程同时获取同步状态</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在doReleaseShared方法中，首先便利队列中的所有节点，如果节点状态为SIGNAL，则把SIGNAL状态置为0(初始状态)，并调用unparkSuccessor把该节点的后继节点唤醒，如果该节点的状态为0，则把状态置为PROPAGATE。</p> <h2 id="_2-6、共享模式同步状态的释放"><a href="#_2-6、共享模式同步状态的释放" class="header-anchor">#</a> 2.6、共享模式同步状态的释放</h2> <table><thead><tr><th>AbstractQueuedSynchronizer</th> <th></th></tr></thead> <tbody><tr><td>方法</td> <td>描述</td></tr> <tr><td>public final boolean releaseShared(int arg)</td> <td>释放同步状态，并唤醒后继节点</td></tr></tbody></table> <p>该方法的实现同独占模式类似，也是一个模板方法，具体的释放实现由子类自定义，在成功释放同步状态后将会唤醒后继节点：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">releaseShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">tryReleaseShared</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment">//释放同步状态</span>
+        <span class="token function">doReleaseShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//唤醒后继节点</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>三、总结</p> <p>3.1、Main exported method【主要方法】</p> <table><thead><tr><th>AbstractQueuedSynchronizer</th> <th></th></tr></thead> <tbody><tr><td>public final void acquire(int arg)</td> <td>独占模式下阻塞获取同步状态，成功获取则返回，失败则进入同步队列等待。(例：ReentrantLock.lock)</td></tr> <tr><td>public final void acquireInterruptibly(int arg)</td> <td>该方法与acquire类似，唯一不同的是如果当前线程被中断，该方法会抛出InterruptedException并返回，也就是说如果当前线程不被中断则和acquire一样。（例：ReentrantLock.lockInterruptibly）</td></tr> <tr><td>public final boolean tryAcquireNanos(int arg, long nanosTimeOut)</td> <td>该方法在acquireInterruptibly的基础上增加了超时限制，如果当前线程在超时时间内获取到同步状态则返回true，获取不到则返回false。（例：ReentrantLock.tryLock）</td></tr> <tr><td>public final acquireShared(int arg)</td> <td>共享模式下阻塞获取同步状态，成功获取则返回，失败则进入同步队列。（例：ReentrantReadWriteLock.unlock）</td></tr> <tr><td>public final acquireSharedInterruptibly(int arg)</td> <td>与acquireShared不同是此方法响应中断，与acquireInterruptibly类似，不同是的此方法是在共享模式下。（例：ReentrantReadWriteLock.lockInterruptibly）</td></tr> <tr><td>public final tryAcquireSharedNanos(int arg, long nanos)</td> <td>在acquireSharedInterruptibly基础上增加了超时限制，同样是在共享模式下。（例：ReentrantReadWriteLock.tryAcquireSharedNanos）</td></tr> <tr><td>public final boolean release(int arg)</td> <td>独占模式下释放同步状态，释放之后会将同步队列中的第一个包含的线程唤醒</td></tr> <tr><td>public final boolean releaseShared(int arg)</td> <td>共享模式下释放同步状态</td></tr></tbody></table> <p>子类可以重写的模板方法</p> <table><thead><tr><th>AbstractQueuedSynchronizer</th> <th></th></tr></thead> <tbody><tr><td>protected boolean tryAcquire(int arg)</td> <td>子类可实现在独占模式下获取同步状态的具体方法。</td></tr> <tr><td>protected boolean tryRelease()</td> <td>子类可实现在独占模式下释放同步状态的具体方法。</td></tr> <tr><td>protected int tryAcquireShared(int arg)</td> <td>子类可实现在共享模式下获取同步状态的具体方法。</td></tr> <tr><td>protected int tryReleaseShared()</td> <td>子类可实现在共享模式下释放同步状态的具体方法。</td></tr> <tr><td>protected boolean isHeldExclusively()</td> <td>当前同步器是否在独占模式下被线程占用，一般表示该方法是否被当前线程所独占。</td></tr></tbody></table> <p>3.2、Queue inspection methods【队列检查方法】</p> <table><thead><tr><th>AbstractQueuedSynchronizer</th> <th></th></tr></thead> <tbody><tr><td>public final boolean hasQueuedThreads()</td> <td>同步队列中是否有等待线程。</td></tr> <tr><td>public final boolean hasContended()</td> <td>查询是否其他线程也曾争则获取此同步器，也就是说acquire是否已经阻塞，是则返回true。</td></tr> <tr><td>public final Thread getFirstQueuedThread()</td> <td>返回当前同步队列中的第一个线程，米有则返回null。</td></tr> <tr><td>public final boolean isQueued(Thread thread)</td> <td>线程是否已经在等待队列中，是则返回true。</td></tr> <tr><td>final boolean apparentlyFirstQueuedIsExclusive()</td> <td>（包级可见）同步队列中第一个等待节点是否为独占模式</td></tr> <tr><td>public final boolean hasQueuedPredecessors()</td> <td>查询是否有其他线程获取同步状态的时间大于当前线程，用于公平锁的实现。</td></tr></tbody></table> <p>3.3、Instrumentation and monitoring methods【监控监测方法】</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token operator">|</span> <span class="token class-name">AbstractQueuedSynchronizer</span>                                  <span class="token operator">|</span>                                                                <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span> <span class="token operator">|</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span> <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getQueueLength</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                           <span class="token operator">|</span> 返回同步队列的估计长度，该方法用于监视系统状态，而非同步控制。 <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Thread</span><span class="token punctuation">&gt;</span></span> <span class="token function">getQueuedThreads</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token operator">|</span> 获取同步队列线程集合，同样是一个估计值。                       <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Thread</span><span class="token punctuation">&gt;</span></span> <span class="token function">getExclusiveQueuedThreads</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">|</span> 获取同步队列中独占模式线程集合，估计值。                       <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Thread</span><span class="token punctuation">&gt;</span></span> <span class="token function">getSharedQueuedThreads</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token operator">|</span> 获取同步队列中共享模式线程集合，同估计值。                     <span class="token operator">|</span>
+</code></pre></div><p>3.4、Internal support methods for Conditions【内部支持的Conditions方法】</p> <table><thead><tr><th>AbstractQueuedSynchronizer</th> <th></th></tr></thead> <tbody><tr><td>final isOnSyncQueue(Node node)</td> <td>当前节点是否在sync等待队列中</td></tr></tbody></table> <p>其实还有：Instrumentation methods for conditions等一些方法。</p> <h2 id="参考文章"><a href="#参考文章" class="header-anchor">#</a> 参考文章</h2> <ul><li>https://www.cnblogs.com/bjlhx/p/10365620.html</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2021-07-08 14:50:19</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/java/juc/05-juclockdiff.html" class="prev">
+        JUC-锁-比较
+      </a></span> <span class="next"><a href="/java/juc/07-juclockuse.html">
+        JUC-锁-基础使用
+      </a>
+      →
+    </span></p></div> <div class="page_article_visit_tail" data-v-17815e06><img src="/assets/img/view/visit.png" alt="" data-v-17815e06>
+         
+        <span style="display:none;" data-v-17815e06>0</span></div> <div class="page_article_comment" data-v-17815e06></div></main> <div class="page-right-index-sidebar" data-v-17815e06><div class="content_index_title" data-v-17815e06>
+      JUC-锁-AQS原理
+    </div> <div class="page-right-index-toc" data-v-17815e06><ul data-v-17815e06><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#一、概述" aria-current="page" class="unactive_index_li" data-v-17815e06>一、概述
+          </a> </li><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#二、源码分析" aria-current="page" class="unactive_index_li" data-v-17815e06>二、源码分析
+          </a> </li><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-1、node节点以aqs的内部类存在-其中属性" aria-current="page" class="unactive_index_li" data-v-17815e06>2.1、Node节点以AQS的内部类存在，其中属性
+          </a> </li><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-2、abstractqueuedsynchronizer属性" aria-current="page" class="unactive_index_li" data-v-17815e06>2.2、AbstractQueuedSynchronizer属性
+          </a> </li><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-3、独占模式同步状态的获取-以reentrantlock的非公平锁为例" aria-current="page" class="unactive_index_li" data-v-17815e06>2.3、独占模式同步状态的获取-以ReentrantLock的非公平锁为例
+          </a> <ul data-v-17815e06><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-3-1、代码入口获取锁" aria-current="page" class="unactive_index_li" data-v-17815e06>2.3.1、代码入口获取锁</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-3-2、针对acquire" aria-current="page" class="unactive_index_li" data-v-17815e06>2.3.2、针对acquire</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-3-3、acquirequeued自旋" aria-current="page" class="unactive_index_li" data-v-17815e06>2.3.3、acquireQueued自旋</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#独占模式获取同步状态-小结" aria-current="page" class="unactive_index_li" data-v-17815e06>独占模式获取同步状态-小结：</a></li></ul></li><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-4、独占模式同步状态的释放-以reentrantlock的非公平锁为例" aria-current="page" class="unactive_index_li" data-v-17815e06>2.4、独占模式同步状态的释放 -以ReentrantLock的非公平锁为例
+          </a> <ul data-v-17815e06><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-4-1、release" aria-current="page" class="unactive_index_li" data-v-17815e06>2.4.1、release</a></li></ul></li><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-5、共享模式同步状态的获取" aria-current="page" class="unactive_index_li" data-v-17815e06>2.5、共享模式同步状态的获取
+          </a> </li><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#_2-6、共享模式同步状态的释放" aria-current="page" class="unactive_index_li" data-v-17815e06>2.6、共享模式同步状态的释放
+          </a> </li><li data-v-17815e06><a href="/java/juc/06-juclockaqs.html#参考文章" aria-current="page" class="unactive_index_li" data-v-17815e06>参考文章
+          </a> </li></ul> <div style="height:10px" data-v-17815e06></div></div></div> <div class="page-right-tool-sidebar" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/phone.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>手机看</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/wechat.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>公众号</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/communication.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>讨论</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/leftclose.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>左栏</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/fullscreen.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>全屏</div></div> <div style="display:none;" data-v-17815e06><a href="/java/juc/06-juclockaqs.html" aria-current="page" class="router-link-exact-active router-link-active" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/prev.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>上一篇</div></div></a></div> <div style="display:none;" data-v-17815e06><a href="/java/juc/06-juclockaqs.html" aria-current="page" class="router-link-exact-active router-link-active" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/next.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>下一篇</div></div></a></div></div> <div id="qrCodeDiv" class="toolbar_qrcode_unactive" data-v-17815e06><div class=" toolbar_head_tile" data-v-17815e06>扫一扫 手机阅读</div> <img src="" class="img-qrcode" data-v-17815e06> <h5 data-v-17815e06>可分享给好友和朋友圈</h5></div> <div id="wxmpDiv" class="toolbar_wxmp_active" style="display:none;" data-v-17815e06><div class="toolbar_head_tile" data-v-17815e06>扫描关注公众号，回复&quot;资料&quot;，下载相关图书和资料</div> <img src="/assets/img/wx/wxmp.jpg" class="img-wx-mp" data-v-17815e06> <h5 data-v-17815e06>公众号:智能后端和架构</h5></div> <div id="coummpDiv" class="toolbar_communication_active" style="display:none;" data-v-17815e06><div class="toolbar_head_tile" data-v-17815e06>QQ群:569556849 <br data-v-17815e06>问题咨询和技术交流</div> <img src="/assets/img/qq/qqgroup.png" class="img-wx-mp" data-v-17815e06> <h5 data-v-17815e06>PS 备注:智能后端和架构</h5></div> <div class="topDivImg" style="display:none;" data-v-17815e06><img src="/assets/img/toolbar/top.png" class="tool_top_img_icon" data-v-17815e06></div> <div style="display:none" data-v-17815e06><script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279777129&web_id=1279777129" data-v-17815e06></script></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.db30138a.js" defer></script><script src="/assets/js/5.df8bf371.js" defer></script><script src="/assets/js/1.60d99fe1.js" defer></script><script src="/assets/js/613.5010499b.js" defer></script>
+  </body>
+</html>

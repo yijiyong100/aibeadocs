@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hive优化-汇总精华总结(二) | 智能后端和架构</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="智能后端和架构的文档">
+    <meta name="icon" content="">
+    <meta name="author" content="landry -- seo 选项">
+    <meta name="keywords" content="后端 java 架构 面试 -- seo 选项">
+    
+    <link rel="preload" href="/assets/css/0.styles.183d1d00.css" as="style"><link rel="preload" href="/assets/js/app.db30138a.js" as="script"><link rel="preload" href="/assets/js/5.df8bf371.js" as="script"><link rel="preload" href="/assets/js/1.60d99fe1.js" as="script"><link rel="preload" href="/assets/js/493.6d188156.js" as="script"><link rel="prefetch" href="/assets/js/10.034bcceb.js"><link rel="prefetch" href="/assets/js/100.bc78c9c9.js"><link rel="prefetch" href="/assets/js/101.fc021eba.js"><link rel="prefetch" href="/assets/js/102.44f58839.js"><link rel="prefetch" href="/assets/js/103.cd3ce876.js"><link rel="prefetch" href="/assets/js/104.ece12d4f.js"><link rel="prefetch" href="/assets/js/105.e0ef0178.js"><link rel="prefetch" href="/assets/js/106.f8113fb8.js"><link rel="prefetch" href="/assets/js/107.7af90320.js"><link rel="prefetch" href="/assets/js/108.a76af7ab.js"><link rel="prefetch" href="/assets/js/109.ae7dfcbe.js"><link rel="prefetch" href="/assets/js/11.22d5654f.js"><link rel="prefetch" href="/assets/js/110.829dbd72.js"><link rel="prefetch" href="/assets/js/111.2612d028.js"><link rel="prefetch" href="/assets/js/112.381ba79f.js"><link rel="prefetch" href="/assets/js/113.52309728.js"><link rel="prefetch" href="/assets/js/114.afd46270.js"><link rel="prefetch" href="/assets/js/115.cfff1785.js"><link rel="prefetch" href="/assets/js/116.b9e85eed.js"><link rel="prefetch" href="/assets/js/117.c88c3ceb.js"><link rel="prefetch" href="/assets/js/118.0cfd8d46.js"><link rel="prefetch" href="/assets/js/119.972e6fcd.js"><link rel="prefetch" href="/assets/js/12.a1fbf449.js"><link rel="prefetch" href="/assets/js/120.c4d0fa30.js"><link rel="prefetch" href="/assets/js/121.a05fb7c8.js"><link rel="prefetch" href="/assets/js/122.84bc99e8.js"><link rel="prefetch" href="/assets/js/123.6e40db8b.js"><link rel="prefetch" href="/assets/js/124.679f60f0.js"><link rel="prefetch" href="/assets/js/125.7b983b12.js"><link rel="prefetch" href="/assets/js/126.c6529e34.js"><link rel="prefetch" href="/assets/js/127.62896466.js"><link rel="prefetch" href="/assets/js/128.11cadf09.js"><link rel="prefetch" href="/assets/js/129.a2c6007b.js"><link rel="prefetch" href="/assets/js/13.773a30c0.js"><link rel="prefetch" href="/assets/js/130.cd51d586.js"><link rel="prefetch" href="/assets/js/131.5d81a3a4.js"><link rel="prefetch" href="/assets/js/132.c062c43a.js"><link rel="prefetch" href="/assets/js/133.94b50107.js"><link rel="prefetch" href="/assets/js/134.e787c6f2.js"><link rel="prefetch" href="/assets/js/135.514b39b8.js"><link rel="prefetch" href="/assets/js/136.2209902a.js"><link rel="prefetch" href="/assets/js/137.8ee62050.js"><link rel="prefetch" href="/assets/js/138.30076406.js"><link rel="prefetch" href="/assets/js/139.153f79f0.js"><link rel="prefetch" href="/assets/js/14.a010702c.js"><link rel="prefetch" href="/assets/js/140.c22ae524.js"><link rel="prefetch" href="/assets/js/141.03388ce3.js"><link rel="prefetch" href="/assets/js/142.be052d72.js"><link rel="prefetch" href="/assets/js/143.86f4f723.js"><link rel="prefetch" href="/assets/js/144.58a81178.js"><link rel="prefetch" href="/assets/js/145.b6065cbb.js"><link rel="prefetch" href="/assets/js/146.a7d48393.js"><link rel="prefetch" href="/assets/js/147.1f5a2c27.js"><link rel="prefetch" href="/assets/js/148.e545c932.js"><link rel="prefetch" href="/assets/js/149.b7f633ea.js"><link rel="prefetch" href="/assets/js/15.6612b8a7.js"><link rel="prefetch" href="/assets/js/150.0c633255.js"><link rel="prefetch" href="/assets/js/151.7518fca9.js"><link rel="prefetch" href="/assets/js/152.85ebf0bb.js"><link rel="prefetch" href="/assets/js/153.6696affd.js"><link rel="prefetch" href="/assets/js/154.a488a746.js"><link rel="prefetch" href="/assets/js/155.b1285b65.js"><link rel="prefetch" href="/assets/js/156.c7d65add.js"><link rel="prefetch" href="/assets/js/157.95b667f4.js"><link rel="prefetch" href="/assets/js/158.36dcae64.js"><link rel="prefetch" href="/assets/js/159.5ab4607b.js"><link rel="prefetch" href="/assets/js/16.9728f201.js"><link rel="prefetch" href="/assets/js/160.f31c31c5.js"><link rel="prefetch" href="/assets/js/161.7faa6f5b.js"><link rel="prefetch" href="/assets/js/162.8bed1a3e.js"><link rel="prefetch" href="/assets/js/163.bccb4b94.js"><link rel="prefetch" href="/assets/js/164.d019f9f6.js"><link rel="prefetch" href="/assets/js/165.4ea2fcec.js"><link rel="prefetch" href="/assets/js/166.937ae33a.js"><link rel="prefetch" href="/assets/js/167.63bf2a10.js"><link rel="prefetch" href="/assets/js/168.8501b450.js"><link rel="prefetch" href="/assets/js/169.52064ac2.js"><link rel="prefetch" href="/assets/js/17.01684033.js"><link rel="prefetch" href="/assets/js/170.bc536396.js"><link rel="prefetch" href="/assets/js/171.5c44671a.js"><link rel="prefetch" href="/assets/js/172.cbc9f01e.js"><link rel="prefetch" href="/assets/js/173.036cc49c.js"><link rel="prefetch" href="/assets/js/174.7900267f.js"><link rel="prefetch" href="/assets/js/175.7f350261.js"><link rel="prefetch" href="/assets/js/176.abfbdc57.js"><link rel="prefetch" href="/assets/js/177.679877f2.js"><link rel="prefetch" href="/assets/js/178.87fc5aba.js"><link rel="prefetch" href="/assets/js/179.26c9f0a4.js"><link rel="prefetch" href="/assets/js/18.e64f0610.js"><link rel="prefetch" href="/assets/js/180.bd2cdacc.js"><link rel="prefetch" href="/assets/js/181.3ad737a4.js"><link rel="prefetch" href="/assets/js/182.3e7faf1a.js"><link rel="prefetch" href="/assets/js/183.4d65d295.js"><link rel="prefetch" href="/assets/js/184.460482ae.js"><link rel="prefetch" href="/assets/js/185.46d4a7fe.js"><link rel="prefetch" href="/assets/js/186.61235089.js"><link rel="prefetch" href="/assets/js/187.397bcfe8.js"><link rel="prefetch" href="/assets/js/188.060a1cb7.js"><link rel="prefetch" href="/assets/js/189.e3995463.js"><link rel="prefetch" href="/assets/js/19.f8b70585.js"><link rel="prefetch" href="/assets/js/190.dcaa16c4.js"><link rel="prefetch" href="/assets/js/191.f4c5aa96.js"><link rel="prefetch" href="/assets/js/192.8b10742f.js"><link rel="prefetch" href="/assets/js/193.64a40b9c.js"><link rel="prefetch" href="/assets/js/194.2ea34c9f.js"><link rel="prefetch" href="/assets/js/195.6bb470df.js"><link rel="prefetch" href="/assets/js/196.a0f55724.js"><link rel="prefetch" href="/assets/js/197.493d62fe.js"><link rel="prefetch" href="/assets/js/198.285ec3f4.js"><link rel="prefetch" href="/assets/js/199.c26664a8.js"><link rel="prefetch" href="/assets/js/20.c407011e.js"><link rel="prefetch" href="/assets/js/200.e172c025.js"><link rel="prefetch" href="/assets/js/201.88cbb622.js"><link rel="prefetch" href="/assets/js/202.da403177.js"><link rel="prefetch" href="/assets/js/203.6eb14b41.js"><link rel="prefetch" href="/assets/js/204.2ddae4bf.js"><link rel="prefetch" href="/assets/js/205.0a89efc1.js"><link rel="prefetch" href="/assets/js/206.480a66d3.js"><link rel="prefetch" href="/assets/js/207.bf5c1d60.js"><link rel="prefetch" href="/assets/js/208.b187dc67.js"><link rel="prefetch" href="/assets/js/209.20c99616.js"><link rel="prefetch" href="/assets/js/21.7edc8b1b.js"><link rel="prefetch" href="/assets/js/210.e4f1f766.js"><link rel="prefetch" href="/assets/js/211.1ed7b354.js"><link rel="prefetch" href="/assets/js/212.7e1243ab.js"><link rel="prefetch" href="/assets/js/213.6daddd4b.js"><link rel="prefetch" href="/assets/js/214.e548b00f.js"><link rel="prefetch" href="/assets/js/215.5e7f305a.js"><link rel="prefetch" href="/assets/js/216.d02d9a10.js"><link rel="prefetch" href="/assets/js/217.4ee282a4.js"><link rel="prefetch" href="/assets/js/218.d95d737e.js"><link rel="prefetch" href="/assets/js/219.fab5907a.js"><link rel="prefetch" href="/assets/js/22.fdbd00d3.js"><link rel="prefetch" href="/assets/js/220.56c6f7cc.js"><link rel="prefetch" href="/assets/js/221.3ee9e8ae.js"><link rel="prefetch" href="/assets/js/222.30c2d9ac.js"><link rel="prefetch" href="/assets/js/223.d6f5a1ce.js"><link rel="prefetch" href="/assets/js/224.b964e9b3.js"><link rel="prefetch" href="/assets/js/225.4f7cdb7b.js"><link rel="prefetch" href="/assets/js/226.34f5bc46.js"><link rel="prefetch" href="/assets/js/227.0c1d6c32.js"><link rel="prefetch" href="/assets/js/228.5c4850fa.js"><link rel="prefetch" href="/assets/js/229.0e83acaa.js"><link rel="prefetch" href="/assets/js/23.714595d5.js"><link rel="prefetch" href="/assets/js/230.d56ff6f6.js"><link rel="prefetch" href="/assets/js/231.19e033e0.js"><link rel="prefetch" href="/assets/js/232.b020bd32.js"><link rel="prefetch" href="/assets/js/233.19037210.js"><link rel="prefetch" href="/assets/js/234.10d14014.js"><link rel="prefetch" href="/assets/js/235.91bc5ad5.js"><link rel="prefetch" href="/assets/js/236.e9193180.js"><link rel="prefetch" href="/assets/js/237.e9be28a3.js"><link rel="prefetch" href="/assets/js/238.d1ac2fd8.js"><link rel="prefetch" href="/assets/js/239.44f2f146.js"><link rel="prefetch" href="/assets/js/24.2611c0d6.js"><link rel="prefetch" href="/assets/js/240.c8fe20cb.js"><link rel="prefetch" href="/assets/js/241.b232c3db.js"><link rel="prefetch" href="/assets/js/242.5bacdca9.js"><link rel="prefetch" href="/assets/js/243.bc85e605.js"><link rel="prefetch" href="/assets/js/244.975158d1.js"><link rel="prefetch" href="/assets/js/245.a139b48a.js"><link rel="prefetch" href="/assets/js/246.3138e906.js"><link rel="prefetch" href="/assets/js/247.070da83a.js"><link rel="prefetch" href="/assets/js/248.a1d8ac56.js"><link rel="prefetch" href="/assets/js/249.aadb0dca.js"><link rel="prefetch" href="/assets/js/25.2272f92f.js"><link rel="prefetch" href="/assets/js/250.c9cbf057.js"><link rel="prefetch" href="/assets/js/251.e8ddac0a.js"><link rel="prefetch" href="/assets/js/252.47894d0d.js"><link rel="prefetch" href="/assets/js/253.38f4c081.js"><link rel="prefetch" href="/assets/js/254.73808710.js"><link rel="prefetch" href="/assets/js/255.19234ae1.js"><link rel="prefetch" href="/assets/js/256.dbd6b6af.js"><link rel="prefetch" href="/assets/js/257.c16eae54.js"><link rel="prefetch" href="/assets/js/258.89a54cc9.js"><link rel="prefetch" href="/assets/js/259.ff8893b9.js"><link rel="prefetch" href="/assets/js/26.4d1df400.js"><link rel="prefetch" href="/assets/js/260.da83ef3e.js"><link rel="prefetch" href="/assets/js/261.39869cb6.js"><link rel="prefetch" href="/assets/js/262.6df31a71.js"><link rel="prefetch" href="/assets/js/263.a98eab49.js"><link rel="prefetch" href="/assets/js/264.1204725e.js"><link rel="prefetch" href="/assets/js/265.b6ce2d26.js"><link rel="prefetch" href="/assets/js/266.0c03e783.js"><link rel="prefetch" href="/assets/js/267.d686ec0e.js"><link rel="prefetch" href="/assets/js/268.e7c76c63.js"><link rel="prefetch" href="/assets/js/269.9ec0a34d.js"><link rel="prefetch" href="/assets/js/27.a88ca8bc.js"><link rel="prefetch" href="/assets/js/270.99f54d10.js"><link rel="prefetch" href="/assets/js/271.b9e143e2.js"><link rel="prefetch" href="/assets/js/272.1c93e968.js"><link rel="prefetch" href="/assets/js/273.7235d019.js"><link rel="prefetch" href="/assets/js/274.fbed798d.js"><link rel="prefetch" href="/assets/js/275.0006136b.js"><link rel="prefetch" href="/assets/js/276.8fc094f0.js"><link rel="prefetch" href="/assets/js/277.20e11e67.js"><link rel="prefetch" href="/assets/js/278.f8dc8f8f.js"><link rel="prefetch" href="/assets/js/279.651a9f88.js"><link rel="prefetch" href="/assets/js/28.69be6cc7.js"><link rel="prefetch" href="/assets/js/280.94aed3df.js"><link rel="prefetch" href="/assets/js/281.b9e4a0c1.js"><link rel="prefetch" href="/assets/js/282.fcbf917d.js"><link rel="prefetch" href="/assets/js/283.4b9335f2.js"><link rel="prefetch" href="/assets/js/284.a2748605.js"><link rel="prefetch" href="/assets/js/285.75119aca.js"><link rel="prefetch" href="/assets/js/286.a4a0abc2.js"><link rel="prefetch" href="/assets/js/287.0e10db49.js"><link rel="prefetch" href="/assets/js/288.540945f8.js"><link rel="prefetch" href="/assets/js/289.65991a71.js"><link rel="prefetch" href="/assets/js/29.3d144449.js"><link rel="prefetch" href="/assets/js/290.3cda3c0a.js"><link rel="prefetch" href="/assets/js/291.a7c9d6a2.js"><link rel="prefetch" href="/assets/js/292.2ce3fd5f.js"><link rel="prefetch" href="/assets/js/293.6572edb6.js"><link rel="prefetch" href="/assets/js/294.2a04291f.js"><link rel="prefetch" href="/assets/js/295.9a0fdf51.js"><link rel="prefetch" href="/assets/js/296.76bf15e5.js"><link rel="prefetch" href="/assets/js/297.ca22f9e0.js"><link rel="prefetch" href="/assets/js/298.dfd560c6.js"><link rel="prefetch" href="/assets/js/299.ea6a076f.js"><link rel="prefetch" href="/assets/js/3.19255846.js"><link rel="prefetch" href="/assets/js/30.c9924233.js"><link rel="prefetch" href="/assets/js/300.08ab4a0a.js"><link rel="prefetch" href="/assets/js/301.493634b6.js"><link rel="prefetch" href="/assets/js/302.088b770b.js"><link rel="prefetch" href="/assets/js/303.fdda8763.js"><link rel="prefetch" href="/assets/js/304.6e6a4a01.js"><link rel="prefetch" href="/assets/js/305.a3a1ae34.js"><link rel="prefetch" href="/assets/js/306.5835726c.js"><link rel="prefetch" href="/assets/js/307.0fce17cb.js"><link rel="prefetch" href="/assets/js/308.1e172ca3.js"><link rel="prefetch" href="/assets/js/309.80af26f3.js"><link rel="prefetch" href="/assets/js/31.f9f57568.js"><link rel="prefetch" href="/assets/js/310.b5f3ed6f.js"><link rel="prefetch" href="/assets/js/311.82c7e552.js"><link rel="prefetch" href="/assets/js/312.a48280c0.js"><link rel="prefetch" href="/assets/js/313.7c31693f.js"><link rel="prefetch" href="/assets/js/314.307f9eda.js"><link rel="prefetch" href="/assets/js/315.9f1e1099.js"><link rel="prefetch" href="/assets/js/316.7d255d6d.js"><link rel="prefetch" href="/assets/js/317.ef013a1a.js"><link rel="prefetch" href="/assets/js/318.64d24469.js"><link rel="prefetch" href="/assets/js/319.59c19af0.js"><link rel="prefetch" href="/assets/js/32.b29dc01b.js"><link rel="prefetch" href="/assets/js/320.add9fa10.js"><link rel="prefetch" href="/assets/js/321.22b199c2.js"><link rel="prefetch" href="/assets/js/322.ad9a2dff.js"><link rel="prefetch" href="/assets/js/323.b4183fc2.js"><link rel="prefetch" href="/assets/js/324.cf1aca23.js"><link rel="prefetch" href="/assets/js/325.83a4f1cf.js"><link rel="prefetch" href="/assets/js/326.f5c26436.js"><link rel="prefetch" href="/assets/js/327.16102be7.js"><link rel="prefetch" href="/assets/js/328.da84fbb0.js"><link rel="prefetch" href="/assets/js/329.4bdbc8ed.js"><link rel="prefetch" href="/assets/js/33.961516b8.js"><link rel="prefetch" href="/assets/js/330.0a98e84a.js"><link rel="prefetch" href="/assets/js/331.36e66e80.js"><link rel="prefetch" href="/assets/js/332.1b010d76.js"><link rel="prefetch" href="/assets/js/333.bf2def9d.js"><link rel="prefetch" href="/assets/js/334.373631c9.js"><link rel="prefetch" href="/assets/js/335.68121e51.js"><link rel="prefetch" href="/assets/js/336.49a94ea2.js"><link rel="prefetch" href="/assets/js/337.661abdcc.js"><link rel="prefetch" href="/assets/js/338.389c4be2.js"><link rel="prefetch" href="/assets/js/339.098329ed.js"><link rel="prefetch" href="/assets/js/34.7cb1f223.js"><link rel="prefetch" href="/assets/js/340.5c400f4d.js"><link rel="prefetch" href="/assets/js/341.41d84f2d.js"><link rel="prefetch" href="/assets/js/342.ef356713.js"><link rel="prefetch" href="/assets/js/343.d1e1952a.js"><link rel="prefetch" href="/assets/js/344.1980f7cc.js"><link rel="prefetch" href="/assets/js/345.0f7d9b9f.js"><link rel="prefetch" href="/assets/js/346.c3878425.js"><link rel="prefetch" href="/assets/js/347.dd74c55a.js"><link rel="prefetch" href="/assets/js/348.89584af8.js"><link rel="prefetch" href="/assets/js/349.c7bc7bc1.js"><link rel="prefetch" href="/assets/js/35.51ade70c.js"><link rel="prefetch" href="/assets/js/350.d2df1d20.js"><link rel="prefetch" href="/assets/js/351.a1b78a34.js"><link rel="prefetch" href="/assets/js/352.08ae09fd.js"><link rel="prefetch" href="/assets/js/353.aced76b3.js"><link rel="prefetch" href="/assets/js/354.f033ee07.js"><link rel="prefetch" href="/assets/js/355.95831785.js"><link rel="prefetch" href="/assets/js/356.893584e1.js"><link rel="prefetch" href="/assets/js/357.5f070ca5.js"><link rel="prefetch" href="/assets/js/358.35f2ade5.js"><link rel="prefetch" href="/assets/js/359.e45099bd.js"><link rel="prefetch" href="/assets/js/36.82c64b8f.js"><link rel="prefetch" href="/assets/js/360.59aa32f9.js"><link rel="prefetch" href="/assets/js/361.bd3c2fdd.js"><link rel="prefetch" href="/assets/js/362.3566e79d.js"><link rel="prefetch" href="/assets/js/363.b4ab82f7.js"><link rel="prefetch" href="/assets/js/364.7f50d299.js"><link rel="prefetch" href="/assets/js/365.4f8e93f6.js"><link rel="prefetch" href="/assets/js/366.8fd91814.js"><link rel="prefetch" href="/assets/js/367.0d47f5a8.js"><link rel="prefetch" href="/assets/js/368.fb7814d2.js"><link rel="prefetch" href="/assets/js/369.d6d8c504.js"><link rel="prefetch" href="/assets/js/37.5165b622.js"><link rel="prefetch" href="/assets/js/370.00a807a6.js"><link rel="prefetch" href="/assets/js/371.867a9db3.js"><link rel="prefetch" href="/assets/js/372.decca4ce.js"><link rel="prefetch" href="/assets/js/373.98b37511.js"><link rel="prefetch" href="/assets/js/374.6313e71a.js"><link rel="prefetch" href="/assets/js/375.f2e2fa05.js"><link rel="prefetch" href="/assets/js/376.7103c034.js"><link rel="prefetch" href="/assets/js/377.9bf388c9.js"><link rel="prefetch" href="/assets/js/378.57ae31cf.js"><link rel="prefetch" href="/assets/js/379.739ee8d7.js"><link rel="prefetch" href="/assets/js/38.563ce632.js"><link rel="prefetch" href="/assets/js/380.6256f3c8.js"><link rel="prefetch" href="/assets/js/381.38f7eb5a.js"><link rel="prefetch" href="/assets/js/382.ae035904.js"><link rel="prefetch" href="/assets/js/383.2d1b99c3.js"><link rel="prefetch" href="/assets/js/384.094517c8.js"><link rel="prefetch" href="/assets/js/385.62ddf499.js"><link rel="prefetch" href="/assets/js/386.8315cf9d.js"><link rel="prefetch" href="/assets/js/387.2bef00d3.js"><link rel="prefetch" href="/assets/js/388.178f867f.js"><link rel="prefetch" href="/assets/js/389.d893ba15.js"><link rel="prefetch" href="/assets/js/39.29556252.js"><link rel="prefetch" href="/assets/js/390.1b85f452.js"><link rel="prefetch" href="/assets/js/391.12fe014e.js"><link rel="prefetch" href="/assets/js/392.8c88755d.js"><link rel="prefetch" href="/assets/js/393.72aa7675.js"><link rel="prefetch" href="/assets/js/394.df13d1f7.js"><link rel="prefetch" href="/assets/js/395.8f8d96d9.js"><link rel="prefetch" href="/assets/js/396.aa362f3c.js"><link rel="prefetch" href="/assets/js/397.cca49694.js"><link rel="prefetch" href="/assets/js/398.d9fd0617.js"><link rel="prefetch" href="/assets/js/399.96f3fede.js"><link rel="prefetch" href="/assets/js/4.623783fc.js"><link rel="prefetch" href="/assets/js/40.0330d609.js"><link rel="prefetch" href="/assets/js/400.a1472f96.js"><link rel="prefetch" href="/assets/js/401.3d4e1a6b.js"><link rel="prefetch" href="/assets/js/402.0a8a7162.js"><link rel="prefetch" href="/assets/js/403.b1393b0f.js"><link rel="prefetch" href="/assets/js/404.7e485063.js"><link rel="prefetch" href="/assets/js/405.1037d751.js"><link rel="prefetch" href="/assets/js/406.ae7d83bb.js"><link rel="prefetch" href="/assets/js/407.cb9ade38.js"><link rel="prefetch" href="/assets/js/408.a105752d.js"><link rel="prefetch" href="/assets/js/409.a56202e0.js"><link rel="prefetch" href="/assets/js/41.dcb7a3f5.js"><link rel="prefetch" href="/assets/js/410.f615dd75.js"><link rel="prefetch" href="/assets/js/411.29882ac4.js"><link rel="prefetch" href="/assets/js/412.ed8e6abb.js"><link rel="prefetch" href="/assets/js/413.2a212c18.js"><link rel="prefetch" href="/assets/js/414.9717c94d.js"><link rel="prefetch" href="/assets/js/415.ad521b94.js"><link rel="prefetch" href="/assets/js/416.981646b8.js"><link rel="prefetch" href="/assets/js/417.3bcf1a86.js"><link rel="prefetch" href="/assets/js/418.d6d8bc33.js"><link rel="prefetch" href="/assets/js/419.79a736e3.js"><link rel="prefetch" href="/assets/js/42.61434728.js"><link rel="prefetch" href="/assets/js/420.bd2fe57b.js"><link rel="prefetch" href="/assets/js/421.040b2b27.js"><link rel="prefetch" href="/assets/js/422.5cc63c45.js"><link rel="prefetch" href="/assets/js/423.9d447e90.js"><link rel="prefetch" href="/assets/js/424.51734eb2.js"><link rel="prefetch" href="/assets/js/425.f6a00d75.js"><link rel="prefetch" href="/assets/js/426.896f7a5b.js"><link rel="prefetch" href="/assets/js/427.e099dd6a.js"><link rel="prefetch" href="/assets/js/428.beef8eb2.js"><link rel="prefetch" href="/assets/js/429.266ed61e.js"><link rel="prefetch" href="/assets/js/43.667a4108.js"><link rel="prefetch" href="/assets/js/430.cd857ec2.js"><link rel="prefetch" href="/assets/js/431.cb5550b2.js"><link rel="prefetch" href="/assets/js/432.3a31614c.js"><link rel="prefetch" href="/assets/js/433.c9f73ea8.js"><link rel="prefetch" href="/assets/js/434.c3d546a3.js"><link rel="prefetch" href="/assets/js/435.6a5558d5.js"><link rel="prefetch" href="/assets/js/436.fac0cdde.js"><link rel="prefetch" href="/assets/js/437.858e2dbc.js"><link rel="prefetch" href="/assets/js/438.4f6fd7f1.js"><link rel="prefetch" href="/assets/js/439.d823d6d5.js"><link rel="prefetch" href="/assets/js/44.2e051a69.js"><link rel="prefetch" href="/assets/js/440.8d4edefe.js"><link rel="prefetch" href="/assets/js/441.806f144c.js"><link rel="prefetch" href="/assets/js/442.56b1ae7b.js"><link rel="prefetch" href="/assets/js/443.0c9c92ed.js"><link rel="prefetch" href="/assets/js/444.4484d097.js"><link rel="prefetch" href="/assets/js/445.6e68718d.js"><link rel="prefetch" href="/assets/js/446.5bdd4ab4.js"><link rel="prefetch" href="/assets/js/447.6202d37b.js"><link rel="prefetch" href="/assets/js/448.88ae6dd3.js"><link rel="prefetch" href="/assets/js/449.2e911cca.js"><link rel="prefetch" href="/assets/js/45.08ce102a.js"><link rel="prefetch" href="/assets/js/450.16bda76e.js"><link rel="prefetch" href="/assets/js/451.ee603a5b.js"><link rel="prefetch" href="/assets/js/452.ff4a503b.js"><link rel="prefetch" href="/assets/js/453.f4bf543d.js"><link rel="prefetch" href="/assets/js/454.fb1e37fa.js"><link rel="prefetch" href="/assets/js/455.55467fe9.js"><link rel="prefetch" href="/assets/js/456.c1ccc8ef.js"><link rel="prefetch" href="/assets/js/457.aaeaefa6.js"><link rel="prefetch" href="/assets/js/458.f59b0607.js"><link rel="prefetch" href="/assets/js/459.201f603d.js"><link rel="prefetch" href="/assets/js/46.074adfe9.js"><link rel="prefetch" href="/assets/js/460.4e283c1a.js"><link rel="prefetch" href="/assets/js/461.c2492681.js"><link rel="prefetch" href="/assets/js/462.9362354d.js"><link rel="prefetch" href="/assets/js/463.a4087f38.js"><link rel="prefetch" href="/assets/js/464.e5828e7e.js"><link rel="prefetch" href="/assets/js/465.e95594b5.js"><link rel="prefetch" href="/assets/js/466.7b75c1f4.js"><link rel="prefetch" href="/assets/js/467.8e9d9c24.js"><link rel="prefetch" href="/assets/js/468.b87a6973.js"><link rel="prefetch" href="/assets/js/469.3411b392.js"><link rel="prefetch" href="/assets/js/47.8175158f.js"><link rel="prefetch" href="/assets/js/470.95363b28.js"><link rel="prefetch" href="/assets/js/471.21a1606b.js"><link rel="prefetch" href="/assets/js/472.f9687e9c.js"><link rel="prefetch" href="/assets/js/473.64f85306.js"><link rel="prefetch" href="/assets/js/474.8a9f362d.js"><link rel="prefetch" href="/assets/js/475.5d6399de.js"><link rel="prefetch" href="/assets/js/476.70d49b7b.js"><link rel="prefetch" href="/assets/js/477.7e3e21a3.js"><link rel="prefetch" href="/assets/js/478.67387462.js"><link rel="prefetch" href="/assets/js/479.a239eaa0.js"><link rel="prefetch" href="/assets/js/48.f20bc2b0.js"><link rel="prefetch" href="/assets/js/480.6f0b953b.js"><link rel="prefetch" href="/assets/js/481.b3ec6e3e.js"><link rel="prefetch" href="/assets/js/482.ef931c32.js"><link rel="prefetch" href="/assets/js/483.e2271a83.js"><link rel="prefetch" href="/assets/js/484.544c1072.js"><link rel="prefetch" href="/assets/js/485.d8a5505a.js"><link rel="prefetch" href="/assets/js/486.1ea2510a.js"><link rel="prefetch" href="/assets/js/487.e954f3bc.js"><link rel="prefetch" href="/assets/js/488.dbfe8c7c.js"><link rel="prefetch" href="/assets/js/489.92152c72.js"><link rel="prefetch" href="/assets/js/49.f4b7dc24.js"><link rel="prefetch" href="/assets/js/490.8ea88875.js"><link rel="prefetch" href="/assets/js/491.d1e2d1b6.js"><link rel="prefetch" href="/assets/js/492.217b7fd1.js"><link rel="prefetch" href="/assets/js/494.adcca4bf.js"><link rel="prefetch" href="/assets/js/495.13cdbf74.js"><link rel="prefetch" href="/assets/js/496.53a4b758.js"><link rel="prefetch" href="/assets/js/497.0763c40d.js"><link rel="prefetch" href="/assets/js/498.debcfb1b.js"><link rel="prefetch" href="/assets/js/499.7d3cf6eb.js"><link rel="prefetch" href="/assets/js/50.41ac06fd.js"><link rel="prefetch" href="/assets/js/500.28473fb4.js"><link rel="prefetch" href="/assets/js/501.90241d8d.js"><link rel="prefetch" href="/assets/js/502.a096c362.js"><link rel="prefetch" href="/assets/js/503.539676ba.js"><link rel="prefetch" href="/assets/js/504.39d8e399.js"><link rel="prefetch" href="/assets/js/505.2b2a130b.js"><link rel="prefetch" href="/assets/js/506.7811ad79.js"><link rel="prefetch" href="/assets/js/507.2817d33b.js"><link rel="prefetch" href="/assets/js/508.89b8d712.js"><link rel="prefetch" href="/assets/js/509.80dcd2b5.js"><link rel="prefetch" href="/assets/js/51.3ef6cdbe.js"><link rel="prefetch" href="/assets/js/510.a8f28525.js"><link rel="prefetch" href="/assets/js/511.e890924a.js"><link rel="prefetch" href="/assets/js/512.9a073fe1.js"><link rel="prefetch" href="/assets/js/513.0a302efb.js"><link rel="prefetch" href="/assets/js/514.6b43f3e7.js"><link rel="prefetch" href="/assets/js/515.c7b0284a.js"><link rel="prefetch" href="/assets/js/516.5daf0566.js"><link rel="prefetch" href="/assets/js/517.67f7c508.js"><link rel="prefetch" href="/assets/js/518.7854e40b.js"><link rel="prefetch" href="/assets/js/519.dcb88d39.js"><link rel="prefetch" href="/assets/js/52.840d0f74.js"><link rel="prefetch" href="/assets/js/520.6f40c4e7.js"><link rel="prefetch" href="/assets/js/521.3c0a006c.js"><link rel="prefetch" href="/assets/js/522.ed57f1a7.js"><link rel="prefetch" href="/assets/js/523.39d637e2.js"><link rel="prefetch" href="/assets/js/524.acd5ee1f.js"><link rel="prefetch" href="/assets/js/525.0836647e.js"><link rel="prefetch" href="/assets/js/526.9e2af36c.js"><link rel="prefetch" href="/assets/js/527.9337d948.js"><link rel="prefetch" href="/assets/js/528.cacbd480.js"><link rel="prefetch" href="/assets/js/529.21a67f8f.js"><link rel="prefetch" href="/assets/js/53.fb86a936.js"><link rel="prefetch" href="/assets/js/530.3373ac51.js"><link rel="prefetch" href="/assets/js/531.1b371c24.js"><link rel="prefetch" href="/assets/js/532.64685d6d.js"><link rel="prefetch" href="/assets/js/533.d3344f80.js"><link rel="prefetch" href="/assets/js/534.1adcd2e2.js"><link rel="prefetch" href="/assets/js/535.cf0f4bbe.js"><link rel="prefetch" href="/assets/js/536.f3cadbc2.js"><link rel="prefetch" href="/assets/js/537.d2071727.js"><link rel="prefetch" href="/assets/js/538.b700925e.js"><link rel="prefetch" href="/assets/js/539.a5de8601.js"><link rel="prefetch" href="/assets/js/54.e8d5a023.js"><link rel="prefetch" href="/assets/js/540.525e8630.js"><link rel="prefetch" href="/assets/js/541.0b14ac8a.js"><link rel="prefetch" href="/assets/js/542.fc96e578.js"><link rel="prefetch" href="/assets/js/543.53cf25d0.js"><link rel="prefetch" href="/assets/js/544.f9b3e911.js"><link rel="prefetch" href="/assets/js/545.b353670e.js"><link rel="prefetch" href="/assets/js/546.5ed48a56.js"><link rel="prefetch" href="/assets/js/547.9843edce.js"><link rel="prefetch" href="/assets/js/548.f8eb7890.js"><link rel="prefetch" href="/assets/js/549.990650c2.js"><link rel="prefetch" href="/assets/js/55.b268240f.js"><link rel="prefetch" href="/assets/js/550.c7ba17a1.js"><link rel="prefetch" href="/assets/js/551.2ea79a07.js"><link rel="prefetch" href="/assets/js/552.950843bd.js"><link rel="prefetch" href="/assets/js/553.d1f94516.js"><link rel="prefetch" href="/assets/js/554.873b4336.js"><link rel="prefetch" href="/assets/js/555.12e7f37d.js"><link rel="prefetch" href="/assets/js/556.c84abfa5.js"><link rel="prefetch" href="/assets/js/557.76108e15.js"><link rel="prefetch" href="/assets/js/558.ad0caf91.js"><link rel="prefetch" href="/assets/js/559.efc5fcaa.js"><link rel="prefetch" href="/assets/js/56.862368c6.js"><link rel="prefetch" href="/assets/js/560.82032a52.js"><link rel="prefetch" href="/assets/js/561.b776e2e3.js"><link rel="prefetch" href="/assets/js/562.8f48c34e.js"><link rel="prefetch" href="/assets/js/563.1916b1f0.js"><link rel="prefetch" href="/assets/js/564.89eef1bf.js"><link rel="prefetch" href="/assets/js/565.2ca43acb.js"><link rel="prefetch" href="/assets/js/566.6caf93e6.js"><link rel="prefetch" href="/assets/js/567.1888604a.js"><link rel="prefetch" href="/assets/js/568.c909a75b.js"><link rel="prefetch" href="/assets/js/569.6862733a.js"><link rel="prefetch" href="/assets/js/57.d93cbd65.js"><link rel="prefetch" href="/assets/js/570.ce0e3115.js"><link rel="prefetch" href="/assets/js/571.0da49310.js"><link rel="prefetch" href="/assets/js/572.c34ca3fd.js"><link rel="prefetch" href="/assets/js/573.895c8f8d.js"><link rel="prefetch" href="/assets/js/574.e59b6191.js"><link rel="prefetch" href="/assets/js/575.842ef1ff.js"><link rel="prefetch" href="/assets/js/576.9b5dd540.js"><link rel="prefetch" href="/assets/js/577.2d0e6020.js"><link rel="prefetch" href="/assets/js/578.2e49a333.js"><link rel="prefetch" href="/assets/js/579.005171f1.js"><link rel="prefetch" href="/assets/js/58.10ca5b0d.js"><link rel="prefetch" href="/assets/js/580.74d9d14e.js"><link rel="prefetch" href="/assets/js/581.404aa6ad.js"><link rel="prefetch" href="/assets/js/582.4c756647.js"><link rel="prefetch" href="/assets/js/583.84f8db17.js"><link rel="prefetch" href="/assets/js/584.0c4307db.js"><link rel="prefetch" href="/assets/js/585.9cbe1c6c.js"><link rel="prefetch" href="/assets/js/586.94d5912f.js"><link rel="prefetch" href="/assets/js/587.08073e55.js"><link rel="prefetch" href="/assets/js/588.a4cb5da6.js"><link rel="prefetch" href="/assets/js/589.ff2423ac.js"><link rel="prefetch" href="/assets/js/59.3eb351e6.js"><link rel="prefetch" href="/assets/js/590.1a498879.js"><link rel="prefetch" href="/assets/js/591.eb8d6c20.js"><link rel="prefetch" href="/assets/js/592.850eee03.js"><link rel="prefetch" href="/assets/js/593.12b28022.js"><link rel="prefetch" href="/assets/js/594.9c805b81.js"><link rel="prefetch" href="/assets/js/595.e9119b0e.js"><link rel="prefetch" href="/assets/js/596.6b641a7e.js"><link rel="prefetch" href="/assets/js/597.77bf95f8.js"><link rel="prefetch" href="/assets/js/598.da53697e.js"><link rel="prefetch" href="/assets/js/599.281b72be.js"><link rel="prefetch" href="/assets/js/6.8773fb47.js"><link rel="prefetch" href="/assets/js/60.1c1a9cd1.js"><link rel="prefetch" href="/assets/js/600.4aa56a28.js"><link rel="prefetch" href="/assets/js/601.93029330.js"><link rel="prefetch" href="/assets/js/602.3dee7fe6.js"><link rel="prefetch" href="/assets/js/603.cdc313ee.js"><link rel="prefetch" href="/assets/js/604.965166a0.js"><link rel="prefetch" href="/assets/js/605.7c70961f.js"><link rel="prefetch" href="/assets/js/606.a9f02486.js"><link rel="prefetch" href="/assets/js/607.73baa5d1.js"><link rel="prefetch" href="/assets/js/608.e8fa09f4.js"><link rel="prefetch" href="/assets/js/609.ac51d009.js"><link rel="prefetch" href="/assets/js/61.9683ebee.js"><link rel="prefetch" href="/assets/js/610.644de93e.js"><link rel="prefetch" href="/assets/js/611.4435581a.js"><link rel="prefetch" href="/assets/js/612.27640be2.js"><link rel="prefetch" href="/assets/js/613.5010499b.js"><link rel="prefetch" href="/assets/js/614.cf985a78.js"><link rel="prefetch" href="/assets/js/615.175e2d87.js"><link rel="prefetch" href="/assets/js/616.c034e53d.js"><link rel="prefetch" href="/assets/js/617.fe843932.js"><link rel="prefetch" href="/assets/js/618.17ffbf18.js"><link rel="prefetch" href="/assets/js/619.c968374b.js"><link rel="prefetch" href="/assets/js/62.2276e6d3.js"><link rel="prefetch" href="/assets/js/620.f34c0fa0.js"><link rel="prefetch" href="/assets/js/621.815b8624.js"><link rel="prefetch" href="/assets/js/622.d534821e.js"><link rel="prefetch" href="/assets/js/623.936ac4e3.js"><link rel="prefetch" href="/assets/js/624.68e1aa29.js"><link rel="prefetch" href="/assets/js/625.07b94155.js"><link rel="prefetch" href="/assets/js/626.96720feb.js"><link rel="prefetch" href="/assets/js/627.6c0097f7.js"><link rel="prefetch" href="/assets/js/628.1b01c525.js"><link rel="prefetch" href="/assets/js/629.6b7b7051.js"><link rel="prefetch" href="/assets/js/63.21657e0e.js"><link rel="prefetch" href="/assets/js/630.5e364b4e.js"><link rel="prefetch" href="/assets/js/631.1dbc5bc2.js"><link rel="prefetch" href="/assets/js/632.26cf0433.js"><link rel="prefetch" href="/assets/js/633.f5940046.js"><link rel="prefetch" href="/assets/js/634.631e139f.js"><link rel="prefetch" href="/assets/js/635.dcb1483c.js"><link rel="prefetch" href="/assets/js/636.99b6e8c3.js"><link rel="prefetch" href="/assets/js/637.ac8ad035.js"><link rel="prefetch" href="/assets/js/638.5782cc19.js"><link rel="prefetch" href="/assets/js/639.1db80fe2.js"><link rel="prefetch" href="/assets/js/64.02fb1ddb.js"><link rel="prefetch" href="/assets/js/640.bc54f7f5.js"><link rel="prefetch" href="/assets/js/641.cdff8819.js"><link rel="prefetch" href="/assets/js/642.df23e220.js"><link rel="prefetch" href="/assets/js/643.89df1b3c.js"><link rel="prefetch" href="/assets/js/644.5f0031ba.js"><link rel="prefetch" href="/assets/js/645.f7daa126.js"><link rel="prefetch" href="/assets/js/646.d47a3e0e.js"><link rel="prefetch" href="/assets/js/647.d1c8f3ae.js"><link rel="prefetch" href="/assets/js/648.0506ce23.js"><link rel="prefetch" href="/assets/js/649.6cf2a641.js"><link rel="prefetch" href="/assets/js/65.b4028009.js"><link rel="prefetch" href="/assets/js/650.89785dee.js"><link rel="prefetch" href="/assets/js/651.8b6fa105.js"><link rel="prefetch" href="/assets/js/652.5e42ce8f.js"><link rel="prefetch" href="/assets/js/653.eddc84e1.js"><link rel="prefetch" href="/assets/js/654.48762cb9.js"><link rel="prefetch" href="/assets/js/655.7bcd5aa3.js"><link rel="prefetch" href="/assets/js/656.bf91b745.js"><link rel="prefetch" href="/assets/js/657.332eec27.js"><link rel="prefetch" href="/assets/js/658.9e9b31c8.js"><link rel="prefetch" href="/assets/js/659.b469808c.js"><link rel="prefetch" href="/assets/js/66.33d6767a.js"><link rel="prefetch" href="/assets/js/660.25843c88.js"><link rel="prefetch" href="/assets/js/661.ca1a9580.js"><link rel="prefetch" href="/assets/js/662.cd6fe6ce.js"><link rel="prefetch" href="/assets/js/663.dddb87c3.js"><link rel="prefetch" href="/assets/js/664.c4d2b9b4.js"><link rel="prefetch" href="/assets/js/665.e26ea7fd.js"><link rel="prefetch" href="/assets/js/666.918a92c2.js"><link rel="prefetch" href="/assets/js/667.5f06fa05.js"><link rel="prefetch" href="/assets/js/668.7b783af2.js"><link rel="prefetch" href="/assets/js/669.efe734b4.js"><link rel="prefetch" href="/assets/js/67.0737d4e2.js"><link rel="prefetch" href="/assets/js/670.70a7afa1.js"><link rel="prefetch" href="/assets/js/671.d82e7481.js"><link rel="prefetch" href="/assets/js/672.f4e33cf4.js"><link rel="prefetch" href="/assets/js/673.f3b26cca.js"><link rel="prefetch" href="/assets/js/674.d5327fdb.js"><link rel="prefetch" href="/assets/js/675.06e1587e.js"><link rel="prefetch" href="/assets/js/676.b81eab7c.js"><link rel="prefetch" href="/assets/js/677.65c1f157.js"><link rel="prefetch" href="/assets/js/678.dd3c35f4.js"><link rel="prefetch" href="/assets/js/679.1b3371c6.js"><link rel="prefetch" href="/assets/js/68.ff08cac1.js"><link rel="prefetch" href="/assets/js/680.4c431b6d.js"><link rel="prefetch" href="/assets/js/681.4b4df97f.js"><link rel="prefetch" href="/assets/js/682.daa28558.js"><link rel="prefetch" href="/assets/js/683.019ac4bf.js"><link rel="prefetch" href="/assets/js/684.72942987.js"><link rel="prefetch" href="/assets/js/685.b232df8f.js"><link rel="prefetch" href="/assets/js/686.27dc24b3.js"><link rel="prefetch" href="/assets/js/687.4a8ef826.js"><link rel="prefetch" href="/assets/js/688.0ba25fdf.js"><link rel="prefetch" href="/assets/js/689.be8172ba.js"><link rel="prefetch" href="/assets/js/69.516fa4ee.js"><link rel="prefetch" href="/assets/js/690.88418e50.js"><link rel="prefetch" href="/assets/js/691.1d8c222b.js"><link rel="prefetch" href="/assets/js/692.85d9e426.js"><link rel="prefetch" href="/assets/js/693.a78b6c7b.js"><link rel="prefetch" href="/assets/js/694.8348e02c.js"><link rel="prefetch" href="/assets/js/695.0bbdae98.js"><link rel="prefetch" href="/assets/js/696.f9dcc8bf.js"><link rel="prefetch" href="/assets/js/697.1c6c7982.js"><link rel="prefetch" href="/assets/js/698.fa867a93.js"><link rel="prefetch" href="/assets/js/699.5ad98f0b.js"><link rel="prefetch" href="/assets/js/7.e86883c6.js"><link rel="prefetch" href="/assets/js/70.d7c0b02d.js"><link rel="prefetch" href="/assets/js/700.da097ba8.js"><link rel="prefetch" href="/assets/js/701.8f40c007.js"><link rel="prefetch" href="/assets/js/702.2ac7cfc8.js"><link rel="prefetch" href="/assets/js/703.e4f83f34.js"><link rel="prefetch" href="/assets/js/704.3230d5d3.js"><link rel="prefetch" href="/assets/js/705.9f2ac56e.js"><link rel="prefetch" href="/assets/js/706.479ef752.js"><link rel="prefetch" href="/assets/js/707.12907b99.js"><link rel="prefetch" href="/assets/js/708.a54c005e.js"><link rel="prefetch" href="/assets/js/709.2f084e72.js"><link rel="prefetch" href="/assets/js/71.c9ef60a6.js"><link rel="prefetch" href="/assets/js/710.992d9298.js"><link rel="prefetch" href="/assets/js/711.3dec9e74.js"><link rel="prefetch" href="/assets/js/712.fbba000f.js"><link rel="prefetch" href="/assets/js/713.644be223.js"><link rel="prefetch" href="/assets/js/714.20e703bd.js"><link rel="prefetch" href="/assets/js/715.7ac51064.js"><link rel="prefetch" href="/assets/js/716.5f8c7487.js"><link rel="prefetch" href="/assets/js/717.cdd46244.js"><link rel="prefetch" href="/assets/js/718.7b7a44e2.js"><link rel="prefetch" href="/assets/js/719.ed06b003.js"><link rel="prefetch" href="/assets/js/72.c23e24e9.js"><link rel="prefetch" href="/assets/js/720.202718be.js"><link rel="prefetch" href="/assets/js/721.1426ef3c.js"><link rel="prefetch" href="/assets/js/722.79f56663.js"><link rel="prefetch" href="/assets/js/723.6dcfa3ed.js"><link rel="prefetch" href="/assets/js/724.4c098acf.js"><link rel="prefetch" href="/assets/js/725.381dd189.js"><link rel="prefetch" href="/assets/js/726.baa6dcfe.js"><link rel="prefetch" href="/assets/js/727.f893500e.js"><link rel="prefetch" href="/assets/js/728.977ee9a0.js"><link rel="prefetch" href="/assets/js/729.3dc27591.js"><link rel="prefetch" href="/assets/js/73.d2b5812c.js"><link rel="prefetch" href="/assets/js/730.e62b3efb.js"><link rel="prefetch" href="/assets/js/731.8b21fd00.js"><link rel="prefetch" href="/assets/js/732.0e4b5daf.js"><link rel="prefetch" href="/assets/js/733.1cc505b4.js"><link rel="prefetch" href="/assets/js/734.55c0fe79.js"><link rel="prefetch" href="/assets/js/735.4eb02d3a.js"><link rel="prefetch" href="/assets/js/736.40c2728a.js"><link rel="prefetch" href="/assets/js/737.73c562f3.js"><link rel="prefetch" href="/assets/js/738.6dd69adf.js"><link rel="prefetch" href="/assets/js/739.af66a4dc.js"><link rel="prefetch" href="/assets/js/74.408525bc.js"><link rel="prefetch" href="/assets/js/740.eff57d99.js"><link rel="prefetch" href="/assets/js/741.7c9b1745.js"><link rel="prefetch" href="/assets/js/742.87bf09be.js"><link rel="prefetch" href="/assets/js/743.fd587ae7.js"><link rel="prefetch" href="/assets/js/744.b207d76b.js"><link rel="prefetch" href="/assets/js/745.5da05a37.js"><link rel="prefetch" href="/assets/js/746.05f0fcc4.js"><link rel="prefetch" href="/assets/js/747.8afc4f80.js"><link rel="prefetch" href="/assets/js/748.a6328657.js"><link rel="prefetch" href="/assets/js/749.488acffe.js"><link rel="prefetch" href="/assets/js/75.d6223e36.js"><link rel="prefetch" href="/assets/js/750.b778f9b2.js"><link rel="prefetch" href="/assets/js/751.046fb057.js"><link rel="prefetch" href="/assets/js/752.4fa1c3ec.js"><link rel="prefetch" href="/assets/js/753.2023ccf5.js"><link rel="prefetch" href="/assets/js/754.68df0df4.js"><link rel="prefetch" href="/assets/js/755.7289134a.js"><link rel="prefetch" href="/assets/js/756.bce7616e.js"><link rel="prefetch" href="/assets/js/757.3403e5f9.js"><link rel="prefetch" href="/assets/js/758.8f0d0bdf.js"><link rel="prefetch" href="/assets/js/759.cdd31702.js"><link rel="prefetch" href="/assets/js/76.f65eed64.js"><link rel="prefetch" href="/assets/js/760.9bfe29ed.js"><link rel="prefetch" href="/assets/js/761.e23339c6.js"><link rel="prefetch" href="/assets/js/762.db375c5b.js"><link rel="prefetch" href="/assets/js/763.8b16c3fe.js"><link rel="prefetch" href="/assets/js/764.f1f4f712.js"><link rel="prefetch" href="/assets/js/765.23e53b3a.js"><link rel="prefetch" href="/assets/js/766.3d3bb3ff.js"><link rel="prefetch" href="/assets/js/767.35ad7cea.js"><link rel="prefetch" href="/assets/js/768.295d1f7a.js"><link rel="prefetch" href="/assets/js/769.2f8fe776.js"><link rel="prefetch" href="/assets/js/77.ec9614b4.js"><link rel="prefetch" href="/assets/js/770.a89ea5e2.js"><link rel="prefetch" href="/assets/js/771.0d2cf3ee.js"><link rel="prefetch" href="/assets/js/772.a10354a4.js"><link rel="prefetch" href="/assets/js/773.ee60e68b.js"><link rel="prefetch" href="/assets/js/774.ba4aad28.js"><link rel="prefetch" href="/assets/js/775.7d35f9cc.js"><link rel="prefetch" href="/assets/js/776.b3ec764c.js"><link rel="prefetch" href="/assets/js/777.c124aefe.js"><link rel="prefetch" href="/assets/js/778.325cfc0e.js"><link rel="prefetch" href="/assets/js/779.d2b575a6.js"><link rel="prefetch" href="/assets/js/78.f56b2037.js"><link rel="prefetch" href="/assets/js/780.218c6b47.js"><link rel="prefetch" href="/assets/js/781.0eac52b7.js"><link rel="prefetch" href="/assets/js/782.79965326.js"><link rel="prefetch" href="/assets/js/783.60892b73.js"><link rel="prefetch" href="/assets/js/784.b8f79fd0.js"><link rel="prefetch" href="/assets/js/785.0528258e.js"><link rel="prefetch" href="/assets/js/786.1dbadb12.js"><link rel="prefetch" href="/assets/js/787.f247b164.js"><link rel="prefetch" href="/assets/js/788.3dd93a34.js"><link rel="prefetch" href="/assets/js/789.7b97a48d.js"><link rel="prefetch" href="/assets/js/79.ed5ad905.js"><link rel="prefetch" href="/assets/js/790.8ceeb0b3.js"><link rel="prefetch" href="/assets/js/791.e926d9a8.js"><link rel="prefetch" href="/assets/js/792.3e5a323a.js"><link rel="prefetch" href="/assets/js/793.43419085.js"><link rel="prefetch" href="/assets/js/794.b8c22345.js"><link rel="prefetch" href="/assets/js/795.7370ff3c.js"><link rel="prefetch" href="/assets/js/796.9509e009.js"><link rel="prefetch" href="/assets/js/797.4a4202c2.js"><link rel="prefetch" href="/assets/js/798.3961cf47.js"><link rel="prefetch" href="/assets/js/799.69707d57.js"><link rel="prefetch" href="/assets/js/8.3fe9535a.js"><link rel="prefetch" href="/assets/js/80.202c3322.js"><link rel="prefetch" href="/assets/js/800.f72c31a2.js"><link rel="prefetch" href="/assets/js/801.2372cb79.js"><link rel="prefetch" href="/assets/js/802.3aefd131.js"><link rel="prefetch" href="/assets/js/803.18443761.js"><link rel="prefetch" href="/assets/js/804.301bf327.js"><link rel="prefetch" href="/assets/js/805.e169a32a.js"><link rel="prefetch" href="/assets/js/806.27cbd296.js"><link rel="prefetch" href="/assets/js/807.b0443249.js"><link rel="prefetch" href="/assets/js/808.91924bc7.js"><link rel="prefetch" href="/assets/js/809.865e8932.js"><link rel="prefetch" href="/assets/js/81.9d064e1c.js"><link rel="prefetch" href="/assets/js/810.28dafb2c.js"><link rel="prefetch" href="/assets/js/811.9248d0a5.js"><link rel="prefetch" href="/assets/js/812.8bb147f8.js"><link rel="prefetch" href="/assets/js/813.57a8a982.js"><link rel="prefetch" href="/assets/js/814.f80c73c9.js"><link rel="prefetch" href="/assets/js/815.2b3d99fc.js"><link rel="prefetch" href="/assets/js/816.4a05e284.js"><link rel="prefetch" href="/assets/js/817.6c8508c2.js"><link rel="prefetch" href="/assets/js/818.c72f5330.js"><link rel="prefetch" href="/assets/js/819.35126624.js"><link rel="prefetch" href="/assets/js/82.210310b3.js"><link rel="prefetch" href="/assets/js/820.d5254c3c.js"><link rel="prefetch" href="/assets/js/821.c69c6b2c.js"><link rel="prefetch" href="/assets/js/822.1ccbb204.js"><link rel="prefetch" href="/assets/js/823.0436449a.js"><link rel="prefetch" href="/assets/js/824.a9d3c6f0.js"><link rel="prefetch" href="/assets/js/825.f9bf8329.js"><link rel="prefetch" href="/assets/js/826.e0d5f786.js"><link rel="prefetch" href="/assets/js/827.cf88e320.js"><link rel="prefetch" href="/assets/js/828.67da7389.js"><link rel="prefetch" href="/assets/js/829.21c2eac1.js"><link rel="prefetch" href="/assets/js/83.d74f6f93.js"><link rel="prefetch" href="/assets/js/830.1eb4ea1b.js"><link rel="prefetch" href="/assets/js/831.6b51565e.js"><link rel="prefetch" href="/assets/js/832.07a20675.js"><link rel="prefetch" href="/assets/js/833.0f7823b8.js"><link rel="prefetch" href="/assets/js/834.27bf9c2e.js"><link rel="prefetch" href="/assets/js/835.409429ce.js"><link rel="prefetch" href="/assets/js/836.28de2c29.js"><link rel="prefetch" href="/assets/js/837.5e7df1f1.js"><link rel="prefetch" href="/assets/js/838.5adc5f6e.js"><link rel="prefetch" href="/assets/js/839.11c3bfc2.js"><link rel="prefetch" href="/assets/js/84.4cf98a31.js"><link rel="prefetch" href="/assets/js/840.65d20fee.js"><link rel="prefetch" href="/assets/js/841.1949a396.js"><link rel="prefetch" href="/assets/js/842.f7a8d098.js"><link rel="prefetch" href="/assets/js/843.65694aa6.js"><link rel="prefetch" href="/assets/js/844.7a62cf9b.js"><link rel="prefetch" href="/assets/js/85.22b95924.js"><link rel="prefetch" href="/assets/js/86.a6f80a36.js"><link rel="prefetch" href="/assets/js/87.3b138e3b.js"><link rel="prefetch" href="/assets/js/88.bb56b7a2.js"><link rel="prefetch" href="/assets/js/89.198a78ff.js"><link rel="prefetch" href="/assets/js/9.59b98557.js"><link rel="prefetch" href="/assets/js/90.d743afe3.js"><link rel="prefetch" href="/assets/js/91.3b6d096c.js"><link rel="prefetch" href="/assets/js/92.a61a93f5.js"><link rel="prefetch" href="/assets/js/93.89cc3bad.js"><link rel="prefetch" href="/assets/js/94.fafb4ea3.js"><link rel="prefetch" href="/assets/js/95.52a52f2e.js"><link rel="prefetch" href="/assets/js/96.82379902.js"><link rel="prefetch" href="/assets/js/97.fb013838.js"><link rel="prefetch" href="/assets/js/98.17d2f72a.js"><link rel="prefetch" href="/assets/js/99.b355b28b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.183d1d00.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-17815e06><header class="navbar" data-v-17815e06><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.png" alt="智能后端和架构" class="logo"> <span class="site-name can-hide">智能后端和架构</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/readguide.html" class="nav-link">
+  导读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java基础" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java基础" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java语言基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/intro/01-java-intro.html" class="nav-link">
+  Java入门介绍
+</a></li><li class="dropdown-subitem"><a href="/java/intro/03-java-grammer.html" class="nav-link">
+  Java基础语法
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java面向对象基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/basic/01-lan-feature.html" class="nav-link">
+  语言基础特性
+</a></li><li class="dropdown-subitem"><a href="/java/basic/02-oop-feature.html" class="nav-link">
+  面向对象特征
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java集合类编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/collection/01-intro.html" class="nav-link">
+  集合类基础介绍
+</a></li><li class="dropdown-subitem"><a href="/java/collection/02-collectionmap.html" class="nav-link">
+  集合框架Collction、Map
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java文件和网络编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/file/01-intro.html" class="nav-link">
+  Java文件IO流入门
+</a></li><li class="dropdown-subitem"><a href="/java/net/01-intro.html" class="nav-link">
+  Java网络编程入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java并发编程和JUC
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/thread/01-intro.html" class="nav-link">
+  Java并发 基础入门
+</a></li><li class="dropdown-subitem"><a href="/java/juc/01-intro.html" class="nav-link">
+  Java并发 JUC入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java虚拟机和语言特性
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/jvm/01-intro.html" class="nav-link">
+  Java  虚拟机
+</a></li><li class="dropdown-subitem"><a href="/java/characteristic/01-java8.html" class="nav-link">
+  Java8 语言特性
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和SQL
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/intro/01-intro.html" class="nav-link">
+  数据库绪论
+</a></li><li class="dropdown-subitem"><a href="/db/intro/02-relationdb.html" class="nav-link">
+  关系数据库
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/01-basicselect.html" class="nav-link">
+  基本查询SQL
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/02-joinselect.html" class="nav-link">
+  连表查询SQL
+</a></li></ul></li><li class="dropdown-item"><h4>
+          MySQL基础和优化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/mysqlbasic/01-intro.html" class="nav-link">
+  入门介绍
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt1/01-solutionsum.html" class="nav-link">
+  性能优化方案
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/01-districtandtable.html" class="nav-link">
+  分区和分表
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/05-readwritesepration.html" class="nav-link">
+  读写分离介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/redis/01-intro.html" class="nav-link">
+  Redis介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础概念总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/basic/01-basicconcept.html" class="nav-link">
+  数据结构基础概念
+</a></li><li class="dropdown-subitem"><a href="/algorithm/basic/02-intro.html" class="nav-link">
+  算法和数据结构介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/01-commondy.html" class="nav-link">
+  常用算法动态展示
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/04-visualgo.html" class="nav-link">
+  visualgo-中文算法展示
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法思想总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/thought/01-thoughts8intro.html" class="nav-link">
+  八种常用算法思想
+</a></li><li class="dropdown-subitem"><a href="/algorithm/thought/02-thoughts5intro.html" class="nav-link">
+  五种基本算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用算法总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/search/01-intro.html" class="nav-link">
+  常用查找算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/sort/01-intro.html" class="nav-link">
+  常用排序算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/strmatch/01-intro.html" class="nav-link">
+  常用字符串匹配-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/encryption/01-intro.html" class="nav-link">
+  常用加密解密算法-介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">大数据</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">大数据</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/bigdata/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/bigdata/techintro/01-intro.html" class="nav-link">
+  技术体系介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据采集总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dc/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/dc/intro/02-diff.html" class="nav-link">
+  常用工具比较
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据存储总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ds/intro/01-basicintro.html" class="nav-link">
+  Hadoop入门介绍
+</a></li><li class="dropdown-subitem"><a href="/ds/intro/02-detailintro.html" class="nav-link">
+  Hadoop生态介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据仓库总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dw/intro/01-intro.html" class="nav-link">
+  数据仓库入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dw/intro/03-summary.html" class="nav-link">
+  数据仓库精华总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据处理总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dp/mr/01-intro.html" class="nav-link">
+  MapReduce-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dp/mr/02-basicprin.html" class="nav-link">
+  MapReduce-工作原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据应用总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/da/intro/01-intro.html" class="nav-link">
+  大数据应用场景基础介绍
+</a></li><li class="dropdown-subitem"><a href="/dm/intro/01-intro.html" class="nav-link">
+  大数据数据挖掘基础介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">人工智能</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">人工智能</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/intro/01-intro.html" class="nav-link">
+  人工智能基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlintro/01-intro.html" class="nav-link">
+  机器学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/dlintro/01-intro.html" class="nav-link">
+  深度学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/nnprin/01-intro.html" class="nav-link">
+  神经网络原理介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlalgorithm/01-intro.html" class="nav-link">
+  机器学习算法介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlmath/01-intro.html" class="nav-link">
+  机器学习数学介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ad/intro/01-intro.html" class="nav-link">
+  主流-AI开源开发框架介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/dl4jintro/01-intro.html" class="nav-link">
+  JAVA-AI开发框架Dl4j介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/pytorch/01-intro.html" class="nav-link">
+  AI开发框架-Pytorch介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/tensorflow/01-intro.html" class="nav-link">
+  AI开发框架-TensorFlow介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发应用案例
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ac/intro/01-intro.html" class="nav-link">
+  AI常见案例和趋势介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/rsintro/01-intro.html" class="nav-link">
+  AI应用案例-推荐系统介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aicity/01-intro.html" class="nav-link">
+  AI应用案例-智慧城市介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aibigscreen/01-intro.html" class="nav-link">
+  AI应用案例-智慧大屏介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Spring</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Spring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Spring基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/basic/01-intro.html" class="nav-link">
+  Spring-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/basic/02-iocaopintro.html" class="nav-link">
+  IOC和AOP-原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringMVC总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springmvc/01-intro.html" class="nav-link">
+  SpringMVC-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springmvc/02-prinintro.html" class="nav-link">
+  SpringMVC-工作原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringBoot总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springboot/03-workprin.html" class="nav-link">
+  SpringBoot-工作原理
+</a></li><li class="dropdown-subitem"><a href="/spring/springboot/06-startprincodeanalysis.html" class="nav-link">
+  启动原理分析和源码解读
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring注解总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/annotation/03-springannprin.html" class="nav-link">
+  Spring注解实现原理
+</a></li><li class="dropdown-subitem"><a href="/spring/annotation/04-anntotal1.html" class="nav-link">
+  Spring注解大全(一)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringCloud知识介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springcloud/01-intro.html" class="nav-link">
+  SpringCloud-基础介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springcloud/03-prindetail.html" class="nav-link">
+  SpringCloud-原理详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          框架基础总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/basic/01-intro.html" class="nav-link">
+  框架基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/02-commconceptdiff.html" class="nav-link">
+  框架架构组件区别
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/03-commconceptrela.html" class="nav-link">
+  框架架构组件关系
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/06-microserv15.html" class="nav-link">
+  常见15种微服务框架
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/07-springframethink.html" class="nav-link">
+  Spring框架思想总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/log/01-intro.html" class="nav-link">
+  日志框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/orm/01-intro.html" class="nav-link">
+  ORM框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nio/01-intro.html" class="nav-link">
+  NIO框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/netty/01-intro.html" class="nav-link">
+  Netty框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nettycase/01-intro.html" class="nav-link">
+  Netty案例-介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">架构</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">架构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          架构基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/architecture/basic/01-intro.html" class="nav-link">
+  架构基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/architecture/basic/02-essence.html" class="nav-link">
+  架构基本概念和本质
+</a></li><li class="dropdown-subitem"><a href="/architecture/microservanddistribute/01-intro.html" class="nav-link">
+  微服务架构知识介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/tool/01-intro.html" class="nav-link">
+  Java开发工具介绍
+</a></li><li class="dropdown-subitem"><a href="/dev/tool/05-idea20recommendedplug.html" class="nav-link">
+  Idea开发插件推荐
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/standard/01-intro.html" class="nav-link">
+  Java开发规范
+</a></li><li class="dropdown-subitem"><a href="/dev/designpattern/01-intro.html" class="nav-link">
+  Java设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发效率
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/deveffciency/02-commpromethods.html" class="nav-link">
+  效率提升常用方法
+</a></li><li class="dropdown-subitem"><a href="/dev/deveffciency/09-summary.html" class="nav-link">
+  效率提升精华总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">综合</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">综合</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中间件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/middleware/mq/01-intro.html" class="nav-link">
+  MQ消息队列介绍
+</a></li><li class="dropdown-subitem"><a href="/es/basic/01-intro.html" class="nav-link">
+  ES搜索服务器介绍
+</a></li><li class="dropdown-subitem"><a href="/middleware/zookeeper/01-intro.html" class="nav-link">
+  Zookeeper介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          综合技能
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mysqlop/basic/01-intro.html" class="nav-link">
+  MySQL运维总结
+</a></li><li class="dropdown-subitem"><a href="/operation/linux/01-intro.html" class="nav-link">
+  Linux常用命令
+</a></li><li class="dropdown-subitem"><a href="/operation/ng/05-ngsum.html" class="nav-link">
+  Nginx使用总结
+</a></li><li class="dropdown-subitem"><a href="/post/javabasic/01-javabasic.html" class="nav-link">
+  求职面试整理
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">项目|产品</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">项目|产品</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          研发效能介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/01-intro.html" class="nav-link">
+  研发效能入门介绍
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/06-efficiencysystem.html" class="nav-link">
+  研发效能体系构建
+</a></li></ul></li><li class="dropdown-item"><h4>
+          研发效能提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdeffciencypromote/09-summary.html" class="nav-link">
+  研发效能提升精华总结
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdeffciencytool/01-intro.html" class="nav-link">
+  研发效能系统管理工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-17815e06></div> <aside class="sidebar" data-v-17815e06><nav class="nav-links"><div class="nav-item"><a href="/readguide.html" class="nav-link">
+  导读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java基础" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java基础" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java语言基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/intro/01-java-intro.html" class="nav-link">
+  Java入门介绍
+</a></li><li class="dropdown-subitem"><a href="/java/intro/03-java-grammer.html" class="nav-link">
+  Java基础语法
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java面向对象基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/basic/01-lan-feature.html" class="nav-link">
+  语言基础特性
+</a></li><li class="dropdown-subitem"><a href="/java/basic/02-oop-feature.html" class="nav-link">
+  面向对象特征
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java集合类编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/collection/01-intro.html" class="nav-link">
+  集合类基础介绍
+</a></li><li class="dropdown-subitem"><a href="/java/collection/02-collectionmap.html" class="nav-link">
+  集合框架Collction、Map
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java文件和网络编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/file/01-intro.html" class="nav-link">
+  Java文件IO流入门
+</a></li><li class="dropdown-subitem"><a href="/java/net/01-intro.html" class="nav-link">
+  Java网络编程入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java并发编程和JUC
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/thread/01-intro.html" class="nav-link">
+  Java并发 基础入门
+</a></li><li class="dropdown-subitem"><a href="/java/juc/01-intro.html" class="nav-link">
+  Java并发 JUC入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java虚拟机和语言特性
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/jvm/01-intro.html" class="nav-link">
+  Java  虚拟机
+</a></li><li class="dropdown-subitem"><a href="/java/characteristic/01-java8.html" class="nav-link">
+  Java8 语言特性
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和SQL
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/intro/01-intro.html" class="nav-link">
+  数据库绪论
+</a></li><li class="dropdown-subitem"><a href="/db/intro/02-relationdb.html" class="nav-link">
+  关系数据库
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/01-basicselect.html" class="nav-link">
+  基本查询SQL
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/02-joinselect.html" class="nav-link">
+  连表查询SQL
+</a></li></ul></li><li class="dropdown-item"><h4>
+          MySQL基础和优化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/mysqlbasic/01-intro.html" class="nav-link">
+  入门介绍
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt1/01-solutionsum.html" class="nav-link">
+  性能优化方案
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/01-districtandtable.html" class="nav-link">
+  分区和分表
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/05-readwritesepration.html" class="nav-link">
+  读写分离介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/redis/01-intro.html" class="nav-link">
+  Redis介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础概念总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/basic/01-basicconcept.html" class="nav-link">
+  数据结构基础概念
+</a></li><li class="dropdown-subitem"><a href="/algorithm/basic/02-intro.html" class="nav-link">
+  算法和数据结构介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/01-commondy.html" class="nav-link">
+  常用算法动态展示
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/04-visualgo.html" class="nav-link">
+  visualgo-中文算法展示
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法思想总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/thought/01-thoughts8intro.html" class="nav-link">
+  八种常用算法思想
+</a></li><li class="dropdown-subitem"><a href="/algorithm/thought/02-thoughts5intro.html" class="nav-link">
+  五种基本算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用算法总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/search/01-intro.html" class="nav-link">
+  常用查找算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/sort/01-intro.html" class="nav-link">
+  常用排序算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/strmatch/01-intro.html" class="nav-link">
+  常用字符串匹配-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/encryption/01-intro.html" class="nav-link">
+  常用加密解密算法-介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">大数据</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">大数据</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/bigdata/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/bigdata/techintro/01-intro.html" class="nav-link">
+  技术体系介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据采集总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dc/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/dc/intro/02-diff.html" class="nav-link">
+  常用工具比较
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据存储总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ds/intro/01-basicintro.html" class="nav-link">
+  Hadoop入门介绍
+</a></li><li class="dropdown-subitem"><a href="/ds/intro/02-detailintro.html" class="nav-link">
+  Hadoop生态介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据仓库总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dw/intro/01-intro.html" class="nav-link">
+  数据仓库入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dw/intro/03-summary.html" class="nav-link">
+  数据仓库精华总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据处理总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dp/mr/01-intro.html" class="nav-link">
+  MapReduce-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dp/mr/02-basicprin.html" class="nav-link">
+  MapReduce-工作原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据应用总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/da/intro/01-intro.html" class="nav-link">
+  大数据应用场景基础介绍
+</a></li><li class="dropdown-subitem"><a href="/dm/intro/01-intro.html" class="nav-link">
+  大数据数据挖掘基础介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">人工智能</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">人工智能</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/intro/01-intro.html" class="nav-link">
+  人工智能基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlintro/01-intro.html" class="nav-link">
+  机器学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/dlintro/01-intro.html" class="nav-link">
+  深度学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/nnprin/01-intro.html" class="nav-link">
+  神经网络原理介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlalgorithm/01-intro.html" class="nav-link">
+  机器学习算法介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlmath/01-intro.html" class="nav-link">
+  机器学习数学介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ad/intro/01-intro.html" class="nav-link">
+  主流-AI开源开发框架介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/dl4jintro/01-intro.html" class="nav-link">
+  JAVA-AI开发框架Dl4j介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/pytorch/01-intro.html" class="nav-link">
+  AI开发框架-Pytorch介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/tensorflow/01-intro.html" class="nav-link">
+  AI开发框架-TensorFlow介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发应用案例
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ac/intro/01-intro.html" class="nav-link">
+  AI常见案例和趋势介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/rsintro/01-intro.html" class="nav-link">
+  AI应用案例-推荐系统介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aicity/01-intro.html" class="nav-link">
+  AI应用案例-智慧城市介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aibigscreen/01-intro.html" class="nav-link">
+  AI应用案例-智慧大屏介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Spring</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Spring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Spring基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/basic/01-intro.html" class="nav-link">
+  Spring-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/basic/02-iocaopintro.html" class="nav-link">
+  IOC和AOP-原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringMVC总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springmvc/01-intro.html" class="nav-link">
+  SpringMVC-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springmvc/02-prinintro.html" class="nav-link">
+  SpringMVC-工作原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringBoot总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springboot/03-workprin.html" class="nav-link">
+  SpringBoot-工作原理
+</a></li><li class="dropdown-subitem"><a href="/spring/springboot/06-startprincodeanalysis.html" class="nav-link">
+  启动原理分析和源码解读
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring注解总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/annotation/03-springannprin.html" class="nav-link">
+  Spring注解实现原理
+</a></li><li class="dropdown-subitem"><a href="/spring/annotation/04-anntotal1.html" class="nav-link">
+  Spring注解大全(一)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringCloud知识介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springcloud/01-intro.html" class="nav-link">
+  SpringCloud-基础介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springcloud/03-prindetail.html" class="nav-link">
+  SpringCloud-原理详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          框架基础总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/basic/01-intro.html" class="nav-link">
+  框架基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/02-commconceptdiff.html" class="nav-link">
+  框架架构组件区别
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/03-commconceptrela.html" class="nav-link">
+  框架架构组件关系
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/06-microserv15.html" class="nav-link">
+  常见15种微服务框架
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/07-springframethink.html" class="nav-link">
+  Spring框架思想总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/log/01-intro.html" class="nav-link">
+  日志框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/orm/01-intro.html" class="nav-link">
+  ORM框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nio/01-intro.html" class="nav-link">
+  NIO框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/netty/01-intro.html" class="nav-link">
+  Netty框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nettycase/01-intro.html" class="nav-link">
+  Netty案例-介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">架构</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">架构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          架构基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/architecture/basic/01-intro.html" class="nav-link">
+  架构基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/architecture/basic/02-essence.html" class="nav-link">
+  架构基本概念和本质
+</a></li><li class="dropdown-subitem"><a href="/architecture/microservanddistribute/01-intro.html" class="nav-link">
+  微服务架构知识介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/tool/01-intro.html" class="nav-link">
+  Java开发工具介绍
+</a></li><li class="dropdown-subitem"><a href="/dev/tool/05-idea20recommendedplug.html" class="nav-link">
+  Idea开发插件推荐
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/standard/01-intro.html" class="nav-link">
+  Java开发规范
+</a></li><li class="dropdown-subitem"><a href="/dev/designpattern/01-intro.html" class="nav-link">
+  Java设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发效率
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/deveffciency/02-commpromethods.html" class="nav-link">
+  效率提升常用方法
+</a></li><li class="dropdown-subitem"><a href="/dev/deveffciency/09-summary.html" class="nav-link">
+  效率提升精华总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">综合</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">综合</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中间件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/middleware/mq/01-intro.html" class="nav-link">
+  MQ消息队列介绍
+</a></li><li class="dropdown-subitem"><a href="/es/basic/01-intro.html" class="nav-link">
+  ES搜索服务器介绍
+</a></li><li class="dropdown-subitem"><a href="/middleware/zookeeper/01-intro.html" class="nav-link">
+  Zookeeper介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          综合技能
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mysqlop/basic/01-intro.html" class="nav-link">
+  MySQL运维总结
+</a></li><li class="dropdown-subitem"><a href="/operation/linux/01-intro.html" class="nav-link">
+  Linux常用命令
+</a></li><li class="dropdown-subitem"><a href="/operation/ng/05-ngsum.html" class="nav-link">
+  Nginx使用总结
+</a></li><li class="dropdown-subitem"><a href="/post/javabasic/01-javabasic.html" class="nav-link">
+  求职面试整理
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">项目|产品</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">项目|产品</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          研发效能介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/01-intro.html" class="nav-link">
+  研发效能入门介绍
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/06-efficiencysystem.html" class="nav-link">
+  研发效能体系构建
+</a></li></ul></li><li class="dropdown-item"><h4>
+          研发效能提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdeffciencypromote/09-summary.html" class="nav-link">
+  研发效能提升精华总结
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdeffciencytool/01-intro.html" class="nav-link">
+  研发效能系统管理工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>大数据仓库-概念介绍</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dw/intro/01-intro.html" class="sidebar-link">数据仓库-基础介绍</a></li><li><a href="/dw/intro/02-basicarchi.html" class="sidebar-link">数据仓库-基础结构</a></li><li><a href="/dw/intro/03-summary.html" class="sidebar-link">数据仓库-精华总结</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>大数据仓库-Hive总结</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dw/hive/01-intro.html" class="sidebar-link">Hive-基础入门介绍</a></li><li><a href="/dw/hive/02-basicarchi.html" class="sidebar-link">Hive-基础知识总结</a></li><li><a href="/dw/hive/03-basiclianzai.html" class="sidebar-link">Hive-基础知识连载</a></li><li><a href="/dw/hive/04-storageandcompression.html" class="sidebar-link">Hive-存储和压缩</a></li><li><a href="/dw/hive/05-hivesql.html" class="sidebar-link">Hive-HiveSQL总结</a></li><li><a href="/dw/hive/06-hiveexplainplan.html" class="sidebar-link">Hive-HiveSQL执行计划</a></li><li><a href="/dw/hive/07-hivesqlexecprin.html" class="sidebar-link">Hive-HiveSQL执行原理</a></li><li><a href="/dw/hive/08-hivedataskew.html" class="sidebar-link">Hive-千亿级数据倾斜</a></li><li><a href="/dw/hive/09-hiveenterpriselevelopt.html" class="sidebar-link">Hive-企业级性能优化</a></li><li><a href="/dw/hive/10-hivesqlexecsourcecode.html" class="sidebar-link">Hive-HiveSQL流程源码分析</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>大数据仓库-Hive优化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dw/hiveopt/01-optbasic.html" class="sidebar-link">Hive优化-12种常用方式</a></li><li><a href="/dw/hiveopt/02-optstrategy.html" class="sidebar-link">Hive优化-优化策略总结</a></li><li><a href="/dw/hiveopt/03-commonoptmethods.html" class="sidebar-link">Hive优化-常用优化方法</a></li><li><a href="/dw/hiveopt/04-optsummary1.html" class="sidebar-link">Hive优化-汇总精华总结(一)</a></li><li><a href="/dw/hiveopt/05-optsummary2.html" aria-current="page" class="active sidebar-link">Hive优化-汇总精华总结(二)</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>大数据仓库-Pig介绍</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dw/pig/01-intro.html" class="sidebar-link">Pig-基础信息介绍</a></li><li><a href="/dw/pig/02-basicprin.html" class="sidebar-link">Pig-基础原理总结</a></li><li><a href="/dw/pig/03-summary.html" class="sidebar-link">Pig-基础知识总结</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>大数据仓库-ClickHouse介绍</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dw/clickhouse/01-intro.html" class="sidebar-link">ClickHouse-基础介绍</a></li><li><a href="/dw/clickhouse/02-summaryintro.html" class="sidebar-link">ClickHouse-基础总结</a></li><li><a href="/dw/clickhouse/03-caseintro.html" class="sidebar-link">ClickHouse-案例介绍</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>大数据仓库-CDH介绍</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dw/cdh/01-cdhintro.html" class="sidebar-link">CDH-基础介绍</a></li><li><a href="/dw/cdh/02-cmintroandinstall.html" class="sidebar-link">CDH-CM基础介绍</a></li><li><a href="/dw/cdh/03-summarycase.html" class="sidebar-link">CDH-安装案例总结</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>大数据仓库-Ambari介绍</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dw/ambari/01-introandinstall.html" class="sidebar-link">Ambari-介绍和安装</a></li><li><a href="/dw/ambari/02-installcase.html" class="sidebar-link">Ambari-集群安装攻略</a></li><li><a href="/dw/ambari/03-diff.html" class="sidebar-link">Ambari-和CDH的区别</a></li></ul></section></li></ul> </aside> <main class="page page-content-spec" data-v-17815e06><div class="page_article_title_info" data-v-17815e06><div class="page_content_title" data-v-17815e06>Hive优化-汇总精华总结(二)</div> <div class="page_content_visit" data-v-17815e06><span data-v-17815e06>更新时间</span> <span style="display:none;" data-v-17815e06>2021-09-07 18:30:09</span>
+            
+          <span data-v-17815e06>浏览</span> <span style="display:none;" data-v-17815e06>0</span>
+            
+
+        </div></div>  <div class="theme-default-content content__default"><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>本文主要是介绍 Hive优化-汇总精华总结(二) 。</p></div> <p></p><div class="table-of-contents"><ul><li><a href="#hive总结篇及hive的优化">Hive总结篇及Hive的优化</a></li><li><a href="#概述">概述</a></li><li><a href="#什么是hive">什么是Hive</a></li><li><a href="#hive的产生背景">Hive的产生背景</a></li><li><a href="#hive深入剖析">Hive深入剖析</a><ul><li><a href="#安装部署">安装部署</a></li><li><a href="#hive基本语法">Hive基本语法</a></li><li><a href="#hive于关系型数据库的区别">Hive于关系型数据库的区别</a></li><li><a href="#hive的优点">Hive的优点</a></li><li><a href="#sql转化为mapreduce的过程">SQL转化为MapReduce的过程</a></li><li><a href="#hive内部表和外部表的区别">Hive内部表和外部表的区别</a></li><li><a href="#行式存储vs列式存储">行式存储vs列式存储</a></li><li><a href="#hive哪些查询会执行mr">Hive哪些查询会执行mr</a></li><li><a href="#hive静态分区动态分区">Hive静态分区动态分区</a></li></ul></li><li><a href="#hive优化">Hive优化</a><ul><li><a href="#_1-慎用-count-distinct-count-distinct">1.慎用 count(distinct)，count(distinct)</a></li><li><a href="#_2-设置合理的map-reduce-的task数量">2.设置合理的map reduce 的task数量</a></li><li><a href="#map阶段优化">map阶段优化</a></li><li><a href="#reduce阶段优化">reduce阶段优化</a></li><li><a href="#合并小文件">合并小文件</a></li><li><a href="#小文件问题的影响">小文件问题的影响</a></li><li><a href="#小文件问题的解决方案">小文件问题的解决方案</a></li><li><a href="#_3-write-good-sql">3.Write good SQL</a></li><li><a href="#_4-存储格式">4.存储格式：</a></li><li><a href="#_5-压缩格式">5.压缩格式：</a></li><li><a href="#_6-map-join">6.MAP JOIN</a></li><li><a href="#_7-引擎的选择">7.引擎的选择</a></li><li><a href="#_8-use-vectorization">8.Use Vectorization</a></li><li><a href="#_9-cost-based-query-optimization">9.cost based query optimization</a></li><li><a href="#_10-模式选择">10.模式选择</a></li><li><a href="#_11-jvm重用">11.JVM重用</a></li><li><a href="#_12-推测执行">12.推测执行</a></li></ul></li><li><a href="#参考文章">参考文章</a></li></ul></div><p></p> <h2 id="hive总结篇及hive的优化"><a href="#hive总结篇及hive的优化" class="header-anchor">#</a> Hive总结篇及Hive的优化</h2> <h2 id="概述"><a href="#概述" class="header-anchor">#</a> 概述</h2> <p>Hive学习也有一段时间了，今天来对Hive进行一个总结，谈谈自己的理解，作者还是个小白，有不对的地方请大家指出相互学习，共同进步。今天来谈一谈什么是Hive，产生背景，优势等一系列问题。</p> <h2 id="什么是hive"><a href="#什么是hive" class="header-anchor">#</a> 什么是Hive</h2> <p><a href="http://hive.apache.org/" target="_blank" rel="noopener noreferrer">官网地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://cwiki.apache.org/confluence/display/Hive#Home-ApacheHive" target="_blank" rel="noopener noreferrer">Hive wiki.<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
+先来谈谈自己的理解：</p> <p>有些人可能会说Hive不就是写SQL的吗，那我们其实可以从另一个角度来理解:Hive就是那么强大啊，只要写SQL就能解决问题，其实这些人说的也没错Hive确实就是写SQL的，对于传统的 DBA人员或者会写SQL就很容易上手了，但是您知道他的底层细节吗，怎么优化呢？和传统的关系型数据库又有什么区别呢？等等一系列问题。。。</p> <p>Hive是一个构建在Hadoop之上的数据仓库软件,它可以使已经存储的数据结构化，它提供类似sql的查询语句HiveQL对数据进行分析处理。 Hive将HiveQL语句转换成一系列成MapReduce作业并执行（SQL转化为MapReduce的过程你知道吗？）。用户可以很方便的使用命令行和JDBC程序的方式来连接到hive。 目前，Hive除了支持MapReduce计算引擎，还支持Spark和Tez这两中分布式计算引擎。常用于离线批处理。 （Hive On Spark 还是试验版本）</p> <h2 id="hive的产生背景"><a href="#hive的产生背景" class="header-anchor">#</a> Hive的产生背景</h2> <p>大数据的时代，海量的数据对于传统的关系型数据库来说维护起来成本非常高，那该如何是好，Hadoop分布式的框架，可以使用廉价的机器部署分布式系统把数据存储再HDFS之上，通过MR进行计算，分析，这样是可以的，但是，MR大家应该知道，MapReduce编程带来的不便性，编程十分繁琐，在大多情况下，每个MapReduce程序需要包含Mapper、Reduceer和一个Driver，之后需要打成jar包扔到集群上运 行。如果mr写完之后，且该项目已经上线，一旦业务逻辑发生了改变，可能就会带来大规模的改动代码，然后重新打包，发布，非常麻烦(这种方式，也是最古老的方式)</p> <p>当大量数据都存放在HDFS上，如何快速的对HDFS上的文件进行统计分析操作？</p> <p>一般来说，想要做会有两种方式：</p> <ul><li><ol><li>学Java、学MapReduce(十分麻烦)</li></ol></li> <li><ol start="2"><li>做DBA的：写SQL(希望能通过写SQL这样的方式来实现，这种方式较好)
+然而，HDFS中最关键的一点就是，数据存储HDFS上是没有schema的概念的(schema:相当于表里面有列、字段、字段名称、字段与字段之间的分隔符等，这些就是schema信息)然而HDFS上的仅仅只是一个纯的文本文件而已，那么，没有schema，就没办法使用sql进行查询了啊。。。因此，在这种背景下，就有问题产生：如何为HDFS上的文件添加Schema信息？如果加上去，是否就可以通过SQL的方式进行处理了呢？于是强大的Hive出现了。</li></ol></li></ul> <h2 id="hive深入剖析"><a href="#hive深入剖析" class="header-anchor">#</a> Hive深入剖析</h2> <p>再来看看官网给我们的介绍：</p> <p><strong>官方第一句话就说明了Apache Hive 是构建在Apache Hadoop之上的数据仓库。有助于对大型的数据集进行读、写和管理。</strong></p> <p>那我们先对这句话进行剖析：</p> <p>首先Hive是构建在Hadoop之上的，其实就是Hive中的数据其实是存储再HDFS上的（加上LOCAL关键字则是在本地），默认在<code>/user/hive/warehouse/table</code>,有助于对大型数据集进行读、写和管理，那也就是意味着传统的关系型数据库已经无法满足现在的数据量了，需要一个更大的仓库来帮助我们存储，这里也引出一个问题：<strong>Hive和关系型数据库的区别</strong>，后面我们再来聊。</p> <p>Hive的特征：</p> <ul><li>1.可通过SQL轻松访问数据的工具，从而实现数据仓库任务，如提取/转换/加载（ETL），报告和数据分析。</li> <li>2.它可以使已经存储的数据结构化</li> <li>3.可以直接访问存储在Apache HDFS™或其他数据存储系统（如Apache HBase™）中的文件</li> <li>4.Hive除了支持MapReduce计算引擎，还支持Spark和Tez这两中分布式计算引擎（这里会引申出一个问题，哪些查询跑mr哪些不跑？）</li> <li>5.它提供类似sql的查询语句HiveQL对数据进行分析处理。</li> <li><ol start="6"><li>数据的存储格式有多种，比如数据源是二进制格式， 普通文本格式等等</li></ol></li></ul> <p>而hive强大之处不要求数据转换成特定的格式，而是利用hadoop本身InputFormat API来从不同的数据源读取数据，同样地使用OutputFormat API将数据写成不同的格式。所以对于不同的数据源，或者写出不同的格式就需要不同的对应的InputFormat和Outputformat类的实现。</p> <p>以stored as textfile为例，其在底层java API中表现是输入InputFormat格式:TextInputFormat以及输出OutputFormat格式:HiveIgnoreKeyTextOutputFormat.这里InputFormat中定义了如何对数据源文本进行读取划分，以及如何将切片分割成记录存入表中。而Outputformat定义了如何将这些切片写回到文件里或者直接在控制台输出。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>不仅如此Hive的SQL还可以通过用户定义的函数（UDF），用户定义的聚合（UDAF）和用户定义的表函数（UDTF）进行扩展。
+（几个函数之间的区别）
+Hive中不仅可以使用逗号和制表符分隔值（CSV / TSV）文本文件，还可以使用Sequence File、RC、ORC、Parquet 
+（知道这几种存储格式的区别），
+当然Hive还可以通过用户来自定义自己的存储格式，基本上前面说的到的几种格式完全够了。
+Hive旨在最大限度地提高可伸缩性（通过向Hadoop集群动态添加更多机器扩展），性能，可扩展性，
+容错性以及与其输入格式的松散耦合。
+
+</code></pre></div><h3 id="安装部署"><a href="#安装部署" class="header-anchor">#</a> 安装部署</h3> <p>安装部署这里我们就不讲解了，不会的同学，<a href="https://blog.csdn.net/yu0_zhang0/article/details/78955844" target="_blank" rel="noopener noreferrer">参考作者以前的博客<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="hive基本语法"><a href="#hive基本语法" class="header-anchor">#</a> Hive基本语法</h3> <p>该篇博客主要讲解Hive底层的东西和一些优化对于基本的东西可以参考作者以前的博客。
+<a href="https://blog.csdn.net/yu0_zhang0/article/details/78976021" target="_blank" rel="noopener noreferrer">DDL<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://blog.csdn.net/yu0_zhang0/article/details/79007784" target="_blank" rel="noopener noreferrer">DML<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://blog.csdn.net/yu0_zhang0/article/details/79011192" target="_blank" rel="noopener noreferrer">基本HQL<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://blog.csdn.net/yu0_zhang0/article/details/79060849" target="_blank" rel="noopener noreferrer">内置函数和基本的UDF函数<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>UDF函数这里要进行一个讲解UDF、DUAF、UDTF分别是啥。
+我们知道Hive的SQL还可以通过用户定义的函数（UDF），用户定义的聚合（UDAF）和用户定义的表函数（UDTF）进行扩展。
+当Hive提供的内置函数无法满足你的业务处理需要时，此时就可以考虑使用用户自定义函数（UDF：user-defined function）。　　
+<strong>UDF(User-Defined-Function) 一进一出</strong></p> <p><strong>UDAF(User- Defined Aggregation Funcation) 聚集函数，多进一出。</strong></p> <p><strong>UDTF(User-Defined Table-Generating Functions) 一进多出，如lateral view explore()</strong></p> <h3 id="hive于关系型数据库的区别"><a href="#hive于关系型数据库的区别" class="header-anchor">#</a> Hive于关系型数据库的区别</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>时效性、延时性比较高，可扩展性高；
+Hive数据规模大，优势在于处理大数据集，对于小数据集没有优势
+事务没什么用<span class="token punctuation">(</span>比较鸡肋，没什么实际的意义，对于离线的来说<span class="token punctuation">)</span>  一个小问题：那个版本开始提供了事务？
+insert/update没什么实际用途，大数据场景下大多数是select
+RDBMS也支持分布式，节点有限 成本高，处理的数据量小
+Hadoop集群规模更大 部署在廉价机器上，处理的数据量大
+数据库可以用在Online的应用中，Hive主要进行离线的大数据分析；
+数据库的查询语句为SQL，Hive的查询语句为HQL；
+数据库数据存储在LocalFS，Hive的数据存储在HDFS；
+数据格式:Hive中有多种存储格式：由于在加载数据的过程中，不需要从用户数据格式到 Hive 定义的数据格式的转换，
+因此，Hive 在加载的过程中不会对数据本身进行任何修改，而只是将数据内容复制或者移动到相应的 HDFS 目录中。
+而在数据库中，不同的数据库有不同的存储引擎，定义了自己的数据格式。所有数据都会按照一定的组织存储，因此，
+数据库加载数据的过程会比较耗时。
+Hive执行MapReduce，MySQL执行Executor；
+</code></pre></div><h3 id="hive的优点"><a href="#hive的优点" class="header-anchor">#</a> Hive的优点</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">1</span>.简单易上手
+<span class="token number">2</span>.扩展能力较好<span class="token punctuation">(</span>指集群 HDFS或是YARN<span class="token punctuation">)</span>
+<span class="token number">3</span>.统一的元数据管理 metastore包括的了数据库，表，字段分区等详细信息
+</code></pre></div><p><a href="https://blog.csdn.net/yu0_zhang0/article/details/80697913" target="_blank" rel="noopener noreferrer">该篇博客对于元数据信息进行了详细的讲解<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">4</span>.由于统一的元数据管理所以和spark/impala等SQL引擎是通用的 
+通用是指，在拥有了统一的metastore之后，在Hive中创建一张表，在Spark/impala中是能用的，反之在Spark中创建一张表，
+在Hive中也能用；只需要共用元数据，就可以切换SQL引擎	
+涉及到了Spark sql 和Hive On Spark<span class="token punctuation">(</span>实验版本<span class="token punctuation">)</span>
+<span class="token number">5</span>.使用SQL语法，提供快速开发的能力，支持自定义函数UDF。
+<span class="token number">6</span>.避免了去写mapreduce，减少开发人员学习成本。
+<span class="token number">7</span>.数据离线处理，比如日志分析，海量数据结构化分析
+</code></pre></div><h3 id="sql转化为mapreduce的过程"><a href="#sql转化为mapreduce的过程" class="header-anchor">#</a> SQL转化为MapReduce的过程</h3> <p>了解了MapReduce实现SQL基本操作之后，我们来看看Hive是如何将SQL转化为MapReduce任务的，整个编译过程分为六个阶段：</p> <ul><li><ol><li>Antlr定义SQL的语法规则，完成SQL词法，语法解析，将SQL转化为抽象语法树AST Tree</li></ol></li> <li><ol start="2"><li>遍历AST Tree，抽象出查询的基本组成单元QueryBlock</li></ol></li> <li><ol start="3"><li>遍历QueryBlock，翻译为执行操作树OperatorTree</li></ol></li> <li><ol start="4"><li>逻辑层优化器进行OperatorTree变换，合并不必要的ReduceSinkOperator，减少shuffle数据量</li></ol></li> <li><ol start="5"><li>遍历OperatorTree，翻译为MapReduce任务</li></ol></li> <li><ol start="6"><li>物理层优化器进行MapReduce任务的变换，生成最终的执行计划</li></ol></li></ul> <p><a href="https://tech.meituan.com/hive_sql_to_mapreduce.html" target="_blank" rel="noopener noreferrer">可以参考美团的技术沙龙<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="hive内部表和外部表的区别"><a href="#hive内部表和外部表的区别" class="header-anchor">#</a> Hive内部表和外部表的区别</h3> <p>未被external修饰的是内部表（managed table），被external修饰的为外部表（external table）；
+<strong>区别：</strong></p> <ul><li><ol><li>内部表数据由Hive自身管理，外部表数据由HDFS管理；</li></ol></li> <li><ol start="2"><li>内部表数据存储的位置是hive.metastore.warehouse.dir（默认：/user/hive/warehouse），外部表数据的存储位置由自己制定；</li></ol></li> <li><ol start="3"><li>删除内部表会直接删除元数据（metadata）及存储数据；删除外部表仅仅会删除元数据，HDFS上的文件并不会被删除；</li></ol></li></ul> <h3 id="行式存储vs列式存储"><a href="#行式存储vs列式存储" class="header-anchor">#</a> 行式存储vs列式存储</h3> <p>行式数据库存储在hdfs上式按行进行存储的，一个block存储一或多行数据。而列式数据库在hdfs上则是按照列进行存储，一个block可能有一列或多列数据。</p> <p><strong>如果要将数据进行压缩：</strong></p> <ul><li><ol><li>对于行式数据库，必然按行压缩，当一行中有多个字段，各个字段对应的数据类型可能不一致，压缩性能压缩比就比较差。</li></ol></li> <li><ol start="2"><li>对于列式数据库，必然按列压缩，每一列对应的是相同数据类型的数据，故列式数据库的压缩性能要强于行式数据库。</li></ol></li></ul> <p><strong>如果要进行数据的查询：</strong>
+假设执行的查询操作是：<code>select id,name from table_emp</code>;</p> <ul><li><ol><li>对于行式数据库，它要遍历一整张表将每一行中的id,name字段拼接再展现出来，这样需要查询的数据量就比较大，效率低。</li></ol></li> <li><ol start="2"><li>对于列式数据库，它只需找到对应的id,name字段的列展现出来即可，需要查询的数据量小，效率高。
+假设执行的查询操作是：select * from table_emp;</li></ol></li></ul> <p>对于这种查询整个表全部信息的操作，由于列式数据库需要将分散的行进行重新组合，行式数据库效率就高于列式数据库。
+但是，在大数据领域，进行全表查询的场景少之又少，进而我们使用较多的还是列式数据库及列式储存。</p> <h3 id="hive哪些查询会执行mr"><a href="#hive哪些查询会执行mr" class="header-anchor">#</a> Hive哪些查询会执行mr</h3> <p>hive 0.10.0为了执行效率考虑，简单的查询，就是只是select，不带count,sum,group by这样的，都不走map/reduce，直接读取hdfs文件进行filter过滤。</p> <p>这样做的好处就是不新开mr任务，执行效率要提高不少，但是不好的地方就是用户界面不友好，有时候数据量大还是要等很长时间，但是又没有任何返回。
+改这个很简单，在hive-site.xml里面有个配置参数叫</p> <p><code>hive.fetch.task.conversion</code></p> <p>将这个参数设置为more，简单查询就不走map/reduce了，设置为minimal，就任何简单select都会走map/reduce</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">Create</span> <span class="token keyword">Table</span> <span class="token keyword">As</span> <span class="token keyword">Select</span> <span class="token punctuation">(</span>CTAS<span class="token punctuation">)</span> 走mr
+<span class="token keyword">create</span> <span class="token keyword">table</span> emp2 <span class="token keyword">as</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp<span class="token punctuation">;</span>
+
+<span class="token keyword">insert</span>一条或者多条 走mr		
+
+</code></pre></div><h3 id="hive静态分区动态分区"><a href="#hive静态分区动态分区" class="header-anchor">#</a> Hive静态分区动态分区</h3> <p><strong>分区的概念</strong></p> <p>Hive的分区方式：由于Hive实际是存储在HDFS上的抽象，Hive的一个分区名对应HDFS上的一个目录名，子分区名就是子目录名，并不是一个实际字段。</p> <p><strong>分区的好处</strong></p> <p>产生背景：如果一个表中数据很多，我们查询时就很慢，耗费大量时间，如果要查询其中部分数据该怎么办呢，这是我们引入分区的概念。
+Partition:分区，每张表中可以加入一个分区或者多个，方便查询，提高效率；并且HDFS上会有对应的分区目录：</p> <p><strong>语法：</strong></p> <p>Hive分区是在创建表的时候用Partitioned by 关键字定义的，但要注意，Partitioned by子句中定义的列是表中正式的列，
+但是Hive下的数据文件中并不包含这些列，因为它们是目录名，真正的数据在分区目录下。</p> <p><strong>静态分区和 动态分区的区别</strong></p> <p>创建表的语法都一样</p> <ul><li>静态分区：加载数据的时候要指定分区的值（key=value），比较麻烦的是每次插入数据都要指定分区的值，创建多个分区多分区一样，以逗号分隔。</li> <li>动态分区：
+如果用上述的静态分区，插入的时候必须首先要知道有什么分区类型，而且每个分区写一个load data，太烦人。使用动态分区可解决以上问题，其可以根据查询得到的数据动态分配到分区里。其实动态分区与静态分区区别就是不指定分区目录，由系统自己选择。</li></ul> <div class="language-sql extra-class"><pre class="language-sql"><code>首先，启动动态分区功能
+
+hive<span class="token operator">&gt;</span> <span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">exec</span><span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span><span class="token keyword">partition</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+
+采用动态方式加载数据到目标表 
+加载之前先设置一下下面的参数
+
+hive <span class="token punctuation">(</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">exec</span><span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span><span class="token keyword">partition</span><span class="token punctuation">.</span><span class="token keyword">mode</span><span class="token operator">=</span>nonstrict
+
+开始加载
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> <span class="token keyword">table</span> emp_dynamic_partition <span class="token keyword">partition</span><span class="token punctuation">(</span>deptno<span class="token punctuation">)</span>
+<span class="token keyword">select</span> empno <span class="token punctuation">,</span> ename <span class="token punctuation">,</span> job <span class="token punctuation">,</span> mgr <span class="token punctuation">,</span> hiredate <span class="token punctuation">,</span> sal <span class="token punctuation">,</span> comm<span class="token punctuation">,</span> deptno <span class="token keyword">from</span> emp<span class="token punctuation">;</span>
+
+</code></pre></div><p>加载数据方式并没有指定具体的分区，只是指出了分区字段。</p> <p>在select最后一个字段必须跟你的分区字段，这样就会自行根据deptno的value来分区。</p> <p><strong>删除分区：</strong></p> <p><code>ALTER TABLE my_partition_test_table DROP IF EXISTS PARTITION (day='2018-08-08');</code></p> <h2 id="hive优化"><a href="#hive优化" class="header-anchor">#</a> Hive优化</h2> <h3 id="_1-慎用-count-distinct-count-distinct"><a href="#_1-慎用-count-distinct-count-distinct" class="header-anchor">#</a> 1.慎用 count(distinct)，count(distinct)</h3> <p>我们知道大数据场景下不害怕数据量大，害怕的是数据倾斜，怎样避免数据倾斜，找到可能产生数据倾斜的函数尤为关键，数据量较大的情况下，<strong>慎用count(distinct)，count(distinct)容易产生倾斜问题。</strong></p> <h3 id="_2-设置合理的map-reduce-的task数量"><a href="#_2-设置合理的map-reduce-的task数量" class="header-anchor">#</a> 2.设置合理的map reduce 的task数量</h3> <h3 id="map阶段优化"><a href="#map阶段优化" class="header-anchor">#</a> <strong>map阶段优化</strong></h3> <div class="language-sql extra-class"><pre class="language-sql"><code>	mapred<span class="token punctuation">.</span>min<span class="token punctuation">.</span>split<span class="token punctuation">.</span>size: 指的是数据的最小分割单元大小；min的默认值是<span class="token number">1</span>B
+	mapred<span class="token punctuation">.</span>max<span class="token punctuation">.</span>split<span class="token punctuation">.</span>size: 指的是数据的最大分割单元大小；max的默认值是<span class="token number">256</span>MB
+	通过调整max可以起到调整map数的作用，减小max可以增加map数，增大max可以减少map数。
+	需要提醒的是，直接调整mapred<span class="token punctuation">.</span>map<span class="token punctuation">.</span>tasks这个参数是没有效果的。
+</code></pre></div><p>举例：</p> <ul><li>a) 假设input目录下有1个文件a,大小为780M,那么hadoop会将该文件a分隔成7个块（6个128m的块和1个12m的块），从而产生7个map数</li> <li>b) 假设input目录下有3个文件a,b,c,大小分别为10m，20m，130m，那么hadoop会分隔成4个块（10m,20m,128m,2m）,从而产生4个map数
+即，如果文件大于块大小(128m),那么会拆分，如果小于块大小，则把该文件当成一个块。</li></ul> <p>其实这就涉及到小文件的问题：如果一个任务有很多小文件（远远小于块大小128m）,则每个小文件也会被当做一个块，用一个map任务来完成，</p> <p>而一个map任务启动和初始化的时间远远大于逻辑处理的时间，就会造成很大的资源浪费。</p> <p>而且，同时可执行的map数是受限的。那么问题又来了。。是不是保证每个map处理接近128m的文件块，就高枕无忧了？</p> <p>答案也是不一定。比如有一个127m的文件，正常会用一个map去完成，但这个文件只有一个或者两个小字段，却有几千万的记录，</p> <p>如果map处理的逻辑比较复杂，用一个map任务去做，肯定也比较耗时。</p> <p>我们该如何去解决呢？？？</p> <p>我们需要采取两种方式来解决：即减少map数和增加map数；</p> <ul><li>减少map数量</li></ul> <div class="language-sql extra-class"><pre class="language-sql"><code>假设一个<span class="token keyword">SQL</span>任务：
+<span class="token keyword">Select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">from</span> popt_tbaccountcopy_mes <span class="token keyword">where</span> pt <span class="token operator">=</span> ‘<span class="token number">2012</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">-</span><span class="token number">04</span>’<span class="token punctuation">;</span>
+该任务的inputdir  <span class="token operator">/</span><span class="token keyword">group</span><span class="token operator">/</span>p_sdo_data<span class="token operator">/</span>p_sdo_data_etl<span class="token operator">/</span>pt<span class="token operator">/</span>popt_tbaccountcopy_mes<span class="token operator">/</span>pt<span class="token operator">=</span><span class="token number">2012</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">-</span><span class="token number">04</span>
+共有<span class="token number">194</span>个文件，其中很多是远远小于<span class="token number">128</span>m的小文件，总大小<span class="token number">9</span>G，正常执行会用<span class="token number">194</span>个map任务。
+Map总共消耗的计算资源： SLOTS_MILLIS_MAPS<span class="token operator">=</span> <span class="token number">623</span><span class="token punctuation">,</span><span class="token number">020</span>
+
+
+我通过以下方法来在map执行前合并小文件，减少map数：
+<span class="token keyword">set</span> mapred<span class="token punctuation">.</span>max<span class="token punctuation">.</span>split<span class="token punctuation">.</span>size<span class="token operator">=</span><span class="token number">100000000</span><span class="token punctuation">;</span>
+<span class="token keyword">set</span> mapred<span class="token punctuation">.</span>min<span class="token punctuation">.</span>split<span class="token punctuation">.</span>size<span class="token punctuation">.</span>per<span class="token punctuation">.</span>node<span class="token operator">=</span><span class="token number">100000000</span><span class="token punctuation">;</span>
+<span class="token keyword">set</span> mapred<span class="token punctuation">.</span>min<span class="token punctuation">.</span>split<span class="token punctuation">.</span>size<span class="token punctuation">.</span>per<span class="token punctuation">.</span>rack<span class="token operator">=</span><span class="token number">100000000</span><span class="token punctuation">;</span>
+<span class="token keyword">set</span> hive<span class="token punctuation">.</span>input<span class="token punctuation">.</span>format<span class="token operator">=</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>ql<span class="token punctuation">.</span>io<span class="token punctuation">.</span>CombineHiveInputFormat<span class="token punctuation">;</span>
+再执行上面的语句，用了<span class="token number">74</span>个map任务，map消耗的计算资源：SLOTS_MILLIS_MAPS<span class="token operator">=</span> <span class="token number">333</span><span class="token punctuation">,</span><span class="token number">500</span>
+对于这个简单<span class="token keyword">SQL</span>任务，执行时间上可能差不多，但节省了一半的计算资源。
+大概解释一下，<span class="token number">100000000</span>表示<span class="token number">100</span>M<span class="token punctuation">,</span> <span class="token keyword">set</span> hive<span class="token punctuation">.</span>input<span class="token punctuation">.</span>format<span class="token operator">=</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>ql<span class="token punctuation">.</span>io<span class="token punctuation">.</span>CombineHiveInputFormat<span class="token punctuation">;</span>这个参数表示执行前进行小文件合并，前面三个参数确定合并文件块的大小，大于文件块大小<span class="token number">128</span>m的，按照<span class="token number">128</span>m来分隔，小于<span class="token number">128</span>m<span class="token punctuation">,</span>大于<span class="token number">100</span>m的，按照<span class="token number">100</span>m来分隔，把那些小于<span class="token number">100</span>m的（包括小文件和分隔大文件剩下的），进行合并<span class="token punctuation">,</span>最终生成了<span class="token number">74</span>个块。
+
+</code></pre></div><ul><li>增大map数量</li></ul> <div class="language-sql extra-class"><pre class="language-sql"><code>如何适当的增加map数？ 
+当input的文件都很大，任务逻辑复杂，map执行非常慢的时候，可以考虑增加Map数，
+来使得每个map处理的数据量减少，从而提高任务的执行效率。
+   假设有这样一个任务：
+   <span class="token keyword">Select</span> data_desc<span class="token punctuation">,</span>
+          <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> id<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> …<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span>…<span class="token punctuation">)</span>
+  <span class="token keyword">from</span> a <span class="token keyword">group</span> <span class="token keyword">by</span> data_desc
+  如果表a只有一个文件，大小为<span class="token number">120</span>M，但包含几千万的记录，如果用<span class="token number">1</span>个map去完成这个任务，
+  肯定是比较耗时的，这种情况下，我们要考虑将这一个文件合理的拆分成多个，
+  这样就可以用多个map任务去完成。
+     <span class="token keyword">set</span> mapred<span class="token punctuation">.</span>reduce<span class="token punctuation">.</span>tasks<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+      <span class="token keyword">create</span> <span class="token keyword">table</span> a_1 <span class="token keyword">as</span> 
+      <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> a 
+      distribute <span class="token keyword">by</span> rand<span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+   这样会将a表的记录，随机的分散到包含<span class="token number">10</span>个文件的a_1表中，再用a_1代替上面<span class="token keyword">sql</span>中的a表，
+   则会用<span class="token number">10</span>个map任务去完成。
+   每个map任务处理大于<span class="token number">12</span>M（几百万记录）的数据，效率肯定会好很多。
+
+   看上去，貌似这两种有些矛盾，一个是要合并小文件，一个是要把大文件拆成小文件，
+   这点正是重点需要关注的地方，
+   使单个map任务处理合适的数据量；
+
+</code></pre></div><h3 id="reduce阶段优化"><a href="#reduce阶段优化" class="header-anchor">#</a> <strong>reduce阶段优化</strong></h3> <div class="language-sql extra-class"><pre class="language-sql"><code>	Reduce的个数对整个作业的运行性能有很大影响。如果Reduce设置的过大，那么将会产生很多小文件，
+	对NameNode会产生一定的影响，
+	而且整个作业的运行时间未必会减少；如果Reduce设置的过小，那么单个Reduce处理的数据将会加大，
+	很可能会引起OOM异常。
+	如果设置了mapred<span class="token punctuation">.</span>reduce<span class="token punctuation">.</span>tasks<span class="token operator">/</span>mapreduce<span class="token punctuation">.</span>job<span class="token punctuation">.</span>reduces参数，那么Hive会直接使用它的值作为Reduce的个数；
+	如果mapred<span class="token punctuation">.</span>reduce<span class="token punctuation">.</span>tasks<span class="token operator">/</span>mapreduce<span class="token punctuation">.</span>job<span class="token punctuation">.</span>reduces的值没有设置（也就是<span class="token operator">-</span><span class="token number">1</span>），那么Hive会
+	根据输入文件的大小估算出Reduce的个数。
+	根据输入文件估算Reduce的个数可能未必很准确，因为Reduce的输入是Map的输出，而Map的输出可能会比输入要小，
+	所以最准确的数根据Map的输出估算Reduce的个数。
+
+</code></pre></div><ol><li>Hive自己如何确定reduce数：
+reduce个数的设定极大影响任务执行效率，不指定reduce个数的情况下，Hive会猜测确定一个reduce个数，基于以下两个设定：
+<code>hive.exec.reducers.bytes.per.reducer</code>（每个reduce任务处理的数据量，默认为1000^3=1G）
+<code>hive.exec.reducers.max</code>（每个任务最大的reduce数，默认为999）
+计算reducer数的公式很简单N=min(参数2，总输入数据量/参数1)
+即，如果reduce的输入（map的输出）总大小不超过1G,那么只会有一个reduce任务；</li></ol> <div class="language-sql extra-class"><pre class="language-sql"><code>如：<span class="token keyword">select</span> pt<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">from</span> popt_tbaccountcopy_mes <span class="token keyword">where</span> pt <span class="token operator">=</span> <span class="token string">'2012-07-04'</span> <span class="token keyword">group</span> <span class="token keyword">by</span> pt<span class="token punctuation">;</span> 
+            <span class="token operator">/</span><span class="token keyword">group</span><span class="token operator">/</span>p_sdo_data<span class="token operator">/</span>p_sdo_data_etl<span class="token operator">/</span>pt<span class="token operator">/</span>popt_tbaccountcopy_mes<span class="token operator">/</span>pt<span class="token operator">=</span><span class="token number">2012</span><span class="token operator">-</span><span class="token number">07</span><span class="token operator">-</span><span class="token number">04</span> 总大小为<span class="token number">9</span>G多，
+            因此这句有<span class="token number">10</span>个reduce
+</code></pre></div><ol><li>调整reduce个数方法一：</li></ol> <div class="language-sql extra-class"><pre class="language-sql"><code>调整hive<span class="token punctuation">.</span><span class="token keyword">exec</span><span class="token punctuation">.</span>reducers<span class="token punctuation">.</span>bytes<span class="token punctuation">.</span>per<span class="token punctuation">.</span>reducer参数的值；
+<span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">exec</span><span class="token punctuation">.</span>reducers<span class="token punctuation">.</span>bytes<span class="token punctuation">.</span>per<span class="token punctuation">.</span>reducer<span class="token operator">=</span><span class="token number">500000000</span><span class="token punctuation">;</span> （<span class="token number">500</span>M）
+<span class="token keyword">select</span> pt<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">from</span> popt_tbaccountcopy_mes <span class="token keyword">where</span> pt <span class="token operator">=</span> <span class="token string">'2012-07-04'</span> <span class="token keyword">group</span> <span class="token keyword">by</span> pt<span class="token punctuation">;</span> 这次有<span class="token number">20</span>个reduce
+</code></pre></div><ol><li>调整reduce个数方法二；</li></ol> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">set</span> mapred<span class="token punctuation">.</span>reduce<span class="token punctuation">.</span>tasks <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> pt<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">from</span> popt_tbaccountcopy_mes <span class="token keyword">where</span> pt <span class="token operator">=</span> <span class="token string">'2012-07-04'</span> <span class="token keyword">group</span> <span class="token keyword">by</span> pt<span class="token punctuation">;</span>这次有<span class="token number">15</span>个reduce
+</code></pre></div><ol><li>reduce个数并不是越多越好；</li></ol> <div class="language-sql extra-class"><pre class="language-sql"><code>同map一样，启动和初始化reduce也会消耗时间和资源；
+另外，有多少个reduce<span class="token punctuation">,</span>就会有多少个输出文件，如果生成了很多个小文件，那么如果这些小文件作为下一个任务的输入，
+则也会出现小文件过多的问题；
+
+</code></pre></div><ol><li>什么情况下只有一个reduce；
+很多时候你会发现任务中不管数据量多大，不管你有没有设置调整reduce个数的参数，任务中一直都只有一个reduce任务；
+其实只有一个reduce任务的情况，除了数据量小于hive.exec.reducers.bytes.per.reducer参数值的情况外，还有以下原因：</li></ol> <ul><li>没有group by的汇总，比如把select pt,count(1) from popt_tbaccountcopy_mes where pt = ‘2012-07-04’ group by pt;
+写成 select count(1) from popt_tbaccountcopy_mes where pt = ‘2012-07-04’;
+这点非常常见，希望大家尽量改写。</li> <li>用了Order by</li> <li>有笛卡尔积
+通常这些情况下，除了找办法来变通和避免，我暂时没有什么好的办法，因为这些操作都是全局的，所以hadoop不得不用一个reduce去完成；
+同样的，在设置reduce个数的时候也需要考虑这两个原则：使大数据量利用合适的reduce数；使单个reduce任务处理合适的数据量；</li></ul> <h3 id="合并小文件"><a href="#合并小文件" class="header-anchor">#</a> <strong>合并小文件</strong></h3> <div class="language-ini extra-class"><pre class="language-ini"><code>　　我们知道文件数目小，容易在文件存储端造成瓶颈，给 HDFS 带来压力，影响处理效率。
+　　对此，可以通过合并Map和Reduce的结果文件来消除这样的影响。
+　　用于设置合并属性的参数有：
+<span class="token constant">		是否合并Map输出文件：hive.merge.mapfiles</span><span class="token attr-value"><span class="token punctuation">=</span>true（默认值为真）</span>
+		是否合并Reduce 端输出文件：hive.merge.mapredfiles<span class="token attr-value"><span class="token punctuation">=</span>false（默认值为假）</span>
+<span class="token constant">		合并文件的大小：hive.merge.size.per.task</span><span class="token attr-value"><span class="token punctuation">=</span>256*1000*1000（默认值为 256000000）</span>
+
+</code></pre></div><p>Hive优化之小文件问题及其解决方案
+小文件是如何产生的
+1.动态分区插入数据，产生大量的小文件，从而导致map数量剧增。</p> <p>2.reduce数量越多，小文件也越多(reduce的个数和输出文件是对应的)。</p> <p>3.数据源本身就包含大量的小文件。</p> <h3 id="小文件问题的影响"><a href="#小文件问题的影响" class="header-anchor">#</a> <strong>小文件问题的影响</strong></h3> <p>1.从Hive的角度看，小文件会开很多map，一个map开一个JVM去执行，所以这些任务的初始化，启动，执行会浪费大量的资源，严重影响性能。</p> <p>2.在HDFS中，每个小文件对象约占150byte，如果小文件过多会占用大量内存。这样NameNode内存容量严重制约了集群的扩展。</p> <h3 id="小文件问题的解决方案"><a href="#小文件问题的解决方案" class="header-anchor">#</a> <strong>小文件问题的解决方案</strong></h3> <p>从小文件产生的途经就可以从源头上控制小文件数量，方法如下：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token number">1.</span>使用Sequencefile作为表存储格式，不要用textfile，在一定程度上可以减少小文件。
+
+<span class="token number">2.</span>减少reduce的数量<span class="token punctuation">(</span>可以使用参数进行控制<span class="token punctuation">)</span>。
+
+<span class="token number">3.</span>少用动态分区，用时记得按distribute <span class="token keyword">by</span>分区。
+</code></pre></div><p>对于已有的小文件，我们可以通过以下几种方案解决：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token number">1.</span>使用hadoop archive命令把小文件进行归档。
+
+<span class="token number">2.</span>重建表，建表时减少reduce数量。
+
+<span class="token number">3.</span>通过参数进行调节，设置map<span class="token operator">/</span>reduce端的相关参数，如下：
+</code></pre></div><p>设置map输入合并小文件的相关参数：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token punctuation">[</span>java<span class="token punctuation">]</span> <span class="token keyword">view</span> plain copy
+<span class="token comment">//每个Map最大输入大小(这个值决定了合并后文件的数量)  </span>
+<span class="token keyword">set</span> mapred<span class="token punctuation">.</span>max<span class="token punctuation">.</span>split<span class="token punctuation">.</span>size<span class="token operator">=</span><span class="token number">256000000</span><span class="token punctuation">;</span>    
+<span class="token comment">//一个节点上split的至少的大小(这个值决定了多个DataNode上的文件是否需要合并)  </span>
+<span class="token keyword">set</span> mapred<span class="token punctuation">.</span>min<span class="token punctuation">.</span>split<span class="token punctuation">.</span>size<span class="token punctuation">.</span>per<span class="token punctuation">.</span>node<span class="token operator">=</span><span class="token number">100000000</span><span class="token punctuation">;</span>  
+<span class="token comment">//一个交换机下split的至少的大小(这个值决定了多个交换机上的文件是否需要合并)    </span>
+<span class="token keyword">set</span> mapred<span class="token punctuation">.</span>min<span class="token punctuation">.</span>split<span class="token punctuation">.</span>size<span class="token punctuation">.</span>per<span class="token punctuation">.</span>rack<span class="token operator">=</span><span class="token number">100000000</span><span class="token punctuation">;</span>  
+<span class="token comment">//执行Map前进行小文件合并  </span>
+<span class="token keyword">set</span> hive<span class="token punctuation">.</span>input<span class="token punctuation">.</span>format<span class="token operator">=</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>ql<span class="token punctuation">.</span>io<span class="token punctuation">.</span>CombineHiveInputFormat<span class="token punctuation">;</span>   
+
+设置map输出和reduce输出进行合并的相关参数：
+<span class="token punctuation">[</span>java<span class="token punctuation">]</span> <span class="token keyword">view</span> plain copy
+<span class="token comment">//设置map端输出进行合并，默认为true  </span>
+<span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">merge</span><span class="token punctuation">.</span>mapfiles <span class="token operator">=</span> <span class="token boolean">true</span>  
+<span class="token comment">//设置reduce端输出进行合并，默认为false  </span>
+<span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">merge</span><span class="token punctuation">.</span>mapredfiles <span class="token operator">=</span> <span class="token boolean">true</span>  
+<span class="token comment">//设置合并文件的大小  </span>
+<span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">merge</span><span class="token punctuation">.</span>size<span class="token punctuation">.</span>per<span class="token punctuation">.</span>task <span class="token operator">=</span> <span class="token number">256</span><span class="token operator">*</span><span class="token number">1000</span><span class="token operator">*</span><span class="token number">1000</span>  
+<span class="token comment">//当输出文件的平均大小小于该值时，启动一个独立的MapReduce任务进行文件merge。  </span>
+<span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">merge</span><span class="token punctuation">.</span>smallfiles<span class="token punctuation">.</span>avgsize<span class="token operator">=</span><span class="token number">16000000</span>  
+</code></pre></div><h3 id="_3-write-good-sql"><a href="#_3-write-good-sql" class="header-anchor">#</a> 3.<strong>Write good SQL</strong></h3> <p>说道sql优化很惭愧，自己sql很烂，不多比比了，但是sql优化确实很关键。。。</p> <h3 id="_4-存储格式"><a href="#_4-存储格式" class="header-anchor">#</a> 4.存储格式：</h3> <p>可以使用列裁剪，分区裁剪，orc，parquet等存储格式。<a href="https://blog.csdn.net/yu0_zhang0/article/details/79538398" target="_blank" rel="noopener noreferrer">参考该博客<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language-sql extra-class"><pre class="language-sql"><code>Hive支持ORCfile，这是一种新的表格存储格式，通过诸如谓词下推，压缩等技术来提高执行速度提升。
+
+对于每个HIVE表使用ORCFile应该是一件容易的事情，并且对于获得HIVE查询的快速响应时间非常有益。
+
+作为一个例子，考虑两个大表A和B（作为文本文件存储，其中一些列未在此处指定，即行试存储的缺点）以及一个简单的查询，如：
+
+<span class="token keyword">SELECT</span> A<span class="token punctuation">.</span>customerID<span class="token punctuation">,</span> A<span class="token punctuation">.</span>name<span class="token punctuation">,</span> A<span class="token punctuation">.</span>age<span class="token punctuation">,</span> A<span class="token punctuation">.</span>address <span class="token keyword">join</span>
+B<span class="token punctuation">.</span>role<span class="token punctuation">,</span> B<span class="token punctuation">.</span>department<span class="token punctuation">,</span> B<span class="token punctuation">.</span>salary
+<span class="token keyword">ON</span> A<span class="token punctuation">.</span>customerID<span class="token operator">=</span>B<span class="token punctuation">.</span>customerID<span class="token punctuation">;</span>
+
+此查询可能需要很长时间才能执行，因为表A和B都以<span class="token keyword">TEXT</span>形式存储，进行全表扫描。
+
+将这些表格转换为ORCFile格式通常会显着减少查询时间：
+
+ORC支持压缩存储（使用ZLIB或如上所示使用SNAPPY），但也支持未压缩的存储。
+	<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> A_ORC <span class="token punctuation">(</span>
+	customerID <span class="token keyword">int</span><span class="token punctuation">,</span> name string<span class="token punctuation">,</span> age <span class="token keyword">int</span><span class="token punctuation">,</span> address string
+	<span class="token punctuation">)</span> STORED <span class="token keyword">AS</span> ORC tblproperties <span class="token punctuation">(</span>“orc<span class="token punctuation">.</span>compress<span class="token string">&quot; = “SNAPPY”);
+
+	INSERT INTO TABLE A_ORC SELECT * FROM A;
+
+
+	CREATE TABLE B_ORC (
+	customerID int, role string, salary float, department string
+	) STORED AS ORC tblproperties (“orc.compress&quot;</span> <span class="token operator">=</span> “SNAPPY”<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token keyword">TABLE</span> B_ORC <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> B<span class="token punctuation">;</span>
+
+	<span class="token keyword">SELECT</span> A_ORC<span class="token punctuation">.</span>customerID<span class="token punctuation">,</span> A_ORC<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+	A_ORC<span class="token punctuation">.</span>age<span class="token punctuation">,</span> A_ORC<span class="token punctuation">.</span>address <span class="token keyword">join</span>
+	B_ORC<span class="token punctuation">.</span>role<span class="token punctuation">,</span> B_ORC<span class="token punctuation">.</span>department<span class="token punctuation">,</span> B_ORC<span class="token punctuation">.</span>salary
+	<span class="token keyword">ON</span> A_ORC<span class="token punctuation">.</span>customerID<span class="token operator">=</span>B_ORC<span class="token punctuation">.</span>customerID<span class="token punctuation">;</span>
+
+</code></pre></div><h3 id="_5-压缩格式"><a href="#_5-压缩格式" class="header-anchor">#</a> 5.压缩格式：</h3> <p>大数据场景下存储格式压缩格式尤为关键，可以提升计算速度，减少存储空间，降低网络io，磁盘io，所以要选择合适的压缩格式和存储格式，那么首先就了解这些东西，作者以前博客已经进行了详细的说明，<a href="https://blog.csdn.net/yu0_zhang0/article/details/79524842" target="_blank" rel="noopener noreferrer">参考该博客<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="_6-map-join"><a href="#_6-map-join" class="header-anchor">#</a> 6.MAP JOIN</h3> <img src="/assets/img/dw/hiveopt/sumopt11-1.png" alt="wxmp" class="zoom-custom-imgs"> <p>MapJoin简单说就是在Map阶段将小表读入内存，顺序扫描大表完成Join。</p> <p>上图是Hive MapJoin的原理图，出自Facebook工程师Liyin Tang的一篇介绍Join优化的slice，从图中可以看出MapJoin分为两个阶段：</p> <ul><li>（1）通过MapReduce Local Task，将小表读入内存，生成HashTableFiles上传至Distributed Cache中，这里会对HashTableFiles进行压缩。</li> <li>（2）MapReduce Job在Map阶段，每个Mapper从Distributed Cache读取HashTableFiles到内存中，顺序扫描大表，在Map阶段直接进行Join，将数据传递给下一个MapReduce任务。</li> <li></li></ul> <p><strong>也就是在map端进行join避免了shuffle。</strong></p> <h3 id="_7-引擎的选择"><a href="#_7-引擎的选择" class="header-anchor">#</a> 7.引擎的选择</h3> <div class="language-sql extra-class"><pre class="language-sql"><code>Hive可以使用ApacheTez执行引擎而不是古老的Map<span class="token operator">-</span>Reduce引擎。 
+我不会详细讨论在这里提到的使用Tez的许多好处<span class="token punctuation">;</span> 相反，我想提出一个简单的建议：
+如果它没有在您的环境中默认打开，请在您的Hive查询的开头将以下内容设置为<span class="token string">'true'</span>来使用Tez：
+设置hive<span class="token punctuation">.</span>execution<span class="token punctuation">.</span><span class="token keyword">engine</span> <span class="token operator">=</span> tez<span class="token punctuation">;</span>
+通过上述设置，您执行的每个HIVE查询都将利用Tez。
+目前Hive <span class="token keyword">On</span> Spark还处于试验阶段，慎用。。
+</code></pre></div><h3 id="_8-use-vectorization"><a href="#_8-use-vectorization" class="header-anchor">#</a> 8.Use Vectorization</h3> <div class="language-ini extra-class"><pre class="language-ini"><code>向量化查询执行通过一次性批量执行1024行而不是每次单行执行，从而提高扫描，聚合，筛选器和连接等操作的性能。
+在Hive 0.13中引入，此功能显着提高了查询执行时间，并可通过两个参数设置轻松启用：
+<span class="token constant">设置hive.vectorized.execution.enabled</span> <span class="token attr-value"><span class="token punctuation">=</span> true;</span>
+<span class="token constant">设置hive.vectorized.execution.reduce.enabled</span> <span class="token attr-value"><span class="token punctuation">=</span> true;</span>
+
+</code></pre></div><h3 id="_9-cost-based-query-optimization"><a href="#_9-cost-based-query-optimization" class="header-anchor">#</a> 9.cost based query optimization</h3> <div class="language-ini extra-class"><pre class="language-ini"><code>Hive 自0.14.0开始，加入了一项”Cost based Optimizer”来对HQL执行计划进行优化，这个功能通  
+过”hive.cbo.enable”来开启。在Hive 1.1.0之后，这个feature是默认开启的,它可以自动优化HQL中多个JOIN的顺序，并
+选择合适的JOIN算法.
+Hive在提交最终执行前,优化每个查询的执行逻辑和物理执行计划。这些优化工作是交给底层来完成。
+根据查询成本执行进一步的优化，从而产生潜在的不同决策：如何排序连接，执行哪种类型的连接，并行度等等。
+要使用基于成本的优化（也称为CBO），请在查询开始处设置以下参数：
+<span class="token constant">设置hive.cbo.enable</span> <span class="token attr-value"><span class="token punctuation">=</span> true;</span>
+
+<span class="token constant">设置hive.compute.query.using.stats</span> <span class="token attr-value"><span class="token punctuation">=</span> true;</span>
+
+<span class="token constant">设置hive.stats.fetch.column.stats</span> <span class="token attr-value"><span class="token punctuation">=</span> true;</span>
+
+<span class="token constant">设置hive.stats.fetch.partition.stats</span> <span class="token attr-value"><span class="token punctuation">=</span> true;</span>
+
+</code></pre></div><h3 id="_10-模式选择"><a href="#_10-模式选择" class="header-anchor">#</a> 10.模式选择</h3> <h4 id="本地模式"><a href="#本地模式" class="header-anchor">#</a> 本地模式</h4> <p>对于大多数情况，Hive可以通过本地模式在单台机器上处理所有任务。</p> <p>对于小数据，执行时间可以明显被缩短。通过set hive.exec.mode.local.auto=true（默认为false）设置本地模式。</p> <div class="language-ini extra-class"><pre class="language-ini"><code>hive&gt; set hive.exec.mode.local.auto;
+  
+<span class="token constant">hive.exec.mode.local.auto</span><span class="token attr-value"><span class="token punctuation">=</span>false</span>
+</code></pre></div><h4 id="并行模式"><a href="#并行模式" class="header-anchor">#</a> 并行模式</h4> <p>Hive会将一个查询转化成一个或者多个阶段。这样的阶段可以是MapReduce阶段、抽样阶段、合并阶段、limit阶段。</p> <p>默认情况下，Hive一次只会执行一个阶段，由于job包含多个阶段，而这些阶段并非完全互相依赖，</p> <p>即：这些阶段可以并行执行，可以缩短整个job的执行时间。设置参数：set hive.exec.parallel=true,或者通过配置文件来完成。</p> <div class="language-ini extra-class"><pre class="language-ini"><code>hive&gt; set hive.exec.parallel;
+  
+<span class="token constant">hive.exec.parallel</span><span class="token attr-value"><span class="token punctuation">=</span>false</span>
+</code></pre></div><h4 id="严格模式"><a href="#严格模式" class="header-anchor">#</a> 严格模式</h4> <p>Hive提供一个严格模式，可以防止用户执行那些可能产生意想不到的影响查询，通过设置</p> <div class="language-shell extra-class"><pre class="language-shell"><code>Hive.mapred.modestrict来完成
+  
+<span class="token builtin class-name">set</span> Hive.mapred.modestrict<span class="token punctuation">;</span>
+  
+Hive.mapred.modestrict is undefined
+</code></pre></div><h3 id="_11-jvm重用"><a href="#_11-jvm重用" class="header-anchor">#</a> 11.JVM重用</h3> <p>Hadoop通常是使用派生JVM来执行map和reduce任务的。这时JVM的启动过程可能会造成相当大的开销，</p> <p>尤其是执行的job包含偶成百上千的task任务的情况。JVM重用可以使得JVM示例在同一个job中时候使用N此。</p> <p>通过参数mapred.job.reuse.jvm.num.tasks来设置。</p> <h3 id="_12-推测执行"><a href="#_12-推测执行" class="header-anchor">#</a> 12.推测执行</h3> <p>Hadoop推测执行可以触发执行一些重复的任务，尽管因对重复的数据进行计算而导致消耗更多的计算资源，</p> <p>不过这个功能的目标是通过加快获取单个task的结果以侦测执行慢的TaskTracker加入到没名单的方式来提高整体的任务执行效率。</p> <p>Hadoop的推测执行功能由2个配置控制着，通过mapred-site.xml中配置</p> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token constant">mapred.map.tasks.speculative.execution</span><span class="token attr-value"><span class="token punctuation">=</span>true</span>
+
+<span class="token constant">mapred.reduce.tasks.speculative.execution</span><span class="token attr-value"><span class="token punctuation">=</span>true</span>
+</code></pre></div><h2 id="参考文章"><a href="#参考文章" class="header-anchor">#</a> 参考文章</h2> <ul><li>https://blog.csdn.net/yu0_zhang0/article/details/81776459</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2021-09-07 18:30:09</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/dw/hiveopt/04-optsummary1.html" class="prev">
+        Hive优化-汇总精华总结(一)
+      </a></span> <span class="next"><a href="/dw/pig/01-intro.html">
+        Pig-基础信息介绍
+      </a>
+      →
+    </span></p></div> <div class="page_article_visit_tail" data-v-17815e06><img src="/assets/img/view/visit.png" alt="" data-v-17815e06>
+         
+        <span style="display:none;" data-v-17815e06>0</span></div> <div class="page_article_comment" data-v-17815e06></div></main> <div class="page-right-index-sidebar" data-v-17815e06><div class="content_index_title" data-v-17815e06>
+      Hive优化-汇总精华总结(二)
+    </div> <div class="page-right-index-toc" data-v-17815e06><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive总结篇及hive的优化" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive总结篇及Hive的优化
+          </a> </li><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#概述" aria-current="page" class="unactive_index_li" data-v-17815e06>概述
+          </a> </li><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#什么是hive" aria-current="page" class="unactive_index_li" data-v-17815e06>什么是Hive
+          </a> </li><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive的产生背景" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive的产生背景
+          </a> </li><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive深入剖析" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive深入剖析
+          </a> <ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#安装部署" aria-current="page" class="unactive_index_li" data-v-17815e06>安装部署</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive基本语法" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive基本语法</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive于关系型数据库的区别" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive于关系型数据库的区别</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive的优点" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive的优点</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#sql转化为mapreduce的过程" aria-current="page" class="unactive_index_li" data-v-17815e06>SQL转化为MapReduce的过程</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive内部表和外部表的区别" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive内部表和外部表的区别</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#行式存储vs列式存储" aria-current="page" class="unactive_index_li" data-v-17815e06>行式存储vs列式存储</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive哪些查询会执行mr" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive哪些查询会执行mr</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive静态分区动态分区" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive静态分区动态分区</a></li></ul></li><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#hive优化" aria-current="page" class="unactive_index_li" data-v-17815e06>Hive优化
+          </a> <ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_1-慎用-count-distinct-count-distinct" aria-current="page" class="unactive_index_li" data-v-17815e06>1.慎用 count(distinct)，count(distinct)</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_2-设置合理的map-reduce-的task数量" aria-current="page" class="unactive_index_li" data-v-17815e06>2.设置合理的map reduce 的task数量</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#map阶段优化" aria-current="page" class="unactive_index_li" data-v-17815e06>map阶段优化</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#reduce阶段优化" aria-current="page" class="unactive_index_li" data-v-17815e06>reduce阶段优化</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#合并小文件" aria-current="page" class="unactive_index_li" data-v-17815e06>合并小文件</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#小文件问题的影响" aria-current="page" class="unactive_index_li" data-v-17815e06>小文件问题的影响</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#小文件问题的解决方案" aria-current="page" class="unactive_index_li" data-v-17815e06>小文件问题的解决方案</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_3-write-good-sql" aria-current="page" class="unactive_index_li" data-v-17815e06>3.Write good SQL</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_4-存储格式" aria-current="page" class="unactive_index_li" data-v-17815e06>4.存储格式：</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_5-压缩格式" aria-current="page" class="unactive_index_li" data-v-17815e06>5.压缩格式：</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_6-map-join" aria-current="page" class="unactive_index_li" data-v-17815e06>6.MAP JOIN</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_7-引擎的选择" aria-current="page" class="unactive_index_li" data-v-17815e06>7.引擎的选择</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_8-use-vectorization" aria-current="page" class="unactive_index_li" data-v-17815e06>8.Use Vectorization</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_9-cost-based-query-optimization" aria-current="page" class="unactive_index_li" data-v-17815e06>9.cost based query optimization</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_10-模式选择" aria-current="page" class="unactive_index_li" data-v-17815e06>10.模式选择</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_11-jvm重用" aria-current="page" class="unactive_index_li" data-v-17815e06>11.JVM重用</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#_12-推测执行" aria-current="page" class="unactive_index_li" data-v-17815e06>12.推测执行</a></li></ul></li><li data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html#参考文章" aria-current="page" class="unactive_index_li" data-v-17815e06>参考文章
+          </a> </li></ul> <div style="height:10px" data-v-17815e06></div></div></div> <div class="page-right-tool-sidebar" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/phone.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>手机看</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/wechat.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>公众号</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/communication.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>讨论</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/leftclose.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>左栏</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/fullscreen.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>全屏</div></div> <div style="display:none;" data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html" aria-current="page" class="router-link-exact-active router-link-active" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/prev.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>上一篇</div></div></a></div> <div style="display:none;" data-v-17815e06><a href="/dw/hiveopt/05-optsummary2.html" aria-current="page" class="router-link-exact-active router-link-active" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/next.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>下一篇</div></div></a></div></div> <div id="qrCodeDiv" class="toolbar_qrcode_unactive" data-v-17815e06><div class=" toolbar_head_tile" data-v-17815e06>扫一扫 手机阅读</div> <img src="" class="img-qrcode" data-v-17815e06> <h5 data-v-17815e06>可分享给好友和朋友圈</h5></div> <div id="wxmpDiv" class="toolbar_wxmp_active" style="display:none;" data-v-17815e06><div class="toolbar_head_tile" data-v-17815e06>扫描关注公众号，回复&quot;资料&quot;，下载相关图书和资料</div> <img src="/assets/img/wx/wxmp.jpg" class="img-wx-mp" data-v-17815e06> <h5 data-v-17815e06>公众号:智能后端和架构</h5></div> <div id="coummpDiv" class="toolbar_communication_active" style="display:none;" data-v-17815e06><div class="toolbar_head_tile" data-v-17815e06>QQ群:569556849 <br data-v-17815e06>问题咨询和技术交流</div> <img src="/assets/img/qq/qqgroup.png" class="img-wx-mp" data-v-17815e06> <h5 data-v-17815e06>PS 备注:智能后端和架构</h5></div> <div class="topDivImg" style="display:none;" data-v-17815e06><img src="/assets/img/toolbar/top.png" class="tool_top_img_icon" data-v-17815e06></div> <div style="display:none" data-v-17815e06><script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279777129&web_id=1279777129" data-v-17815e06></script></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.db30138a.js" defer></script><script src="/assets/js/5.df8bf371.js" defer></script><script src="/assets/js/1.60d99fe1.js" defer></script><script src="/assets/js/493.6d188156.js" defer></script>
+  </body>
+</html>

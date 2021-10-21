@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux命令-Shell脚本编程 | 智能后端和架构</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="智能后端和架构的文档">
+    <meta name="icon" content="">
+    <meta name="author" content="landry -- seo 选项">
+    <meta name="keywords" content="后端 java 架构 面试 -- seo 选项">
+    
+    <link rel="preload" href="/assets/css/0.styles.183d1d00.css" as="style"><link rel="preload" href="/assets/js/app.db30138a.js" as="script"><link rel="preload" href="/assets/js/5.df8bf371.js" as="script"><link rel="preload" href="/assets/js/1.60d99fe1.js" as="script"><link rel="preload" href="/assets/js/716.5f8c7487.js" as="script"><link rel="prefetch" href="/assets/js/10.034bcceb.js"><link rel="prefetch" href="/assets/js/100.bc78c9c9.js"><link rel="prefetch" href="/assets/js/101.fc021eba.js"><link rel="prefetch" href="/assets/js/102.44f58839.js"><link rel="prefetch" href="/assets/js/103.cd3ce876.js"><link rel="prefetch" href="/assets/js/104.ece12d4f.js"><link rel="prefetch" href="/assets/js/105.e0ef0178.js"><link rel="prefetch" href="/assets/js/106.f8113fb8.js"><link rel="prefetch" href="/assets/js/107.7af90320.js"><link rel="prefetch" href="/assets/js/108.a76af7ab.js"><link rel="prefetch" href="/assets/js/109.ae7dfcbe.js"><link rel="prefetch" href="/assets/js/11.22d5654f.js"><link rel="prefetch" href="/assets/js/110.829dbd72.js"><link rel="prefetch" href="/assets/js/111.2612d028.js"><link rel="prefetch" href="/assets/js/112.381ba79f.js"><link rel="prefetch" href="/assets/js/113.52309728.js"><link rel="prefetch" href="/assets/js/114.afd46270.js"><link rel="prefetch" href="/assets/js/115.cfff1785.js"><link rel="prefetch" href="/assets/js/116.b9e85eed.js"><link rel="prefetch" href="/assets/js/117.c88c3ceb.js"><link rel="prefetch" href="/assets/js/118.0cfd8d46.js"><link rel="prefetch" href="/assets/js/119.972e6fcd.js"><link rel="prefetch" href="/assets/js/12.a1fbf449.js"><link rel="prefetch" href="/assets/js/120.c4d0fa30.js"><link rel="prefetch" href="/assets/js/121.a05fb7c8.js"><link rel="prefetch" href="/assets/js/122.84bc99e8.js"><link rel="prefetch" href="/assets/js/123.6e40db8b.js"><link rel="prefetch" href="/assets/js/124.679f60f0.js"><link rel="prefetch" href="/assets/js/125.7b983b12.js"><link rel="prefetch" href="/assets/js/126.c6529e34.js"><link rel="prefetch" href="/assets/js/127.62896466.js"><link rel="prefetch" href="/assets/js/128.11cadf09.js"><link rel="prefetch" href="/assets/js/129.a2c6007b.js"><link rel="prefetch" href="/assets/js/13.773a30c0.js"><link rel="prefetch" href="/assets/js/130.cd51d586.js"><link rel="prefetch" href="/assets/js/131.5d81a3a4.js"><link rel="prefetch" href="/assets/js/132.c062c43a.js"><link rel="prefetch" href="/assets/js/133.94b50107.js"><link rel="prefetch" href="/assets/js/134.e787c6f2.js"><link rel="prefetch" href="/assets/js/135.514b39b8.js"><link rel="prefetch" href="/assets/js/136.2209902a.js"><link rel="prefetch" href="/assets/js/137.8ee62050.js"><link rel="prefetch" href="/assets/js/138.30076406.js"><link rel="prefetch" href="/assets/js/139.153f79f0.js"><link rel="prefetch" href="/assets/js/14.a010702c.js"><link rel="prefetch" href="/assets/js/140.c22ae524.js"><link rel="prefetch" href="/assets/js/141.03388ce3.js"><link rel="prefetch" href="/assets/js/142.be052d72.js"><link rel="prefetch" href="/assets/js/143.86f4f723.js"><link rel="prefetch" href="/assets/js/144.58a81178.js"><link rel="prefetch" href="/assets/js/145.b6065cbb.js"><link rel="prefetch" href="/assets/js/146.a7d48393.js"><link rel="prefetch" href="/assets/js/147.1f5a2c27.js"><link rel="prefetch" href="/assets/js/148.e545c932.js"><link rel="prefetch" href="/assets/js/149.b7f633ea.js"><link rel="prefetch" href="/assets/js/15.6612b8a7.js"><link rel="prefetch" href="/assets/js/150.0c633255.js"><link rel="prefetch" href="/assets/js/151.7518fca9.js"><link rel="prefetch" href="/assets/js/152.85ebf0bb.js"><link rel="prefetch" href="/assets/js/153.6696affd.js"><link rel="prefetch" href="/assets/js/154.a488a746.js"><link rel="prefetch" href="/assets/js/155.b1285b65.js"><link rel="prefetch" href="/assets/js/156.c7d65add.js"><link rel="prefetch" href="/assets/js/157.95b667f4.js"><link rel="prefetch" href="/assets/js/158.36dcae64.js"><link rel="prefetch" href="/assets/js/159.5ab4607b.js"><link rel="prefetch" href="/assets/js/16.9728f201.js"><link rel="prefetch" href="/assets/js/160.f31c31c5.js"><link rel="prefetch" href="/assets/js/161.7faa6f5b.js"><link rel="prefetch" href="/assets/js/162.8bed1a3e.js"><link rel="prefetch" href="/assets/js/163.bccb4b94.js"><link rel="prefetch" href="/assets/js/164.d019f9f6.js"><link rel="prefetch" href="/assets/js/165.4ea2fcec.js"><link rel="prefetch" href="/assets/js/166.937ae33a.js"><link rel="prefetch" href="/assets/js/167.63bf2a10.js"><link rel="prefetch" href="/assets/js/168.8501b450.js"><link rel="prefetch" href="/assets/js/169.52064ac2.js"><link rel="prefetch" href="/assets/js/17.01684033.js"><link rel="prefetch" href="/assets/js/170.bc536396.js"><link rel="prefetch" href="/assets/js/171.5c44671a.js"><link rel="prefetch" href="/assets/js/172.cbc9f01e.js"><link rel="prefetch" href="/assets/js/173.036cc49c.js"><link rel="prefetch" href="/assets/js/174.7900267f.js"><link rel="prefetch" href="/assets/js/175.7f350261.js"><link rel="prefetch" href="/assets/js/176.abfbdc57.js"><link rel="prefetch" href="/assets/js/177.679877f2.js"><link rel="prefetch" href="/assets/js/178.87fc5aba.js"><link rel="prefetch" href="/assets/js/179.26c9f0a4.js"><link rel="prefetch" href="/assets/js/18.e64f0610.js"><link rel="prefetch" href="/assets/js/180.bd2cdacc.js"><link rel="prefetch" href="/assets/js/181.3ad737a4.js"><link rel="prefetch" href="/assets/js/182.3e7faf1a.js"><link rel="prefetch" href="/assets/js/183.4d65d295.js"><link rel="prefetch" href="/assets/js/184.460482ae.js"><link rel="prefetch" href="/assets/js/185.46d4a7fe.js"><link rel="prefetch" href="/assets/js/186.61235089.js"><link rel="prefetch" href="/assets/js/187.397bcfe8.js"><link rel="prefetch" href="/assets/js/188.060a1cb7.js"><link rel="prefetch" href="/assets/js/189.e3995463.js"><link rel="prefetch" href="/assets/js/19.f8b70585.js"><link rel="prefetch" href="/assets/js/190.dcaa16c4.js"><link rel="prefetch" href="/assets/js/191.f4c5aa96.js"><link rel="prefetch" href="/assets/js/192.8b10742f.js"><link rel="prefetch" href="/assets/js/193.64a40b9c.js"><link rel="prefetch" href="/assets/js/194.2ea34c9f.js"><link rel="prefetch" href="/assets/js/195.6bb470df.js"><link rel="prefetch" href="/assets/js/196.a0f55724.js"><link rel="prefetch" href="/assets/js/197.493d62fe.js"><link rel="prefetch" href="/assets/js/198.285ec3f4.js"><link rel="prefetch" href="/assets/js/199.c26664a8.js"><link rel="prefetch" href="/assets/js/20.c407011e.js"><link rel="prefetch" href="/assets/js/200.e172c025.js"><link rel="prefetch" href="/assets/js/201.88cbb622.js"><link rel="prefetch" href="/assets/js/202.da403177.js"><link rel="prefetch" href="/assets/js/203.6eb14b41.js"><link rel="prefetch" href="/assets/js/204.2ddae4bf.js"><link rel="prefetch" href="/assets/js/205.0a89efc1.js"><link rel="prefetch" href="/assets/js/206.480a66d3.js"><link rel="prefetch" href="/assets/js/207.bf5c1d60.js"><link rel="prefetch" href="/assets/js/208.b187dc67.js"><link rel="prefetch" href="/assets/js/209.20c99616.js"><link rel="prefetch" href="/assets/js/21.7edc8b1b.js"><link rel="prefetch" href="/assets/js/210.e4f1f766.js"><link rel="prefetch" href="/assets/js/211.1ed7b354.js"><link rel="prefetch" href="/assets/js/212.7e1243ab.js"><link rel="prefetch" href="/assets/js/213.6daddd4b.js"><link rel="prefetch" href="/assets/js/214.e548b00f.js"><link rel="prefetch" href="/assets/js/215.5e7f305a.js"><link rel="prefetch" href="/assets/js/216.d02d9a10.js"><link rel="prefetch" href="/assets/js/217.4ee282a4.js"><link rel="prefetch" href="/assets/js/218.d95d737e.js"><link rel="prefetch" href="/assets/js/219.fab5907a.js"><link rel="prefetch" href="/assets/js/22.fdbd00d3.js"><link rel="prefetch" href="/assets/js/220.56c6f7cc.js"><link rel="prefetch" href="/assets/js/221.3ee9e8ae.js"><link rel="prefetch" href="/assets/js/222.30c2d9ac.js"><link rel="prefetch" href="/assets/js/223.d6f5a1ce.js"><link rel="prefetch" href="/assets/js/224.b964e9b3.js"><link rel="prefetch" href="/assets/js/225.4f7cdb7b.js"><link rel="prefetch" href="/assets/js/226.34f5bc46.js"><link rel="prefetch" href="/assets/js/227.0c1d6c32.js"><link rel="prefetch" href="/assets/js/228.5c4850fa.js"><link rel="prefetch" href="/assets/js/229.0e83acaa.js"><link rel="prefetch" href="/assets/js/23.714595d5.js"><link rel="prefetch" href="/assets/js/230.d56ff6f6.js"><link rel="prefetch" href="/assets/js/231.19e033e0.js"><link rel="prefetch" href="/assets/js/232.b020bd32.js"><link rel="prefetch" href="/assets/js/233.19037210.js"><link rel="prefetch" href="/assets/js/234.10d14014.js"><link rel="prefetch" href="/assets/js/235.91bc5ad5.js"><link rel="prefetch" href="/assets/js/236.e9193180.js"><link rel="prefetch" href="/assets/js/237.e9be28a3.js"><link rel="prefetch" href="/assets/js/238.d1ac2fd8.js"><link rel="prefetch" href="/assets/js/239.44f2f146.js"><link rel="prefetch" href="/assets/js/24.2611c0d6.js"><link rel="prefetch" href="/assets/js/240.c8fe20cb.js"><link rel="prefetch" href="/assets/js/241.b232c3db.js"><link rel="prefetch" href="/assets/js/242.5bacdca9.js"><link rel="prefetch" href="/assets/js/243.bc85e605.js"><link rel="prefetch" href="/assets/js/244.975158d1.js"><link rel="prefetch" href="/assets/js/245.a139b48a.js"><link rel="prefetch" href="/assets/js/246.3138e906.js"><link rel="prefetch" href="/assets/js/247.070da83a.js"><link rel="prefetch" href="/assets/js/248.a1d8ac56.js"><link rel="prefetch" href="/assets/js/249.aadb0dca.js"><link rel="prefetch" href="/assets/js/25.2272f92f.js"><link rel="prefetch" href="/assets/js/250.c9cbf057.js"><link rel="prefetch" href="/assets/js/251.e8ddac0a.js"><link rel="prefetch" href="/assets/js/252.47894d0d.js"><link rel="prefetch" href="/assets/js/253.38f4c081.js"><link rel="prefetch" href="/assets/js/254.73808710.js"><link rel="prefetch" href="/assets/js/255.19234ae1.js"><link rel="prefetch" href="/assets/js/256.dbd6b6af.js"><link rel="prefetch" href="/assets/js/257.c16eae54.js"><link rel="prefetch" href="/assets/js/258.89a54cc9.js"><link rel="prefetch" href="/assets/js/259.ff8893b9.js"><link rel="prefetch" href="/assets/js/26.4d1df400.js"><link rel="prefetch" href="/assets/js/260.da83ef3e.js"><link rel="prefetch" href="/assets/js/261.39869cb6.js"><link rel="prefetch" href="/assets/js/262.6df31a71.js"><link rel="prefetch" href="/assets/js/263.a98eab49.js"><link rel="prefetch" href="/assets/js/264.1204725e.js"><link rel="prefetch" href="/assets/js/265.b6ce2d26.js"><link rel="prefetch" href="/assets/js/266.0c03e783.js"><link rel="prefetch" href="/assets/js/267.d686ec0e.js"><link rel="prefetch" href="/assets/js/268.e7c76c63.js"><link rel="prefetch" href="/assets/js/269.9ec0a34d.js"><link rel="prefetch" href="/assets/js/27.a88ca8bc.js"><link rel="prefetch" href="/assets/js/270.99f54d10.js"><link rel="prefetch" href="/assets/js/271.b9e143e2.js"><link rel="prefetch" href="/assets/js/272.1c93e968.js"><link rel="prefetch" href="/assets/js/273.7235d019.js"><link rel="prefetch" href="/assets/js/274.fbed798d.js"><link rel="prefetch" href="/assets/js/275.0006136b.js"><link rel="prefetch" href="/assets/js/276.8fc094f0.js"><link rel="prefetch" href="/assets/js/277.20e11e67.js"><link rel="prefetch" href="/assets/js/278.f8dc8f8f.js"><link rel="prefetch" href="/assets/js/279.651a9f88.js"><link rel="prefetch" href="/assets/js/28.69be6cc7.js"><link rel="prefetch" href="/assets/js/280.94aed3df.js"><link rel="prefetch" href="/assets/js/281.b9e4a0c1.js"><link rel="prefetch" href="/assets/js/282.fcbf917d.js"><link rel="prefetch" href="/assets/js/283.4b9335f2.js"><link rel="prefetch" href="/assets/js/284.a2748605.js"><link rel="prefetch" href="/assets/js/285.75119aca.js"><link rel="prefetch" href="/assets/js/286.a4a0abc2.js"><link rel="prefetch" href="/assets/js/287.0e10db49.js"><link rel="prefetch" href="/assets/js/288.540945f8.js"><link rel="prefetch" href="/assets/js/289.65991a71.js"><link rel="prefetch" href="/assets/js/29.3d144449.js"><link rel="prefetch" href="/assets/js/290.3cda3c0a.js"><link rel="prefetch" href="/assets/js/291.a7c9d6a2.js"><link rel="prefetch" href="/assets/js/292.2ce3fd5f.js"><link rel="prefetch" href="/assets/js/293.6572edb6.js"><link rel="prefetch" href="/assets/js/294.2a04291f.js"><link rel="prefetch" href="/assets/js/295.9a0fdf51.js"><link rel="prefetch" href="/assets/js/296.76bf15e5.js"><link rel="prefetch" href="/assets/js/297.ca22f9e0.js"><link rel="prefetch" href="/assets/js/298.dfd560c6.js"><link rel="prefetch" href="/assets/js/299.ea6a076f.js"><link rel="prefetch" href="/assets/js/3.19255846.js"><link rel="prefetch" href="/assets/js/30.c9924233.js"><link rel="prefetch" href="/assets/js/300.08ab4a0a.js"><link rel="prefetch" href="/assets/js/301.493634b6.js"><link rel="prefetch" href="/assets/js/302.088b770b.js"><link rel="prefetch" href="/assets/js/303.fdda8763.js"><link rel="prefetch" href="/assets/js/304.6e6a4a01.js"><link rel="prefetch" href="/assets/js/305.a3a1ae34.js"><link rel="prefetch" href="/assets/js/306.5835726c.js"><link rel="prefetch" href="/assets/js/307.0fce17cb.js"><link rel="prefetch" href="/assets/js/308.1e172ca3.js"><link rel="prefetch" href="/assets/js/309.80af26f3.js"><link rel="prefetch" href="/assets/js/31.f9f57568.js"><link rel="prefetch" href="/assets/js/310.b5f3ed6f.js"><link rel="prefetch" href="/assets/js/311.82c7e552.js"><link rel="prefetch" href="/assets/js/312.a48280c0.js"><link rel="prefetch" href="/assets/js/313.7c31693f.js"><link rel="prefetch" href="/assets/js/314.307f9eda.js"><link rel="prefetch" href="/assets/js/315.9f1e1099.js"><link rel="prefetch" href="/assets/js/316.7d255d6d.js"><link rel="prefetch" href="/assets/js/317.ef013a1a.js"><link rel="prefetch" href="/assets/js/318.64d24469.js"><link rel="prefetch" href="/assets/js/319.59c19af0.js"><link rel="prefetch" href="/assets/js/32.b29dc01b.js"><link rel="prefetch" href="/assets/js/320.add9fa10.js"><link rel="prefetch" href="/assets/js/321.22b199c2.js"><link rel="prefetch" href="/assets/js/322.ad9a2dff.js"><link rel="prefetch" href="/assets/js/323.b4183fc2.js"><link rel="prefetch" href="/assets/js/324.cf1aca23.js"><link rel="prefetch" href="/assets/js/325.83a4f1cf.js"><link rel="prefetch" href="/assets/js/326.f5c26436.js"><link rel="prefetch" href="/assets/js/327.16102be7.js"><link rel="prefetch" href="/assets/js/328.da84fbb0.js"><link rel="prefetch" href="/assets/js/329.4bdbc8ed.js"><link rel="prefetch" href="/assets/js/33.961516b8.js"><link rel="prefetch" href="/assets/js/330.0a98e84a.js"><link rel="prefetch" href="/assets/js/331.36e66e80.js"><link rel="prefetch" href="/assets/js/332.1b010d76.js"><link rel="prefetch" href="/assets/js/333.bf2def9d.js"><link rel="prefetch" href="/assets/js/334.373631c9.js"><link rel="prefetch" href="/assets/js/335.68121e51.js"><link rel="prefetch" href="/assets/js/336.49a94ea2.js"><link rel="prefetch" href="/assets/js/337.661abdcc.js"><link rel="prefetch" href="/assets/js/338.389c4be2.js"><link rel="prefetch" href="/assets/js/339.098329ed.js"><link rel="prefetch" href="/assets/js/34.7cb1f223.js"><link rel="prefetch" href="/assets/js/340.5c400f4d.js"><link rel="prefetch" href="/assets/js/341.41d84f2d.js"><link rel="prefetch" href="/assets/js/342.ef356713.js"><link rel="prefetch" href="/assets/js/343.d1e1952a.js"><link rel="prefetch" href="/assets/js/344.1980f7cc.js"><link rel="prefetch" href="/assets/js/345.0f7d9b9f.js"><link rel="prefetch" href="/assets/js/346.c3878425.js"><link rel="prefetch" href="/assets/js/347.dd74c55a.js"><link rel="prefetch" href="/assets/js/348.89584af8.js"><link rel="prefetch" href="/assets/js/349.c7bc7bc1.js"><link rel="prefetch" href="/assets/js/35.51ade70c.js"><link rel="prefetch" href="/assets/js/350.d2df1d20.js"><link rel="prefetch" href="/assets/js/351.a1b78a34.js"><link rel="prefetch" href="/assets/js/352.08ae09fd.js"><link rel="prefetch" href="/assets/js/353.aced76b3.js"><link rel="prefetch" href="/assets/js/354.f033ee07.js"><link rel="prefetch" href="/assets/js/355.95831785.js"><link rel="prefetch" href="/assets/js/356.893584e1.js"><link rel="prefetch" href="/assets/js/357.5f070ca5.js"><link rel="prefetch" href="/assets/js/358.35f2ade5.js"><link rel="prefetch" href="/assets/js/359.e45099bd.js"><link rel="prefetch" href="/assets/js/36.82c64b8f.js"><link rel="prefetch" href="/assets/js/360.59aa32f9.js"><link rel="prefetch" href="/assets/js/361.bd3c2fdd.js"><link rel="prefetch" href="/assets/js/362.3566e79d.js"><link rel="prefetch" href="/assets/js/363.b4ab82f7.js"><link rel="prefetch" href="/assets/js/364.7f50d299.js"><link rel="prefetch" href="/assets/js/365.4f8e93f6.js"><link rel="prefetch" href="/assets/js/366.8fd91814.js"><link rel="prefetch" href="/assets/js/367.0d47f5a8.js"><link rel="prefetch" href="/assets/js/368.fb7814d2.js"><link rel="prefetch" href="/assets/js/369.d6d8c504.js"><link rel="prefetch" href="/assets/js/37.5165b622.js"><link rel="prefetch" href="/assets/js/370.00a807a6.js"><link rel="prefetch" href="/assets/js/371.867a9db3.js"><link rel="prefetch" href="/assets/js/372.decca4ce.js"><link rel="prefetch" href="/assets/js/373.98b37511.js"><link rel="prefetch" href="/assets/js/374.6313e71a.js"><link rel="prefetch" href="/assets/js/375.f2e2fa05.js"><link rel="prefetch" href="/assets/js/376.7103c034.js"><link rel="prefetch" href="/assets/js/377.9bf388c9.js"><link rel="prefetch" href="/assets/js/378.57ae31cf.js"><link rel="prefetch" href="/assets/js/379.739ee8d7.js"><link rel="prefetch" href="/assets/js/38.563ce632.js"><link rel="prefetch" href="/assets/js/380.6256f3c8.js"><link rel="prefetch" href="/assets/js/381.38f7eb5a.js"><link rel="prefetch" href="/assets/js/382.ae035904.js"><link rel="prefetch" href="/assets/js/383.2d1b99c3.js"><link rel="prefetch" href="/assets/js/384.094517c8.js"><link rel="prefetch" href="/assets/js/385.62ddf499.js"><link rel="prefetch" href="/assets/js/386.8315cf9d.js"><link rel="prefetch" href="/assets/js/387.2bef00d3.js"><link rel="prefetch" href="/assets/js/388.178f867f.js"><link rel="prefetch" href="/assets/js/389.d893ba15.js"><link rel="prefetch" href="/assets/js/39.29556252.js"><link rel="prefetch" href="/assets/js/390.1b85f452.js"><link rel="prefetch" href="/assets/js/391.12fe014e.js"><link rel="prefetch" href="/assets/js/392.8c88755d.js"><link rel="prefetch" href="/assets/js/393.72aa7675.js"><link rel="prefetch" href="/assets/js/394.df13d1f7.js"><link rel="prefetch" href="/assets/js/395.8f8d96d9.js"><link rel="prefetch" href="/assets/js/396.aa362f3c.js"><link rel="prefetch" href="/assets/js/397.cca49694.js"><link rel="prefetch" href="/assets/js/398.d9fd0617.js"><link rel="prefetch" href="/assets/js/399.96f3fede.js"><link rel="prefetch" href="/assets/js/4.623783fc.js"><link rel="prefetch" href="/assets/js/40.0330d609.js"><link rel="prefetch" href="/assets/js/400.a1472f96.js"><link rel="prefetch" href="/assets/js/401.3d4e1a6b.js"><link rel="prefetch" href="/assets/js/402.0a8a7162.js"><link rel="prefetch" href="/assets/js/403.b1393b0f.js"><link rel="prefetch" href="/assets/js/404.7e485063.js"><link rel="prefetch" href="/assets/js/405.1037d751.js"><link rel="prefetch" href="/assets/js/406.ae7d83bb.js"><link rel="prefetch" href="/assets/js/407.cb9ade38.js"><link rel="prefetch" href="/assets/js/408.a105752d.js"><link rel="prefetch" href="/assets/js/409.a56202e0.js"><link rel="prefetch" href="/assets/js/41.dcb7a3f5.js"><link rel="prefetch" href="/assets/js/410.f615dd75.js"><link rel="prefetch" href="/assets/js/411.29882ac4.js"><link rel="prefetch" href="/assets/js/412.ed8e6abb.js"><link rel="prefetch" href="/assets/js/413.2a212c18.js"><link rel="prefetch" href="/assets/js/414.9717c94d.js"><link rel="prefetch" href="/assets/js/415.ad521b94.js"><link rel="prefetch" href="/assets/js/416.981646b8.js"><link rel="prefetch" href="/assets/js/417.3bcf1a86.js"><link rel="prefetch" href="/assets/js/418.d6d8bc33.js"><link rel="prefetch" href="/assets/js/419.79a736e3.js"><link rel="prefetch" href="/assets/js/42.61434728.js"><link rel="prefetch" href="/assets/js/420.bd2fe57b.js"><link rel="prefetch" href="/assets/js/421.040b2b27.js"><link rel="prefetch" href="/assets/js/422.5cc63c45.js"><link rel="prefetch" href="/assets/js/423.9d447e90.js"><link rel="prefetch" href="/assets/js/424.51734eb2.js"><link rel="prefetch" href="/assets/js/425.f6a00d75.js"><link rel="prefetch" href="/assets/js/426.896f7a5b.js"><link rel="prefetch" href="/assets/js/427.e099dd6a.js"><link rel="prefetch" href="/assets/js/428.beef8eb2.js"><link rel="prefetch" href="/assets/js/429.266ed61e.js"><link rel="prefetch" href="/assets/js/43.667a4108.js"><link rel="prefetch" href="/assets/js/430.cd857ec2.js"><link rel="prefetch" href="/assets/js/431.cb5550b2.js"><link rel="prefetch" href="/assets/js/432.3a31614c.js"><link rel="prefetch" href="/assets/js/433.c9f73ea8.js"><link rel="prefetch" href="/assets/js/434.c3d546a3.js"><link rel="prefetch" href="/assets/js/435.6a5558d5.js"><link rel="prefetch" href="/assets/js/436.fac0cdde.js"><link rel="prefetch" href="/assets/js/437.858e2dbc.js"><link rel="prefetch" href="/assets/js/438.4f6fd7f1.js"><link rel="prefetch" href="/assets/js/439.d823d6d5.js"><link rel="prefetch" href="/assets/js/44.2e051a69.js"><link rel="prefetch" href="/assets/js/440.8d4edefe.js"><link rel="prefetch" href="/assets/js/441.806f144c.js"><link rel="prefetch" href="/assets/js/442.56b1ae7b.js"><link rel="prefetch" href="/assets/js/443.0c9c92ed.js"><link rel="prefetch" href="/assets/js/444.4484d097.js"><link rel="prefetch" href="/assets/js/445.6e68718d.js"><link rel="prefetch" href="/assets/js/446.5bdd4ab4.js"><link rel="prefetch" href="/assets/js/447.6202d37b.js"><link rel="prefetch" href="/assets/js/448.88ae6dd3.js"><link rel="prefetch" href="/assets/js/449.2e911cca.js"><link rel="prefetch" href="/assets/js/45.08ce102a.js"><link rel="prefetch" href="/assets/js/450.16bda76e.js"><link rel="prefetch" href="/assets/js/451.ee603a5b.js"><link rel="prefetch" href="/assets/js/452.ff4a503b.js"><link rel="prefetch" href="/assets/js/453.f4bf543d.js"><link rel="prefetch" href="/assets/js/454.fb1e37fa.js"><link rel="prefetch" href="/assets/js/455.55467fe9.js"><link rel="prefetch" href="/assets/js/456.c1ccc8ef.js"><link rel="prefetch" href="/assets/js/457.aaeaefa6.js"><link rel="prefetch" href="/assets/js/458.f59b0607.js"><link rel="prefetch" href="/assets/js/459.201f603d.js"><link rel="prefetch" href="/assets/js/46.074adfe9.js"><link rel="prefetch" href="/assets/js/460.4e283c1a.js"><link rel="prefetch" href="/assets/js/461.c2492681.js"><link rel="prefetch" href="/assets/js/462.9362354d.js"><link rel="prefetch" href="/assets/js/463.a4087f38.js"><link rel="prefetch" href="/assets/js/464.e5828e7e.js"><link rel="prefetch" href="/assets/js/465.e95594b5.js"><link rel="prefetch" href="/assets/js/466.7b75c1f4.js"><link rel="prefetch" href="/assets/js/467.8e9d9c24.js"><link rel="prefetch" href="/assets/js/468.b87a6973.js"><link rel="prefetch" href="/assets/js/469.3411b392.js"><link rel="prefetch" href="/assets/js/47.8175158f.js"><link rel="prefetch" href="/assets/js/470.95363b28.js"><link rel="prefetch" href="/assets/js/471.21a1606b.js"><link rel="prefetch" href="/assets/js/472.f9687e9c.js"><link rel="prefetch" href="/assets/js/473.64f85306.js"><link rel="prefetch" href="/assets/js/474.8a9f362d.js"><link rel="prefetch" href="/assets/js/475.5d6399de.js"><link rel="prefetch" href="/assets/js/476.70d49b7b.js"><link rel="prefetch" href="/assets/js/477.7e3e21a3.js"><link rel="prefetch" href="/assets/js/478.67387462.js"><link rel="prefetch" href="/assets/js/479.a239eaa0.js"><link rel="prefetch" href="/assets/js/48.f20bc2b0.js"><link rel="prefetch" href="/assets/js/480.6f0b953b.js"><link rel="prefetch" href="/assets/js/481.b3ec6e3e.js"><link rel="prefetch" href="/assets/js/482.ef931c32.js"><link rel="prefetch" href="/assets/js/483.e2271a83.js"><link rel="prefetch" href="/assets/js/484.544c1072.js"><link rel="prefetch" href="/assets/js/485.d8a5505a.js"><link rel="prefetch" href="/assets/js/486.1ea2510a.js"><link rel="prefetch" href="/assets/js/487.e954f3bc.js"><link rel="prefetch" href="/assets/js/488.dbfe8c7c.js"><link rel="prefetch" href="/assets/js/489.92152c72.js"><link rel="prefetch" href="/assets/js/49.f4b7dc24.js"><link rel="prefetch" href="/assets/js/490.8ea88875.js"><link rel="prefetch" href="/assets/js/491.d1e2d1b6.js"><link rel="prefetch" href="/assets/js/492.217b7fd1.js"><link rel="prefetch" href="/assets/js/493.6d188156.js"><link rel="prefetch" href="/assets/js/494.adcca4bf.js"><link rel="prefetch" href="/assets/js/495.13cdbf74.js"><link rel="prefetch" href="/assets/js/496.53a4b758.js"><link rel="prefetch" href="/assets/js/497.0763c40d.js"><link rel="prefetch" href="/assets/js/498.debcfb1b.js"><link rel="prefetch" href="/assets/js/499.7d3cf6eb.js"><link rel="prefetch" href="/assets/js/50.41ac06fd.js"><link rel="prefetch" href="/assets/js/500.28473fb4.js"><link rel="prefetch" href="/assets/js/501.90241d8d.js"><link rel="prefetch" href="/assets/js/502.a096c362.js"><link rel="prefetch" href="/assets/js/503.539676ba.js"><link rel="prefetch" href="/assets/js/504.39d8e399.js"><link rel="prefetch" href="/assets/js/505.2b2a130b.js"><link rel="prefetch" href="/assets/js/506.7811ad79.js"><link rel="prefetch" href="/assets/js/507.2817d33b.js"><link rel="prefetch" href="/assets/js/508.89b8d712.js"><link rel="prefetch" href="/assets/js/509.80dcd2b5.js"><link rel="prefetch" href="/assets/js/51.3ef6cdbe.js"><link rel="prefetch" href="/assets/js/510.a8f28525.js"><link rel="prefetch" href="/assets/js/511.e890924a.js"><link rel="prefetch" href="/assets/js/512.9a073fe1.js"><link rel="prefetch" href="/assets/js/513.0a302efb.js"><link rel="prefetch" href="/assets/js/514.6b43f3e7.js"><link rel="prefetch" href="/assets/js/515.c7b0284a.js"><link rel="prefetch" href="/assets/js/516.5daf0566.js"><link rel="prefetch" href="/assets/js/517.67f7c508.js"><link rel="prefetch" href="/assets/js/518.7854e40b.js"><link rel="prefetch" href="/assets/js/519.dcb88d39.js"><link rel="prefetch" href="/assets/js/52.840d0f74.js"><link rel="prefetch" href="/assets/js/520.6f40c4e7.js"><link rel="prefetch" href="/assets/js/521.3c0a006c.js"><link rel="prefetch" href="/assets/js/522.ed57f1a7.js"><link rel="prefetch" href="/assets/js/523.39d637e2.js"><link rel="prefetch" href="/assets/js/524.acd5ee1f.js"><link rel="prefetch" href="/assets/js/525.0836647e.js"><link rel="prefetch" href="/assets/js/526.9e2af36c.js"><link rel="prefetch" href="/assets/js/527.9337d948.js"><link rel="prefetch" href="/assets/js/528.cacbd480.js"><link rel="prefetch" href="/assets/js/529.21a67f8f.js"><link rel="prefetch" href="/assets/js/53.fb86a936.js"><link rel="prefetch" href="/assets/js/530.3373ac51.js"><link rel="prefetch" href="/assets/js/531.1b371c24.js"><link rel="prefetch" href="/assets/js/532.64685d6d.js"><link rel="prefetch" href="/assets/js/533.d3344f80.js"><link rel="prefetch" href="/assets/js/534.1adcd2e2.js"><link rel="prefetch" href="/assets/js/535.cf0f4bbe.js"><link rel="prefetch" href="/assets/js/536.f3cadbc2.js"><link rel="prefetch" href="/assets/js/537.d2071727.js"><link rel="prefetch" href="/assets/js/538.b700925e.js"><link rel="prefetch" href="/assets/js/539.a5de8601.js"><link rel="prefetch" href="/assets/js/54.e8d5a023.js"><link rel="prefetch" href="/assets/js/540.525e8630.js"><link rel="prefetch" href="/assets/js/541.0b14ac8a.js"><link rel="prefetch" href="/assets/js/542.fc96e578.js"><link rel="prefetch" href="/assets/js/543.53cf25d0.js"><link rel="prefetch" href="/assets/js/544.f9b3e911.js"><link rel="prefetch" href="/assets/js/545.b353670e.js"><link rel="prefetch" href="/assets/js/546.5ed48a56.js"><link rel="prefetch" href="/assets/js/547.9843edce.js"><link rel="prefetch" href="/assets/js/548.f8eb7890.js"><link rel="prefetch" href="/assets/js/549.990650c2.js"><link rel="prefetch" href="/assets/js/55.b268240f.js"><link rel="prefetch" href="/assets/js/550.c7ba17a1.js"><link rel="prefetch" href="/assets/js/551.2ea79a07.js"><link rel="prefetch" href="/assets/js/552.950843bd.js"><link rel="prefetch" href="/assets/js/553.d1f94516.js"><link rel="prefetch" href="/assets/js/554.873b4336.js"><link rel="prefetch" href="/assets/js/555.12e7f37d.js"><link rel="prefetch" href="/assets/js/556.c84abfa5.js"><link rel="prefetch" href="/assets/js/557.76108e15.js"><link rel="prefetch" href="/assets/js/558.ad0caf91.js"><link rel="prefetch" href="/assets/js/559.efc5fcaa.js"><link rel="prefetch" href="/assets/js/56.862368c6.js"><link rel="prefetch" href="/assets/js/560.82032a52.js"><link rel="prefetch" href="/assets/js/561.b776e2e3.js"><link rel="prefetch" href="/assets/js/562.8f48c34e.js"><link rel="prefetch" href="/assets/js/563.1916b1f0.js"><link rel="prefetch" href="/assets/js/564.89eef1bf.js"><link rel="prefetch" href="/assets/js/565.2ca43acb.js"><link rel="prefetch" href="/assets/js/566.6caf93e6.js"><link rel="prefetch" href="/assets/js/567.1888604a.js"><link rel="prefetch" href="/assets/js/568.c909a75b.js"><link rel="prefetch" href="/assets/js/569.6862733a.js"><link rel="prefetch" href="/assets/js/57.d93cbd65.js"><link rel="prefetch" href="/assets/js/570.ce0e3115.js"><link rel="prefetch" href="/assets/js/571.0da49310.js"><link rel="prefetch" href="/assets/js/572.c34ca3fd.js"><link rel="prefetch" href="/assets/js/573.895c8f8d.js"><link rel="prefetch" href="/assets/js/574.e59b6191.js"><link rel="prefetch" href="/assets/js/575.842ef1ff.js"><link rel="prefetch" href="/assets/js/576.9b5dd540.js"><link rel="prefetch" href="/assets/js/577.2d0e6020.js"><link rel="prefetch" href="/assets/js/578.2e49a333.js"><link rel="prefetch" href="/assets/js/579.005171f1.js"><link rel="prefetch" href="/assets/js/58.10ca5b0d.js"><link rel="prefetch" href="/assets/js/580.74d9d14e.js"><link rel="prefetch" href="/assets/js/581.404aa6ad.js"><link rel="prefetch" href="/assets/js/582.4c756647.js"><link rel="prefetch" href="/assets/js/583.84f8db17.js"><link rel="prefetch" href="/assets/js/584.0c4307db.js"><link rel="prefetch" href="/assets/js/585.9cbe1c6c.js"><link rel="prefetch" href="/assets/js/586.94d5912f.js"><link rel="prefetch" href="/assets/js/587.08073e55.js"><link rel="prefetch" href="/assets/js/588.a4cb5da6.js"><link rel="prefetch" href="/assets/js/589.ff2423ac.js"><link rel="prefetch" href="/assets/js/59.3eb351e6.js"><link rel="prefetch" href="/assets/js/590.1a498879.js"><link rel="prefetch" href="/assets/js/591.eb8d6c20.js"><link rel="prefetch" href="/assets/js/592.850eee03.js"><link rel="prefetch" href="/assets/js/593.12b28022.js"><link rel="prefetch" href="/assets/js/594.9c805b81.js"><link rel="prefetch" href="/assets/js/595.e9119b0e.js"><link rel="prefetch" href="/assets/js/596.6b641a7e.js"><link rel="prefetch" href="/assets/js/597.77bf95f8.js"><link rel="prefetch" href="/assets/js/598.da53697e.js"><link rel="prefetch" href="/assets/js/599.281b72be.js"><link rel="prefetch" href="/assets/js/6.8773fb47.js"><link rel="prefetch" href="/assets/js/60.1c1a9cd1.js"><link rel="prefetch" href="/assets/js/600.4aa56a28.js"><link rel="prefetch" href="/assets/js/601.93029330.js"><link rel="prefetch" href="/assets/js/602.3dee7fe6.js"><link rel="prefetch" href="/assets/js/603.cdc313ee.js"><link rel="prefetch" href="/assets/js/604.965166a0.js"><link rel="prefetch" href="/assets/js/605.7c70961f.js"><link rel="prefetch" href="/assets/js/606.a9f02486.js"><link rel="prefetch" href="/assets/js/607.73baa5d1.js"><link rel="prefetch" href="/assets/js/608.e8fa09f4.js"><link rel="prefetch" href="/assets/js/609.ac51d009.js"><link rel="prefetch" href="/assets/js/61.9683ebee.js"><link rel="prefetch" href="/assets/js/610.644de93e.js"><link rel="prefetch" href="/assets/js/611.4435581a.js"><link rel="prefetch" href="/assets/js/612.27640be2.js"><link rel="prefetch" href="/assets/js/613.5010499b.js"><link rel="prefetch" href="/assets/js/614.cf985a78.js"><link rel="prefetch" href="/assets/js/615.175e2d87.js"><link rel="prefetch" href="/assets/js/616.c034e53d.js"><link rel="prefetch" href="/assets/js/617.fe843932.js"><link rel="prefetch" href="/assets/js/618.17ffbf18.js"><link rel="prefetch" href="/assets/js/619.c968374b.js"><link rel="prefetch" href="/assets/js/62.2276e6d3.js"><link rel="prefetch" href="/assets/js/620.f34c0fa0.js"><link rel="prefetch" href="/assets/js/621.815b8624.js"><link rel="prefetch" href="/assets/js/622.d534821e.js"><link rel="prefetch" href="/assets/js/623.936ac4e3.js"><link rel="prefetch" href="/assets/js/624.68e1aa29.js"><link rel="prefetch" href="/assets/js/625.07b94155.js"><link rel="prefetch" href="/assets/js/626.96720feb.js"><link rel="prefetch" href="/assets/js/627.6c0097f7.js"><link rel="prefetch" href="/assets/js/628.1b01c525.js"><link rel="prefetch" href="/assets/js/629.6b7b7051.js"><link rel="prefetch" href="/assets/js/63.21657e0e.js"><link rel="prefetch" href="/assets/js/630.5e364b4e.js"><link rel="prefetch" href="/assets/js/631.1dbc5bc2.js"><link rel="prefetch" href="/assets/js/632.26cf0433.js"><link rel="prefetch" href="/assets/js/633.f5940046.js"><link rel="prefetch" href="/assets/js/634.631e139f.js"><link rel="prefetch" href="/assets/js/635.dcb1483c.js"><link rel="prefetch" href="/assets/js/636.99b6e8c3.js"><link rel="prefetch" href="/assets/js/637.ac8ad035.js"><link rel="prefetch" href="/assets/js/638.5782cc19.js"><link rel="prefetch" href="/assets/js/639.1db80fe2.js"><link rel="prefetch" href="/assets/js/64.02fb1ddb.js"><link rel="prefetch" href="/assets/js/640.bc54f7f5.js"><link rel="prefetch" href="/assets/js/641.cdff8819.js"><link rel="prefetch" href="/assets/js/642.df23e220.js"><link rel="prefetch" href="/assets/js/643.89df1b3c.js"><link rel="prefetch" href="/assets/js/644.5f0031ba.js"><link rel="prefetch" href="/assets/js/645.f7daa126.js"><link rel="prefetch" href="/assets/js/646.d47a3e0e.js"><link rel="prefetch" href="/assets/js/647.d1c8f3ae.js"><link rel="prefetch" href="/assets/js/648.0506ce23.js"><link rel="prefetch" href="/assets/js/649.6cf2a641.js"><link rel="prefetch" href="/assets/js/65.b4028009.js"><link rel="prefetch" href="/assets/js/650.89785dee.js"><link rel="prefetch" href="/assets/js/651.8b6fa105.js"><link rel="prefetch" href="/assets/js/652.5e42ce8f.js"><link rel="prefetch" href="/assets/js/653.eddc84e1.js"><link rel="prefetch" href="/assets/js/654.48762cb9.js"><link rel="prefetch" href="/assets/js/655.7bcd5aa3.js"><link rel="prefetch" href="/assets/js/656.bf91b745.js"><link rel="prefetch" href="/assets/js/657.332eec27.js"><link rel="prefetch" href="/assets/js/658.9e9b31c8.js"><link rel="prefetch" href="/assets/js/659.b469808c.js"><link rel="prefetch" href="/assets/js/66.33d6767a.js"><link rel="prefetch" href="/assets/js/660.25843c88.js"><link rel="prefetch" href="/assets/js/661.ca1a9580.js"><link rel="prefetch" href="/assets/js/662.cd6fe6ce.js"><link rel="prefetch" href="/assets/js/663.dddb87c3.js"><link rel="prefetch" href="/assets/js/664.c4d2b9b4.js"><link rel="prefetch" href="/assets/js/665.e26ea7fd.js"><link rel="prefetch" href="/assets/js/666.918a92c2.js"><link rel="prefetch" href="/assets/js/667.5f06fa05.js"><link rel="prefetch" href="/assets/js/668.7b783af2.js"><link rel="prefetch" href="/assets/js/669.efe734b4.js"><link rel="prefetch" href="/assets/js/67.0737d4e2.js"><link rel="prefetch" href="/assets/js/670.70a7afa1.js"><link rel="prefetch" href="/assets/js/671.d82e7481.js"><link rel="prefetch" href="/assets/js/672.f4e33cf4.js"><link rel="prefetch" href="/assets/js/673.f3b26cca.js"><link rel="prefetch" href="/assets/js/674.d5327fdb.js"><link rel="prefetch" href="/assets/js/675.06e1587e.js"><link rel="prefetch" href="/assets/js/676.b81eab7c.js"><link rel="prefetch" href="/assets/js/677.65c1f157.js"><link rel="prefetch" href="/assets/js/678.dd3c35f4.js"><link rel="prefetch" href="/assets/js/679.1b3371c6.js"><link rel="prefetch" href="/assets/js/68.ff08cac1.js"><link rel="prefetch" href="/assets/js/680.4c431b6d.js"><link rel="prefetch" href="/assets/js/681.4b4df97f.js"><link rel="prefetch" href="/assets/js/682.daa28558.js"><link rel="prefetch" href="/assets/js/683.019ac4bf.js"><link rel="prefetch" href="/assets/js/684.72942987.js"><link rel="prefetch" href="/assets/js/685.b232df8f.js"><link rel="prefetch" href="/assets/js/686.27dc24b3.js"><link rel="prefetch" href="/assets/js/687.4a8ef826.js"><link rel="prefetch" href="/assets/js/688.0ba25fdf.js"><link rel="prefetch" href="/assets/js/689.be8172ba.js"><link rel="prefetch" href="/assets/js/69.516fa4ee.js"><link rel="prefetch" href="/assets/js/690.88418e50.js"><link rel="prefetch" href="/assets/js/691.1d8c222b.js"><link rel="prefetch" href="/assets/js/692.85d9e426.js"><link rel="prefetch" href="/assets/js/693.a78b6c7b.js"><link rel="prefetch" href="/assets/js/694.8348e02c.js"><link rel="prefetch" href="/assets/js/695.0bbdae98.js"><link rel="prefetch" href="/assets/js/696.f9dcc8bf.js"><link rel="prefetch" href="/assets/js/697.1c6c7982.js"><link rel="prefetch" href="/assets/js/698.fa867a93.js"><link rel="prefetch" href="/assets/js/699.5ad98f0b.js"><link rel="prefetch" href="/assets/js/7.e86883c6.js"><link rel="prefetch" href="/assets/js/70.d7c0b02d.js"><link rel="prefetch" href="/assets/js/700.da097ba8.js"><link rel="prefetch" href="/assets/js/701.8f40c007.js"><link rel="prefetch" href="/assets/js/702.2ac7cfc8.js"><link rel="prefetch" href="/assets/js/703.e4f83f34.js"><link rel="prefetch" href="/assets/js/704.3230d5d3.js"><link rel="prefetch" href="/assets/js/705.9f2ac56e.js"><link rel="prefetch" href="/assets/js/706.479ef752.js"><link rel="prefetch" href="/assets/js/707.12907b99.js"><link rel="prefetch" href="/assets/js/708.a54c005e.js"><link rel="prefetch" href="/assets/js/709.2f084e72.js"><link rel="prefetch" href="/assets/js/71.c9ef60a6.js"><link rel="prefetch" href="/assets/js/710.992d9298.js"><link rel="prefetch" href="/assets/js/711.3dec9e74.js"><link rel="prefetch" href="/assets/js/712.fbba000f.js"><link rel="prefetch" href="/assets/js/713.644be223.js"><link rel="prefetch" href="/assets/js/714.20e703bd.js"><link rel="prefetch" href="/assets/js/715.7ac51064.js"><link rel="prefetch" href="/assets/js/717.cdd46244.js"><link rel="prefetch" href="/assets/js/718.7b7a44e2.js"><link rel="prefetch" href="/assets/js/719.ed06b003.js"><link rel="prefetch" href="/assets/js/72.c23e24e9.js"><link rel="prefetch" href="/assets/js/720.202718be.js"><link rel="prefetch" href="/assets/js/721.1426ef3c.js"><link rel="prefetch" href="/assets/js/722.79f56663.js"><link rel="prefetch" href="/assets/js/723.6dcfa3ed.js"><link rel="prefetch" href="/assets/js/724.4c098acf.js"><link rel="prefetch" href="/assets/js/725.381dd189.js"><link rel="prefetch" href="/assets/js/726.baa6dcfe.js"><link rel="prefetch" href="/assets/js/727.f893500e.js"><link rel="prefetch" href="/assets/js/728.977ee9a0.js"><link rel="prefetch" href="/assets/js/729.3dc27591.js"><link rel="prefetch" href="/assets/js/73.d2b5812c.js"><link rel="prefetch" href="/assets/js/730.e62b3efb.js"><link rel="prefetch" href="/assets/js/731.8b21fd00.js"><link rel="prefetch" href="/assets/js/732.0e4b5daf.js"><link rel="prefetch" href="/assets/js/733.1cc505b4.js"><link rel="prefetch" href="/assets/js/734.55c0fe79.js"><link rel="prefetch" href="/assets/js/735.4eb02d3a.js"><link rel="prefetch" href="/assets/js/736.40c2728a.js"><link rel="prefetch" href="/assets/js/737.73c562f3.js"><link rel="prefetch" href="/assets/js/738.6dd69adf.js"><link rel="prefetch" href="/assets/js/739.af66a4dc.js"><link rel="prefetch" href="/assets/js/74.408525bc.js"><link rel="prefetch" href="/assets/js/740.eff57d99.js"><link rel="prefetch" href="/assets/js/741.7c9b1745.js"><link rel="prefetch" href="/assets/js/742.87bf09be.js"><link rel="prefetch" href="/assets/js/743.fd587ae7.js"><link rel="prefetch" href="/assets/js/744.b207d76b.js"><link rel="prefetch" href="/assets/js/745.5da05a37.js"><link rel="prefetch" href="/assets/js/746.05f0fcc4.js"><link rel="prefetch" href="/assets/js/747.8afc4f80.js"><link rel="prefetch" href="/assets/js/748.a6328657.js"><link rel="prefetch" href="/assets/js/749.488acffe.js"><link rel="prefetch" href="/assets/js/75.d6223e36.js"><link rel="prefetch" href="/assets/js/750.b778f9b2.js"><link rel="prefetch" href="/assets/js/751.046fb057.js"><link rel="prefetch" href="/assets/js/752.4fa1c3ec.js"><link rel="prefetch" href="/assets/js/753.2023ccf5.js"><link rel="prefetch" href="/assets/js/754.68df0df4.js"><link rel="prefetch" href="/assets/js/755.7289134a.js"><link rel="prefetch" href="/assets/js/756.bce7616e.js"><link rel="prefetch" href="/assets/js/757.3403e5f9.js"><link rel="prefetch" href="/assets/js/758.8f0d0bdf.js"><link rel="prefetch" href="/assets/js/759.cdd31702.js"><link rel="prefetch" href="/assets/js/76.f65eed64.js"><link rel="prefetch" href="/assets/js/760.9bfe29ed.js"><link rel="prefetch" href="/assets/js/761.e23339c6.js"><link rel="prefetch" href="/assets/js/762.db375c5b.js"><link rel="prefetch" href="/assets/js/763.8b16c3fe.js"><link rel="prefetch" href="/assets/js/764.f1f4f712.js"><link rel="prefetch" href="/assets/js/765.23e53b3a.js"><link rel="prefetch" href="/assets/js/766.3d3bb3ff.js"><link rel="prefetch" href="/assets/js/767.35ad7cea.js"><link rel="prefetch" href="/assets/js/768.295d1f7a.js"><link rel="prefetch" href="/assets/js/769.2f8fe776.js"><link rel="prefetch" href="/assets/js/77.ec9614b4.js"><link rel="prefetch" href="/assets/js/770.a89ea5e2.js"><link rel="prefetch" href="/assets/js/771.0d2cf3ee.js"><link rel="prefetch" href="/assets/js/772.a10354a4.js"><link rel="prefetch" href="/assets/js/773.ee60e68b.js"><link rel="prefetch" href="/assets/js/774.ba4aad28.js"><link rel="prefetch" href="/assets/js/775.7d35f9cc.js"><link rel="prefetch" href="/assets/js/776.b3ec764c.js"><link rel="prefetch" href="/assets/js/777.c124aefe.js"><link rel="prefetch" href="/assets/js/778.325cfc0e.js"><link rel="prefetch" href="/assets/js/779.d2b575a6.js"><link rel="prefetch" href="/assets/js/78.f56b2037.js"><link rel="prefetch" href="/assets/js/780.218c6b47.js"><link rel="prefetch" href="/assets/js/781.0eac52b7.js"><link rel="prefetch" href="/assets/js/782.79965326.js"><link rel="prefetch" href="/assets/js/783.60892b73.js"><link rel="prefetch" href="/assets/js/784.b8f79fd0.js"><link rel="prefetch" href="/assets/js/785.0528258e.js"><link rel="prefetch" href="/assets/js/786.1dbadb12.js"><link rel="prefetch" href="/assets/js/787.f247b164.js"><link rel="prefetch" href="/assets/js/788.3dd93a34.js"><link rel="prefetch" href="/assets/js/789.7b97a48d.js"><link rel="prefetch" href="/assets/js/79.ed5ad905.js"><link rel="prefetch" href="/assets/js/790.8ceeb0b3.js"><link rel="prefetch" href="/assets/js/791.e926d9a8.js"><link rel="prefetch" href="/assets/js/792.3e5a323a.js"><link rel="prefetch" href="/assets/js/793.43419085.js"><link rel="prefetch" href="/assets/js/794.b8c22345.js"><link rel="prefetch" href="/assets/js/795.7370ff3c.js"><link rel="prefetch" href="/assets/js/796.9509e009.js"><link rel="prefetch" href="/assets/js/797.4a4202c2.js"><link rel="prefetch" href="/assets/js/798.3961cf47.js"><link rel="prefetch" href="/assets/js/799.69707d57.js"><link rel="prefetch" href="/assets/js/8.3fe9535a.js"><link rel="prefetch" href="/assets/js/80.202c3322.js"><link rel="prefetch" href="/assets/js/800.f72c31a2.js"><link rel="prefetch" href="/assets/js/801.2372cb79.js"><link rel="prefetch" href="/assets/js/802.3aefd131.js"><link rel="prefetch" href="/assets/js/803.18443761.js"><link rel="prefetch" href="/assets/js/804.301bf327.js"><link rel="prefetch" href="/assets/js/805.e169a32a.js"><link rel="prefetch" href="/assets/js/806.27cbd296.js"><link rel="prefetch" href="/assets/js/807.b0443249.js"><link rel="prefetch" href="/assets/js/808.91924bc7.js"><link rel="prefetch" href="/assets/js/809.865e8932.js"><link rel="prefetch" href="/assets/js/81.9d064e1c.js"><link rel="prefetch" href="/assets/js/810.28dafb2c.js"><link rel="prefetch" href="/assets/js/811.9248d0a5.js"><link rel="prefetch" href="/assets/js/812.8bb147f8.js"><link rel="prefetch" href="/assets/js/813.57a8a982.js"><link rel="prefetch" href="/assets/js/814.f80c73c9.js"><link rel="prefetch" href="/assets/js/815.2b3d99fc.js"><link rel="prefetch" href="/assets/js/816.4a05e284.js"><link rel="prefetch" href="/assets/js/817.6c8508c2.js"><link rel="prefetch" href="/assets/js/818.c72f5330.js"><link rel="prefetch" href="/assets/js/819.35126624.js"><link rel="prefetch" href="/assets/js/82.210310b3.js"><link rel="prefetch" href="/assets/js/820.d5254c3c.js"><link rel="prefetch" href="/assets/js/821.c69c6b2c.js"><link rel="prefetch" href="/assets/js/822.1ccbb204.js"><link rel="prefetch" href="/assets/js/823.0436449a.js"><link rel="prefetch" href="/assets/js/824.a9d3c6f0.js"><link rel="prefetch" href="/assets/js/825.f9bf8329.js"><link rel="prefetch" href="/assets/js/826.e0d5f786.js"><link rel="prefetch" href="/assets/js/827.cf88e320.js"><link rel="prefetch" href="/assets/js/828.67da7389.js"><link rel="prefetch" href="/assets/js/829.21c2eac1.js"><link rel="prefetch" href="/assets/js/83.d74f6f93.js"><link rel="prefetch" href="/assets/js/830.1eb4ea1b.js"><link rel="prefetch" href="/assets/js/831.6b51565e.js"><link rel="prefetch" href="/assets/js/832.07a20675.js"><link rel="prefetch" href="/assets/js/833.0f7823b8.js"><link rel="prefetch" href="/assets/js/834.27bf9c2e.js"><link rel="prefetch" href="/assets/js/835.409429ce.js"><link rel="prefetch" href="/assets/js/836.28de2c29.js"><link rel="prefetch" href="/assets/js/837.5e7df1f1.js"><link rel="prefetch" href="/assets/js/838.5adc5f6e.js"><link rel="prefetch" href="/assets/js/839.11c3bfc2.js"><link rel="prefetch" href="/assets/js/84.4cf98a31.js"><link rel="prefetch" href="/assets/js/840.65d20fee.js"><link rel="prefetch" href="/assets/js/841.1949a396.js"><link rel="prefetch" href="/assets/js/842.f7a8d098.js"><link rel="prefetch" href="/assets/js/843.65694aa6.js"><link rel="prefetch" href="/assets/js/844.7a62cf9b.js"><link rel="prefetch" href="/assets/js/85.22b95924.js"><link rel="prefetch" href="/assets/js/86.a6f80a36.js"><link rel="prefetch" href="/assets/js/87.3b138e3b.js"><link rel="prefetch" href="/assets/js/88.bb56b7a2.js"><link rel="prefetch" href="/assets/js/89.198a78ff.js"><link rel="prefetch" href="/assets/js/9.59b98557.js"><link rel="prefetch" href="/assets/js/90.d743afe3.js"><link rel="prefetch" href="/assets/js/91.3b6d096c.js"><link rel="prefetch" href="/assets/js/92.a61a93f5.js"><link rel="prefetch" href="/assets/js/93.89cc3bad.js"><link rel="prefetch" href="/assets/js/94.fafb4ea3.js"><link rel="prefetch" href="/assets/js/95.52a52f2e.js"><link rel="prefetch" href="/assets/js/96.82379902.js"><link rel="prefetch" href="/assets/js/97.fb013838.js"><link rel="prefetch" href="/assets/js/98.17d2f72a.js"><link rel="prefetch" href="/assets/js/99.b355b28b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.183d1d00.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-17815e06><header class="navbar" data-v-17815e06><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.png" alt="智能后端和架构" class="logo"> <span class="site-name can-hide">智能后端和架构</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/readguide.html" class="nav-link">
+  导读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java基础" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java基础" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java语言基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/intro/01-java-intro.html" class="nav-link">
+  Java入门介绍
+</a></li><li class="dropdown-subitem"><a href="/java/intro/03-java-grammer.html" class="nav-link">
+  Java基础语法
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java面向对象基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/basic/01-lan-feature.html" class="nav-link">
+  语言基础特性
+</a></li><li class="dropdown-subitem"><a href="/java/basic/02-oop-feature.html" class="nav-link">
+  面向对象特征
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java集合类编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/collection/01-intro.html" class="nav-link">
+  集合类基础介绍
+</a></li><li class="dropdown-subitem"><a href="/java/collection/02-collectionmap.html" class="nav-link">
+  集合框架Collction、Map
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java文件和网络编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/file/01-intro.html" class="nav-link">
+  Java文件IO流入门
+</a></li><li class="dropdown-subitem"><a href="/java/net/01-intro.html" class="nav-link">
+  Java网络编程入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java并发编程和JUC
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/thread/01-intro.html" class="nav-link">
+  Java并发 基础入门
+</a></li><li class="dropdown-subitem"><a href="/java/juc/01-intro.html" class="nav-link">
+  Java并发 JUC入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java虚拟机和语言特性
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/jvm/01-intro.html" class="nav-link">
+  Java  虚拟机
+</a></li><li class="dropdown-subitem"><a href="/java/characteristic/01-java8.html" class="nav-link">
+  Java8 语言特性
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和SQL
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/intro/01-intro.html" class="nav-link">
+  数据库绪论
+</a></li><li class="dropdown-subitem"><a href="/db/intro/02-relationdb.html" class="nav-link">
+  关系数据库
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/01-basicselect.html" class="nav-link">
+  基本查询SQL
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/02-joinselect.html" class="nav-link">
+  连表查询SQL
+</a></li></ul></li><li class="dropdown-item"><h4>
+          MySQL基础和优化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/mysqlbasic/01-intro.html" class="nav-link">
+  入门介绍
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt1/01-solutionsum.html" class="nav-link">
+  性能优化方案
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/01-districtandtable.html" class="nav-link">
+  分区和分表
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/05-readwritesepration.html" class="nav-link">
+  读写分离介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/redis/01-intro.html" class="nav-link">
+  Redis介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础概念总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/basic/01-basicconcept.html" class="nav-link">
+  数据结构基础概念
+</a></li><li class="dropdown-subitem"><a href="/algorithm/basic/02-intro.html" class="nav-link">
+  算法和数据结构介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/01-commondy.html" class="nav-link">
+  常用算法动态展示
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/04-visualgo.html" class="nav-link">
+  visualgo-中文算法展示
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法思想总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/thought/01-thoughts8intro.html" class="nav-link">
+  八种常用算法思想
+</a></li><li class="dropdown-subitem"><a href="/algorithm/thought/02-thoughts5intro.html" class="nav-link">
+  五种基本算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用算法总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/search/01-intro.html" class="nav-link">
+  常用查找算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/sort/01-intro.html" class="nav-link">
+  常用排序算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/strmatch/01-intro.html" class="nav-link">
+  常用字符串匹配-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/encryption/01-intro.html" class="nav-link">
+  常用加密解密算法-介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">大数据</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">大数据</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/bigdata/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/bigdata/techintro/01-intro.html" class="nav-link">
+  技术体系介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据采集总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dc/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/dc/intro/02-diff.html" class="nav-link">
+  常用工具比较
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据存储总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ds/intro/01-basicintro.html" class="nav-link">
+  Hadoop入门介绍
+</a></li><li class="dropdown-subitem"><a href="/ds/intro/02-detailintro.html" class="nav-link">
+  Hadoop生态介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据仓库总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dw/intro/01-intro.html" class="nav-link">
+  数据仓库入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dw/intro/03-summary.html" class="nav-link">
+  数据仓库精华总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据处理总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dp/mr/01-intro.html" class="nav-link">
+  MapReduce-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dp/mr/02-basicprin.html" class="nav-link">
+  MapReduce-工作原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据应用总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/da/intro/01-intro.html" class="nav-link">
+  大数据应用场景基础介绍
+</a></li><li class="dropdown-subitem"><a href="/dm/intro/01-intro.html" class="nav-link">
+  大数据数据挖掘基础介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">人工智能</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">人工智能</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/intro/01-intro.html" class="nav-link">
+  人工智能基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlintro/01-intro.html" class="nav-link">
+  机器学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/dlintro/01-intro.html" class="nav-link">
+  深度学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/nnprin/01-intro.html" class="nav-link">
+  神经网络原理介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlalgorithm/01-intro.html" class="nav-link">
+  机器学习算法介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlmath/01-intro.html" class="nav-link">
+  机器学习数学介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ad/intro/01-intro.html" class="nav-link">
+  主流-AI开源开发框架介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/dl4jintro/01-intro.html" class="nav-link">
+  JAVA-AI开发框架Dl4j介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/pytorch/01-intro.html" class="nav-link">
+  AI开发框架-Pytorch介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/tensorflow/01-intro.html" class="nav-link">
+  AI开发框架-TensorFlow介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发应用案例
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ac/intro/01-intro.html" class="nav-link">
+  AI常见案例和趋势介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/rsintro/01-intro.html" class="nav-link">
+  AI应用案例-推荐系统介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aicity/01-intro.html" class="nav-link">
+  AI应用案例-智慧城市介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aibigscreen/01-intro.html" class="nav-link">
+  AI应用案例-智慧大屏介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Spring</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Spring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Spring基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/basic/01-intro.html" class="nav-link">
+  Spring-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/basic/02-iocaopintro.html" class="nav-link">
+  IOC和AOP-原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringMVC总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springmvc/01-intro.html" class="nav-link">
+  SpringMVC-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springmvc/02-prinintro.html" class="nav-link">
+  SpringMVC-工作原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringBoot总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springboot/03-workprin.html" class="nav-link">
+  SpringBoot-工作原理
+</a></li><li class="dropdown-subitem"><a href="/spring/springboot/06-startprincodeanalysis.html" class="nav-link">
+  启动原理分析和源码解读
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring注解总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/annotation/03-springannprin.html" class="nav-link">
+  Spring注解实现原理
+</a></li><li class="dropdown-subitem"><a href="/spring/annotation/04-anntotal1.html" class="nav-link">
+  Spring注解大全(一)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringCloud知识介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springcloud/01-intro.html" class="nav-link">
+  SpringCloud-基础介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springcloud/03-prindetail.html" class="nav-link">
+  SpringCloud-原理详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          框架基础总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/basic/01-intro.html" class="nav-link">
+  框架基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/02-commconceptdiff.html" class="nav-link">
+  框架架构组件区别
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/03-commconceptrela.html" class="nav-link">
+  框架架构组件关系
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/06-microserv15.html" class="nav-link">
+  常见15种微服务框架
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/07-springframethink.html" class="nav-link">
+  Spring框架思想总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/log/01-intro.html" class="nav-link">
+  日志框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/orm/01-intro.html" class="nav-link">
+  ORM框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nio/01-intro.html" class="nav-link">
+  NIO框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/netty/01-intro.html" class="nav-link">
+  Netty框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nettycase/01-intro.html" class="nav-link">
+  Netty案例-介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">架构</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">架构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          架构基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/architecture/basic/01-intro.html" class="nav-link">
+  架构基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/architecture/basic/02-essence.html" class="nav-link">
+  架构基本概念和本质
+</a></li><li class="dropdown-subitem"><a href="/architecture/microservanddistribute/01-intro.html" class="nav-link">
+  微服务架构知识介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/tool/01-intro.html" class="nav-link">
+  Java开发工具介绍
+</a></li><li class="dropdown-subitem"><a href="/dev/tool/05-idea20recommendedplug.html" class="nav-link">
+  Idea开发插件推荐
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/standard/01-intro.html" class="nav-link">
+  Java开发规范
+</a></li><li class="dropdown-subitem"><a href="/dev/designpattern/01-intro.html" class="nav-link">
+  Java设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发效率
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/deveffciency/02-commpromethods.html" class="nav-link">
+  效率提升常用方法
+</a></li><li class="dropdown-subitem"><a href="/dev/deveffciency/09-summary.html" class="nav-link">
+  效率提升精华总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">综合</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">综合</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中间件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/middleware/mq/01-intro.html" class="nav-link">
+  MQ消息队列介绍
+</a></li><li class="dropdown-subitem"><a href="/es/basic/01-intro.html" class="nav-link">
+  ES搜索服务器介绍
+</a></li><li class="dropdown-subitem"><a href="/middleware/zookeeper/01-intro.html" class="nav-link">
+  Zookeeper介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          综合技能
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mysqlop/basic/01-intro.html" class="nav-link">
+  MySQL运维总结
+</a></li><li class="dropdown-subitem"><a href="/operation/linux/01-intro.html" class="nav-link">
+  Linux常用命令
+</a></li><li class="dropdown-subitem"><a href="/operation/ng/05-ngsum.html" class="nav-link">
+  Nginx使用总结
+</a></li><li class="dropdown-subitem"><a href="/post/javabasic/01-javabasic.html" class="nav-link">
+  求职面试整理
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">项目|产品</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">项目|产品</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          研发效能介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/01-intro.html" class="nav-link">
+  研发效能入门介绍
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/06-efficiencysystem.html" class="nav-link">
+  研发效能体系构建
+</a></li></ul></li><li class="dropdown-item"><h4>
+          研发效能提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdeffciencypromote/09-summary.html" class="nav-link">
+  研发效能提升精华总结
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdeffciencytool/01-intro.html" class="nav-link">
+  研发效能系统管理工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-17815e06></div> <aside class="sidebar" data-v-17815e06><nav class="nav-links"><div class="nav-item"><a href="/readguide.html" class="nav-link">
+  导读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java基础" class="dropdown-title"><span class="title">Java</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java基础" class="mobile-dropdown-title"><span class="title">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java语言基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/intro/01-java-intro.html" class="nav-link">
+  Java入门介绍
+</a></li><li class="dropdown-subitem"><a href="/java/intro/03-java-grammer.html" class="nav-link">
+  Java基础语法
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java面向对象基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/basic/01-lan-feature.html" class="nav-link">
+  语言基础特性
+</a></li><li class="dropdown-subitem"><a href="/java/basic/02-oop-feature.html" class="nav-link">
+  面向对象特征
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java集合类编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/collection/01-intro.html" class="nav-link">
+  集合类基础介绍
+</a></li><li class="dropdown-subitem"><a href="/java/collection/02-collectionmap.html" class="nav-link">
+  集合框架Collction、Map
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java文件和网络编程
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/file/01-intro.html" class="nav-link">
+  Java文件IO流入门
+</a></li><li class="dropdown-subitem"><a href="/java/net/01-intro.html" class="nav-link">
+  Java网络编程入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java并发编程和JUC
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/thread/01-intro.html" class="nav-link">
+  Java并发 基础入门
+</a></li><li class="dropdown-subitem"><a href="/java/juc/01-intro.html" class="nav-link">
+  Java并发 JUC入门
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java虚拟机和语言特性
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/jvm/01-intro.html" class="nav-link">
+  Java  虚拟机
+</a></li><li class="dropdown-subitem"><a href="/java/characteristic/01-java8.html" class="nav-link">
+  Java8 语言特性
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和SQL
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/intro/01-intro.html" class="nav-link">
+  数据库绪论
+</a></li><li class="dropdown-subitem"><a href="/db/intro/02-relationdb.html" class="nav-link">
+  关系数据库
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/01-basicselect.html" class="nav-link">
+  基本查询SQL
+</a></li><li class="dropdown-subitem"><a href="/db/comsql/02-joinselect.html" class="nav-link">
+  连表查询SQL
+</a></li></ul></li><li class="dropdown-item"><h4>
+          MySQL基础和优化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/mysqlbasic/01-intro.html" class="nav-link">
+  入门介绍
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt1/01-solutionsum.html" class="nav-link">
+  性能优化方案
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/01-districtandtable.html" class="nav-link">
+  分区和分表
+</a></li><li class="dropdown-subitem"><a href="/db/mysqlopt2/05-readwritesepration.html" class="nav-link">
+  读写分离介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/db/redis/01-intro.html" class="nav-link">
+  Redis介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础概念总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/basic/01-basicconcept.html" class="nav-link">
+  数据结构基础概念
+</a></li><li class="dropdown-subitem"><a href="/algorithm/basic/02-intro.html" class="nav-link">
+  算法和数据结构介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/01-commondy.html" class="nav-link">
+  常用算法动态展示
+</a></li><li class="dropdown-subitem"><a href="/algorithm/visual/04-visualgo.html" class="nav-link">
+  visualgo-中文算法展示
+</a></li></ul></li><li class="dropdown-item"><h4>
+          算法思想总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/thought/01-thoughts8intro.html" class="nav-link">
+  八种常用算法思想
+</a></li><li class="dropdown-subitem"><a href="/algorithm/thought/02-thoughts5intro.html" class="nav-link">
+  五种基本算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用算法总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/search/01-intro.html" class="nav-link">
+  常用查找算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/sort/01-intro.html" class="nav-link">
+  常用排序算法-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/strmatch/01-intro.html" class="nav-link">
+  常用字符串匹配-介绍
+</a></li><li class="dropdown-subitem"><a href="/algorithm/encryption/01-intro.html" class="nav-link">
+  常用加密解密算法-介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">大数据</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">大数据</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/bigdata/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/bigdata/techintro/01-intro.html" class="nav-link">
+  技术体系介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据采集总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dc/intro/01-intro.html" class="nav-link">
+  入门知识介绍
+</a></li><li class="dropdown-subitem"><a href="/dc/intro/02-diff.html" class="nav-link">
+  常用工具比较
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据存储总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ds/intro/01-basicintro.html" class="nav-link">
+  Hadoop入门介绍
+</a></li><li class="dropdown-subitem"><a href="/ds/intro/02-detailintro.html" class="nav-link">
+  Hadoop生态介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据仓库总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dw/intro/01-intro.html" class="nav-link">
+  数据仓库入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dw/intro/03-summary.html" class="nav-link">
+  数据仓库精华总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据处理总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dp/mr/01-intro.html" class="nav-link">
+  MapReduce-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/dp/mr/02-basicprin.html" class="nav-link">
+  MapReduce-工作原理
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据应用总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/da/intro/01-intro.html" class="nav-link">
+  大数据应用场景基础介绍
+</a></li><li class="dropdown-subitem"><a href="/dm/intro/01-intro.html" class="nav-link">
+  大数据数据挖掘基础介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">人工智能</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">人工智能</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础知识总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/intro/01-intro.html" class="nav-link">
+  人工智能基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlintro/01-intro.html" class="nav-link">
+  机器学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/dlintro/01-intro.html" class="nav-link">
+  深度学习基础介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/nnprin/01-intro.html" class="nav-link">
+  神经网络原理介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlalgorithm/01-intro.html" class="nav-link">
+  机器学习算法介绍
+</a></li><li class="dropdown-subitem"><a href="/ai/mlmath/01-intro.html" class="nav-link">
+  机器学习数学介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ad/intro/01-intro.html" class="nav-link">
+  主流-AI开源开发框架介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/dl4jintro/01-intro.html" class="nav-link">
+  JAVA-AI开发框架Dl4j介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/pytorch/01-intro.html" class="nav-link">
+  AI开发框架-Pytorch介绍
+</a></li><li class="dropdown-subitem"><a href="/ad/tensorflow/01-intro.html" class="nav-link">
+  AI开发框架-TensorFlow介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发应用案例
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ac/intro/01-intro.html" class="nav-link">
+  AI常见案例和趋势介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/rsintro/01-intro.html" class="nav-link">
+  AI应用案例-推荐系统介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aicity/01-intro.html" class="nav-link">
+  AI应用案例-智慧城市介绍
+</a></li><li class="dropdown-subitem"><a href="/ac/aibigscreen/01-intro.html" class="nav-link">
+  AI应用案例-智慧大屏介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Spring</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Spring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Spring基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/basic/01-intro.html" class="nav-link">
+  Spring-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/basic/02-iocaopintro.html" class="nav-link">
+  IOC和AOP-原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringMVC总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springmvc/01-intro.html" class="nav-link">
+  SpringMVC-入门介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springmvc/02-prinintro.html" class="nav-link">
+  SpringMVC-工作原理介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringBoot总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springboot/03-workprin.html" class="nav-link">
+  SpringBoot-工作原理
+</a></li><li class="dropdown-subitem"><a href="/spring/springboot/06-startprincodeanalysis.html" class="nav-link">
+  启动原理分析和源码解读
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Spring注解总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/annotation/03-springannprin.html" class="nav-link">
+  Spring注解实现原理
+</a></li><li class="dropdown-subitem"><a href="/spring/annotation/04-anntotal1.html" class="nav-link">
+  Spring注解大全(一)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SpringCloud知识介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/spring/springcloud/01-intro.html" class="nav-link">
+  SpringCloud-基础介绍
+</a></li><li class="dropdown-subitem"><a href="/spring/springcloud/03-prindetail.html" class="nav-link">
+  SpringCloud-原理详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          框架基础总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/basic/01-intro.html" class="nav-link">
+  框架基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/02-commconceptdiff.html" class="nav-link">
+  框架架构组件区别
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/03-commconceptrela.html" class="nav-link">
+  框架架构组件关系
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/06-microserv15.html" class="nav-link">
+  常见15种微服务框架
+</a></li><li class="dropdown-subitem"><a href="/framework/basic/07-springframethink.html" class="nav-link">
+  Spring框架思想总结
+</a></li></ul></li><li class="dropdown-item"><h4>
+          常用框架总结
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/framework/log/01-intro.html" class="nav-link">
+  日志框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/orm/01-intro.html" class="nav-link">
+  ORM框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nio/01-intro.html" class="nav-link">
+  NIO框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/netty/01-intro.html" class="nav-link">
+  Netty框架-介绍和总结
+</a></li><li class="dropdown-subitem"><a href="/framework/nettycase/01-intro.html" class="nav-link">
+  Netty案例-介绍和总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">架构</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">架构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          架构基础知识
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/architecture/basic/01-intro.html" class="nav-link">
+  架构基础知识介绍
+</a></li><li class="dropdown-subitem"><a href="/architecture/basic/02-essence.html" class="nav-link">
+  架构基本概念和本质
+</a></li><li class="dropdown-subitem"><a href="/architecture/microservanddistribute/01-intro.html" class="nav-link">
+  微服务架构知识介绍
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/tool/01-intro.html" class="nav-link">
+  Java开发工具介绍
+</a></li><li class="dropdown-subitem"><a href="/dev/tool/05-idea20recommendedplug.html" class="nav-link">
+  Idea开发插件推荐
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发规范
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/standard/01-intro.html" class="nav-link">
+  Java开发规范
+</a></li><li class="dropdown-subitem"><a href="/dev/designpattern/01-intro.html" class="nav-link">
+  Java设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          开发效率
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dev/deveffciency/02-commpromethods.html" class="nav-link">
+  效率提升常用方法
+</a></li><li class="dropdown-subitem"><a href="/dev/deveffciency/09-summary.html" class="nav-link">
+  效率提升精华总结
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">综合</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">综合</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          中间件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/middleware/mq/01-intro.html" class="nav-link">
+  MQ消息队列介绍
+</a></li><li class="dropdown-subitem"><a href="/es/basic/01-intro.html" class="nav-link">
+  ES搜索服务器介绍
+</a></li><li class="dropdown-subitem"><a href="/middleware/zookeeper/01-intro.html" class="nav-link">
+  Zookeeper介绍
+</a></li></ul></li><li class="dropdown-item"><h4>
+          综合技能
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mysqlop/basic/01-intro.html" class="nav-link">
+  MySQL运维总结
+</a></li><li class="dropdown-subitem"><a href="/operation/linux/01-intro.html" class="nav-link">
+  Linux常用命令
+</a></li><li class="dropdown-subitem"><a href="/operation/ng/05-ngsum.html" class="nav-link">
+  Nginx使用总结
+</a></li><li class="dropdown-subitem"><a href="/post/javabasic/01-javabasic.html" class="nav-link">
+  求职面试整理
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">项目|产品</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">项目|产品</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          研发效能介绍
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/01-intro.html" class="nav-link">
+  研发效能入门介绍
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdefficiencyintro/06-efficiencysystem.html" class="nav-link">
+  研发效能体系构建
+</a></li></ul></li><li class="dropdown-item"><h4>
+          研发效能提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/projprod/rdeffciencypromote/09-summary.html" class="nav-link">
+  研发效能提升精华总结
+</a></li><li class="dropdown-subitem"><a href="/projprod/rdeffciencytool/01-intro.html" class="nav-link">
+  研发效能系统管理工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/about/aboutme.html" class="nav-link">
+  关于
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Linux操作系统命令</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/operation/linux/01-intro.html" class="sidebar-link">Linux命令-基础篇</a></li><li><a href="/operation/linux/02-cmdtop50.html" class="sidebar-link">Linux命令-Top50</a></li><li><a href="/operation/linux/03-cmdsum.html" class="sidebar-link">Linux命令-常用命令大全</a></li><li><a href="/operation/linux/04-cmdcurl.html" class="sidebar-link">Linux命令-Http工具Curl</a></li><li><a href="/operation/linux/05-shell.html" aria-current="page" class="active sidebar-link">Linux命令-Shell脚本编程</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Linux系统运维总结</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/operation/linuxop/01-filesystem.html" class="sidebar-link">Linux运维-文件系统简介</a></li><li><a href="/operation/linuxop/02-filesysdetail.html" class="sidebar-link">Linux运维-文件系统详解</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Nginx安装配置总结</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/operation/ng/01-intro.html" class="sidebar-link">Nginx-入门介绍</a></li><li><a href="/operation/ng/02-commwebserver.html" class="sidebar-link">常见Web服务器介绍</a></li><li><a href="/operation/ng/03-installconfig.html" class="sidebar-link">Nginx-安装和配置详解</a></li><li><a href="/operation/ng/03.1-ngloadbalancingcase.html" class="sidebar-link">Nginx-负载均衡配置案例</a></li><li><a href="/operation/ng/04-nggzip.html" class="sidebar-link">Nginx-gzip压缩开启</a></li><li><a href="/operation/ng/05-ngsum.html" class="sidebar-link">Nginx-精华总结</a></li></ul></section></li></ul> </aside> <main class="page page-content-spec" data-v-17815e06><div class="page_article_title_info" data-v-17815e06><div class="page_content_title" data-v-17815e06>Linux命令-Shell脚本编程</div> <div class="page_content_visit" data-v-17815e06><span data-v-17815e06>更新时间</span> <span style="display:none;" data-v-17815e06>2021-08-09 18:40:04</span>
+            
+          <span data-v-17815e06>浏览</span> <span style="display:none;" data-v-17815e06>0</span>
+            
+
+        </div></div>  <div class="theme-default-content content__default"><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>本文主要是介绍 Linux命令-Shell脚本编程 。</p></div> <p></p><div class="table-of-contents"><ul><li><a href="#一篇文章shell脚本快速入门">一篇文章Shell脚本快速入门</a></li><li><a href="#shell脚本基础入门">Shell脚本基础入门</a><ul><li><a href="#bash注释">Bash注释</a></li><li><a href="#bash基本数据类型">Bash基本数据类型</a></li><li><a href="#bash字符串串联">Bash字符串串联</a></li></ul></li><li><a href="#命令基本知识">命令基本知识</a><ul><li><a href="#变量赋值和引用变量">变量赋值和引用变量</a></li><li><a href="#变量替换">变量替换</a></li><li><a href="#命令替换">命令替换</a></li><li><a href="#算术运算">算术运算</a></li><li><a href="#退出状态码">退出状态码</a></li><li><a href="#exit命令">exit命令</a></li><li><a href="#后台执行命令">后台执行命令&amp;</a></li><li><a href="#多命令组合">多命令组合</a></li><li><a href="#基本重定向">基本重定向</a></li><li><a href="#管道">管道</a></li><li><a href="#tee命令">tee命令</a></li><li><a href="#进程替换">进程替换</a></li><li><a href="#条件测试语句">条件测试语句</a></li><li><a href="#if语句">if语句</a></li><li><a href="#case">case</a></li><li><a href="#for循环">for循环</a></li><li><a href="#while循环">while循环</a></li><li><a href="#shell函数">Shell函数</a></li><li><a href="#参考文章">参考文章</a></li></ul></li></ul></div><p></p> <h2 id="一篇文章shell脚本快速入门"><a href="#一篇文章shell脚本快速入门" class="header-anchor">#</a> 一篇文章Shell脚本快速入门</h2> <h2 id="shell脚本基础入门"><a href="#shell脚本基础入门" class="header-anchor">#</a> Shell脚本基础入门</h2> <h3 id="bash注释"><a href="#bash注释" class="header-anchor">#</a> Bash注释</h3> <p>Bash只支持单行注释，使用<code>#</code>开头的都被当作注释语句：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## 整行注释</span>
+<span class="token builtin class-name">echo</span> hello world <span class="token comment">## 行尾注释</span>
+</code></pre></div><p>通过Bash的一些特性，可以取巧实现多行注释：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">:</span> <span class="token string">'
+注释1
+注释2
+'</span>
+
+<span class="token builtin class-name">:</span> <span class="token operator">&lt;&lt;</span><span class="token string">'EOF'
+注释1
+注释2
+EOF</span>
+
+<span class="token assign-left variable">____</span><span class="token operator">=</span><span class="token string">'
+注释1
+注释2
+'</span>
+</code></pre></div><p>但是，别闲的蛋疼去用取巧的多行注释，安心用<code>#</code>来注释。</p> <h3 id="bash基本数据类型"><a href="#bash基本数据类型" class="header-anchor">#</a> Bash基本数据类型</h3> <p>Bash中基本数据类型只有字符串类型，连数值类型都没有(<code>declare -i</code>可强制声明数值类型)。</p> <p>比如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## 都会当作字符串</span>
+<span class="token builtin class-name">echo</span> haha
+<span class="token builtin class-name">echo</span> <span class="token number">1234</span>
+</code></pre></div><h3 id="bash字符串串联"><a href="#bash字符串串联" class="header-anchor">#</a> Bash字符串串联</h3> <p>Bash中字符串的串联操作，直接将两段数据连接在一起即可，不需要任何操作符。</p> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">echo</span> <span class="token string">&quot;junma&quot;</span>&quot;jinlong&quot;
+<span class="token builtin class-name">echo</span> <span class="token number">1234</span> <span class="token number">5678</span>
+</code></pre></div><h2 id="命令基本知识"><a href="#命令基本知识" class="header-anchor">#</a> 命令基本知识</h2> <h3 id="变量赋值和引用变量"><a href="#变量赋值和引用变量" class="header-anchor">#</a> 变量赋值和引用变量</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">3</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$a</span>
+
+<span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token string">&quot;www.junmajinlong.com&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$a</span>
+
+<span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token string">'hello world'</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$a</span>
+</code></pre></div><p>Shell中可以引用未定义的变量：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">echo</span> <span class="token variable">$xyzdefabc</span>
+</code></pre></div><p>可以定义空变量：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">a</span><span class="token operator">=</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$a</span>
+</code></pre></div><h3 id="变量替换"><a href="#变量替换" class="header-anchor">#</a> 变量替换</h3> <p>变量替换是指在命令开始执行前，Shell会先将变量的值替换到引用变量的位置处。</p> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token string">&quot;hello&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$a</span> world
+</code></pre></div><p>在echo命令开始执行前，Shell会取得变量a的值hello，并将它替换到命令行的<code>$a</code>处。于是，在echo命令开始执行时，命令行已经变成：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">echo</span> hello world
+</code></pre></div><p>除了变量替换，Shell还会做其它替换：</p> <ul><li>命令替换</li> <li>进程替换</li> <li>算术运算替换</li> <li>大括号扩展</li> <li>波浪号扩展</li> <li>路径扩展</li></ul> <p>这些扩展和替换，都是Shell在调用命令之前就完成的，这和其它语言解析代码的方式不一样。</p> <p>学习Shell如何做命令行解析很重要，如果不掌握命令行解析，当遇到命令行语法错误后很可能会花掉大量无谓的时间去调试命令。而掌握命令行解析后，就会对命令生命周期了如执掌，不敢说一次就能写对所有命令行，但能节省大量调试时间，对写命令行和写脚本的能力也会上升一个层次。</p> <h3 id="命令替换"><a href="#命令替换" class="header-anchor">#</a> 命令替换</h3> <p>使用反引号或<code>$()</code>可以执行命令替换。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token variable"><span class="token variable">`</span>cmd<span class="token variable">`</span></span>
+<span class="token variable"><span class="token variable">$(</span>cmd<span class="token variable">)</span></span>
+</code></pre></div><p>命令替换是指先执行cmd，将cmd的输出结果替换到<code>$()</code>或反引号位置处。</p> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">`</span><span class="token function">id</span> root<span class="token variable">`</span></span>
+<span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> root<span class="token variable">)</span></span>
+</code></pre></div><p>在echo命令执行前，会先执行id命令，id命令的执行结果：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">id</span> root
+<span class="token assign-left variable">uid</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token assign-left variable">gid</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token assign-left variable">groups</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+</code></pre></div><p>所以会将结果<code>uid=0(root) gid=0(root) groups=0(root)</code>替换<code>$(id root)</code>。于是，echo命令开始执行时，命令行已经变成了：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">echo</span> <span class="token assign-left variable">uid</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token assign-left variable">gid</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token assign-left variable">groups</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+</code></pre></div><h3 id="算术运算"><a href="#算术运算" class="header-anchor">#</a> 算术运算</h3> <p><code>$[]</code>或<code>$(())</code>或let命令可以做算术运算。</p> <p>let是单独的命令，不能写在其它命令行中。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">3</span>
+<span class="token builtin class-name">let</span> <span class="token assign-left variable">a</span><span class="token operator">=</span>a+1
+<span class="token builtin class-name">echo</span> <span class="token variable">$a</span>
+</code></pre></div><p><code>$[]</code>和<code>$(())</code>可以写在命令行内部，Shell在解析命令行的时候，会对它们做算术运算，然后将运算结果替换到命令行中。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">33</span>
+<span class="token builtin class-name">echo</span> $<span class="token punctuation">[</span>a+3<span class="token punctuation">]</span>
+<span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">$((</span>a<span class="token operator">+</span><span class="token number">3</span><span class="token variable">))</span></span>
+</code></pre></div><p>因为变量替换先于算术替换，所以，使用变量名或引用变量的方式都可以：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">333</span>
+<span class="token builtin class-name">echo</span> $<span class="token punctuation">[</span><span class="token variable">$a</span>+3<span class="token punctuation">]</span>
+<span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">$((</span>$a<span class="token operator">+</span><span class="token number">3</span><span class="token variable">))</span></span>
+</code></pre></div><h3 id="退出状态码"><a href="#退出状态码" class="header-anchor">#</a> 退出状态码</h3> <p>每个命令执行后都会有对应的进程退出状态码，用来表示该进程是否是正常退出。</p> <p>所以，在命令行中，在Shell脚本中，经常会使用特殊变量<code>$?</code>判断最近一个前台命令是否正常退出。</p> <p>通常情况下，如果<code>$?</code>的值：</p> <ul><li>为0，表示进程成功执行，即正常退出</li> <li>非0，表示进程未成功执行，即非正常退出</li> <li>但非0退出状态码并不一定表示错误，也可能是正常逻辑的退出</li></ul> <p>另外，在Shell脚本中，所有条件判断(比如if语句、while语句)都以0退出状态码表示True，以非0退出状态码为False。</p> <h3 id="exit命令"><a href="#exit命令" class="header-anchor">#</a> exit命令</h3> <p>exit命令可用于退出当前Shell进程，比如退出当前Shell终端、退出Shell脚本，等等。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">exit</span> <span class="token punctuation">[</span>N<span class="token punctuation">]</span>
+</code></pre></div><p>exit可指定退出状态码N，如果省略N，则默认退出状态码为0，即表示正确退出。</p> <h3 id="后台执行命令"><a href="#后台执行命令" class="header-anchor">#</a> 后台执行命令&amp;</h3> <p>在命令的结尾使用<code>&amp;</code>符号，可以将这个命令放入后台执行。</p> <p>命令放入后台后，会立即回到Shell进程，Shell进程会立即执行下一条命令(如果有)或退出。</p> <p>使用<code>$!</code>可以获取最近一个后台进程的PID。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">sleep</span> <span class="token number">20</span> <span class="token operator">&amp;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$!</span>
+</code></pre></div><p>使用<code>wait</code>命令可以等待后台进程(当前Shell进程的子进程)完成：</p> <div class="language- extra-class"><pre class="language-text"><code>wait [n1 n2 n3 ...]
+</code></pre></div><p>不给定任何参数时，会等待所有子进程(即所有后台进程)完成。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">sleep</span> <span class="token number">5</span> <span class="token operator">&amp;</span>
+<span class="token function">wait</span>
+<span class="token builtin class-name">echo</span> haha
+</code></pre></div><h3 id="多命令组合"><a href="#多命令组合" class="header-anchor">#</a> 多命令组合</h3> <p>Shell中有多种组合多个命令的方式。</p> <p>1.cmd1退出后，执行cmd2</p> <div class="language-shell extra-class"><pre class="language-shell"><code>cmd1<span class="token punctuation">;</span>cmd2
+</code></pre></div><p>2.cmd1正确退出(退出状态码为0)后，执行cmd2</p> <div class="language-shell extra-class"><pre class="language-shell"><code>cmd1 <span class="token operator">&amp;&amp;</span> cmd2
+</code></pre></div><p>3.cmd1不正确退出后，执行cmd2</p> <div class="language-shell extra-class"><pre class="language-shell"><code>cmd1 <span class="token operator">||</span> cmd2
+</code></pre></div><p>4.逻辑结合：<code>&amp;&amp;</code>和<code>||</code>可以随意结合</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## cmd1正确退出后执行cmd2，cmd2正确退出后执行cmd3</span>
+cmd1 <span class="token operator">&amp;&amp;</span> cmd2 <span class="token operator">&amp;&amp;</span> cmd3<span class="token punctuation">..</span>.
+
+<span class="token comment">## cmd1正确退出则执行cmd2，cmd1不正确退出会执行cmd3</span>
+<span class="token comment">## cmd1正确退出，但cmd2不正确退出，也会执行cmd3</span>
+cmd1 <span class="token operator">&amp;&amp;</span> cmd2 <span class="token operator">||</span> cmd3
+
+<span class="token comment">## cmd1正确退出会执行cmd3</span>
+<span class="token comment">## cmd1不正确退出会执行cmd2，cmd2正确退出会执行cmd3</span>
+cmd1 <span class="token operator">||</span> cmd2 <span class="token operator">&amp;&amp;</span> cmd3
+</code></pre></div><p>5.将多个命令分组：小括号或大括号可以组合多个命令</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## 小括号组合的多个命令是在子Shell中执行</span>
+<span class="token comment">## 即会先创建一个新的Shell进程，在执行里面的命令</span>
+<span class="token punctuation">(</span>cmd1<span class="token punctuation">;</span>cmd2<span class="token punctuation">;</span>cmd3<span class="token punctuation">)</span>
+
+<span class="token comment">## 大括号组合的多个命令是在当前Shell中执行</span>
+<span class="token comment">## 大括号语法特殊，要求：</span>
+<span class="token comment">##   1.开闭括号旁边都有空白，否则语法解析错误(解析成大括号扩展)</span>
+<span class="token comment">##   2.写在同一行时，每个cmd后都要加分号结尾</span>
+<span class="token comment">##   3.多个命令可分行书写，不要求分号结尾</span>
+<span class="token punctuation">{</span> cmd1<span class="token punctuation">;</span>cmd2<span class="token punctuation">;</span>cmd3<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">{</span>
+  cmd1
+  cmd2
+  cmd3
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="基本重定向"><a href="#基本重定向" class="header-anchor">#</a> 基本重定向</h3> <p>软件设计认为，程序应该有一个数据来源、数据出口和报告错误的地方。在Linux系统中，每个程序默认都会打开三个文件描述符(file descriptor,fd)：</p> <ul><li>fd=0：标准输入，表示程序默认从哪里读取数据</li> <li>fd=1：标准输出，表示程序默认将数据输出到哪里</li> <li>fd=2：标准错误，表示程序默认将错误信息输出到哪里</li></ul> <p>文件描述符，说白了就是系统为了跟踪打开的文件而分配给它的一个数字，这个数字和文件有对应关系：从文件描述符读取数据，即表示从对应的文件中读取数据，向文件描述符写数据，即表示向对应文件中写入数据。</p> <p>Linux中万物皆文件，文件描述符也是文件。默认：</p> <ul><li>fd=0的标准输入是/dev/stdin文件</li> <li>fd=1的标准输出是/dev/stdout文件</li> <li>fd=2的标准错误是/dev/stderr文件</li></ul> <p>这些文件默认又是各个终端的软链接文件：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">ls</span> -l /dev/std*
+lrwxrwxrwx <span class="token number">1</span> root root <span class="token number">15</span> Jan  <span class="token number">8</span> <span class="token number">20</span>:26 /dev/stderr -<span class="token operator">&gt;</span> /proc/self/fd/2
+lrwxrwxrwx <span class="token number">1</span> root root <span class="token number">15</span> Jan  <span class="token number">8</span> <span class="token number">20</span>:26 /dev/stdin -<span class="token operator">&gt;</span> /proc/self/fd/0
+lrwxrwxrwx <span class="token number">1</span> root root <span class="token number">15</span> Jan  <span class="token number">8</span> <span class="token number">20</span>:26 /dev/stdout -<span class="token operator">&gt;</span> /proc/self/fd/1
+
+$ <span class="token function">ls</span> -l /proc/self/fd/
+lrwx------ <span class="token number">1</span> root root <span class="token number">64</span> Jan <span class="token number">16</span> <span class="token number">10</span>:40 <span class="token number">0</span> -<span class="token operator">&gt;</span> /dev/pts/0
+lrwx------ <span class="token number">1</span> root root <span class="token number">64</span> Jan <span class="token number">16</span> <span class="token number">10</span>:40 <span class="token number">1</span> -<span class="token operator">&gt;</span> /dev/pts/0
+lrwx------ <span class="token number">1</span> root root <span class="token number">64</span> Jan <span class="token number">16</span> <span class="token number">10</span>:40 <span class="token number">2</span> -<span class="token operator">&gt;</span> /dev/pts/0
+lr-x------ <span class="token number">1</span> root root <span class="token number">64</span> Jan <span class="token number">16</span> <span class="token number">10</span>:40 <span class="token number">3</span> -<span class="token operator">&gt;</span> /proc/75220/fd
+</code></pre></div><p>所以，默认情况下读写数据都是终端，例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## 数据输出到终端</span>
+$ <span class="token builtin class-name">echo</span> haha
+$ <span class="token function">cat</span> /etc/fstab
+
+<span class="token comment">## 从终端读取数据</span>
+$ <span class="token function">cat</span>
+hello   <span class="token comment">## 在终端输入</span>
+hello   <span class="token comment">## 在终端输出</span>
+world   <span class="token comment">## 在终端输入</span>
+world   <span class="token comment">## 在终端输出</span>
+^C
+</code></pre></div><p>改变文件描述符对应的目标，可以改变数据的流向。比如标准输入fd=1默认流向是终端设备，若将其改为/tmp/a.log，便能让数据写入/tmp/a.log文件中而不再是终端设备中。</p> <p>在Shell中，这种改变文件描述符目标的行为称为<strong>重定向</strong>，即重新确定数据的流向。</p> <p>其实，文件描述符有很多类操作，包括fd的重定向、fd的分配(open，即打开文件)、fd复制(duplicate)、fd的移动(move)、fd的关闭(close)。现在只介绍基础重定向操作。</p> <p>Shell中，基础重定向操作有以下几种方式：</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>[n]&gt;file
+</code></pre></div><p>：覆盖式输出重定向，输出到fd=n的数据改变流向输出到file文件中，file不存在则创建，file存在则先清空再写入数据</p> <ul><li>省略n时<code>&gt;file</code>，等价于<code>1&gt;file</code>，即标准输出覆盖重定向到file文件中</li></ul></li> <li><div class="language- extra-class"><pre class="language-text"><code>[n]&gt;&gt;file
+</code></pre></div><p>：追加式输出重定向，输出到fd=n的数据改变流向输出到file文件的尾部，file不存在则创建，file存在则直接追加在文件尾部</p> <ul><li>省略n时<code>&gt;&gt;file</code>，等价于<code>1&gt;&gt;file</code>，即标准输出追加重定向到file文件中</li></ul></li> <li><div class="language- extra-class"><pre class="language-text"><code>[n]&lt;file
+</code></pre></div><p>：输入重定向，以读取模式打开file文件并分配fd=n，file不存在则报错</p> <ul><li>省略n时<code>&lt;file</code>，等价于<code>0&lt;file</code>，即直接从file中读数据</li> <li>通常程序都只从fd=0中读数据，所以当n不等于0时，需要多做一步操作<code>3&lt;file &lt;&amp;3</code>，看不懂先跳过</li></ul></li> <li><p><code>&amp;&gt;file</code>：这是特殊的重定向方式，表示将标准错误和标准输出都重定向到file文件中，等价于<code>&gt;file 2&gt;&amp;1</code></p></li> <li><p><code>&amp;&gt;&gt;file</code>：这是特殊的重定向方式，表示将标准错误和标准输出都追加到file文件中，等价于<code>&gt;&gt;file 2&gt;&amp;1</code></p></li></ul> <p>另外，经常用于输出的一个特殊目标文件是/dev/null，它是空设备，可以直接丢掉所有写入它的数据。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">echo</span> www.junmajinlong.com <span class="token operator">&gt;</span>/dev/null
+<span class="token function">curl</span> -I www.junmajinlong.com <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">&gt;</span>/tmp/a.log
+
+<span class="token function">cat</span> <span class="token operator">&lt;</span>/etc/fstab
+</code></pre></div><p>一个经常用的技巧是清空文件的方式：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">cat</span> /dev/null <span class="token operator">&gt;</span>file
+$ <span class="token operator">&gt;</span>file
+</code></pre></div><h4 id="区分cat-file和cat-file"><a href="#区分cat-file和cat-file" class="header-anchor">#</a> 区分cat &lt;file和cat file</h4> <p>cat是一个命令，这个命令的源代码中写了一些代码用来处理选项和参数。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">cat</span> -n /etc/fstab
+</code></pre></div><p>cat命令开始执行后，会识别<code>-n</code>选项，该选项会让cat输出时同时输出行号，cat同时还会识别<code>/etc/fstab</code>参数，cat会读取参数指定的文件然后输出。</p> <p>如果没有指定cat的文件参数，则cat默认会从标准输入中读取数据。默认的标准输入是终端，所以在没有改变标准输入的流向时，会从终端读取数据，也就是用户输入什么字符，就读取什么字符，然后输出什么字符：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">cat</span>
+junmajinlong   <span class="token comment">## 在终端输入</span>
+junmajinlong   <span class="token comment">## 在终端输出</span>
+junma   <span class="token comment">## 在终端输入</span>
+junma   <span class="token comment">## 在终端输出</span>
+^C
+</code></pre></div><p>但用户可以改变标准输入的来源。比如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">cat</span> <span class="token operator">&lt;</span>/etc/fstab
+</code></pre></div><p>表示将标准输入来源改为/etc/fstab文件，于是cat会从/etc/fstab中读取数据。</p> <p>另外，约定俗成的，会使用一个<code>-</code>来表示标准输入或标准输出。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## 下面是等价的，都表示从标准输入中读取数据</span>
+<span class="token function">cat</span> -
+<span class="token function">cat</span> /dev/stdin
+<span class="token function">cat</span>
+</code></pre></div><p>注：这并非是一贯正确的，只是约定俗成的大多数程序的代码中都定义了<code>-</code>相关的代码处理。可参考相关命令的man手册。如man cat中有一行：</p> <div class="language- extra-class"><pre class="language-text"><code>With no FILE, or when FILE is -, read standard input.
+</code></pre></div><h4 id="here-doc"><a href="#here-doc" class="header-anchor">#</a> here doc</h4> <p>输入重定向是<code>&lt;</code>，除此之外还有<code>&lt;&lt;、&lt;&lt;&lt;</code>。</p> <p><code>&lt;&lt;</code>符号表示here doc。也就是说，它后面跟的是一篇文档，就像一个文件一样，只不过这个文件的内容是临时定义在<code>&lt;&lt;</code>符号后的。here doc常用于指定多行数据输入。</p> <p>既然是文档，就有文档起始符号表示文档从此开始和文档终止符号表示文档到此结束。起始符和终止符中间的内容全部是文档内容。文档内容会作为标准输入的数据被读取。</p> <p>文档的起始符和终止符可以随意定义，但两者前后必须一样。常见的符号是：</p> <ul><li>EOF：end of file</li> <li>EOL：end of line</li> <li>EOB：end of block</li></ul> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## here doc作为标准输入被读取，然后被cat输出</span>
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+hello
+world
+EOF</span>
+
+<span class="token comment">## here doc的内容还会被cat覆盖式输出到指定文件</span>
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">eof<span class="token bash punctuation"> <span class="token operator">&gt;</span>/tmp/file</span>
+hello
+world
+eof</span>
+
+<span class="token comment">## here doc的内容还会被cat追加式输出到指定文件</span>
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">eof<span class="token bash punctuation"> <span class="token operator">&gt;&gt;</span>/tmp/file</span>
+hello
+world
+eof</span>
+
+<span class="token comment">## here doc和重定向符号的前后位置随意</span>
+<span class="token function">cat</span> <span class="token operator">&gt;&gt;</span>/tmp/file<span class="token operator">&lt;&lt;</span><span class="token string">eof
+...
+eof</span>
+</code></pre></div><p>另外，如果将起始符用引号包围，则不会进行变量替换、命令替换、算术替换等。如果不用引号包围起始符，则会进行替换。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">333</span>
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">eof
+<span class="token variable">$a</span>
+eof</span>
+
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">&quot;eof&quot;
+$a
+eof</span>
+</code></pre></div><p>输出结果：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">333</span>
+<span class="token variable">$a</span>
+</code></pre></div><h4 id="here-string"><a href="#here-string" class="header-anchor">#</a> here string</h4> <p><code>&lt;&lt;&lt;</code>表示here string。也就是说该符号后面是一个字符串，这个字符串会作为标准输入的内容。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">cat</span> <span class="token operator">&lt;&lt;&lt;</span><span class="token string">&quot;www.junmajinlong.com&quot;</span>
+</code></pre></div><p>使用单引号包围here string时，不会进行变量替换、命令替换等，使用双引号包围时会进行替换。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">3333</span>
+$ <span class="token function">cat</span> <span class="token operator">&lt;&lt;&lt;</span><span class="token variable">$a</span>            
+<span class="token number">3333</span>
+$ <span class="token function">cat</span> <span class="token operator">&lt;&lt;&lt;</span><span class="token string">&quot;hello world<span class="token variable">$a</span>&quot;</span>
+hello world3333
+$ <span class="token function">cat</span> <span class="token operator">&lt;&lt;&lt;</span><span class="token string">'hello world<span class="token variable">$a</span>'</span> 
+hello world<span class="token variable">$a</span>
+</code></pre></div><p>here string常可以替代管道前的echo命令<code>echo xxx|</code>。例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## 下面是等价的</span>
+<span class="token builtin class-name">echo</span> hello world <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;llo&quot;</span>
+<span class="token function">grep</span> <span class="token string">&quot;llo&quot;</span> <span class="token operator">&lt;&lt;&lt;</span><span class="token string">&quot;hello world&quot;</span>
+</code></pre></div><h3 id="管道"><a href="#管道" class="header-anchor">#</a> 管道</h3> <p>管道的用法：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>cmd1 <span class="token operator">|</span> cmd2 <span class="token operator">|</span> cmd3<span class="token punctuation">..</span>.
+</code></pre></div><p>每个竖线代表一个管道。上面命令行表示cmd1的标准输出会放进管道，cmd2会从管道中读取进行处理，cmd2的标准输出会放入另一个管道，cmd3会从这个管道中读取数据进行处理。后面还可以接任意数量的管道。</p> <p>Shell管道是Shell中最值得称赞的功能之一，它以非常简洁的形式实现了管道的进程间通信方式，我个人认为Shell处理文本数据的半壁江山都来自于竖线形式的管道。像其它编程语言，打开管道后还要区分哪个进程写管道、哪个进程读管道，为了安全，每个进程还要关闭不用的读端或写端，总之就是麻烦，而Shell的管道非常简洁，竖线左边的就是写管道的，竖线右边的就是读管道的。</p> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'sshd'</span>
+</code></pre></div><p>ps命令产生的数据(标准输出)会写进管道，只要管道内一有数据，grep命令就从中读取数据进行处理。</p> <p>那下面的命令中，grep从哪读数据呢？</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'#'</span> /etc/fstab
+</code></pre></div><p>那想要让grep既从/etc/fstab读取数据，也从管道中读取数据呢？</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'#'</span> /etc/fstab /etc/stdin
+<span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'#'</span> /etc/fstab -
+</code></pre></div><h3 id="tee命令"><a href="#tee命令" class="header-anchor">#</a> tee命令</h3> <p>tee命令可将一份标准输入原样拷贝到标准输出和0或多个文件中。换句话说，tee的作用是数据多重定向。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>NAME
+    <span class="token function">tee</span> - <span class="token builtin class-name">read</span> from standard input and <span class="token function">write</span> to standard output and files
+
+SYNOPSIS
+    <span class="token function">tee</span> <span class="token punctuation">[</span>OPTION<span class="token punctuation">]</span><span class="token punctuation">..</span>. <span class="token punctuation">[</span>FILE<span class="token punctuation">]</span><span class="token punctuation">..</span>.
+
+DESCRIPTION
+    Copy standard input to each FILE, and also to standard output.
+
+    -a, --append
+        ppend to the given FILEs, <span class="token keyword">do</span> not overwrite
+</code></pre></div><p>如图：</p> <p><img src="" alt="1581130562081"></p> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token builtin class-name">echo</span> hello world <span class="token operator">|</span> <span class="token function">tee</span> /tmp/file1 /tmp/file2 <span class="token operator">|</span> <span class="token function">cat</span>
+$ <span class="token builtin class-name">echo</span> hello world <span class="token operator">|</span> <span class="token function">tee</span> -a /tmp/file3 <span class="token operator">&gt;</span>/dev/null
+</code></pre></div><h3 id="进程替换"><a href="#进程替换" class="header-anchor">#</a> 进程替换</h3> <p>Bash还支持进程替换(注：有些Shell不支持进程替换)。</p> <p>进程替换的语法：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token operator">&lt;</span><span class="token punctuation">(</span>cmd<span class="token punctuation">)</span>
+<span class="token operator">&gt;</span><span class="token punctuation">(</span>cmd<span class="token punctuation">)</span>
+</code></pre></div><p>进程替换和命令替换类似，都是让cmd命令先执行，因为它们都是在Shell解析命令行的阶段执行的。</p> <p>进程替换先让cmd放入后台异步执行，并且不会等待cmd执行完。</p> <p>其实，每个进程替换都是一个虚拟文件，只不过这个文件的内容是由cmd命令产生的(<code>&lt;(cmd)</code>)或被cmd命令读取的(<code>&gt;(cmd)</code>)。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token builtin class-name">echo</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token builtin class-name">echo</span> www.junmajinlong.com<span class="token punctuation">)</span>
+/dev/fd/63
+</code></pre></div><p>既然进程替换是文件，那么它就可以像文件一样被操作。比如被读取、被当作标准输入重定向的数据源等等：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## cmd做数据产生者</span>
+$ <span class="token function">cat</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token builtin class-name">echo</span> www.junmajinlong.com<span class="token punctuation">)</span>   <span class="token comment">## 等价于cat /dev/fd/63</span>
+$ <span class="token function">cat</span> <span class="token operator">&lt;</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token builtin class-name">echo</span> www.junmajinlong.com<span class="token punctuation">)</span> <span class="token comment">## 等价于cat &lt;/dev/fd/63</span>
+
+<span class="token comment">## cmd做数据接收者</span>
+$ <span class="token builtin class-name">echo</span> hello world <span class="token operator">&gt;</span> <span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token function">grep</span> <span class="token string">'llo'</span><span class="token punctuation">)</span>
+$ <span class="token builtin class-name">echo</span> hello world <span class="token operator">|</span> <span class="token function">tee</span> <span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token function">grep</span> <span class="token string">'llo'</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token function">grep</span> <span class="token string">'rld'</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span>/dev/null
+</code></pre></div><h3 id="条件测试语句"><a href="#条件测试语句" class="header-anchor">#</a> 条件测试语句</h3> <p>test命令或功能等价的Bash内置命令<code>[ ]</code>可以做条件测试，如果测试的结果为True，则退出状态码为0。</p> <p>此外，还可以使用<code>[[]]</code>来做条件测试，甚至<code>let、$[]、$(())</code>也可以做条件测试，但这里暂不介绍。</p> <p>这些条件测试常用在if、while语句中，也常用在<code>cmd1 &amp;&amp; cmd2 || cmd3</code>格式的命令行中。</p> <p>用法示例：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">sh_file</span><span class="token operator">=</span>test.sh
+<span class="token punctuation">[</span> -x <span class="token string">&quot;<span class="token variable">$sh_file</span>&quot;</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> ./<span class="token variable">$sh_file</span> <span class="token operator">||</span> <span class="token punctuation">{</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;can't execute,exit...&quot;</span><span class="token punctuation">;</span><span class="token builtin class-name">exit</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token builtin class-name">test</span> -x <span class="token string">&quot;<span class="token variable">$sh_file</span>&quot;</span> <span class="token operator">&amp;&amp;</span> ./<span class="token variable">$sh_file</span> <span class="token operator">||</span> <span class="token punctuation">{</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;can't execute,exit...&quot;</span><span class="token punctuation">;</span><span class="token builtin class-name">exit</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</code></pre></div><p><code>[]</code>中的条件测试需要和开闭中括号使用空格隔开，否则语法解析错误。</p> <h4 id="无测试内容"><a href="#无测试内容" class="header-anchor">#</a> 无测试内容</h4> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">[</span>  <span class="token punctuation">]</span>
+<span class="token builtin class-name">test</span>
+</code></pre></div><p>没有任何测试内容时，直接返回false。</p> <h4 id="true和false命令"><a href="#true和false命令" class="header-anchor">#</a> true和false命令</h4> <p>true命令直接返回true，即退出状态码为0。</p> <p>false命令直接返回false，即退出状态码非0。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token boolean">true</span>
+$ <span class="token builtin class-name">echo</span> <span class="token variable">$?</span>  <span class="token comment">## 0</span>
+$ <span class="token boolean">false</span>
+$ <span class="token builtin class-name">echo</span> <span class="token variable">$?</span>  <span class="token comment">## 1</span>
+</code></pre></div><h4 id="文件类测试"><a href="#文件类测试" class="header-anchor">#</a> 文件类测试</h4> <table><thead><tr><th>条件表达式</th> <th>含义</th></tr></thead> <tbody><tr><td>-e file</td> <td>文件是否存在(exist)</td></tr> <tr><td>-f file</td> <td>文件是否存在且为普通文件(file)</td></tr> <tr><td>-d file</td> <td>文件是否存在且为目录(directory)</td></tr> <tr><td>-b file</td> <td>文件是否存在且为块设备block device</td></tr> <tr><td>-c file</td> <td>文件是否存在且为字符设备character device</td></tr> <tr><td>-S file</td> <td>文件是否存在且为套接字文件Socket</td></tr> <tr><td>-p file</td> <td>文件是否存在且为命名管道文件FIFO(pipe)</td></tr> <tr><td>-L file</td> <td>文件是否存在且是一个链接文件(Link)</td></tr></tbody></table> <h4 id="文件属性类测试"><a href="#文件属性类测试" class="header-anchor">#</a> 文件属性类测试</h4> <table><thead><tr><th>条件表达式</th> <th>含义</th></tr></thead> <tbody><tr><td>-r file</td> <td>文件是否存在且当前用户可读</td></tr> <tr><td>-w file</td> <td>文件是否存在且当前用户可写</td></tr> <tr><td>-x file</td> <td>文件是否存在且当前用户可执行</td></tr> <tr><td>-s file</td> <td>文件是否存在且大小大于0字节，即检测文件是否非空文件</td></tr> <tr><td>-N file</td> <td>文件是否存在，且自上次read后是否被modify</td></tr></tbody></table> <h4 id="两文件之间的比较"><a href="#两文件之间的比较" class="header-anchor">#</a> 两文件之间的比较</h4> <table><thead><tr><th>条件表达式</th> <th>含义</th></tr></thead> <tbody><tr><td>file1 -nt file2</td> <td>(newer than)判断file1是否比file2新</td></tr> <tr><td>file1 -ot file2</td> <td>(older than)判断file1是否比file2旧</td></tr> <tr><td>file1 -ef file2</td> <td>(equal file)判断file1与file2是否为同一文件</td></tr></tbody></table> <h4 id="数值大小比较"><a href="#数值大小比较" class="header-anchor">#</a> 数值大小比较</h4> <table><thead><tr><th>条件表达式</th> <th>含义</th></tr></thead> <tbody><tr><td>int1 -eq int2</td> <td>两数值相等(equal)</td></tr> <tr><td>int1 -ne int2</td> <td>两数值不等(not equal)</td></tr> <tr><td>int1 -gt int2</td> <td>n1大于n2(greater than)</td></tr> <tr><td>int1 -lt int2</td> <td>n1小于n2(less than)</td></tr> <tr><td>int1 -ge int2</td> <td>n1大于等于n2(greater than or equal)</td></tr> <tr><td>int1 -le int2</td> <td>n1小于等于n2(less than or equal)</td></tr></tbody></table> <h4 id="字符串比较"><a href="#字符串比较" class="header-anchor">#</a> 字符串比较</h4> <table><thead><tr><th>条件表达式</th> <th>含义</th></tr></thead> <tbody><tr><td>-z str</td> <td>(zero)判定字符串是否为空？str为空串，则true</td></tr> <tr><td>str -n str</td> <td>判定字符串是否非空？str为串，则false。注：-n可省略</td></tr> <tr><td>str1 = str2 str1 == str2</td> <td>str1和str2是否相同，相同则返回true。&quot;==&quot;和&quot;=&quot;等价</td></tr> <tr><td>str1 != str2</td> <td>str1是否不等于str2，若不等，则返回true</td></tr> <tr><td>str1 &gt; str2</td> <td>str1字母顺序是否大于str2，若大于则返回true</td></tr> <tr><td>str1 &lt; str2</td> <td>str1字母顺序是否小于str2，若小于则返回true</td></tr></tbody></table> <h4 id="逻辑运算符"><a href="#逻辑运算符" class="header-anchor">#</a> 逻辑运算符</h4> <table><thead><tr><th>条件表达式</th> <th>含义</th></tr></thead> <tbody><tr><td>-a或&amp;&amp;</td> <td>(and)两表达式同时为true时才为true。 &quot;-a&quot;只能在test或[]中使用，&amp;&amp;只能在[[]]中使用</td></tr> <tr><td>-o或||</td> <td>(or)两表达式任何一个true则为true。 &quot;-o&quot;只能在test或[]中使用，||只能在[[]]中使用</td></tr> <tr><td>!</td> <td>对表达式取反</td></tr> <tr><td>( )</td> <td>改变表达式的优先级，<strong>为了防止被shell解析，应加上反斜线转义( )</strong></td></tr></tbody></table> <h3 id="if语句"><a href="#if语句" class="header-anchor">#</a> if语句</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token keyword">if</span> test-commands<span class="token punctuation">;</span> <span class="token keyword">then</span>
+  consequent-commands<span class="token punctuation">;</span>
+<span class="token punctuation">[</span>elif more-test-commands<span class="token punctuation">;</span> <span class="token keyword">then</span>
+  more-consequents<span class="token punctuation">;</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>else alternate-consequents<span class="token punctuation">;</span><span class="token punctuation">]</span>
+<span class="token keyword">fi</span>
+</code></pre></div><p>test-commands既可以是test测试或<code>[]、[[]]</code>测试，也可以是任何其它命令，test-commands用于条件测试，它只判断命令的退出状态码是否为0，为0则为true。</p> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$a</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span> <span class="token builtin class-name">echo</span> <span class="token string">'<span class="token variable">$a</span>'</span> is not none<span class="token punctuation">;</span><span class="token keyword">else</span> <span class="token builtin class-name">echo</span> <span class="token string">'<span class="token variable">$a</span>'</span> undefined or empty<span class="token punctuation">;</span><span class="token keyword">fi</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> -d ~/.ssh <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+  <span class="token function">mkdir</span> ~/.ssh
+  <span class="token function">chown</span> -R <span class="token environment constant">$USER</span><span class="token builtin class-name">.</span><span class="token environment constant">$USER</span> ~/.ssh
+  <span class="token function">chmod</span> <span class="token number">700</span> ~/.ssh
+<span class="token keyword">fi</span>
+
+<span class="token keyword">if</span> <span class="token function">grep</span> <span class="token string">'junmajinlong'</span> /etc/passwd <span class="token operator">&amp;&gt;</span>/dev/null<span class="token punctuation">;</span><span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">'User &quot;junmajinlong&quot; already exists...'</span>
+<span class="token keyword">elif</span> <span class="token function">grep</span> <span class="token string">'malongshuai'</span> /etc/passwd <span class="token operator">&amp;&gt;</span>/dev/null<span class="token punctuation">;</span><span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">'User &quot;malongshuai&quot; already exists...'</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">'you should create user,exit...'</span>
+  <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+</code></pre></div><h3 id="case"><a href="#case" class="header-anchor">#</a> case</h3> <p>case常用于确定的分支判断。比如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">${<span class="token operator">#</span>@}</span> -gt <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">do</span>
+  <span class="token keyword">case</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token keyword">in</span>
+    start<span class="token punctuation">)</span>
+    	<span class="token builtin class-name">echo</span> start<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    stop<span class="token punctuation">)</span>
+    	<span class="token builtin class-name">echo</span> stop
+    	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    restart<span class="token punctuation">)</span>
+    	<span class="token builtin class-name">echo</span> restart
+    	<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    reload <span class="token operator">|</span> force-reload<span class="token punctuation">)</span>
+    	<span class="token builtin class-name">echo</span> reload<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    status<span class="token punctuation">)</span>
+    	<span class="token builtin class-name">echo</span> status<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span>
+    	<span class="token builtin class-name">echo</span> $<span class="token string">&quot;Usage: <span class="token variable">$0</span> {start|stop|status|restart|reload|force-reload}&quot;</span>
+    	<span class="token builtin class-name">exit</span> <span class="token number">2</span>
+  <span class="token keyword">esac</span>
+<span class="token keyword">done</span>
+</code></pre></div><p>case用法基本要求：</p> <ul><li>除最后一个分支外，每个分支都以<code>;;</code>结尾，否则出现分支穿透(所以<code>;;</code>不是必须的)</li> <li>分支条件可以使用通配符号</li> <li>分支条件中可使用竖线隔开多个条件，表示只要匹配其中之一就执行该分支</li> <li>最后一般会定义一个能匹配其它任意条件的默认分支，即<code>*)</code></li></ul> <p>下面是为ping命令自定义设计选项的脚本：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token shebang important">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">$1</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">do</span>
+  <span class="token keyword">case</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token keyword">in</span> 
+    -c<span class="token operator">|</span>--count<span class="token punctuation">)</span>
+      <span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token variable">$2</span>
+      <span class="token builtin class-name">shift</span> <span class="token number">2</span>
+      <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    -t<span class="token operator">|</span>--timeout<span class="token punctuation">)</span>
+      <span class="token assign-left variable">timeout</span><span class="token operator">=</span><span class="token variable">$2</span>
+      <span class="token builtin class-name">shift</span> <span class="token number">2</span>
+      <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    -h<span class="token operator">|</span>--host<span class="token punctuation">)</span>
+      <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token variable">$2</span>
+      <span class="token builtin class-name">shift</span> <span class="token number">2</span>
+      <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">&quot;wrong options or arguments&quot;</span>
+      <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+  <span class="token keyword">esac</span>
+<span class="token keyword">done</span>
+
+<span class="token function">ping</span> -c <span class="token variable">$count</span> -W <span class="token function">timeout</span> <span class="token variable">$host</span>
+</code></pre></div><p>执行：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">chmod</span> +x ping.sh
+$ ./ping.sh -c <span class="token number">5</span> -t <span class="token number">2</span> -h www.baidu.com
+</code></pre></div><h3 id="for循环"><a href="#for循环" class="header-anchor">#</a> for循环</h3> <p>有两种for循环结构：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## 成员测试类语法</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> word1 word2 <span class="token punctuation">..</span>.<span class="token punctuation">;</span><span class="token keyword">do</span> cmd_list<span class="token punctuation">;</span><span class="token keyword">done</span>
+
+<span class="token comment">## C语言for语法</span>
+<span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span> expr1<span class="token punctuation">;</span>expr2<span class="token punctuation">;</span>expr3 <span class="token punctuation">))</span></span><span class="token punctuation">;</span><span class="token keyword">do</span> cmd_list<span class="token punctuation">;</span><span class="token keyword">done</span>
+</code></pre></div><p>成员测试类的for循环中，in关键字后是使用空格分隔的一个或多个元素，for循环时，每次从in关键字后面取一个元素并赋值给i变量。</p> <p>例如：</p> <div class="language- extra-class"><pre class="language-text"><code>
+$ for i in 1 2 3 4;do echo $i;done
+
+$ for i in 1 2 &quot;3 4&quot;;do echo $i;done
+
+</code></pre></div><p>C语言型的for语法中，expr1是初始化语句，expr2是循环终点条件判断语句，expr3是每轮循环后执行的语句，一般用来更改条件判断相关的变量。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">3</span><span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">))</span></span><span class="token punctuation">;</span><span class="token keyword">do</span> <span class="token builtin class-name">echo</span> <span class="token variable">$i</span><span class="token punctuation">;</span><span class="token keyword">done</span>
+
+</code></pre></div><h3 id="while循环"><a href="#while循环" class="header-anchor">#</a> while循环</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token keyword">while</span> test_cmd_list<span class="token punctuation">;</span><span class="token keyword">do</span> cmd_list<span class="token punctuation">;</span><span class="token keyword">done</span>
+</code></pre></div><p>while循环，开始时会测试<code>test_cmd_list</code>，如果测试的退出状态码为0，则执行一次循环体语句<code>cmd_list</code>，然后再测试<code>test_cmd_list</code>，一直循环，直到测试退出状态码非0，循环退出。</p> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">let</span> <span class="token assign-left variable">i</span><span class="token operator">=</span><span class="token number">1</span>,sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">$i</span> -le <span class="token number">10</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">do</span> 
+  <span class="token builtin class-name">let</span> <span class="token assign-left variable">sum</span><span class="token operator">=</span>sum+i
+  <span class="token builtin class-name">let</span> ++i
+<span class="token keyword">done</span>
+</code></pre></div><p>还有until循环语句，但在Shell中用的很少。</p> <p>while循环经常会和read命令一起使用，read是Bash的内置命令，可用来读取文件，通常会按行读取：每次读一行。</p> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">cat</span> /etc/fstab <span class="token operator">|</span> <span class="token keyword">while</span> <span class="token builtin class-name">read</span> line<span class="token punctuation">;</span><span class="token keyword">do</span>
+  <span class="token builtin class-name">let</span> <span class="token assign-left variable">num</span><span class="token operator">+=</span><span class="token number">1</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$num</span><span class="token builtin class-name">:</span> <span class="token variable">$line</span>
+<span class="token keyword">done</span>
+</code></pre></div><p>上面的命令行中，首先cat进程和while结构开始运行，while结构中的read命令从标准输入中读取，也就是从管道中读取数据，每次读取一行，因为管道中最初没有数据，所以read命令被阻塞处于数据等待状态。当cat命令读完文件所有数据后，将数据放入到管道中，于是read命令从管道中每次读取一行并将所读行赋值给变量line，然后执行循环体，然后继续循环，直到read读完所有数据，循环退出。</p> <p>但注意，管道两边的命令默认是在子Shell中执行的，所以其设置的变量在命令执行完成后就消失。换句话说，在父Shell中无法访问这些变量。比如上面的num变量是在管道的while结构中设置的，除了在while中能访问该变量，其它任何地方都无法访问它。</p> <p>如果想要访问while中赋值的变量，就不能使用管道。如果是直接从文件读取，可使用输入重定向，如果是读取命令产生的数据，可使用进程替换。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token keyword">while</span> <span class="token builtin class-name">read</span> line<span class="token punctuation">;</span><span class="token keyword">do</span>
+  <span class="token builtin class-name">let</span> <span class="token assign-left variable">num1</span><span class="token operator">+=</span><span class="token number">1</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$num1</span><span class="token builtin class-name">:</span> <span class="token variable">$line</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span>/etc/fstab
+<span class="token builtin class-name">echo</span> <span class="token variable">$num1</span>
+
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line<span class="token punctuation">;</span><span class="token keyword">do</span>
+  <span class="token builtin class-name">let</span> <span class="token assign-left variable">num2</span><span class="token operator">+=</span><span class="token number">1</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$num2</span><span class="token builtin class-name">:</span> <span class="token variable">$line</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">grep</span> <span class="token string">'UUID'</span> /etc/fstab<span class="token punctuation">)</span>
+</code></pre></div><h3 id="shell函数"><a href="#shell函数" class="header-anchor">#</a> Shell函数</h3> <p>Shell函数可以当作命令一样执行，它是一个或多个命令的组合结构体。通常，可以为每个功能定义一个函数，该函数中包含实现这个功能相关的所有命令和逻辑。</p> <p>因为可以组合多个命令，并且定义之后就可以直接在当前Shell中调用，所以函数具有一次定义多次调用且代码复用的功能。</p> <p>Shell函数的定义风格有下面几种：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token keyword">function</span> <span class="token function-name function">func_name</span> <span class="token punctuation">{</span>CMD_LIST<span class="token punctuation">}</span>
+<span class="token function-name function">func_name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>CMD_LIST<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-name function">func_name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>CMD_LIST<span class="token punctuation">}</span>
+</code></pre></div><p>函数定义后，可以直接使用函数名来调用函数，同时还可以向函数传递零个或多个参数。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">## 不传递参数</span>
+func_name
+<span class="token comment">## 传递多个参数</span>
+func_name arg1 arg2 arg3
+</code></pre></div><p>在函数中，那些位置变量将有特殊的意义：</p> <ul><li><p><code>$1、$2、$3...</code>：传递给函数的第一个参数保存在<code>$1</code>中，第二个参数保存在<code>$2</code>中...</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>$@
+</code></pre></div><p>和</p> <div class="language- extra-class"><pre class="language-text"><code>$*
+</code></pre></div><p>：保存了所有参数，各参数使用空格分隔</p> <ul><li>不用双引号包围时，两者没区别</li> <li>双引号包围时，<code>$@</code>的各个元素都被双引号包围，<code>$*</code>的所有元素一次性被双引号包围</li></ul></li></ul> <p>例如，定义一个函数专门用来设置和代理相关的变量：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token assign-left variable">proxy_addr</span><span class="token operator">=</span><span class="token number">127.0</span>.0.1:8118
+<span class="token keyword">function</span> <span class="token function-name function">proxy_set</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">p_addr</span><span class="token operator">=</span><span class="token variable">$1</span>
+  <span class="token builtin class-name">export</span> <span class="token assign-left variable">http_proxy</span><span class="token operator">=</span><span class="token variable">$p_addr</span>
+  <span class="token builtin class-name">export</span> <span class="token assign-left variable">https_proxy</span><span class="token operator">=</span><span class="token variable">$p_addr</span>
+  <span class="token builtin class-name">export</span> <span class="token assign-left variable">ftp_proxy</span><span class="token operator">=</span><span class="token variable">$p_addr</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">## 调用函数</span>
+proxy_set <span class="token variable">$proxy_addr</span>
+
+<span class="token comment">## 各代理变量已设置</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$http_proxy</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$https_proxy</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$ftp_proxy</span>
+</code></pre></div><p>上面在函数定义的代码中使用了<code>local</code>，它可以用在函数内部表示定义一个局部变量，局部变量在函数执行完毕后就消失，不会影响函数外部的环境。</p> <p>另外，函数中可以使用return语句来定义函数的返回值，每当执行到函数内的return时，函数就会终止执行，直接退出函数。在Shell中，函数的返回值其实就是退出状态码。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">return</span> <span class="token punctuation">[</span>N<span class="token punctuation">]</span>
+</code></pre></div><p>如果不指定N，则默认退出状态码为0。</p> <p>例如：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token keyword">function</span> <span class="token function-name function">sayhello</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">{</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;give me a name please!&quot;</span><span class="token punctuation">;</span> <span class="token builtin class-name">return</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token builtin class-name">echo</span> hello <span class="token variable">$1</span>
+<span class="token punctuation">}</span>
+
+sayhello <span class="token string">&quot;junma&quot;</span> <span class="token punctuation">;</span> <span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+sayhello <span class="token string">&quot;jinlong&quot;</span> <span class="token punctuation">;</span> <span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+sayhello <span class="token punctuation">;</span> <span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+</code></pre></div><p><strong>转载请注明出处：https://www.cnblogs.com/f-ck-need-u/p/12275851.html</strong></p> <h3 id="参考文章"><a href="#参考文章" class="header-anchor">#</a> 参考文章</h3> <ul><li>https://www.cnblogs.com/f-ck-need-u/p/12275851.html</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2021-08-09 18:40:04</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/operation/linux/04-cmdcurl.html" class="prev">
+        Linux命令-Http工具Curl
+      </a></span> <span class="next"><a href="/operation/linuxop/01-filesystem.html">
+        Linux运维-文件系统简介
+      </a>
+      →
+    </span></p></div> <div class="page_article_visit_tail" data-v-17815e06><img src="/assets/img/view/visit.png" alt="" data-v-17815e06>
+         
+        <span style="display:none;" data-v-17815e06>0</span></div> <div class="page_article_comment" data-v-17815e06></div></main> <div class="page-right-index-sidebar" data-v-17815e06><div class="content_index_title" data-v-17815e06>
+      Linux命令-Shell脚本编程
+    </div> <div class="page-right-index-toc" data-v-17815e06><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#一篇文章shell脚本快速入门" aria-current="page" class="unactive_index_li" data-v-17815e06>一篇文章Shell脚本快速入门
+          </a> </li><li data-v-17815e06><a href="/operation/linux/05-shell.html#shell脚本基础入门" aria-current="page" class="unactive_index_li" data-v-17815e06>Shell脚本基础入门
+          </a> <ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#bash注释" aria-current="page" class="unactive_index_li" data-v-17815e06>Bash注释</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#bash基本数据类型" aria-current="page" class="unactive_index_li" data-v-17815e06>Bash基本数据类型</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#bash字符串串联" aria-current="page" class="unactive_index_li" data-v-17815e06>Bash字符串串联</a></li></ul></li><li data-v-17815e06><a href="/operation/linux/05-shell.html#命令基本知识" aria-current="page" class="unactive_index_li" data-v-17815e06>命令基本知识
+          </a> <ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#变量赋值和引用变量" aria-current="page" class="unactive_index_li" data-v-17815e06>变量赋值和引用变量</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#变量替换" aria-current="page" class="unactive_index_li" data-v-17815e06>变量替换</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#命令替换" aria-current="page" class="unactive_index_li" data-v-17815e06>命令替换</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#算术运算" aria-current="page" class="unactive_index_li" data-v-17815e06>算术运算</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#退出状态码" aria-current="page" class="unactive_index_li" data-v-17815e06>退出状态码</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#exit命令" aria-current="page" class="unactive_index_li" data-v-17815e06>exit命令</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#后台执行命令" aria-current="page" class="unactive_index_li" data-v-17815e06>后台执行命令&amp;</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#多命令组合" aria-current="page" class="unactive_index_li" data-v-17815e06>多命令组合</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#基本重定向" aria-current="page" class="unactive_index_li" data-v-17815e06>基本重定向</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#管道" aria-current="page" class="unactive_index_li" data-v-17815e06>管道</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#tee命令" aria-current="page" class="unactive_index_li" data-v-17815e06>tee命令</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#进程替换" aria-current="page" class="unactive_index_li" data-v-17815e06>进程替换</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#条件测试语句" aria-current="page" class="unactive_index_li" data-v-17815e06>条件测试语句</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#if语句" aria-current="page" class="unactive_index_li" data-v-17815e06>if语句</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#case" aria-current="page" class="unactive_index_li" data-v-17815e06>case</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#for循环" aria-current="page" class="unactive_index_li" data-v-17815e06>for循环</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#while循环" aria-current="page" class="unactive_index_li" data-v-17815e06>while循环</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#shell函数" aria-current="page" class="unactive_index_li" data-v-17815e06>Shell函数</a></li></ul><ul data-v-17815e06><li data-v-17815e06><a href="/operation/linux/05-shell.html#参考文章" aria-current="page" class="unactive_index_li" data-v-17815e06>参考文章</a></li></ul></li></ul> <div style="height:10px" data-v-17815e06></div></div></div> <div class="page-right-tool-sidebar" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/phone.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>手机看</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/wechat.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>公众号</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/communication.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>讨论</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/leftclose.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>左栏</div></div> <div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/fullscreen.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>全屏</div></div> <div style="display:none;" data-v-17815e06><a href="/operation/linux/05-shell.html" aria-current="page" class="router-link-exact-active router-link-active" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/prev.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>上一篇</div></div></a></div> <div style="display:none;" data-v-17815e06><a href="/operation/linux/05-shell.html" aria-current="page" class="router-link-exact-active router-link-active" data-v-17815e06><div class="tool_bar_div" data-v-17815e06><img src="/assets/img/toolbar/next.png" class="tool_bar_img_icon" data-v-17815e06> <div data-v-17815e06>下一篇</div></div></a></div></div> <div id="qrCodeDiv" class="toolbar_qrcode_unactive" data-v-17815e06><div class=" toolbar_head_tile" data-v-17815e06>扫一扫 手机阅读</div> <img src="" class="img-qrcode" data-v-17815e06> <h5 data-v-17815e06>可分享给好友和朋友圈</h5></div> <div id="wxmpDiv" class="toolbar_wxmp_active" style="display:none;" data-v-17815e06><div class="toolbar_head_tile" data-v-17815e06>扫描关注公众号，回复&quot;资料&quot;，下载相关图书和资料</div> <img src="/assets/img/wx/wxmp.jpg" class="img-wx-mp" data-v-17815e06> <h5 data-v-17815e06>公众号:智能后端和架构</h5></div> <div id="coummpDiv" class="toolbar_communication_active" style="display:none;" data-v-17815e06><div class="toolbar_head_tile" data-v-17815e06>QQ群:569556849 <br data-v-17815e06>问题咨询和技术交流</div> <img src="/assets/img/qq/qqgroup.png" class="img-wx-mp" data-v-17815e06> <h5 data-v-17815e06>PS 备注:智能后端和架构</h5></div> <div class="topDivImg" style="display:none;" data-v-17815e06><img src="/assets/img/toolbar/top.png" class="tool_top_img_icon" data-v-17815e06></div> <div style="display:none" data-v-17815e06><script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279777129&web_id=1279777129" data-v-17815e06></script></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.db30138a.js" defer></script><script src="/assets/js/5.df8bf371.js" defer></script><script src="/assets/js/1.60d99fe1.js" defer></script><script src="/assets/js/716.5f8c7487.js" defer></script>
+  </body>
+</html>

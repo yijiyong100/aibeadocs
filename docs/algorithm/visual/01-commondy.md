@@ -142,8 +142,7 @@ BFPRT算法解决的问题十分经典，即从某n个元素的序列中选出�
 3. 对其余T中顶点的距离值进行修改：若加进W作中间顶点，从V0到Vi的距离值缩短，则修改此距离值
 4. 重复上述步骤2、3，直到S中包含所有顶点，即W=Vi为止
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/algorithm/visual/comdv-5.gif')" alt="wxmp">
-
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/algorithm/basic/visual/comdv-5.gif')" alt="wxmp">
 
 ## 9. 动态规划算法
 

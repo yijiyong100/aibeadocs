@@ -574,6 +574,9 @@ NoSQL(NoSQL = Not Only SQL )，意即“不仅仅是SQL”，是一项全新的�
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/algorithm/basic/intro-2.png')" alt="wxmp">
 
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/guide/intro/algorithmbasic.png')" alt="wxmp">
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/guide/intro/algorithmsum.png')" alt="wxmp">
 
 
 ### 算法定义
@@ -1416,8 +1419,9 @@ Hadoop的框架最核心的设计就是：HDFS和MapReduce。HDFS为海量的数
 
 *   下载地址：https://repo.spring.io/libs-release-local/org/springframework/spring
 
-  那么问题来了，为什么说 Spring 是**分层**、**一站式**、**轻量级**的框架呢？
-  （1）分层，JavaEE 经典的 MVC 三层结构为表现层、业务层、持久层。
+那么问题来了，为什么说 Spring 是**分层**、**一站式**、**轻量级**的框架呢？
+  
+（1）分层，JavaEE 经典的 MVC 三层结构为表现层、业务层、持久层。
 
 |                | 功能                                   | 举例                     |
 | -------------- | -------------------------------------- | ------------------------ |

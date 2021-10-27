@@ -14,8 +14,12 @@ features:
   details: 整理常用AI技术和常用数据分析方法，让后端代码和服务更多自动化、自助化、智能化，提升后端智能化能力。
 footer: 鄂ICP备19019062号-1 | Landry | © 2020-Present
 ---
-### 架构知识体系整理
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/Arch1.png')" alt="架构师核心能力知识体系整理">
-<center>(点击放大)</center>
+### 架构师核心能力总结
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/arch1.png')" alt="架构师核心能力知识体系整理">
+
+### 综合技术能力分层总结
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/techcapabilitylevel7.png')" alt="综合技术能力分层总结(个人理解)">
+
 
 ### 

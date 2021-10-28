@@ -16,10 +16,47 @@ footer: 鄂ICP备19019062号-1 | Landry | © 2020-Present
 ---
 ### 架构师核心能力总结
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/arch1.png')" alt="架构师核心能力知识体系整理">
+<br/>
 
 ### 综合技术能力分层总结
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/techcapabilitylevel7.png')" alt="综合技术能力分层总结(个人理解)">
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/techcapabilitylevel7.png')" alt="综合技术能力分层总结">
+<br/>
+<br/>
 
+### 数据结构和算法知识图谱总结
 
-### 
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/algorithm-sum.png')" alt="数据结构和算法知识图谱总结">
+<br/>
+<br/>
+
+### Java工程师【核心基础】知识图谱总结
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/javacorebasic-sum.png')" alt="Java工程师【核心基础】知识图谱总结">
+<br/>
+<br/>
+
+### Java工程师【数据库】知识图谱总结
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/javadb-sum.png')" alt="Java工程师【数据库】知识图谱总结">
+<br/>
+<br/>
+
+### Java工程师【架构技能】知识图谱总结
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/javaarchiskill-sum.png')" alt="Java工程师【架构技能】知识图谱总结">
+<br/>
+<br/>
+
+### 大数据(BigData)简要知识图谱总结
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/bigdatabasic-sum.png')" alt="大数据(BigData)简要知识图谱总结">
+<br/>
+<br/>
+
+### 人工智能(AI)简要知识图谱总结
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/aibasic-sum.png')" alt="人工智能(AI)简要知识图谱总结
+">
+<br/>
+<br/>

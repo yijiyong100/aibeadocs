@@ -94,6 +94,9 @@ title: 数据结构和算法介绍
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/algorithm/basic/intro-2.png')" alt="wxmp">
 
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/guide/intro/algorithmbasic.png')" alt="wxmp">
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/guide/intro/algorithmsum.png')" alt="wxmp">
 
 
 ## 算法

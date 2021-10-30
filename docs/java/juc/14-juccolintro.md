@@ -10,7 +10,6 @@ title: JUC-集合-基础介绍
 [[toc]]
 
 ## 【----------------------------】
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/java/juc/intro-1.png')" alt="wxmp">
 
 ## 一、概述
 

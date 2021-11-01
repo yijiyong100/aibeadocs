@@ -31,6 +31,7 @@ module.exports = {
           '/java/basic/05-annotation',
           '/java/basic/05.1-annotationandreflection',
           '/java/basic/06-exception',
+          '/java/basic/07-corebasiclib',
         ]
       },
       {
@@ -144,6 +145,10 @@ module.exports = {
           '/java/jvm/04.1-classloadprocedure',
           '/java/jvm/04.2-classloaderdiff',
           '/java/jvm/05-gc',
+          '/java/jvm/05.1-youngandtenured',
+          '/java/jvm/05.2-commgctype',
+          '/java/jvm/05.3-gclog',
+          '/java/jvm/05.4-jvmopt',
           '/java/jvm/06-optcmd',
           '/java/jvm/07-optcase',
           '/java/jvm/08-summary',

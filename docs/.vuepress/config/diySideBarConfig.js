@@ -210,6 +210,7 @@ module.exports = {
         '/db/mysqlbasic/01.1-mysqlcmd',
         '/db/mysqlbasic/01.2-mysqlfunction',
         '/db/mysqlbasic/01.3-mysqllistop',
+        '/db/mysqlbasic/01.4-mysqlsqlcase',
         '/db/mysqlbasic/02-storageengine',
         '/db/mysqlbasic/03-mysqlindex',
         '/db/mysqlbasic/04-mysqltransaction',

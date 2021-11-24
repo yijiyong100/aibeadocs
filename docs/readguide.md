@@ -40,13 +40,11 @@ sidebar: auto
 * 后端自学AI提升：对于想学AI的同学来说，希望这里的基础内容能帮助你走进AI的大门
 * 面试官：总体的知识图谱和体系，可以帮助你面试人员过程更好的甄别适合你团队的人才
   
-最后，希望每个人在此都能找到自己有用的知识，同时也期待和你一起交流一起提升。感兴趣的同学，可以关注如下公众号获取最新的更新内容：
+最后，希望每个人在这里都能找到自己有用的知识，同时也期待和你一起交流，一起提升。感兴趣的同学，可以关注如下公众号获取最新的更新内容：
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/wx/wxmp.jpg')" alt="wxmp">
 
-如果你有问题期待和作者以及其他的同学们一起交流，也可以加入如果QQ群：
-
-QQ群:569556849 
+如果你有问题期待和作者以及其他的同学们一起交流，也可以加入QQ群:569556849 
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/qq/qqgroup.png')" alt="wxmp">
 
@@ -452,6 +450,7 @@ NoSQL(NoSQL = Not Only SQL )，意即“不仅仅是SQL”，是一项全新的�
   - [MySQL-入门介绍](/db/mysqlbasic/01-intro.html)
   - [MySQL-常用命令](/db/mysqlbasic/01.1-mysqlcmd.html)
   - [MySQL-常用函数](/db/mysqlbasic/01.2-mysqlfunction.html)
+  - [MySQL-常见场景案例](/db/mysqlbasic/01.4-mysqlsqlcase.html)
   - [MySQL-并集、交集、差集](/db/mysqlbasic/01.3-mysqllistop.html)
   - [MySQL-存储引擎](/db/mysqlbasic/02-storageengine.html)
   - [MySQL-索引](/db/mysqlbasic/03-mysqlindex.html)

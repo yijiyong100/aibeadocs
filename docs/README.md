@@ -46,17 +46,22 @@ footer: 鄂ICP备19019062号-1 | Landry | © 2020-Present
 
 <img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/javaarchiskill-sum.png')" alt="Java工程师【架构技能】知识图谱总结">
 <br/>
-<br/>
 
-### 大数据(BigData)简要知识图谱总结
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/bigdatabasic-sum.png')" alt="大数据(BigData)简要知识图谱总结">
-<br/>
-<br/>
 
-### 人工智能(AI)简要知识图谱总结
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/bigdatabasic-sum.png')" 
+alt="大数据(BigData)简要知识图谱总结(后续持续补充完善...)">
 
-<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/aibasic-sum.png')" alt="人工智能(AI)简要知识图谱总结
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/home/aibasic-sum.png')" 
+alt="人工智能(AI)简要知识图谱总结(后续持续补充完善...)
 ">
-<br/>
-<br/>
+
+
+### 题记【如果你对如上内容感兴趣 欢迎关注公众号】
+
+希望每个人在这里都能找到自己有用的知识，同时也期待和你一起交流，一起提升。感兴趣的同学，可以关注如下公众号获取最新的更新内容：
+
+<img class= "zoom-custom-imgs" :src="$withBase('/assets/img/wx/wxmp.jpg')" alt="wxmp">
+
+如果你有问题期待和作者以及其他的同学们一起交流，也可以加入QQ群:569556849 
+
